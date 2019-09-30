@@ -1,0 +1,32 @@
+{
+  "name": "intro",
+  "version": "1.0.0",
+  "description": "Testing svg.js to make an intro for the fun(d) project",
+  "author": "felixbuchholz",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "animejs": "^3.1.0",
+    "howler": "^2.1.2",
+    "nuxt": "^2.0.0",
+    "rfs": "^9.0.0",
+    "svg.js": "^2.7.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^5.2.3",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.18.2",
+    "sass-loader": "^8.0.0"
+  }
+}
