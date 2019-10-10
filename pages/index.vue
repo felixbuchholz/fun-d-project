@@ -1,18 +1,16 @@
 <template>
   <div class="page-container">
-    <!-- <IntroAnimation /> -->
-    <IntroAnimationAnime />
-    <div id="drawing"></div>
+    <Intro />
   </div>
 </template>
 
 <script>
 // import IntroAnimation from "~/components/IntroAnimation.vue";
-import IntroAnimationAnime from "~/components/IntroAnimationAnime.vue";
+import Intro from "~/components/intro/Intro.vue";
 
 export default {
   components: {
-    IntroAnimationAnime
+    Intro
   },
   data() {
     return {

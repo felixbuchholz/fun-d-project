@@ -1,18 +1,9 @@
 <template>
-  <div id="intro">
-    <button @click="play">Play!</button>
-    <button @click="pause">Pause!</button>
-    <svg id="intro-svg" :width="width" :height="height">
-      <rect id="svg-background" :width="width" :height="height" />
-      <g id="first-question" class="zero-opacity">
-        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
-          How do people prepare for the future?
-        </text>
-      </g>
+  <g>
+    <g id="piggy" class="first-elements zero-opacity" :style="`scale(0)`">
       <g
-        id="piggy"
-        class="first-elements zero-opacity"
-        :style="`transform:translate(${width / 4}px, ${height / 2}px) scale(0)`"
+        class="initial-position"
+        :style="`transform:translate(${width / 4}px, ${height / 2}px)`"
       >
         <g
           class="center-in-g"
@@ -36,12 +27,11 @@
           />
         </g>
       </g>
+    </g>
+    <g id="house" class="first-elements zero-opacity" :style="`scale(0)`">
       <g
-        id="house"
-        class="first-elements zero-opacity"
-        :style="
-          `transform:translate(${(width / 4) * 2}px, ${height / 2}px) scale(0)`
-        "
+        class="initial-position"
+        :style="`transform:translate(${(width / 4) * 2}px, ${height / 2}px)`"
       >
         <g
           class="center-in-g"
@@ -63,13 +53,12 @@
           <line class="line" x1="5.1" y1="91.1" x2="87.2" y2="91.1" />
         </g>
       </g>
-      <!-- nest-egg -->
+    </g>
+    <!-- nest-egg -->
+    <g id="nest-egg" class="first-elements zero-opacity" :style="`scale(0)`">
       <g
-        id="nest-egg"
-        class="first-elements zero-opacity"
-        :style="
-          `transform:translate(${(width / 4) * 3}px, ${height / 2}px) scale(0)`
-        "
+        class="initial-position"
+        :style="`transform:translate(${(width / 4) * 3}px, ${height / 2}px)`"
       >
         <g
           class="center-in-g"
@@ -120,148 +109,24 @@
           </g>
         </g>
       </g>
-    </svg>
-  </div>
+    </g>
+  </g>
 </template>
 
 <script>
-import anime from "animejs/lib/anime.es.js";
-import { Howl, Howler } from "howler";
+import { mapState, mapGetters } from "vuex";
 
 export default {
-  name: "IntroAnimation",
-  data() {
-    return {
-      width: 1280,
-      height: 720,
-      sound: {},
-      tl: {}
-    };
-  },
-  mounted() {
-    this.sound = new Howl({
-      src: ["intro.m4a"]
-    });
-    this.tl = anime.timeline({
-      easing: "easeOutExpo"
-    });
-    // Add children
-    this.tl.add({
-      targets: "#first-question",
-      opacity: 1,
-      duration: 2000,
-      easing: "easeInOutSine"
-    });
-    this.tl.add(
-      {
-        targets: "#first-question",
-        opacity: 0,
-        duration: 2000,
-        easing: "easeInOutSine"
-      },
-      "+=700"
-    );
-    this.tl.add({
-      targets: "#piggy",
-      opacity: 1,
-      scale: 1,
-      duration: 1500,
-      easing: "easeInOutExpo"
-    });
-    this.tl.add(
-      {
-        targets: "#house",
-        opacity: 1,
-        scale: 1,
-        duration: 1500,
-        easing: "easeInOutExpo"
-      },
-      "+=500"
-    );
-    this.tl.add(
-      {
-        targets: "#nest-egg",
-        opacity: 1,
-        scale: 1,
-        duration: 1500,
-        easing: "easeInOutExpo"
-      },
-      "+=3500"
-    );
-    this.tl.pause();
-    this.tl.pause();
-  },
-  methods: {
-    play() {
-      this.sound.play();
-      this.tl.play();
-    },
-    pause() {
-      this.sound.pause();
-      this.tl.pause();
-    }
+  computed: {
+    ...mapState({
+      window: state => state.window.window
+    }),
+    ...mapGetters({
+      width: ["window/width"],
+      height: ["window/height"]
+    })
   }
 };
 </script>
 
-<style lang="scss">
-$background: #fff;
-$grey: #6e6e6e;
-#intro {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #eee;
-}
-// #intro-svg {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-// }
-#svg-background {
-  fill: $background;
-}
-.line {
-  fill: none;
-  stroke: $grey;
-  stroke-width: 3;
-}
-.line-thin {
-  fill: none;
-  stroke: $grey;
-  stroke-width: 1.5;
-}
-.fill {
-  fill: $grey;
-}
-.background {
-  fill: $background;
-}
-.cap-round {
-  stroke-linecap: round;
-}
-.linejoin-round {
-  stroke-linejoin: round;
-}
-.both-round {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-text {
-  fill: $grey;
-  font-size: 18px;
-}
-.text-sign {
-  font-size: 12px;
-  font-weight: 900;
-}
-.zero-opacity {
-  opacity: 0;
-}
-.zero-scale {
-  transform: scale(0);
-}
-</style>
+<style lang="scss" scoped></style>

@@ -1,5 +1,8 @@
 export default {
-  mode: "universal",
+  mode: "spa",
+  router: {
+    base: "/fun-d-project/"
+  },
   /*
    ** Headers of the page
    */
@@ -27,7 +30,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: "~/plugins/svg" }, { src: "~/plugins/anime" }],
+  plugins: [
+    { src: "~/plugins/svg" },
+    { src: "~/plugins/anime" },
+    { src: "~/plugins/helpers" },
+    { src: "~/plugins/resize" }
+  ],
   /*
    ** Nuxt.js dev-modules
    */

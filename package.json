@@ -8,7 +8,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
@@ -16,7 +17,8 @@
     "howler": "^2.1.2",
     "nuxt": "^2.0.0",
     "rfs": "^9.0.0",
-    "svg.js": "^2.7.1"
+    "svg.js": "^2.7.1",
+    "vue-resize-directive": "^1.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
@@ -25,6 +27,7 @@
     "eslint-loader": "^3.0.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.2.3",
+    "gh-pages": "^2.1.1",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
     "sass-loader": "^8.0.0"
