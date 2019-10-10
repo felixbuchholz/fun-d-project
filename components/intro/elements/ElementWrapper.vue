@@ -4,21 +4,22 @@
       v-for="(el, index) in elements"
       :id="el.name"
       :key="`icons-${index}`"
-      class="first-elements zero-opacity"
-      :style="`scale(0)`"
+      class="initial-position first-elements zero-opacity"
+      :style="
+        `transform: translateX(${el.x}%) translateY(${el.y}%) scale(${
+          el.initialScale ? el.initialScale : 0
+        }`
+      "
     >
-      <g
-        class="initial-position"
-        :style="`transform:translate(${width * el.x}px, ${height * el.y}px)`"
-      >
-        <component
-          :is="el.name"
-          class="center-in-g"
-          :style="
-            `transform:translate(${el.cX}px, ${el.cY}px) scale(${el.scale})`
-          "
-        ></component>
-      </g>
+      <component
+        :is="el.name"
+        class="center-in-g"
+        :style="
+          `transform:translate(${el.cX}px, ${el.cY}px) scale(${
+            el.iconScale ? el.iconScale : 1
+          })`
+        "
+      ></component>
     </g>
   </g>
 </template>
@@ -35,9 +36,9 @@ export default {
   data() {
     return {
       elements: [
-        { name: "piggy", x: 0.25, y: 0.5, cX: -45, cY: -31, scale: 1 },
-        { name: "house", x: 0.5, y: 0.5, cX: -46, cY: -46, scale: 1 },
-        { name: "nestegg", x: 0.75, y: 0.5, cX: -41, cY: -46, scale: 1.2 }
+        { name: "piggy", x: 25, y: 50, cX: -45, cY: -31 },
+        { name: "house", x: 50, y: 50, cX: -46, cY: -46 },
+        { name: "nestegg", x: 75, y: 50, cX: -41, cY: -46, iconScale: 1.2 }
       ]
     };
   },

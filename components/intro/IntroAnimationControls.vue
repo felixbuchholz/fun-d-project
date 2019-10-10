@@ -27,30 +27,38 @@ export default {
     this.defineTimeline();
   },
   methods: {
+    defineSound() {
+      this.sound = new Howl({
+        src: ["intro.m4a"],
+        autoplay: false
+      });
+    },
     defineTimeline() {
       const that = this;
       this.tl = anime.timeline({
         easing: "easeOutExpo"
       });
       // Add children
-      this.tl.add({
-        targets: "#current-title",
-        opacity: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
-      this.tl.add(
-        {
-          targets: "#current-title",
-          opacity: 0,
-          duration: 2000,
-          easing: "easeInOutSine",
-          complete: function(anim) {
-            that.changeTitle({ title: "" });
-          }
-        },
-        "+=700"
-      );
+      // this.tl.add({
+      //   targets: "#current-title",
+      //   opacity: 1,
+      //   duration: 2000,
+      //   easing: "easeInOutSine"
+      // });
+      // this.tl.add(
+      //   {
+      //     targets: "#current-title",
+      //     opacity: 0,
+      //     duration: 2000,
+      //     easing: "easeInOutSine",
+      //     complete: function(anim) {
+      //       that.changeTitle({ title: "" });
+      //     }
+      //   },
+      //   "+=700"
+      // );
+      // 4700
+      this.sound.seek(4.7);
       this.tl.add({
         targets: "#piggy",
         opacity: 1,
@@ -78,12 +86,59 @@ export default {
         },
         "+=3500"
       );
+      // 4700 + 8500 = 13,200
+      this.tl.add(
+        {
+          targets: "#house",
+          opacity: 0,
+          scale: 0,
+          duration: 500,
+          easing: "easeInOutExpo"
+        },
+        "+=5500"
+      );
+      this.tl.add(
+        {
+          targets: "#piggy",
+          opacity: 0,
+          scale: 0,
+          duration: 500,
+          easing: "easeInOutExpo"
+        },
+        "+=-250"
+      );
+      // 13,200 + 6250 = 19,450
+      this.tl.add(
+        {
+          targets: "#nestegg",
+          translateX: "50%",
+          duration: 500,
+          easing: "easeInOutExpo"
+        },
+        "+=-250"
+      );
+      // 19,450 + 250 = 19,600
+      this.tl.add(
+        {
+          targets: "#nestegg",
+          opacity: 0.05,
+          duration: 600,
+          easing: "easeInOutExpo"
+        },
+        "+=250"
+      );
+      this.tl.add(
+        {
+          targets: "#nestegg",
+          translateX: "40%",
+          translateY: "40%",
+          scale: 12,
+          duration: 400,
+          easing: "easeInOutExpo"
+        },
+        "+=-250"
+      );
       this.tl.pause();
-    },
-    defineSound() {
-      this.sound = new Howl({
-        src: ["intro.m4a"]
-      });
     },
     play() {
       const playButton = this.$el.querySelector("#start-button-big");
