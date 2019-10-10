@@ -1,12 +1,18 @@
-import anime from "animejs/lib/anime.es.js";
-
-// define timeline
 export const state = () => ({
-  tl: {}
+  currentTitle: {
+    title:
+      "<p class='center'>How do people approach their <br> <span class='bold'>financial future?</span></p>",
+    x: 0,
+    y: 0
+  }
 });
 
 export const mutations = {
-  INIT_TIMELINE(state, obj) {
-    state.tl = obj;
+  CHANGE_CURRENT_TITLE(state, obj) {
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        state.currentTitle[prop] = obj[prop];
+      }
+    }
   }
 };

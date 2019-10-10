@@ -17,5 +17,8 @@ export default {
       property: "width",
       value: that.$helpers.getViewportSize().width
     });
+  },
+  changeTitle(that, obj) {
+    that.$store.commit("timeline/CHANGE_CURRENT_TITLE", obj);
   }
 };

@@ -1,8 +1,11 @@
 <template>
   <div id="animation-controls">
-    <div class="drawer">
-      <button @click="play">Play!</button>
-      <button @click="pause">Pause!</button>
+    <button id="start-button-big" @click="play">Play Intro</button>
+    <div id="animation-drawer-controls">
+      <div class="drawer">
+        <button @click="play">Play!</button>
+        <button @click="pause">Pause!</button>
+      </div>
     </div>
   </div>
 </template>
@@ -10,26 +13,22 @@
 <script>
 import anime from "animejs/lib/anime.es.js";
 import { Howl } from "howler";
-// import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    // ...mapState({
-    //   tl: state => state.timeline.tl,
-    //   sound: state => state.timeline.sound
-    // })
+    ...mapGetters({
+      width: ["window/width"],
+      height: ["window/height"]
+    })
   },
   mounted() {
     this.defineSound();
     this.defineTimeline();
   },
   methods: {
-    defineSound() {
-      this.sound = new Howl({
-        src: ["intro.m4a"]
-      });
-    },
     defineTimeline() {
+      const that = this;
       this.tl = anime.timeline({
         easing: "easeOutExpo"
       });
@@ -45,7 +44,10 @@ export default {
           targets: "#current-title",
           opacity: 0,
           duration: 2000,
-          easing: "easeInOutSine"
+          easing: "easeInOutSine",
+          complete: function(anim) {
+            that.changeTitle({ title: "" });
+          }
         },
         "+=700"
       );
@@ -78,16 +80,36 @@ export default {
       );
       this.tl.pause();
     },
+    defineSound() {
+      this.sound = new Howl({
+        src: ["intro.m4a"]
+      });
+    },
     play() {
+      this.$el.querySelector("#start-button-big").classList.add("zero-opacity");
       this.sound.play();
       this.tl.play();
     },
     pause() {
       this.sound.pause();
       this.tl.pause();
+    },
+    changeTitle(obj) {
+      this.$helpers.changeTitle(this, obj);
     }
   }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#start-button-big {
+  transition: opacity 150ms ease-in;
+  z-index: 9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  font-weight: 900;
+}
+</style>

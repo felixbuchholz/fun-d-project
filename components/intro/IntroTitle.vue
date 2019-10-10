@@ -3,37 +3,20 @@
   <div id="current-title" class="zero-opacity">
     <div
       id="current-title-mover"
-      :style="`transform: translateX(${x}px) translateY(${y}px)`"
-      v-html="title"
+      :style="`transform: translateX(${title.x}px) translateY(${title.y}px)`"
+      v-html="title.title"
     ></div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
-  props: {
-    title: {
-      type: String,
-      default:
-        "Sorry, something went wrong. Please check if props are passed to child component: 'IntroTitles.vue'"
-    },
-    align: {
-      type: String,
-      default: "center"
-    },
-    x: {
-      type: Number,
-      default: 0
-    },
-    y: {
-      type: Number,
-      default: 0
-    }
-  },
   computed: {
-    parsedTitle() {
-      return this.title;
-    }
+    ...mapState({
+      title: state => state.timeline.currentTitle
+    })
   }
 };
 </script>

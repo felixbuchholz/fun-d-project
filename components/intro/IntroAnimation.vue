@@ -8,7 +8,7 @@
         </svg>
       </div>
       <div id="html-animation">
-        <IntroTitle :title="currentTitle" :x="0" :y="0" />
+        <IntroTitle />
       </div>
       <IntroAnimationControls />
     </div>
@@ -29,12 +29,6 @@ export default {
     resize
   },
   components: { IntroTitle, IntroCurrentElements, IntroAnimationControls },
-  data() {
-    return {
-      currentTitle:
-        "<p class='center'>How do people approach their <br> <span class='bold'>financial future?</span></p>"
-    };
-  },
   computed: {
     ...mapState({
       window: state => state.window.window
@@ -88,21 +82,21 @@ svg {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
+  // display: flex;
   // background: red;
 }
-#animation-controls {
+#animation-drawer-controls {
   width: 100%;
   height: 30px;
   overflow: hidden;
   position: absolute;
   bottom: 0px;
 }
-#animation-controls .drawer {
+#animation-drawer-controls .drawer {
   transition: transform 200ms ease-in-out;
   transform: translateY(30px);
 }
-#animation-controls:hover {
+#animation-drawer-controls:hover {
   & .drawer {
     transform: translateY(0px);
   }
