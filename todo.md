@@ -9,4 +9,10 @@
 3. Streamline repeating things:
    1. ~~On-screen titles~~
    2. Objects
-4. Howler how to start at a certain place?
+4. ~~Howler how to start at a certain place?~~
+5. Make titles appear / disappear without a function
+6. 
+
+To Remove before production, if not used later:
+1. vue-slider-component
+2. Svg.js

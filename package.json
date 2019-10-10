@@ -18,7 +18,8 @@
     "nuxt": "^2.0.0",
     "rfs": "^9.0.0",
     "svg.js": "^2.7.1",
-    "vue-resize-directive": "^1.2.0"
+    "vue-resize-directive": "^1.2.0",
+    "vue-slider-component": "^3.0.41"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

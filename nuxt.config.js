@@ -29,10 +29,11 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: "~/plugins/svg" },
+    // { src: "~/plugins/svg" },
     { src: "~/plugins/anime" },
     { src: "~/plugins/helpers" },
-    { src: "~/plugins/resize" }
+    // { src: "~/plugins/resize" },
+    { src: "~/plugins/vue-slider" }
   ],
   /*
    ** Nuxt.js dev-modules

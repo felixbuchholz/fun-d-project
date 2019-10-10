@@ -85,22 +85,6 @@ svg {
   // display: flex;
   // background: red;
 }
-#animation-drawer-controls {
-  width: 100%;
-  height: 30px;
-  overflow: hidden;
-  position: absolute;
-  bottom: 0px;
-}
-#animation-drawer-controls .drawer {
-  transition: transform 200ms ease-in-out;
-  transform: translateY(30px);
-}
-#animation-drawer-controls:hover {
-  & .drawer {
-    transform: translateY(0px);
-  }
-}
 .line {
   fill: none;
   stroke: $grey;

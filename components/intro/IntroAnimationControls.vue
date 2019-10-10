@@ -2,9 +2,21 @@
   <div id="animation-controls">
     <button id="start-button-big" @click="play">Play Intro</button>
     <div id="animation-drawer-controls">
-      <div class="drawer">
+      <div id="drawer">
         <button @click="play">Play!</button>
         <button @click="pause">Pause!</button>
+        <!-- <button @click="seek">Seek!</button> -->
+        <input
+          id="myRange"
+          v-model.number="progress"
+          type="range"
+          step="0.001"
+          min="0.0"
+          max="100.0"
+          value="0"
+          class="slider"
+          @input="sliderChange"
+        />
       </div>
     </div>
   </div>
@@ -16,11 +28,23 @@ import { Howl } from "howler";
 import { mapGetters } from "vuex";
 
 export default {
+  data() {
+    return {
+      progress: 0
+    };
+  },
   computed: {
     ...mapGetters({
       width: ["window/width"],
       height: ["window/height"]
-    })
+    }),
+    computedProgress() {
+      if (this.tl) {
+        return this.tl.progress;
+      } else {
+        return 0;
+      }
+    }
   },
   mounted() {
     this.defineSound();
@@ -36,29 +60,39 @@ export default {
     defineTimeline() {
       const that = this;
       this.tl = anime.timeline({
-        easing: "easeOutExpo"
+        easing: "easeOutExpo",
+        update: function(anim) {
+          console.log("progress", that.tl.progress);
+          that.progress = that.tl.progress;
+          // console.log(that.$refs.slider);
+          // // that.$refs.slider.setValue(that.tl.progress);
+        },
+        complete: function(anim) {
+          console.log("tl complete");
+          that.reset();
+        }
       });
       // Add children
-      // this.tl.add({
-      //   targets: "#current-title",
-      //   opacity: 1,
-      //   duration: 2000,
-      //   easing: "easeInOutSine"
-      // });
-      // this.tl.add(
-      //   {
-      //     targets: "#current-title",
-      //     opacity: 0,
-      //     duration: 2000,
-      //     easing: "easeInOutSine",
-      //     complete: function(anim) {
-      //       that.changeTitle({ title: "" });
-      //     }
-      //   },
-      //   "+=700"
-      // );
-      // 4700
-      this.sound.seek(4.7);
+      this.tl.add({
+        targets: "#current-title",
+        opacity: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add(
+        {
+          targets: "#current-title",
+          opacity: 0,
+          duration: 2000,
+          easing: "easeInOutSine"
+          // complete: function(anim) {
+          //   that.changeTitle({ title: "" });
+          // }
+        },
+        "+=700"
+      );
+      4700;
+      // this.sound.seek(4.7);
       this.tl.add({
         targets: "#piggy",
         opacity: 1,
@@ -121,8 +155,8 @@ export default {
       this.tl.add(
         {
           targets: "#nestegg",
-          opacity: 0.05,
-          duration: 600,
+          opacity: 0, // TODO: Maybe have this on very low opacity
+          duration: 500,
           easing: "easeInOutExpo"
         },
         "+=250"
@@ -130,16 +164,17 @@ export default {
       this.tl.add(
         {
           targets: "#nestegg",
-          translateX: "40%",
-          translateY: "40%",
+          translateX: "44%",
+          translateY: "44%",
           scale: 12,
-          duration: 400,
-          easing: "easeInOutExpo"
+          duration: 350,
+          easing: "easeInExpo"
         },
-        "+=-250"
+        "+=-550"
       );
       this.tl.pause();
     },
+
     play() {
       const playButton = this.$el.querySelector("#start-button-big");
       this.$helpers.fadeOutAndHide(this, playButton);
@@ -150,9 +185,37 @@ export default {
       this.sound.pause();
       this.tl.pause();
     },
+    seek(percent) {
+      const miliseconds = this.tl.duration * (percent / 100);
+      const seconds = miliseconds / 1000;
+      console.log("---");
+      console.log(percent);
+      console.log(miliseconds);
+      console.log(seconds);
+      this.sound.seek(seconds);
+      this.tl.seek(miliseconds);
+    },
+    reset() {
+      this.sound.fade(1, 0, 1000);
+      setTimeout(() => {
+        this.sound.pause();
+        this.sound.seek(0);
+        this.sound.volume(1);
+      }, 1000);
+      // this.tl.seek(0);
+    },
+    sliderChange() {
+      // console.log(this.progress);
+      this.pause();
+      this.seek(this.progress);
+      this.play();
+    },
     changeTitle(obj) {
       this.$helpers.changeTitle(this, obj);
     }
+    // progressFormatter(val) {
+    //   return `${val} %`;
+    // }
   }
 };
 </script>
@@ -167,5 +230,29 @@ export default {
   transform: translate(-50%, -50%);
   font-size: 30px;
   font-weight: 900;
+}
+#animation-drawer-controls {
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0px;
+}
+#animation-drawer-controls #drawer {
+  transition: transform 200ms ease-in-out;
+  transform: translateY(60px);
+}
+#animation-drawer-controls:hover {
+  & #drawer {
+    transform: translateY(13px);
+  }
+}
+#drawer {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: 100px 100px auto;
+  align-items: center;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.1);
 }
 </style>

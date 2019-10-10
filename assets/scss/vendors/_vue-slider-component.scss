@@ -1,0 +1,7 @@
+@import"../abstracts/variables";
+
+/* Set the theme color of the component */
+$themeColor: #7bf0c1;
+
+/* import theme style */
+@import "vue-slider-component/lib/theme/default.scss";
