@@ -70,7 +70,7 @@ export default {
       );
       this.tl.add(
         {
-          targets: "#nest-egg",
+          targets: "#nestegg",
           opacity: 1,
           scale: 1,
           duration: 1500,
@@ -86,7 +86,8 @@ export default {
       });
     },
     play() {
-      this.$el.querySelector("#start-button-big").classList.add("zero-opacity");
+      const playButton = this.$el.querySelector("#start-button-big");
+      this.$helpers.fadeOutAndHide(this, playButton);
       this.sound.play();
       this.tl.play();
     },

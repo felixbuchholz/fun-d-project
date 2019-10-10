@@ -4,7 +4,7 @@
       <div id="svg-animation" v-resize:throttle="onResize">
         <svg id="intro-svg" :width="width" :height="height">
           <rect id="svg-background" :width="width" :height="height" />
-          <IntroCurrentElements />
+          <ElementWrapper />
         </svg>
       </div>
       <div id="html-animation">
@@ -20,7 +20,7 @@ import resize from "vue-resize-directive";
 import { mapState, mapGetters } from "vuex";
 
 import IntroTitle from "~/components/intro/IntroTitle.vue";
-import IntroCurrentElements from "~/components/intro/IntroCurrentElements.vue";
+import ElementWrapper from "~/components/intro/elements/ElementWrapper.vue";
 import IntroAnimationControls from "~/components/intro/IntroAnimationControls.vue";
 
 export default {
@@ -28,7 +28,7 @@ export default {
   directives: {
     resize
   },
-  components: { IntroTitle, IntroCurrentElements, IntroAnimationControls },
+  components: { IntroTitle, ElementWrapper, IntroAnimationControls },
   computed: {
     ...mapState({
       window: state => state.window.window
@@ -137,6 +137,9 @@ text {
 }
 .zero-opacity {
   opacity: 0;
+}
+.hidden {
+  visibility: hidden;
 }
 .zero-scale {
   transform: scale(0);
