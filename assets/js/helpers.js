@@ -21,10 +21,16 @@ export default {
   changeTitle(that, obj) {
     that.$store.commit("timeline/CHANGE_CURRENT_TITLE", obj);
   },
-  fadeOutAndHide(that, el) {
+  fadeOutAndHide(el) {
     el.classList.add("zero-opacity");
     setTimeout(() => {
       el.classList.add("hidden");
+    }, 150);
+  },
+  displayAndFadeIn(el) {
+    el.classList.remove("hidden");
+    setTimeout(() => {
+      el.classList.remove("zero-opacity");
     }, 150);
   }
 };

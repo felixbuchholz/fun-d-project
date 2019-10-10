@@ -1,6 +1,8 @@
 <template>
   <div id="animation-controls">
-    <button id="start-button-big" @click="play">Play Intro</button>
+    <button id="start-button-big" ref="centeredPlayButton" @click="play">
+      Play Intro
+    </button>
     <div id="animation-drawer-controls">
       <div id="drawer">
         <button @click="play">Play!</button>
@@ -13,7 +15,6 @@
           step="0.001"
           min="0.0"
           max="100.0"
-          value="0"
           class="slider"
           @input="sliderChange"
         />
@@ -30,7 +31,8 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      progress: 0
+      progress: 90,
+      isPlaying: false
     };
   },
   computed: {
@@ -49,6 +51,7 @@ export default {
   mounted() {
     this.defineSound();
     this.defineTimeline();
+    this.getStartedToWork();
   },
   methods: {
     defineSound() {
@@ -62,13 +65,9 @@ export default {
       this.tl = anime.timeline({
         easing: "easeOutExpo",
         update: function(anim) {
-          console.log("progress", that.tl.progress);
           that.progress = that.tl.progress;
-          // console.log(that.$refs.slider);
-          // // that.$refs.slider.setValue(that.tl.progress);
         },
         complete: function(anim) {
-          console.log("tl complete");
           that.reset();
         }
       });
@@ -92,7 +91,6 @@ export default {
         "+=700"
       );
       4700;
-      // this.sound.seek(4.7);
       this.tl.add({
         targets: "#piggy",
         opacity: 1,
@@ -120,7 +118,6 @@ export default {
         },
         "+=3500"
       );
-      // 4700 + 8500 = 13,200
       this.tl.add(
         {
           targets: "#house",
@@ -141,7 +138,6 @@ export default {
         },
         "+=-250"
       );
-      // 13,200 + 6250 = 19,450
       this.tl.add(
         {
           targets: "#nestegg",
@@ -151,7 +147,6 @@ export default {
         },
         "+=-250"
       );
-      // 19,450 + 250 = 19,600
       this.tl.add(
         {
           targets: "#nestegg",
@@ -174,41 +169,52 @@ export default {
       );
       this.tl.pause();
     },
-
+    getStartedToWork() {
+      setTimeout(() => {
+        this.seek(this.progress);
+      }, 200);
+    },
     play() {
-      const playButton = this.$el.querySelector("#start-button-big");
-      this.$helpers.fadeOutAndHide(this, playButton);
+      this.$helpers.fadeOutAndHide(this.$refs.centeredPlayButton);
       this.sound.play();
       this.tl.play();
+      this.isPlaying = true;
     },
     pause() {
       this.sound.pause();
       this.tl.pause();
+      this.isPlaying = false;
     },
     seek(percent) {
       const miliseconds = this.tl.duration * (percent / 100);
       const seconds = miliseconds / 1000;
-      console.log("---");
-      console.log(percent);
-      console.log(miliseconds);
-      console.log(seconds);
       this.sound.seek(seconds);
       this.tl.seek(miliseconds);
     },
     reset() {
       this.sound.fade(1, 0, 1000);
       setTimeout(() => {
-        this.sound.pause();
+        this.pause();
         this.sound.seek(0);
         this.sound.volume(1);
+        this.$helpers.displayAndFadeIn(this.$refs.centeredPlayButton);
       }, 1000);
-      // this.tl.seek(0);
     },
     sliderChange() {
       // console.log(this.progress);
-      this.pause();
+      const wasPlaying = this.isPlaying;
+      // console.log(wasPlaying);
+      if (this.isPlaying) {
+        this.pause();
+      }
+      // console.log(wasPlaying);
+      // TODO: Improve the throttling to on mouse donw / up
       this.seek(this.progress);
-      this.play();
+      if (wasPlaying) {
+        setTimeout(() => {
+          this.play();
+        }, 500);
+      }
     },
     changeTitle(obj) {
       this.$helpers.changeTitle(this, obj);
