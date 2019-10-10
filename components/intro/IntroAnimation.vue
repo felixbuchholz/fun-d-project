@@ -1,5 +1,9 @@
 <template>
-  <div id="intro-animation" :style="`padding: ${window.animationFrame}px;`">
+  <div
+    id="intro-animation"
+    ref="introAnimation"
+    :style="`padding: ${window.animationFrame}px;`"
+  >
     <div id="animation">
       <div id="svg-animation" v-resize:throttle="onResize">
         <svg id="intro-svg" :width="width" :height="height">

@@ -52,6 +52,13 @@ export default {
     this.defineSound();
     this.defineTimeline();
     this.getStartedToWork();
+    window.addEventListener("keydown", this.handleSpaceKeydown);
+    // TODO: remove event listener if needed
+    // setTimeout(() => {
+    //   this.removeEventlistener();
+    // }, 3000);
+    // ? attach listener to different element?
+    // console.log(this.$parent.$refs.introAnimation);
   },
   methods: {
     defineSound() {
@@ -218,6 +225,18 @@ export default {
     },
     changeTitle(obj) {
       this.$helpers.changeTitle(this, obj);
+    },
+    handleSpaceKeydown(event) {
+      if (event.which == 32) {
+        if (this.isPlaying) {
+          this.pause();
+        } else {
+          this.play();
+        }
+      }
+    },
+    removeEventlistener() {
+      window.removeEventListener("keydown", this.handleSpaceKeydown);
     }
     // progressFormatter(val) {
     //   return `${val} %`;
