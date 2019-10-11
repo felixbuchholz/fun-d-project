@@ -1,7 +1,5 @@
 export const state = () => ({
   currentTitle: {
-    title:
-      "<p class='center'>How do people approach their <br> <span class='bold'>financial future?</span></p>",
     x: 0,
     y: 0
   }

@@ -11,8 +11,11 @@
           <ElementWrapper />
         </svg>
       </div>
-      <div id="html-animation">
-        <IntroTitle />
+      <div
+        id="html-animation"
+        style="transform: translateX(-50%) translateY(-50%) scale(0);"
+      >
+        <IntroTitles />
       </div>
       <IntroAnimationControls />
     </div>
@@ -23,7 +26,7 @@
 import resize from "vue-resize-directive";
 import { mapState, mapGetters } from "vuex";
 
-import IntroTitle from "~/components/intro/IntroTitle.vue";
+import IntroTitles from "~/components/intro/IntroTitles.vue";
 import ElementWrapper from "~/components/intro/elements/ElementWrapper.vue";
 import IntroAnimationControls from "~/components/intro/IntroAnimationControls.vue";
 
@@ -32,7 +35,7 @@ export default {
   directives: {
     resize
   },
-  components: { IntroTitle, ElementWrapper, IntroAnimationControls },
+  components: { IntroTitles, ElementWrapper, IntroAnimationControls },
   computed: {
     ...mapState({
       window: state => state.window.window
@@ -43,11 +46,11 @@ export default {
     })
   },
   mounted() {
-    console.log("mounted IntroAnimation!");
+    // console.log("mounted IntroAnimation!");
   },
   methods: {
     onResize() {
-      console.log("resized IntroAnimation");
+      // console.log("resized IntroAnimation");
       this.$helpers.resize(this);
     }
   }
@@ -85,7 +88,7 @@ svg {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+
   // display: flex;
   // background: red;
 }

@@ -31,9 +31,9 @@ import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      progress: 85,
+      progress: 0,
       isPlaying: false,
-      currentTitle: { title: "", x: 0, y: 0 }
+      currentTitle: { x: 0, y: 0 }
     };
   },
   computed: {
@@ -50,7 +50,6 @@ export default {
       deep: true,
       handler(change) {
         let newObject = {
-          title: change.title.slice(0, -2),
           x: (change.x / 100) * this.width,
           y: (change.y / 100) * this.height
         };
@@ -62,7 +61,7 @@ export default {
           }
         }
         if (Object.keys(newObject).length > 0) {
-          console.log("send it to the mothership");
+          // console.log("send it to the mothership");
           this.changeTitle(newObject);
         }
       }
@@ -100,36 +99,30 @@ export default {
       });
       // Add children
       this.tl.add({
-        targets: that.currentTitle,
-        x: 0,
-        y: 0,
-        title:
-          "<p class='center'>How do people approach their <br> <span class='bold'>financial future?</span></p>",
-        duration: 5
+        targets: "#html-animation",
+        scale: 1,
+        duration: 100
       });
       this.tl.add({
-        targets: "#current-title",
+        targets: "#financial-future",
         opacity: 1,
         duration: 2000,
         easing: "easeInOutSine"
       });
-      this.tl.add({
-        targets: that.currentTitle,
-        x: 0,
-        y: 50,
-        title:
-          "<p class='center'>How do people approach their <br> <span class='bold'>special future?</span></p>",
-        duration: 5
-      });
       this.tl.add(
         {
-          targets: "#current-title",
+          targets: "#financial-future",
           opacity: 0,
           duration: 2000,
           easing: "easeInOutSine"
         },
         "+=700"
       );
+      this.tl.add({
+        targets: "#html-animation",
+        scale: 0,
+        duration: 1
+      });
       4700;
       this.tl.add({
         targets: "#piggy",
