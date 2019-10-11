@@ -10,8 +10,9 @@
    1. ~~On-screen titles~~
    2. Objects
 4. ~~Howler how to start at a certain place?~~
-5. Make titles appear / disappear without a function
-6. 
+5. ~~Make titles appear / disappear without a function~~
+6. Make the titles SEO friendly (array of titles – all in DOM)
+7. 
 
 To Remove before production, if not used later:
 1. vue-slider-component

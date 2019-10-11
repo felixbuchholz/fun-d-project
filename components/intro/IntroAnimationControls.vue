@@ -26,25 +26,45 @@
 <script>
 import anime from "animejs/lib/anime.es.js";
 import { Howl } from "howler";
-import { mapGetters } from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   data() {
     return {
-      progress: 90,
-      isPlaying: false
+      progress: 85,
+      isPlaying: false,
+      currentTitle: { title: "", x: 0, y: 0 }
     };
   },
   computed: {
+    ...mapState({
+      globalTitle: state => state.timeline.currentTitle
+    }),
     ...mapGetters({
       width: ["window/width"],
       height: ["window/height"]
-    }),
-    computedProgress() {
-      if (this.tl) {
-        return this.tl.progress;
-      } else {
-        return 0;
+    })
+  },
+  watch: {
+    currentTitle: {
+      deep: true,
+      handler(change) {
+        let newObject = {
+          title: change.title.slice(0, -2),
+          x: (change.x / 100) * this.width,
+          y: (change.y / 100) * this.height
+        };
+        for (const prop in newObject) {
+          if (newObject.hasOwnProperty(prop)) {
+            if (newObject[prop] == this.globalTitle[prop]) {
+              delete newObject[prop];
+            }
+          }
+        }
+        if (Object.keys(newObject).length > 0) {
+          console.log("send it to the mothership");
+          this.changeTitle(newObject);
+        }
       }
     }
   },
@@ -80,10 +100,26 @@ export default {
       });
       // Add children
       this.tl.add({
+        targets: that.currentTitle,
+        x: 0,
+        y: 0,
+        title:
+          "<p class='center'>How do people approach their <br> <span class='bold'>financial future?</span></p>",
+        duration: 5
+      });
+      this.tl.add({
         targets: "#current-title",
         opacity: 1,
         duration: 2000,
         easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: that.currentTitle,
+        x: 0,
+        y: 50,
+        title:
+          "<p class='center'>How do people approach their <br> <span class='bold'>special future?</span></p>",
+        duration: 5
       });
       this.tl.add(
         {
@@ -91,9 +127,6 @@ export default {
           opacity: 0,
           duration: 2000,
           easing: "easeInOutSine"
-          // complete: function(anim) {
-          //   that.changeTitle({ title: "" });
-          // }
         },
         "+=700"
       );
