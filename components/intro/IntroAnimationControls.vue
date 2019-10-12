@@ -31,7 +31,7 @@ import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      progress: 0,
+      progress: 90,
       isPlaying: false,
       currentTitle: { x: 0, y: 0 }
     };
@@ -87,6 +87,7 @@ export default {
       });
     },
     defineTimeline() {
+      console.log("timeline is starting to define");
       const that = this;
       this.tl = anime.timeline({
         easing: "easeOutExpo",
@@ -99,13 +100,14 @@ export default {
       });
       // Add children
       this.tl.add({
-        targets: "#html-animation",
+        targets: "#financial-future",
         scale: 1,
-        duration: 100
+        duration: 1
       });
       this.tl.add({
         targets: "#financial-future",
         opacity: 1,
+        scale: 1,
         duration: 2000,
         easing: "easeInOutSine"
       });
@@ -113,13 +115,14 @@ export default {
         {
           targets: "#financial-future",
           opacity: 0,
+          scale: 2,
           duration: 2000,
           easing: "easeInOutSine"
         },
         "+=700"
       );
       this.tl.add({
-        targets: "#html-animation",
+        targets: "#financial-future",
         scale: 0,
         duration: 1
       });
@@ -195,11 +198,94 @@ export default {
           translateX: "44%",
           translateY: "44%",
           scale: 12,
-          duration: 350,
+          duration: 450,
           easing: "easeInExpo"
         },
         "+=-550"
       );
+      this.tl.add({
+        targets: "#passivegraph",
+        scale: 1,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#passivegraph",
+        opacity: 1,
+        duration: 700,
+        easing: "easeInOutSine"
+      });
+      this.tl.add(
+        {
+          targets: "#passivegraphlinesactive",
+          strokeDashoffset: [anime.setDashoffset, 0],
+          easing: "easeInOutSine",
+          duration: 2500
+          // direction: "reverse"
+          // begin: () => {
+          //   console.log("begin");
+          //   // console.log(anime.setDashoffset);
+          // }
+        },
+        "-=500"
+      );
+      this.tl.add(
+        {
+          targets: "#passivegraphlinespassive",
+          strokeDashoffset: [anime.setDashoffset, 0],
+          easing: "easeInOutSine",
+          duration: 2500
+          // begin: () => {
+          //   console.log("begin");
+          //   // console.log(anime.setDashoffset);
+          // }
+        },
+        "-=2500"
+      );
+      this.tl.add(
+        {
+          targets: "#passive-growth",
+          scale: 1,
+          duration: 1
+        },
+        "-=2500"
+      );
+      this.tl.add(
+        {
+          targets: that.currentTitle,
+          y: -40,
+          duration: 1
+        },
+        "-=2500"
+      );
+      this.tl.add(
+        {
+          targets: "#passive-growth",
+          opacity: 1,
+          duration: 800,
+          easing: "easeInOutSine"
+        },
+        "-=2500"
+      );
+      this.tl.add(
+        {
+          targets: "#passive-growth",
+          opacity: 0,
+          duration: 2000,
+          easing: "easeInOutSine"
+        },
+        "-=1000"
+      );
+      this.tl.add({
+        targets: "#passive-growth",
+        scale: 0,
+        duration: 1
+      });
+      this.tl.add({
+        targets: that.currentTitle,
+        y: 0,
+        duration: 1
+      });
+      // strokeDashoffset: [anime.setDashoffset, 0],
       this.tl.pause();
     },
     getStartedToWork() {

@@ -11,9 +11,10 @@
           <ElementWrapper />
         </svg>
       </div>
+      <!-- scale(0); -->
       <div
         id="html-animation"
-        style="transform: translateX(-50%) translateY(-50%) scale(0);"
+        style="transform: translateX(-50%) translateY(-50%)"
       >
         <IntroTitles />
       </div>

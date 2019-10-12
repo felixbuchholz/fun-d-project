@@ -5,10 +5,22 @@
     class="current-title"
     :style="`transform: translateX(${title.x}px) translateY(${title.y}px)`"
   >
-    <p id="financial-future" class="center zero-opacity">
+    <div
+      id="financial-future"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
       How do people approach their <br />
       <span class="bold">financial future?</span>
-    </p>
+    </div>
+    <div
+      id="passive-growth"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
+      Alongside the rise of retirement funds <br />
+      <span class="bold">passive investment grew</span>
+    </div>
   </div>
 </template>
 
