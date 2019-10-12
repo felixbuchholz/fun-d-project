@@ -1,5 +1,7 @@
 <template>
   <!-- TODO: ref not needed here -->
+  <!-- the "ref" is how you refer to it from other vue files. Alternative to
+      query selector or getbyID etc.  -->
   <div
     id="intro-animation"
     ref="introAnimation"

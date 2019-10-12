@@ -24,13 +24,13 @@
     </text>
     <g>
       <text transform="translate(321.939 45.164)" class="st6 st7">
-        Active Assets
+        Active Funds
       </text>
       <path class="graph line active" d="M309.1 39h-37" />
     </g>
     <g>
       <text transform="translate(501.603 45.164)" class="st6 st7">
-        Passive Assets
+        Passive Funds
       </text>
       <path class="graph line passive" d="M489.1 39h-37" />
     </g>
