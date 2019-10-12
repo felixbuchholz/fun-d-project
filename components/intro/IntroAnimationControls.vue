@@ -1,8 +1,8 @@
 <template>
   <div id="animation-controls">
-    <button id="start-button-big" ref="centeredPlayButton" @click="play">
+    <!-- <button id="start-button-big" ref="centeredPlayButton" @click="play">
       Play Intro
-    </button>
+    </button> -->
     <div id="animation-drawer-controls">
       <div id="drawer">
         <button @click="play">Play!</button>
@@ -273,7 +273,7 @@ export default {
           duration: 2000,
           easing: "easeInOutSine"
         },
-        "-=1000"
+        "+=1500"
       );
       this.tl.add({
         targets: "#passive-growth",

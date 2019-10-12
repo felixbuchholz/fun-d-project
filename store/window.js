@@ -11,6 +11,7 @@ export const getters = {
   }
 };
 
+// TODO: rewrite, pass more than one parameter
 export const mutations = {
   CHANGE_WINDOW(state, obj) {
     state.window[obj.property] = obj.value;

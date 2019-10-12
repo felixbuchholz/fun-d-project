@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO: ref not needed here -->
   <div
     id="intro-animation"
     ref="introAnimation"
@@ -9,6 +10,7 @@
         <svg id="intro-svg" :width="width" :height="height">
           <rect id="svg-background" :width="width" :height="height" />
           <ElementWrapper />
+          <component is="ElementWrapper" />
         </svg>
       </div>
       <!-- scale(0); -->
