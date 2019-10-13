@@ -2,6 +2,7 @@
   <!-- TODO: ref not needed here -->
   <!-- the "ref" is how you refer to it from other vue files. Alternative to
       query selector or getbyID etc.  -->
+
   <div
     id="intro-animation"
     ref="introAnimation"
@@ -12,15 +13,21 @@
         <svg id="intro-svg" :width="width" :height="height">
           <rect id="svg-background" :width="width" :height="height" />
           <ElementWrapper />
-          <component is="ElementWrapper" />
         </svg>
       </div>
       <!-- scale(0); -->
       <div
-        id="html-animation"
+        id="html-titles"
         style="transform: translateX(-50%) translateY(-50%)"
       >
         <IntroTitles />
+      </div>
+      <div id="html-images">
+        <img
+          class="info-overload zero-opacity"
+          src="~/assets/img/wallstreetjournal.jpg"
+        />
+        <img class="info-overload zero-opacity" src="~/assets/img/head.jpg" />
       </div>
       <IntroAnimationControls />
     </div>
@@ -88,7 +95,7 @@ svg {
   height: 100%;
   width: 100%;
 }
-#html-animation {
+#html-titles {
   z-index: 9;
   position: absolute;
   top: 50%;
@@ -139,5 +146,13 @@ text {
 }
 .zero-scale {
   transform: scale(0);
+}
+.info-overload {
+  position: absolute;
+  top: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) scale(1);
+  width: 50%;
 }
 </style>

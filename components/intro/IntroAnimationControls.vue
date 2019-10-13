@@ -1,8 +1,8 @@
 <template>
   <div id="animation-controls">
-    <!-- <button id="start-button-big" ref="centeredPlayButton" @click="play">
+    <button id="start-button-big" ref="centeredPlayButton" @click="play">
       Play Intro
-    </button> -->
+    </button>
     <div id="animation-drawer-controls">
       <div id="drawer">
         <button @click="play">Play!</button>
@@ -99,6 +99,19 @@ export default {
         }
       });
       // Add children
+      /*
+      
+          . .       . .    .       . .       . .       . .    .    
+      .+'|=|`+. .+'|=|`+.=|`+. .+'|=|`+. .+'|=|`+. .+'|=|`+.=|`+. 
+      |  | `+.| |.+' |  | `+.| |  | |  | |  | |  | |.+' |  | `+.| 
+      |  | .         |  |      |  |=|  | |  |'. '.      |  |      
+      `+.|=|`+.      |  |      |  | |  | |  | |  |      |  |      
+      .    |  |      |  |      |  | |  | |  | |  |      |  |      
+      |`+. |  |      |  |      |  | |  | |  | |  |      |  |      
+      `+.|=|.+'      |.+'      `+.| |..| `+.| |.+'      |.+'      
+                                                                  
+      
+      */
       this.tl.add({
         targets: "#financial-future",
         scale: 1,
@@ -203,6 +216,7 @@ export default {
         },
         "+=-550"
       );
+      // TODO: check if this is right, should be passive-growth
       this.tl.add({
         targets: "#passivegraph",
         scale: 1,
@@ -234,10 +248,6 @@ export default {
           strokeDashoffset: [anime.setDashoffset, 0],
           easing: "easeInOutSine",
           duration: 2500
-          // begin: () => {
-          //   console.log("begin");
-          //   // console.log(anime.setDashoffset);
-          // }
         },
         "-=2500"
       );
@@ -275,6 +285,15 @@ export default {
         },
         "+=1500"
       );
+      this.tl.add(
+        {
+          targets: "#passivegraph",
+          opacity: 0,
+          duration: 2000,
+          easing: "easeInOutSine"
+        },
+        "-=2000"
+      );
       this.tl.add({
         targets: "#passive-growth",
         scale: 0,
@@ -285,9 +304,28 @@ export default {
         y: 0,
         duration: 1
       });
+      this.tl.add({
+        targets: ".info-overload",
+        opacity: 1,
+        duration: 400,
+        delay: anime.stagger(400),
+        easing: "easeInOutSine"
+      });
+
       // strokeDashoffset: [anime.setDashoffset, 0],
       this.tl.pause();
     },
+    /*
+    
+          :::::::::: ::::    ::: :::::::::          ::::::::  ::::::::::      ::::::::::: :::::::::::   :::   :::   :::::::::: :::        ::::::::::: ::::    ::: :::::::::: 
+          :+:        :+:+:   :+: :+:    :+:        :+:    :+: :+:                 :+:         :+:      :+:+: :+:+:  :+:        :+:            :+:     :+:+:   :+: :+:         
+        +:+        :+:+:+  +:+ +:+    +:+        +:+    +:+ +:+                 +:+         +:+     +:+ +:+:+ +:+ +:+        +:+            +:+     :+:+:+  +:+ +:+          
+        +#++:++#   +#+ +:+ +#+ +#+    +:+        +#+    +:+ :#::+::#            +#+         +#+     +#+  +:+  +#+ +#++:++#   +#+            +#+     +#+ +:+ +#+ +#++:++#      
+      +#+        +#+  +#+#+# +#+    +#+        +#+    +#+ +#+                 +#+         +#+     +#+       +#+ +#+        +#+            +#+     +#+  +#+#+# +#+            
+      #+#        #+#   #+#+# #+#    #+#        #+#    #+# #+#                 #+#         #+#     #+#       #+# #+#        #+#            #+#     #+#   #+#+# #+#             
+    ########## ###    #### #########          ########  ###                 ###     ########### ###       ### ########## ########## ########### ###    #### ##########       
+    
+    */
     getStartedToWork() {
       setTimeout(() => {
         this.seek(this.progress);
