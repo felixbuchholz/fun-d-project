@@ -23,11 +23,13 @@
         <IntroTitles />
       </div>
       <div id="html-images">
-        <img
-          class="info-overload zero-opacity"
-          src="~/assets/img/wallstreetjournal.jpg"
-        />
-        <img class="info-overload zero-opacity" src="~/assets/img/head.jpg" />
+        <img class="info-overload zero-opacity" src="~/assets/img/wallstreetjournal.jpg"/>
+        <img class="info-overload zero-opacity" src="~/assets/img/bloomb.jpg" />
+        <img class="info-overload zero-opacity" src="~/assets/img/bloomb2.jpg" />
+        <img class="info-overload zero-opacity" src="~/assets/img/ft.jpg" />
+        <img class="info-overload zero-opacity" src="~/assets/img/econom.jpg" />
+        <img class="info-overload zero-opacity" src="~/assets/img/apple.jpg" />
+        <img class="info-overload zero-opacity" src="~/assets/img/balancse.jpg" />
       </div>
       <IntroAnimationControls />
     </div>
