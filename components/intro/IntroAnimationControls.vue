@@ -311,6 +311,19 @@ export default {
         delay: anime.stagger(400),
         easing: "easeInOutSine"
       });
+      this.tl.add({
+        targets: "#sp_list",
+        opacity: 1,
+        duration: 40,
+        delay: anime.stagger(40),
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#sp_list",
+          opacity: 0,
+          duration: 800,
+          easing: "easeInOutSine"
+      });
 
       // strokeDashoffset: [anime.setDashoffset, 0],
       this.tl.pause();
