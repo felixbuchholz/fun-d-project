@@ -312,18 +312,44 @@ export default {
         easing: "easeInOutSine"
       });
       this.tl.add({
-        targets: "#sp_list",
+        targets: ".info-overload",
+        opacity: 0,
+        duration: 2000,
+        easing: "easeInOutSine"
+        },
+        "-=2000"
+      );
+      this.tl.add({
+        targets: ".sp_list_item",
         opacity: 1,
-        duration: 40,
-        delay: anime.stagger(40),
+        scale: 1,
+        duration: 400,
+        translateY: 270,
+        delay: anime.stagger(400),
         easing: "easeInOutSine"
       });
       this.tl.add({
-        targets: "#sp_list",
+        targets: ".sp_list_item",
           opacity: 0,
-          duration: 800,
+          duration: 2000,
           easing: "easeInOutSine"
-      });
+      }, "-=2000"
+      );
+      // this.tl.add({
+      //   targets: ".sp_list_item",
+      //   opacity: 1,
+      //   duration: 400,
+      //   translateY: 270,
+      //   delay: anime.stagger(400),
+      //   easing: "easeInOutSine"
+      // });
+      // this.tl.add({
+      //   targets: ".sp_list_item",
+      //     opacity: 0,
+      //     duration: 2000,
+      //     easing: "easeInOutSine"
+      // }, "-=2000"
+      // );
 
       // strokeDashoffset: [anime.setDashoffset, 0],
       this.tl.pause();

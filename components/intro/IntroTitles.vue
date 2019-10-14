@@ -41,8 +41,8 @@
       <!-- <span class="bold">passive investment grew</span> -->
     </div>
 
-<tbody class='#sp_list'>
-                            <tr>
+<tbody class='sp_list zero-opacity'>
+                            <tr class='sp_list_item'>
                                 <td>1&nbsp;&nbsp;</td>
                                 <td>Microsoft Corporation</td>
                                 <td>MSFT</td>
@@ -51,7 +51,7 @@
                                 <td class="text-nowrap" style="color: green">0.31</td>
                                 <td class="text-nowrap" style="color: green">(0.22%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>2&nbsp;&nbsp;</td>
                                 <td>Apple Inc.</td>
                                 <td>AAPL</td>
@@ -60,7 +60,7 @@
                                 <td class="text-nowrap" style="color: green">1.04</td>
                                 <td class="text-nowrap" style="color: green">(0.44%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>3&nbsp;&nbsp;</td>
                                 <td>Amazon.com Inc.</td>
                                 <td>AMZN</td>
@@ -69,7 +69,7 @@
                                 <td class="text-nowrap" style="color: green">2.57</td>
                                 <td class="text-nowrap" style="color: green">(0.15%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>4&nbsp;&nbsp;</td>
                                 <td>Facebook Inc. Class A</td>
                                 <td>FB</td>
@@ -78,7 +78,7 @@
                                 <td class="text-nowrap" style="color: green">0.46</td>
                                 <td class="text-nowrap" style="color: green">(0.25%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>5&nbsp;&nbsp;</td>
                                 <td>">Berkshire Hathaway Inc. Class B</td>
                                 <td>">BRK.B</td>
@@ -87,7 +87,7 @@
                                 <td class="text-nowrap" style="color: green">0.52</td>
                                 <td class="text-nowrap" style="color: green">(0.25%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>6&nbsp;&nbsp;</td>
                                 <td>Alphabet Inc. Class C</td>
                                 <td>GOOG</td>
@@ -96,7 +96,7 @@
                                 <td class="text-nowrap" style="color: green">0.55</td>
                                 <td class="text-nowrap" style="color: green">(0.05%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>7&nbsp;&nbsp;</td>
                                 <td>JPMorgan Chase &amp; Co.</td>
                                 <td>JPM</td>
@@ -105,7 +105,7 @@
                                 <td class="text-nowrap" style="color: green">0.09</td>
                                 <td class="text-nowrap" style="color: green">(0.08%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>8&nbsp;&nbsp;</td>
                                 <td>Alphabet Inc. Class A</td>
                                 <td>GOOGL</td>
@@ -114,7 +114,7 @@
                                 <td class="text-nowrap" style="color: green">1.77</td>
                                 <td class="text-nowrap" style="color: green">(0.15%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>9&nbsp;&nbsp;</td>
                                 <td>Johnson &amp; Johnson</td>
                                 <td>JNJ</td>
@@ -123,7 +123,7 @@
                                 <td class="text-nowrap" style="color: green">0.17</td>
                                 <td class="text-nowrap" style="color: green">(0.13%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>10&nbsp;&nbsp;</td>
                                 <td>Procter &amp; Gamble Company</td>
                                 <td>PG</td>
@@ -132,7 +132,7 @@
                                 <td class="text-nowrap" style="color: green">0.01</td>
                                 <td class="text-nowrap" style="color: green">(0.01%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>11&nbsp;&nbsp;</td>
                                 <td>Visa Inc. Class A</td>
                                 <td>V</td>
@@ -141,7 +141,7 @@
                                 <td class="text-nowrap" style="color: green">0.34</td>
                                 <td class="text-nowrap" style="color: green">(0.19%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>12&nbsp;&nbsp;</td>
                                 <td>Exxon Mobil Corporation</td>
                                 <td>XOM</td>
@@ -150,7 +150,7 @@
                                 <td class="text-nowrap" style="color: green">0.11</td>
                                 <td class="text-nowrap" style="color: green">(0.16%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>13&nbsp;&nbsp;</td>
                                 <td>AT&amp;T Inc.</td>
                                 <td>T</td>
@@ -159,7 +159,7 @@
                                 <td class="text-nowrap" style="color: green">0.03</td>
                                 <td class="text-nowrap" style="color: green">(0.08%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>14&nbsp;&nbsp;</td>
                                 <td>Home Depot Inc.</td>
                                 <td>HD</td>
@@ -168,7 +168,7 @@
                                 <td class="text-nowrap" style="color: green">0.12</td>
                                 <td class="text-nowrap" style="color: green">(0.05%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>15&nbsp;&nbsp;</td>
                                 <td>Verizon Communications Inc.</td>
                                 <td>VZ</td>
@@ -177,7 +177,7 @@
                                 <td class="text-nowrap" style="color: green">0.12</td>
                                 <td class="text-nowrap" style="color: green">(0.20%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>16&nbsp;&nbsp;</td>
                                 <td>Mastercard Incorporated Class A</td>
                                 <td>MA</td>
@@ -186,7 +186,7 @@
                                 <td class="text-nowrap" style="color: green">0.13</td>
                                 <td class="text-nowrap" style="color: green">(0.05%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>17&nbsp;&nbsp;</td>
                                 <td>Bank of America Corp</td>
                                 <td>BAC</td>
@@ -195,7 +195,7 @@
                                 <td class="text-nowrap" style="color: green">0.10</td>
                                 <td class="text-nowrap" style="color: green">(0.35%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>18&nbsp;&nbsp;</td>
                                 <td>Walt Disney Company</td>
                                 <td>DIS</td>
@@ -204,7 +204,7 @@
                                 <td class="text-nowrap" style="color: green">0.04</td>
                                 <td class="text-nowrap" style="color: green">(0.03%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>19&nbsp;&nbsp;</td>
                                 <td>Intel Corporation</td>
                                 <td>INTC</td>
@@ -213,7 +213,7 @@
                                 <td class="text-nowrap" style="color: green">0.07</td>
                                 <td class="text-nowrap" style="color: green">(0.13%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>20&nbsp;&nbsp;</td>
                                 <td>Chevron Corporation</td>
                                 <td>CVX</td>
@@ -222,7 +222,7 @@
                                 <td class="text-nowrap" style="color: green">0.05</td>
                                 <td class="text-nowrap" style="color: green">(0.04%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>21&nbsp;&nbsp;</td>
                                 <td>Merck &amp; Co. Inc.</td>
                                 <td>MRK</td>
@@ -231,7 +231,7 @@
                                 <td class="text-nowrap" style="color: green">0.63</td>
                                 <td class="text-nowrap" style="color: green">(0.75%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>22&nbsp;&nbsp;</td>
                                 <td>UnitedHealth Group Incorporated</td>
                                 <td>UNH</td>
@@ -240,7 +240,7 @@
                                 <td class="text-nowrap" style="color: green">0.18</td>
                                 <td class="text-nowrap" style="color: green">(0.08%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>23&nbsp;&nbsp;</td>
                                 <td>Coca-Cola Company</td>
                                 <td>KO</td>
@@ -249,7 +249,7 @@
                                 <td class="text-nowrap" style="color: green">0.15</td>
                                 <td class="text-nowrap" style="color: green">(0.28%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>24&nbsp;&nbsp;</td>
                                 <td>Comcast Corporation Class A</td>
                                 <td>CMCSA</td>
@@ -258,7 +258,7 @@
                                 <td class="text-nowrap" style="color: green">0.02</td>
                                 <td class="text-nowrap" style="color: green">(0.04%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>25&nbsp;&nbsp;</td>
                                 <td>Boeing Company</td>
                                 <td>BA</td>
@@ -267,7 +267,7 @@
                                 <td class="text-nowrap" style="color: red">-0.52</td>
                                 <td class="text-nowrap" style="color: red">(-0.14%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>26&nbsp;&nbsp;</td>
                                 <td>Pfizer Inc.</td>
                                 <td>PFE</td>
@@ -276,7 +276,7 @@
                                 <td class="text-nowrap" style="color: green">0.04</td>
                                 <td class="text-nowrap" style="color: green">(0.11%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>27&nbsp;&nbsp;</td>
                                 <td>Cisco Systems Inc.</td>
                                 <td>CSCO</td>
@@ -285,7 +285,7 @@
                                 <td class="text-nowrap" style="color: green">0.09</td>
                                 <td class="text-nowrap" style="color: green">(0.19%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>28&nbsp;&nbsp;</td>
                                 <td>Wells Fargo &amp; Company</td>
                                 <td>WFC</td>
@@ -294,7 +294,7 @@
                                 <td class="text-nowrap" style="color: green">0.19</td>
                                 <td class="text-nowrap" style="color: green">(0.39%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>29&nbsp;&nbsp;</td>
                                 <td>PepsiCo Inc.</td>
                                 <td>PEP</td>
@@ -303,7 +303,7 @@
                                 <td class="text-nowrap" style="color: green">0.23</td>
                                 <td class="text-nowrap" style="color: green">(0.17%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>30&nbsp;&nbsp;</td>
                                 <td>Walmart Inc.</td>
                                 <td>WMT</td>
@@ -312,7 +312,7 @@
                                 <td class="text-nowrap" style="color: green">0.23</td>
                                 <td class="text-nowrap" style="color: green">(0.19%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>31&nbsp;&nbsp;</td>
                                 <td>McDonald's Corporation</td>
                                 <td>MCD</td>
@@ -321,7 +321,7 @@
                                 <td class="text-nowrap" style="color: green">0.27</td>
                                 <td class="text-nowrap" style="color: green">(0.13%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>32&nbsp;&nbsp;</td>
                                 <td>Citigroup Inc.</td>
                                 <td>C</td>
@@ -330,7 +330,7 @@
                                 <td class="text-nowrap" style="color: green">0.16</td>
                                 <td class="text-nowrap" style="color: green">(0.23%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>33&nbsp;&nbsp;</td>
                                 <td>Medtronic Plc</td>
                                 <td>MDT</td>
@@ -339,7 +339,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>34&nbsp;&nbsp;</td>
                                 <td>Abbott Laboratories</td>
                                 <td>ABT</td>
@@ -348,7 +348,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>35&nbsp;&nbsp;</td>
                                 <td>Adobe Inc.</td>
                                 <td>ADBE</td>
@@ -357,7 +357,7 @@
                                 <td class="text-nowrap" style="color: red">-0.18</td>
                                 <td class="text-nowrap" style="color: red">(-0.06%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>36&nbsp;&nbsp;</td>
                                 <td>Costco Wholesale Corporation</td>
                                 <td>COST</td>
@@ -366,7 +366,7 @@
                                 <td class="text-nowrap" style="color: green">0.47</td>
                                 <td class="text-nowrap" style="color: green">(0.16%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>37&nbsp;&nbsp;</td>
                                 <td>salesforce.com inc.</td>
                                 <td>CRM</td>
@@ -375,7 +375,7 @@
                                 <td class="text-nowrap" style="color: green">0.38</td>
                                 <td class="text-nowrap" style="color: green">(0.25%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>38&nbsp;&nbsp;</td>
                                 <td>International Business Machines Corporation</td>
                                 <td>IBM</td>
@@ -384,7 +384,7 @@
                                 <td class="text-nowrap" style="color: green">0.19</td>
                                 <td class="text-nowrap" style="color: green">(0.13%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>39&nbsp;&nbsp;</td>
                                 <td>Netflix Inc.</td>
                                 <td>NFLX</td>
@@ -393,7 +393,7 @@
                                 <td class="text-nowrap" style="color: green">0.77</td>
                                 <td class="text-nowrap" style="color: green">(0.27%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>40&nbsp;&nbsp;</td>
                                 <td>Oracle Corporation</td>
                                 <td>ORCL</td>
@@ -402,7 +402,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>41&nbsp;&nbsp;</td>
                                 <td>Philip Morris International Inc.</td>
                                 <td>PM</td>
@@ -411,7 +411,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>42&nbsp;&nbsp;</td>
                                 <td>Texas Instruments Incorporated</td>
                                 <td>TXN</td>
@@ -420,7 +420,7 @@
                                 <td class="text-nowrap" style="color: green">0.06</td>
                                 <td class="text-nowrap" style="color: green">(0.05%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>43&nbsp;&nbsp;</td>
                                 <td>Amgen Inc.</td>
                                 <td>AMGN</td>
@@ -429,7 +429,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>44&nbsp;&nbsp;</td>
                                 <td>PayPal Holdings Inc</td>
                                 <td>PYPL</td>
@@ -438,7 +438,7 @@
                                 <td class="text-nowrap" style="color: green">0.81</td>
                                 <td class="text-nowrap" style="color: green">(0.80%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>45&nbsp;&nbsp;</td>
                                 <td>Accenture Plc Class A</td>
                                 <td>ACN</td>
@@ -447,7 +447,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>46&nbsp;&nbsp;</td>
                                 <td>NIKE Inc. Class B</td>
                                 <td>NKE</td>
@@ -456,7 +456,7 @@
                                 <td class="text-nowrap" style="color: green">0.12</td>
                                 <td class="text-nowrap" style="color: green">(0.13%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>47&nbsp;&nbsp;</td>
                                 <td>Honeywell International Inc.</td>
                                 <td>HON</td>
@@ -465,7 +465,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>48&nbsp;&nbsp;</td>
                                 <td>NextEra Energy Inc.</td>
                                 <td>NEE</td>
@@ -474,7 +474,7 @@
                                 <td class="text-nowrap" style="color: green">0.96</td>
                                 <td class="text-nowrap" style="color: green">(0.42%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>49&nbsp;&nbsp;</td>
                                 <td>Thermo Fisher Scientific Inc.</td>
                                 <td>TMO</td>
@@ -483,7 +483,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>50&nbsp;&nbsp;</td>
                                 <td>NVIDIA Corporation</td>
                                 <td>NVDA</td>
@@ -492,7 +492,7 @@
                                 <td class="text-nowrap" style="color: green">0.56</td>
                                 <td class="text-nowrap" style="color: green">(0.30%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>51&nbsp;&nbsp;</td>
                                 <td>AbbVie Inc.</td>
                                 <td>ABBV</td>
@@ -501,7 +501,7 @@
                                 <td class="text-nowrap" style="color: green">0.03</td>
                                 <td class="text-nowrap" style="color: green">(0.04%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>52&nbsp;&nbsp;</td>
                                 <td>Union Pacific Corporation</td>
                                 <td>UNP</td>
@@ -510,7 +510,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>53&nbsp;&nbsp;</td>
                                 <td>Broadcom Inc.</td>
                                 <td>AVGO</td>
@@ -519,7 +519,7 @@
                                 <td class="text-nowrap" style="color: green">0.94</td>
                                 <td class="text-nowrap" style="color: green">(0.33%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>54&nbsp;&nbsp;</td>
                                 <td>United Technologies Corporation</td>
                                 <td>UTX</td>
@@ -528,7 +528,7 @@
                                 <td class="text-nowrap" style="color: green">0.44</td>
                                 <td class="text-nowrap" style="color: green">(0.32%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>55&nbsp;&nbsp;</td>
                                 <td>Linde plc</td>
                                 <td>LIN</td>
@@ -537,7 +537,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>56&nbsp;&nbsp;</td>
                                 <td>Starbucks Corporation</td>
                                 <td>SBUX</td>
@@ -546,7 +546,7 @@
                                 <td class="text-nowrap" style="color: green">0.24</td>
                                 <td class="text-nowrap" style="color: green">(0.28%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>57&nbsp;&nbsp;</td>
                                 <td>American Tower Corporation</td>
                                 <td>AMT</td>
@@ -555,7 +555,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>58&nbsp;&nbsp;</td>
                                 <td>Lockheed Martin Corporation</td>
                                 <td>LMT</td>
@@ -564,7 +564,7 @@
                                 <td class="text-nowrap" style="color: green">0.28</td>
                                 <td class="text-nowrap" style="color: green">(0.07%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>59&nbsp;&nbsp;</td>
                                 <td>QUALCOMM Incorporated</td>
                                 <td>QCOM</td>
@@ -573,7 +573,7 @@
                                 <td class="text-nowrap" style="color: green">0.06</td>
                                 <td class="text-nowrap" style="color: green">(0.08%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>60&nbsp;&nbsp;</td>
                                 <td>Eli Lilly and Company</td>
                                 <td>LLY</td>
@@ -582,7 +582,7 @@
                                 <td class="text-nowrap" style="color: green">0.64</td>
                                 <td class="text-nowrap" style="color: green">(0.59%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>61&nbsp;&nbsp;</td>
                                 <td>Danaher Corporation</td>
                                 <td>DHR</td>
@@ -591,7 +591,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>62&nbsp;&nbsp;</td>
                                 <td>3M Company</td>
                                 <td>MMM</td>
@@ -600,7 +600,7 @@
                                 <td class="text-nowrap" style="color: green">0.29</td>
                                 <td class="text-nowrap" style="color: green">(0.18%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>63&nbsp;&nbsp;</td>
                                 <td>Lowe's Companies Inc.</td>
                                 <td>LOW</td>
@@ -609,7 +609,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>64&nbsp;&nbsp;</td>
                                 <td>Booking Holdings Inc.</td>
                                 <td>BKNG</td>
@@ -618,7 +618,7 @@
                                 <td class="text-nowrap" style="color: green">1.82</td>
                                 <td class="text-nowrap" style="color: green">(0.09%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>65&nbsp;&nbsp;</td>
                                 <td>Bristol-Myers Squibb Company</td>
                                 <td>BMY</td>
@@ -627,7 +627,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>66&nbsp;&nbsp;</td>
                                 <td>CVS Health Corporation</td>
                                 <td>CVS</td>
@@ -636,7 +636,7 @@
                                 <td class="text-nowrap" style="color: green">0.11</td>
                                 <td class="text-nowrap" style="color: green">(0.17%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>67&nbsp;&nbsp;</td>
                                 <td>Fidelity National Information Services Inc.</td>
                                 <td>FIS</td>
@@ -645,7 +645,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>68&nbsp;&nbsp;</td>
                                 <td>United Parcel Service Inc. Class B</td>
                                 <td>UPS</td>
@@ -654,7 +654,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>69&nbsp;&nbsp;</td>
                                 <td>Gilead Sciences Inc.</td>
                                 <td>GILD</td>
@@ -663,7 +663,7 @@
                                 <td class="text-nowrap" style="color: green">0.13</td>
                                 <td class="text-nowrap" style="color: green">(0.20%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>70&nbsp;&nbsp;</td>
                                 <td>Altria Group Inc</td>
                                 <td>MO</td>
@@ -672,7 +672,7 @@
                                 <td class="text-nowrap" style="color: green">0.13</td>
                                 <td class="text-nowrap" style="color: green">(0.31%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>71&nbsp;&nbsp;</td>
                                 <td>Mondelez International Inc. Class A</td>
                                 <td>MDLZ</td>
@@ -681,7 +681,7 @@
                                 <td class="text-nowrap" style="color: green">0.01</td>
                                 <td class="text-nowrap" style="color: green">(0.02%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>72&nbsp;&nbsp;</td>
                                 <td>American Express Company</td>
                                 <td>AXP</td>
@@ -690,7 +690,7 @@
                                 <td class="text-nowrap" style="color: green">0.10</td>
                                 <td class="text-nowrap" style="color: green">(0.09%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>73&nbsp;&nbsp;</td>
                                 <td>CME Group Inc. Class A</td>
                                 <td>CME</td>
@@ -699,7 +699,7 @@
                                 <td class="text-nowrap" style="color: green">0.53</td>
                                 <td class="text-nowrap" style="color: green">(0.25%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>74&nbsp;&nbsp;</td>
                                 <td>U.S. Bancorp</td>
                                 <td>USB</td>
@@ -708,7 +708,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>75&nbsp;&nbsp;</td>
                                 <td>General Electric Company</td>
                                 <td>GE</td>
@@ -717,7 +717,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>76&nbsp;&nbsp;</td>
                                 <td>Chubb Limited</td>
                                 <td>CB</td>
@@ -726,7 +726,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>77&nbsp;&nbsp;</td>
                                 <td>Celgene Corporation</td>
                                 <td>CELG</td>
@@ -735,7 +735,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>78&nbsp;&nbsp;</td>
                                 <td>Duke Energy Corporation</td>
                                 <td>DUK</td>
@@ -744,7 +744,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>79&nbsp;&nbsp;</td>
                                 <td>Automatic Data Processing Inc.</td>
                                 <td>ADP</td>
@@ -753,7 +753,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>80&nbsp;&nbsp;</td>
                                 <td>Intuit Inc.</td>
                                 <td>INTU</td>
@@ -762,7 +762,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>81&nbsp;&nbsp;</td>
                                 <td>TJX Companies Inc</td>
                                 <td>TJX</td>
@@ -771,7 +771,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>82&nbsp;&nbsp;</td>
                                 <td>Charter Communications Inc. Class A</td>
                                 <td>CHTR</td>
@@ -780,7 +780,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>83&nbsp;&nbsp;</td>
                                 <td>Caterpillar Inc.</td>
                                 <td>CAT</td>
@@ -789,7 +789,7 @@
                                 <td class="text-nowrap" style="color: green">0.26</td>
                                 <td class="text-nowrap" style="color: green">(0.20%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>84&nbsp;&nbsp;</td>
                                 <td>Stryker Corporation</td>
                                 <td>SYK</td>
@@ -798,7 +798,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>85&nbsp;&nbsp;</td>
                                 <td>Dominion Energy Inc</td>
                                 <td>D</td>
@@ -807,7 +807,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>86&nbsp;&nbsp;</td>
                                 <td>Becton Dickinson and Company</td>
                                 <td>BDX</td>
@@ -816,7 +816,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>87&nbsp;&nbsp;</td>
                                 <td>Goldman Sachs Group Inc.</td>
                                 <td>GS</td>
@@ -825,7 +825,7 @@
                                 <td class="text-nowrap" style="color: green">0.12</td>
                                 <td class="text-nowrap" style="color: green">(0.06%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>88&nbsp;&nbsp;</td>
                                 <td>Southern Company</td>
                                 <td>SO</td>
@@ -834,7 +834,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>89&nbsp;&nbsp;</td>
                                 <td>ConocoPhillips</td>
                                 <td>COP</td>
@@ -843,7 +843,7 @@
                                 <td class="text-nowrap" style="color: green">0.17</td>
                                 <td class="text-nowrap" style="color: green">(0.30%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>90&nbsp;&nbsp;</td>
                                 <td>PNC Financial Services Group Inc.</td>
                                 <td>PNC</td>
@@ -852,7 +852,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>91&nbsp;&nbsp;</td>
                                 <td>S&amp;P Global Inc.</td>
                                 <td>SPGI</td>
@@ -861,7 +861,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>92&nbsp;&nbsp;</td>
                                 <td>Anthem Inc.</td>
                                 <td>ANTM</td>
@@ -870,7 +870,7 @@
                                 <td class="text-nowrap" style="color: green">0.57</td>
                                 <td class="text-nowrap" style="color: green">(0.24%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>93&nbsp;&nbsp;</td>
                                 <td>Zoetis Inc. Class A</td>
                                 <td>ZTS</td>
@@ -879,7 +879,7 @@
                                 <td class="text-nowrap" style="color: green">0.66</td>
                                 <td class="text-nowrap" style="color: green">(0.51%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>94&nbsp;&nbsp;</td>
                                 <td>Colgate-Palmolive Company</td>
                                 <td>CL</td>
@@ -888,7 +888,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>95&nbsp;&nbsp;</td>
                                 <td>Fiserv Inc.</td>
                                 <td>FISV</td>
@@ -897,7 +897,7 @@
                                 <td class="text-nowrap" style="color: red">-0.35</td>
                                 <td class="text-nowrap" style="color: red">(-0.33%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>96&nbsp;&nbsp;</td>
                                 <td>Intuitive Surgical Inc.</td>
                                 <td>ISRG</td>
@@ -906,7 +906,7 @@
                                 <td class="text-nowrap" style="color: red">-3.02</td>
                                 <td class="text-nowrap" style="color: red">(-0.58%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>97&nbsp;&nbsp;</td>
                                 <td>Northrop Grumman Corporation</td>
                                 <td>NOC</td>
@@ -915,7 +915,7 @@
                                 <td class="text-nowrap" style="color: green">0.48</td>
                                 <td class="text-nowrap" style="color: green">(0.13%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>98&nbsp;&nbsp;</td>
                                 <td>Crown Castle International Corp</td>
                                 <td>CCI</td>
@@ -924,7 +924,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>99&nbsp;&nbsp;</td>
                                 <td>Cigna Corporation</td>
                                 <td>CI</td>
@@ -933,7 +933,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>100&nbsp;&nbsp;</td>
                                 <td>Target Corporation</td>
                                 <td>TGT</td>
@@ -942,7 +942,7 @@
                                 <td class="text-nowrap" style="color: green">0.27</td>
                                 <td class="text-nowrap" style="color: green">(0.24%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>101&nbsp;&nbsp;</td>
                                 <td>Raytheon Company</td>
                                 <td>RTN</td>
@@ -951,7 +951,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>102&nbsp;&nbsp;</td>
                                 <td>Allergan plc</td>
                                 <td>AGN</td>
@@ -960,7 +960,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>103&nbsp;&nbsp;</td>
                                 <td>Prologis Inc.</td>
                                 <td>PLD</td>
@@ -969,7 +969,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>104&nbsp;&nbsp;</td>
                                 <td>CSX Corporation</td>
                                 <td>CSX</td>
@@ -978,7 +978,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>105&nbsp;&nbsp;</td>
                                 <td>Intercontinental Exchange Inc.</td>
                                 <td>ICE</td>
@@ -987,7 +987,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>106&nbsp;&nbsp;</td>
                                 <td>Deere &amp; Company</td>
                                 <td>DE</td>
@@ -996,7 +996,7 @@
                                 <td class="text-nowrap" style="color: green">1.80</td>
                                 <td class="text-nowrap" style="color: green">(1.05%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>107&nbsp;&nbsp;</td>
                                 <td>Boston Scientific Corporation</td>
                                 <td>BSX</td>
@@ -1005,7 +1005,7 @@
                                 <td class="text-nowrap" style="color: green">0.17</td>
                                 <td class="text-nowrap" style="color: green">(0.44%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>108&nbsp;&nbsp;</td>
                                 <td>Morgan Stanley</td>
                                 <td>MS</td>
@@ -1014,7 +1014,7 @@
                                 <td class="text-nowrap" style="color: green">0.14</td>
                                 <td class="text-nowrap" style="color: green">(0.33%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>109&nbsp;&nbsp;</td>
                                 <td>BlackRock Inc.</td>
                                 <td>BLK</td>
@@ -1023,7 +1023,7 @@
                                 <td class="text-nowrap" style="color: green">3.99</td>
                                 <td class="text-nowrap" style="color: green">(0.92%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>110&nbsp;&nbsp;</td>
                                 <td>Marsh &amp; McLennan Companies Inc.</td>
                                 <td>MMC</td>
@@ -1032,7 +1032,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>111&nbsp;&nbsp;</td>
                                 <td>Equinix Inc.</td>
                                 <td>EQIX</td>
@@ -1041,7 +1041,7 @@
                                 <td class="text-nowrap" style="color: red">-0.61</td>
                                 <td class="text-nowrap" style="color: red">(-0.11%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>112&nbsp;&nbsp;</td>
                                 <td>Ecolab Inc.</td>
                                 <td>ECL</td>
@@ -1050,7 +1050,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>113&nbsp;&nbsp;</td>
                                 <td>Global Payments Inc.</td>
                                 <td>GPN</td>
@@ -1059,7 +1059,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>114&nbsp;&nbsp;</td>
                                 <td>Micron Technology Inc.</td>
                                 <td>MU</td>
@@ -1068,7 +1068,7 @@
                                 <td class="text-nowrap" style="color: green">0.15</td>
                                 <td class="text-nowrap" style="color: green">(0.33%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>115&nbsp;&nbsp;</td>
                                 <td>Phillips 66</td>
                                 <td>PSX</td>
@@ -1077,7 +1077,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>116&nbsp;&nbsp;</td>
                                 <td>Kimberly-Clark Corporation</td>
                                 <td>KMB</td>
@@ -1086,7 +1086,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>117&nbsp;&nbsp;</td>
                                 <td>DuPont de Nemours Inc.</td>
                                 <td>DD</td>
@@ -1095,7 +1095,7 @@
                                 <td class="text-nowrap" style="color: green">0.04</td>
                                 <td class="text-nowrap" style="color: green">(0.06%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>118&nbsp;&nbsp;</td>
                                 <td>Applied Materials Inc.</td>
                                 <td>AMAT</td>
@@ -1104,7 +1104,7 @@
                                 <td class="text-nowrap" style="color: green">0.15</td>
                                 <td class="text-nowrap" style="color: green">(0.29%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>119&nbsp;&nbsp;</td>
                                 <td>Edwards Lifesciences Corporation</td>
                                 <td>EW</td>
@@ -1113,7 +1113,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>120&nbsp;&nbsp;</td>
                                 <td>Air Products and Chemicals Inc.</td>
                                 <td>APD</td>
@@ -1122,7 +1122,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>121&nbsp;&nbsp;</td>
                                 <td>American International Group Inc.</td>
                                 <td>AIG</td>
@@ -1131,7 +1131,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>122&nbsp;&nbsp;</td>
                                 <td>L3Harris Technologies Inc</td>
                                 <td>LHX</td>
@@ -1140,7 +1140,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>123&nbsp;&nbsp;</td>
                                 <td>Exelon Corporation</td>
                                 <td>EXC</td>
@@ -1149,7 +1149,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>124&nbsp;&nbsp;</td>
                                 <td>Sherwin-Williams Company</td>
                                 <td>SHW</td>
@@ -1158,7 +1158,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>125&nbsp;&nbsp;</td>
                                 <td>Waste Management Inc.</td>
                                 <td>WM</td>
@@ -1167,7 +1167,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>126&nbsp;&nbsp;</td>
                                 <td>American Electric Power Company Inc.</td>
                                 <td>AEP</td>
@@ -1176,7 +1176,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>127&nbsp;&nbsp;</td>
                                 <td>Norfolk Southern Corporation</td>
                                 <td>NSC</td>
@@ -1185,7 +1185,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>128&nbsp;&nbsp;</td>
                                 <td>Simon Property Group Inc.</td>
                                 <td>SPG</td>
@@ -1194,7 +1194,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>129&nbsp;&nbsp;</td>
                                 <td>Baxter International Inc.</td>
                                 <td>BAX</td>
@@ -1203,7 +1203,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>130&nbsp;&nbsp;</td>
                                 <td>Aon plc</td>
                                 <td>AON</td>
@@ -1212,7 +1212,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>131&nbsp;&nbsp;</td>
                                 <td>Illinois Tool Works Inc.</td>
                                 <td>ITW</td>
@@ -1221,7 +1221,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>132&nbsp;&nbsp;</td>
                                 <td>Vertex Pharmaceuticals Incorporated</td>
                                 <td>VRTX</td>
@@ -1230,7 +1230,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>133&nbsp;&nbsp;</td>
                                 <td>Illumina Inc.</td>
                                 <td>ILMN</td>
@@ -1239,7 +1239,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>134&nbsp;&nbsp;</td>
                                 <td>General Motors Company</td>
                                 <td>GM</td>
@@ -1248,7 +1248,7 @@
                                 <td class="text-nowrap" style="color: green">0.13</td>
                                 <td class="text-nowrap" style="color: green">(0.37%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>135&nbsp;&nbsp;</td>
                                 <td>Progressive Corporation</td>
                                 <td>PGR</td>
@@ -1257,7 +1257,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>136&nbsp;&nbsp;</td>
                                 <td>Schlumberger NV</td>
                                 <td>SLB</td>
@@ -1266,7 +1266,7 @@
                                 <td class="text-nowrap" style="color: green">0.16</td>
                                 <td class="text-nowrap" style="color: green">(0.49%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>137&nbsp;&nbsp;</td>
                                 <td>Charles Schwab Corporation</td>
                                 <td>SCHW</td>
@@ -1275,7 +1275,7 @@
                                 <td class="text-nowrap" style="color: green">0.12</td>
                                 <td class="text-nowrap" style="color: green">(0.32%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>138&nbsp;&nbsp;</td>
                                 <td>Estee Lauder Companies Inc. Class A</td>
                                 <td>EL</td>
@@ -1284,7 +1284,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>139&nbsp;&nbsp;</td>
                                 <td>General Dynamics Corporation</td>
                                 <td>GD</td>
@@ -1293,7 +1293,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>140&nbsp;&nbsp;</td>
                                 <td>Dollar General Corporation</td>
                                 <td>DG</td>
@@ -1302,7 +1302,7 @@
                                 <td class="text-nowrap" style="color: red">-0.24</td>
                                 <td class="text-nowrap" style="color: red">(-0.15%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>141&nbsp;&nbsp;</td>
                                 <td>Biogen Inc.</td>
                                 <td>BIIB</td>
@@ -1311,7 +1311,7 @@
                                 <td class="text-nowrap" style="color: green">0.09</td>
                                 <td class="text-nowrap" style="color: green">(0.04%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>142&nbsp;&nbsp;</td>
                                 <td>Activision Blizzard Inc.</td>
                                 <td>ATVI</td>
@@ -1320,7 +1320,7 @@
                                 <td class="text-nowrap" style="color: green">0.29</td>
                                 <td class="text-nowrap" style="color: green">(0.53%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>143&nbsp;&nbsp;</td>
                                 <td>Capital One Financial Corporation</td>
                                 <td>COF</td>
@@ -1329,7 +1329,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>144&nbsp;&nbsp;</td>
                                 <td>Marathon Petroleum Corporation</td>
                                 <td>MPC</td>
@@ -1338,7 +1338,7 @@
                                 <td class="text-nowrap" style="color: green">0.05</td>
                                 <td class="text-nowrap" style="color: green">(0.08%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>145&nbsp;&nbsp;</td>
                                 <td>Ross Stores Inc.</td>
                                 <td>ROST</td>
@@ -1347,7 +1347,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>146&nbsp;&nbsp;</td>
                                 <td>Walgreens Boots Alliance Inc</td>
                                 <td>WBA</td>
@@ -1356,7 +1356,7 @@
                                 <td class="text-nowrap" style="color: green">0.30</td>
                                 <td class="text-nowrap" style="color: green">(0.56%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>147&nbsp;&nbsp;</td>
                                 <td>Sysco Corporation</td>
                                 <td>SYY</td>
@@ -1365,7 +1365,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>148&nbsp;&nbsp;</td>
                                 <td>Analog Devices Inc.</td>
                                 <td>ADI</td>
@@ -1374,7 +1374,7 @@
                                 <td class="text-nowrap" style="color: red">-0.02</td>
                                 <td class="text-nowrap" style="color: red">(-0.02%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>149&nbsp;&nbsp;</td>
                                 <td>Sempra Energy</td>
                                 <td>SRE</td>
@@ -1383,7 +1383,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>150&nbsp;&nbsp;</td>
                                 <td>Emerson Electric Co.</td>
                                 <td>EMR</td>
@@ -1392,7 +1392,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>151&nbsp;&nbsp;</td>
                                 <td>EOG Resources Inc.</td>
                                 <td>EOG</td>
@@ -1401,7 +1401,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>152&nbsp;&nbsp;</td>
                                 <td>BB&amp;T Corporation</td>
                                 <td>BBT</td>
@@ -1410,7 +1410,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>153&nbsp;&nbsp;</td>
                                 <td>Kinder Morgan Inc Class P</td>
                                 <td>KMI</td>
@@ -1419,7 +1419,7 @@
                                 <td class="text-nowrap" style="color: red">-0.01</td>
                                 <td class="text-nowrap" style="color: red">(-0.05%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>154&nbsp;&nbsp;</td>
                                 <td>Aflac Incorporated</td>
                                 <td>AFL</td>
@@ -1428,7 +1428,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>155&nbsp;&nbsp;</td>
                                 <td>Bank of New York Mellon Corporation</td>
                                 <td>BK</td>
@@ -1437,7 +1437,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>156&nbsp;&nbsp;</td>
                                 <td>Welltower Inc.</td>
                                 <td>WELL</td>
@@ -1446,7 +1446,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>157&nbsp;&nbsp;</td>
                                 <td>Travelers Companies Inc.</td>
                                 <td>TRV</td>
@@ -1455,7 +1455,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>158&nbsp;&nbsp;</td>
                                 <td>Public Storage</td>
                                 <td>PSA</td>
@@ -1464,7 +1464,7 @@
                                 <td class="text-nowrap" style="color: red">-0.01</td>
                                 <td class="text-nowrap" style="color: red">(-0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>159&nbsp;&nbsp;</td>
                                 <td>Occidental Petroleum Corporation</td>
                                 <td>OXY</td>
@@ -1473,7 +1473,7 @@
                                 <td class="text-nowrap" style="color: green">0.13</td>
                                 <td class="text-nowrap" style="color: green">(0.32%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>160&nbsp;&nbsp;</td>
                                 <td>MetLife Inc.</td>
                                 <td>MET</td>
@@ -1482,7 +1482,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>161&nbsp;&nbsp;</td>
                                 <td>Valero Energy Corporation</td>
                                 <td>VLO</td>
@@ -1491,7 +1491,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>162&nbsp;&nbsp;</td>
                                 <td>Roper Technologies Inc.</td>
                                 <td>ROP</td>
@@ -1500,7 +1500,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>163&nbsp;&nbsp;</td>
                                 <td>Allstate Corporation</td>
                                 <td>ALL</td>
@@ -1509,7 +1509,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>164&nbsp;&nbsp;</td>
                                 <td>Prudential Financial Inc.</td>
                                 <td>PRU</td>
@@ -1518,7 +1518,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>165&nbsp;&nbsp;</td>
                                 <td>Humana Inc.</td>
                                 <td>HUM</td>
@@ -1527,7 +1527,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>166&nbsp;&nbsp;</td>
                                 <td>Yum! Brands Inc.</td>
                                 <td>YUM</td>
@@ -1536,7 +1536,7 @@
                                 <td class="text-nowrap" style="color: green">0.05</td>
                                 <td class="text-nowrap" style="color: green">(0.04%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>167&nbsp;&nbsp;</td>
                                 <td>Moody's Corporation</td>
                                 <td>MCO</td>
@@ -1545,7 +1545,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>168&nbsp;&nbsp;</td>
                                 <td>Lam Research Corporation</td>
                                 <td>LRCX</td>
@@ -1554,7 +1554,7 @@
                                 <td class="text-nowrap" style="color: green">0.01</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>169&nbsp;&nbsp;</td>
                                 <td>Ford Motor Company</td>
                                 <td>F</td>
@@ -1563,7 +1563,7 @@
                                 <td class="text-nowrap" style="color: green">0.02</td>
                                 <td class="text-nowrap" style="color: green">(0.23%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>170&nbsp;&nbsp;</td>
                                 <td>FedEx Corporation</td>
                                 <td>FDX</td>
@@ -1572,7 +1572,7 @@
                                 <td class="text-nowrap" style="color: green">0.07</td>
                                 <td class="text-nowrap" style="color: green">(0.05%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>171&nbsp;&nbsp;</td>
                                 <td>Xcel Energy Inc.</td>
                                 <td>XEL</td>
@@ -1581,7 +1581,7 @@
                                 <td class="text-nowrap" style="color: green">0.42</td>
                                 <td class="text-nowrap" style="color: green">(0.66%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>172&nbsp;&nbsp;</td>
                                 <td>Dow Inc.</td>
                                 <td>DOW</td>
@@ -1590,7 +1590,7 @@
                                 <td class="text-nowrap" style="color: red">-0.03</td>
                                 <td class="text-nowrap" style="color: red">(-0.06%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>173&nbsp;&nbsp;</td>
                                 <td>Johnson Controls International plc</td>
                                 <td>JCI</td>
@@ -1599,7 +1599,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>174&nbsp;&nbsp;</td>
                                 <td>Cognizant Technology Solutions Corporation Class A</td>
                                 <td>CTSH</td>
@@ -1608,7 +1608,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>175&nbsp;&nbsp;</td>
                                 <td>Eaton Corp. Plc</td>
                                 <td>ETN</td>
@@ -1617,7 +1617,7 @@
                                 <td class="text-nowrap" style="color: red">-1.72</td>
                                 <td class="text-nowrap" style="color: red">(-2.11%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>176&nbsp;&nbsp;</td>
                                 <td>General Mills Inc.</td>
                                 <td>GIS</td>
@@ -1626,7 +1626,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>177&nbsp;&nbsp;</td>
                                 <td>Marriott International Inc. Class A</td>
                                 <td>MAR</td>
@@ -1635,7 +1635,7 @@
                                 <td class="text-nowrap" style="color: green">0.07</td>
                                 <td class="text-nowrap" style="color: green">(0.06%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>178&nbsp;&nbsp;</td>
                                 <td>Constellation Brands Inc. Class A</td>
                                 <td>STZ</td>
@@ -1644,7 +1644,7 @@
                                 <td class="text-nowrap" style="color: red">-0.35</td>
                                 <td class="text-nowrap" style="color: red">(-0.18%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>179&nbsp;&nbsp;</td>
                                 <td>Newmont Goldcorp Corporation</td>
                                 <td>NEM</td>
@@ -1653,7 +1653,7 @@
                                 <td class="text-nowrap" style="color: green">0.09</td>
                                 <td class="text-nowrap" style="color: green">(0.24%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>180&nbsp;&nbsp;</td>
                                 <td>Autodesk Inc.</td>
                                 <td>ADSK</td>
@@ -1662,7 +1662,7 @@
                                 <td class="text-nowrap" style="color: green">0.28</td>
                                 <td class="text-nowrap" style="color: green">(0.19%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>181&nbsp;&nbsp;</td>
                                 <td>HCA Healthcare Inc</td>
                                 <td>HCA</td>
@@ -1671,7 +1671,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>182&nbsp;&nbsp;</td>
                                 <td>Consolidated Edison Inc.</td>
                                 <td>ED</td>
@@ -1680,7 +1680,7 @@
                                 <td class="text-nowrap" style="color: green">0.01</td>
                                 <td class="text-nowrap" style="color: green">(0.01%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>183&nbsp;&nbsp;</td>
                                 <td>Public Service Enterprise Group Inc</td>
                                 <td>PEG</td>
@@ -1689,7 +1689,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>184&nbsp;&nbsp;</td>
                                 <td>Advanced Micro Devices Inc.</td>
                                 <td>AMD</td>
@@ -1698,7 +1698,7 @@
                                 <td class="text-nowrap" style="color: green">0.17</td>
                                 <td class="text-nowrap" style="color: green">(0.57%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>185&nbsp;&nbsp;</td>
                                 <td>Equity Residential</td>
                                 <td>EQR</td>
@@ -1707,7 +1707,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>186&nbsp;&nbsp;</td>
                                 <td>Delta Air Lines Inc.</td>
                                 <td>DAL</td>
@@ -1716,7 +1716,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>187&nbsp;&nbsp;</td>
                                 <td>Twitter Inc.</td>
                                 <td>TWTR</td>
@@ -1725,7 +1725,7 @@
                                 <td class="text-nowrap" style="color: green">0.19</td>
                                 <td class="text-nowrap" style="color: green">(0.47%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>188&nbsp;&nbsp;</td>
                                 <td>O'Reilly Automotive Inc.</td>
                                 <td>ORLY</td>
@@ -1734,7 +1734,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>189&nbsp;&nbsp;</td>
                                 <td>AvalonBay Communities Inc.</td>
                                 <td>AVB</td>
@@ -1743,7 +1743,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>190&nbsp;&nbsp;</td>
                                 <td>eBay Inc.</td>
                                 <td>EBAY</td>
@@ -1752,7 +1752,7 @@
                                 <td class="text-nowrap" style="color: red">-0.20</td>
                                 <td class="text-nowrap" style="color: red">(-0.52%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>191&nbsp;&nbsp;</td>
                                 <td>WEC Energy Group Inc</td>
                                 <td>WEC</td>
@@ -1761,7 +1761,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>192&nbsp;&nbsp;</td>
                                 <td>TE Connectivity Ltd.</td>
                                 <td>TEL</td>
@@ -1770,7 +1770,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>193&nbsp;&nbsp;</td>
                                 <td>SunTrust Banks Inc.</td>
                                 <td>STI</td>
@@ -1779,7 +1779,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>194&nbsp;&nbsp;</td>
                                 <td>V.F. Corporation</td>
                                 <td>VFC</td>
@@ -1788,7 +1788,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>195&nbsp;&nbsp;</td>
                                 <td>Amphenol Corporation Class A</td>
                                 <td>APH</td>
@@ -1797,7 +1797,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>196&nbsp;&nbsp;</td>
                                 <td>ONEOK Inc.</td>
                                 <td>OKE</td>
@@ -1806,7 +1806,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>197&nbsp;&nbsp;</td>
                                 <td>Motorola Solutions Inc.</td>
                                 <td>MSI</td>
@@ -1815,7 +1815,7 @@
                                 <td class="text-nowrap" style="color: red">-1.53</td>
                                 <td class="text-nowrap" style="color: red">(-0.91%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>198&nbsp;&nbsp;</td>
                                 <td>Ingersoll-Rand Plc</td>
                                 <td>IR</td>
@@ -1824,7 +1824,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>199&nbsp;&nbsp;</td>
                                 <td>Eversource Energy</td>
                                 <td>ES</td>
@@ -1833,7 +1833,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>200&nbsp;&nbsp;</td>
                                 <td>SBA Communications Corp. Class A</td>
                                 <td>SBAC</td>
@@ -1842,7 +1842,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>201&nbsp;&nbsp;</td>
                                 <td>Williams Companies Inc.</td>
                                 <td>WMB</td>
@@ -1851,7 +1851,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>202&nbsp;&nbsp;</td>
                                 <td>PPG Industries Inc.</td>
                                 <td>PPG</td>
@@ -1860,7 +1860,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>203&nbsp;&nbsp;</td>
                                 <td>Electronic Arts Inc.</td>
                                 <td>EA</td>
@@ -1869,7 +1869,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>204&nbsp;&nbsp;</td>
                                 <td>IHS Markit Ltd.</td>
                                 <td>INFO</td>
@@ -1878,7 +1878,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>205&nbsp;&nbsp;</td>
                                 <td>Zimmer Biomet Holdings Inc.</td>
                                 <td>ZBH</td>
@@ -1887,7 +1887,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>206&nbsp;&nbsp;</td>
                                 <td>Ventas Inc.</td>
                                 <td>VTR</td>
@@ -1896,7 +1896,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>207&nbsp;&nbsp;</td>
                                 <td>Digital Realty Trust Inc.</td>
                                 <td>DLR</td>
@@ -1905,7 +1905,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>208&nbsp;&nbsp;</td>
                                 <td>Dollar Tree Inc.</td>
                                 <td>DLTR</td>
@@ -1914,7 +1914,7 @@
                                 <td class="text-nowrap" style="color: green">0.40</td>
                                 <td class="text-nowrap" style="color: green">(0.35%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>209&nbsp;&nbsp;</td>
                                 <td>Paychex Inc.</td>
                                 <td>PAYX</td>
@@ -1923,7 +1923,7 @@
                                 <td class="text-nowrap" style="color: green">0.06</td>
                                 <td class="text-nowrap" style="color: green">(0.07%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>210&nbsp;&nbsp;</td>
                                 <td>Edison International</td>
                                 <td>EIX</td>
@@ -1932,7 +1932,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>211&nbsp;&nbsp;</td>
                                 <td>AutoZone Inc.</td>
                                 <td>AZO</td>
@@ -1941,7 +1941,7 @@
                                 <td class="text-nowrap" style="color: red">-1.97</td>
                                 <td class="text-nowrap" style="color: red">(-0.18%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>212&nbsp;&nbsp;</td>
                                 <td>IQVIA Holdings Inc</td>
                                 <td>IQV</td>
@@ -1950,7 +1950,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>213&nbsp;&nbsp;</td>
                                 <td>Hilton Worldwide Holdings Inc</td>
                                 <td>HLT</td>
@@ -1959,7 +1959,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>214&nbsp;&nbsp;</td>
                                 <td>Southwest Airlines Co.</td>
                                 <td>LUV</td>
@@ -1968,7 +1968,7 @@
                                 <td class="text-nowrap" style="color: green">0.28</td>
                                 <td class="text-nowrap" style="color: green">(0.52%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>215&nbsp;&nbsp;</td>
                                 <td>FirstEnergy Corp.</td>
                                 <td>FE</td>
@@ -1977,7 +1977,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>216&nbsp;&nbsp;</td>
                                 <td>Verisk Analytics Inc</td>
                                 <td>VRSK</td>
@@ -1986,7 +1986,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>217&nbsp;&nbsp;</td>
                                 <td>T. Rowe Price Group</td>
                                 <td>TROW</td>
@@ -1995,7 +1995,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>218&nbsp;&nbsp;</td>
                                 <td>TransDigm Group Incorporated</td>
                                 <td>TDG</td>
@@ -2004,7 +2004,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>219&nbsp;&nbsp;</td>
                                 <td>KLA Corporation</td>
                                 <td>KLAC</td>
@@ -2013,7 +2013,7 @@
                                 <td class="text-nowrap" style="color: green">0.28</td>
                                 <td class="text-nowrap" style="color: green">(0.17%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>220&nbsp;&nbsp;</td>
                                 <td>FleetCor Technologies Inc.</td>
                                 <td>FLT</td>
@@ -2022,7 +2022,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>221&nbsp;&nbsp;</td>
                                 <td>Cummins Inc.</td>
                                 <td>CMI</td>
@@ -2031,7 +2031,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>222&nbsp;&nbsp;</td>
                                 <td>Realty Income Corporation</td>
                                 <td>O</td>
@@ -2040,7 +2040,7 @@
                                 <td class="text-nowrap" style="color: green">0.24</td>
                                 <td class="text-nowrap" style="color: green">(0.31%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>223&nbsp;&nbsp;</td>
                                 <td>T-Mobile US Inc.</td>
                                 <td>TMUS</td>
@@ -2049,7 +2049,7 @@
                                 <td class="text-nowrap" style="color: green">0.01</td>
                                 <td class="text-nowrap" style="color: green">(0.01%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>224&nbsp;&nbsp;</td>
                                 <td>McKesson Corporation</td>
                                 <td>MCK</td>
@@ -2058,7 +2058,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>225&nbsp;&nbsp;</td>
                                 <td>Discover Financial Services</td>
                                 <td>DFS</td>
@@ -2067,7 +2067,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>226&nbsp;&nbsp;</td>
                                 <td>Tyson Foods Inc. Class A</td>
                                 <td>TSN</td>
@@ -2076,7 +2076,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>227&nbsp;&nbsp;</td>
                                 <td>Ball Corporation</td>
                                 <td>BLL</td>
@@ -2085,7 +2085,7 @@
                                 <td class="text-nowrap" style="color: red">-0.28</td>
                                 <td class="text-nowrap" style="color: red">(-0.39%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>228&nbsp;&nbsp;</td>
                                 <td>Willis Towers Watson Public Limited Company</td>
                                 <td>WLTW</td>
@@ -2094,7 +2094,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>229&nbsp;&nbsp;</td>
                                 <td>Regeneron Pharmaceuticals Inc.</td>
                                 <td>REGN</td>
@@ -2103,7 +2103,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>230&nbsp;&nbsp;</td>
                                 <td>DTE Energy Company</td>
                                 <td>DTE</td>
@@ -2112,7 +2112,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>231&nbsp;&nbsp;</td>
                                 <td>HP Inc.</td>
                                 <td>HPQ</td>
@@ -2121,7 +2121,7 @@
                                 <td class="text-nowrap" style="color: green">0.01</td>
                                 <td class="text-nowrap" style="color: green">(0.06%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>232&nbsp;&nbsp;</td>
                                 <td>Xilinx Inc.</td>
                                 <td>XLNX</td>
@@ -2130,7 +2130,7 @@
                                 <td class="text-nowrap" style="color: green">0.49</td>
                                 <td class="text-nowrap" style="color: green">(0.51%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>233&nbsp;&nbsp;</td>
                                 <td>Entergy Corporation</td>
                                 <td>ETR</td>
@@ -2139,7 +2139,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>234&nbsp;&nbsp;</td>
                                 <td>IDEXX Laboratories Inc.</td>
                                 <td>IDXX</td>
@@ -2148,7 +2148,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>235&nbsp;&nbsp;</td>
                                 <td>Hershey Company</td>
                                 <td>HSY</td>
@@ -2157,7 +2157,7 @@
                                 <td class="text-nowrap" style="color: red">-0.31</td>
                                 <td class="text-nowrap" style="color: red">(-0.20%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>236&nbsp;&nbsp;</td>
                                 <td>PACCAR Inc</td>
                                 <td>PCAR</td>
@@ -2166,7 +2166,7 @@
                                 <td class="text-nowrap" style="color: green">0.30</td>
                                 <td class="text-nowrap" style="color: green">(0.43%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>237&nbsp;&nbsp;</td>
                                 <td>Agilent Technologies Inc.</td>
                                 <td>A</td>
@@ -2175,7 +2175,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>238&nbsp;&nbsp;</td>
                                 <td>American Water Works Company Inc.</td>
                                 <td>AWK</td>
@@ -2184,7 +2184,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>239&nbsp;&nbsp;</td>
                                 <td>Archer-Daniels-Midland Company</td>
                                 <td>ADM</td>
@@ -2193,7 +2193,7 @@
                                 <td class="text-nowrap" style="color: green">0.53</td>
                                 <td class="text-nowrap" style="color: green">(1.31%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>240&nbsp;&nbsp;</td>
                                 <td>Cintas Corporation</td>
                                 <td>CTAS</td>
@@ -2202,7 +2202,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>241&nbsp;&nbsp;</td>
                                 <td>Corning Inc</td>
                                 <td>GLW</td>
@@ -2211,7 +2211,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>242&nbsp;&nbsp;</td>
                                 <td>PPL Corporation</td>
                                 <td>PPL</td>
@@ -2220,7 +2220,7 @@
                                 <td class="text-nowrap" style="color: green">0.41</td>
                                 <td class="text-nowrap" style="color: green">(1.30%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>243&nbsp;&nbsp;</td>
                                 <td>Alexion Pharmaceuticals Inc.</td>
                                 <td>ALXN</td>
@@ -2229,7 +2229,7 @@
                                 <td class="text-nowrap" style="color: green">1.76</td>
                                 <td class="text-nowrap" style="color: green">(1.77%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>244&nbsp;&nbsp;</td>
                                 <td>Parker-Hannifin Corporation</td>
                                 <td>PH</td>
@@ -2238,7 +2238,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>245&nbsp;&nbsp;</td>
                                 <td>Microchip Technology Incorporated</td>
                                 <td>MCHP</td>
@@ -2247,7 +2247,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>246&nbsp;&nbsp;</td>
                                 <td>Monster Beverage Corporation</td>
                                 <td>MNST</td>
@@ -2256,7 +2256,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>247&nbsp;&nbsp;</td>
                                 <td>Pioneer Natural Resources Company</td>
                                 <td>PXD</td>
@@ -2265,7 +2265,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>248&nbsp;&nbsp;</td>
                                 <td>LyondellBasell Industries NV</td>
                                 <td>LYB</td>
@@ -2274,7 +2274,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>249&nbsp;&nbsp;</td>
                                 <td>Essex Property Trust Inc.</td>
                                 <td>ESS</td>
@@ -2283,7 +2283,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>250&nbsp;&nbsp;</td>
                                 <td>Aptiv PLC</td>
                                 <td>APTV</td>
@@ -2292,7 +2292,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>251&nbsp;&nbsp;</td>
                                 <td>Cerner Corporation</td>
                                 <td>CERN</td>
@@ -2301,7 +2301,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>252&nbsp;&nbsp;</td>
                                 <td>Stanley Black &amp; Decker Inc.</td>
                                 <td>SWK</td>
@@ -2310,7 +2310,7 @@
                                 <td class="text-nowrap" style="color: red">-1.45</td>
                                 <td class="text-nowrap" style="color: red">(-0.99%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>253&nbsp;&nbsp;</td>
                                 <td>State Street Corporation</td>
                                 <td>STT</td>
@@ -2319,7 +2319,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>254&nbsp;&nbsp;</td>
                                 <td>Chipotle Mexican Grill Inc.</td>
                                 <td>CMG</td>
@@ -2328,7 +2328,7 @@
                                 <td class="text-nowrap" style="color: green">0.65</td>
                                 <td class="text-nowrap" style="color: green">(0.08%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>255&nbsp;&nbsp;</td>
                                 <td>Hartford Financial Services Group Inc.</td>
                                 <td>HIG</td>
@@ -2337,7 +2337,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>256&nbsp;&nbsp;</td>
                                 <td>M&amp;T Bank Corporation</td>
                                 <td>MTB</td>
@@ -2346,7 +2346,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>257&nbsp;&nbsp;</td>
                                 <td>Synopsys Inc.</td>
                                 <td>SNPS</td>
@@ -2355,7 +2355,7 @@
                                 <td class="text-nowrap" style="color: green">1.73</td>
                                 <td class="text-nowrap" style="color: green">(1.25%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>258&nbsp;&nbsp;</td>
                                 <td>McCormick &amp; Company Incorporated</td>
                                 <td>MKC</td>
@@ -2364,7 +2364,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>259&nbsp;&nbsp;</td>
                                 <td>AMETEK Inc.</td>
                                 <td>AME</td>
@@ -2373,7 +2373,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>260&nbsp;&nbsp;</td>
                                 <td>Synchrony Financial</td>
                                 <td>SYF</td>
@@ -2382,7 +2382,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>261&nbsp;&nbsp;</td>
                                 <td>Weyerhaeuser Company</td>
                                 <td>WY</td>
@@ -2391,7 +2391,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>262&nbsp;&nbsp;</td>
                                 <td>Vulcan Materials Company</td>
                                 <td>VMC</td>
@@ -2400,7 +2400,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>263&nbsp;&nbsp;</td>
                                 <td>VeriSign Inc.</td>
                                 <td>VRSN</td>
@@ -2409,7 +2409,7 @@
                                 <td class="text-nowrap" style="color: green">0.99</td>
                                 <td class="text-nowrap" style="color: green">(0.53%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>264&nbsp;&nbsp;</td>
                                 <td>United Airlines Holdings Inc.</td>
                                 <td>UAL</td>
@@ -2418,7 +2418,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>265&nbsp;&nbsp;</td>
                                 <td>Fortive Corp.</td>
                                 <td>FTV</td>
@@ -2427,7 +2427,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>266&nbsp;&nbsp;</td>
                                 <td>Northern Trust Corporation</td>
                                 <td>NTRS</td>
@@ -2436,7 +2436,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>267&nbsp;&nbsp;</td>
                                 <td>Corteva Inc</td>
                                 <td>CTVA</td>
@@ -2445,7 +2445,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>268&nbsp;&nbsp;</td>
                                 <td>Kroger Co.</td>
                                 <td>KR</td>
@@ -2454,7 +2454,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>269&nbsp;&nbsp;</td>
                                 <td>Fifth Third Bancorp</td>
                                 <td>FITB</td>
@@ -2463,7 +2463,7 @@
                                 <td class="text-nowrap" style="color: green">0.11</td>
                                 <td class="text-nowrap" style="color: green">(0.41%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>270&nbsp;&nbsp;</td>
                                 <td>Clorox Company</td>
                                 <td>CLX</td>
@@ -2472,7 +2472,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>271&nbsp;&nbsp;</td>
                                 <td>Expedia Group Inc.</td>
                                 <td>EXPE</td>
@@ -2481,7 +2481,7 @@
                                 <td class="text-nowrap" style="color: red">-0.07</td>
                                 <td class="text-nowrap" style="color: red">(-0.05%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>272&nbsp;&nbsp;</td>
                                 <td>Las Vegas Sands Corp.</td>
                                 <td>LVS</td>
@@ -2490,7 +2490,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>273&nbsp;&nbsp;</td>
                                 <td>Ameren Corporation</td>
                                 <td>AEE</td>
@@ -2499,7 +2499,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>274&nbsp;&nbsp;</td>
                                 <td>MSCI Inc. Class A</td>
                                 <td>MSCI</td>
@@ -2508,7 +2508,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>275&nbsp;&nbsp;</td>
                                 <td>ResMed Inc.</td>
                                 <td>RMD</td>
@@ -2517,7 +2517,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>276&nbsp;&nbsp;</td>
                                 <td>ANSYS Inc.</td>
                                 <td>ANSS</td>
@@ -2526,7 +2526,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>277&nbsp;&nbsp;</td>
                                 <td>Church &amp; Dwight Co. Inc.</td>
                                 <td>CHD</td>
@@ -2535,7 +2535,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>278&nbsp;&nbsp;</td>
                                 <td>Hewlett Packard Enterprise Co.</td>
                                 <td>HPE</td>
@@ -2544,7 +2544,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>279&nbsp;&nbsp;</td>
                                 <td>Cadence Design Systems Inc.</td>
                                 <td>CDNS</td>
@@ -2553,7 +2553,7 @@
                                 <td class="text-nowrap" style="color: green">0.15</td>
                                 <td class="text-nowrap" style="color: green">(0.23%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>280&nbsp;&nbsp;</td>
                                 <td>Republic Services Inc.</td>
                                 <td>RSG</td>
@@ -2562,7 +2562,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>281&nbsp;&nbsp;</td>
                                 <td>Boston Properties Inc.</td>
                                 <td>BXP</td>
@@ -2571,7 +2571,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>282&nbsp;&nbsp;</td>
                                 <td>CMS Energy Corporation</td>
                                 <td>CMS</td>
@@ -2580,7 +2580,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>283&nbsp;&nbsp;</td>
                                 <td>Centene Corporation</td>
                                 <td>CNC</td>
@@ -2589,7 +2589,7 @@
                                 <td class="text-nowrap" style="color: green">0.03</td>
                                 <td class="text-nowrap" style="color: green">(0.07%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>284&nbsp;&nbsp;</td>
                                 <td>Rockwell Automation Inc.</td>
                                 <td>ROK</td>
@@ -2598,7 +2598,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>285&nbsp;&nbsp;</td>
                                 <td>HCP Inc.</td>
                                 <td>HCP</td>
@@ -2607,7 +2607,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>286&nbsp;&nbsp;</td>
                                 <td>CDW Corp.</td>
                                 <td>CDW</td>
@@ -2616,7 +2616,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>287&nbsp;&nbsp;</td>
                                 <td>Royal Caribbean Cruises Ltd.</td>
                                 <td>RCL</td>
@@ -2625,7 +2625,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>288&nbsp;&nbsp;</td>
                                 <td>Fastenal Company</td>
                                 <td>FAST</td>
@@ -2634,7 +2634,7 @@
                                 <td class="text-nowrap" style="color: green">0.07</td>
                                 <td class="text-nowrap" style="color: green">(0.19%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>289&nbsp;&nbsp;</td>
                                 <td>Keysight Technologies Inc</td>
                                 <td>KEYS</td>
@@ -2643,7 +2643,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>290&nbsp;&nbsp;</td>
                                 <td>D.R. Horton Inc.</td>
                                 <td>DHI</td>
@@ -2652,7 +2652,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>291&nbsp;&nbsp;</td>
                                 <td>Cincinnati Financial Corporation</td>
                                 <td>CINF</td>
@@ -2661,7 +2661,7 @@
                                 <td class="text-nowrap" style="color: red">-0.08</td>
                                 <td class="text-nowrap" style="color: red">(-0.07%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>292&nbsp;&nbsp;</td>
                                 <td>Ameriprise Financial Inc.</td>
                                 <td>AMP</td>
@@ -2670,7 +2670,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>293&nbsp;&nbsp;</td>
                                 <td>Alexandria Real Estate Equities Inc.</td>
                                 <td>ARE</td>
@@ -2679,7 +2679,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>294&nbsp;&nbsp;</td>
                                 <td>KeyCorp</td>
                                 <td>KEY</td>
@@ -2688,7 +2688,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>295&nbsp;&nbsp;</td>
                                 <td>Hess Corporation</td>
                                 <td>HES</td>
@@ -2697,7 +2697,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>296&nbsp;&nbsp;</td>
                                 <td>Equifax Inc.</td>
                                 <td>EFX</td>
@@ -2706,7 +2706,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>297&nbsp;&nbsp;</td>
                                 <td>CBRE Group Inc. Class A</td>
                                 <td>CBRE</td>
@@ -2715,7 +2715,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>298&nbsp;&nbsp;</td>
                                 <td>Western Digital Corporation</td>
                                 <td>WDC</td>
@@ -2724,7 +2724,7 @@
                                 <td class="text-nowrap" style="color: green">0.44</td>
                                 <td class="text-nowrap" style="color: green">(0.75%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>299&nbsp;&nbsp;</td>
                                 <td>Lennar Corporation Class A</td>
                                 <td>LEN</td>
@@ -2733,7 +2733,7 @@
                                 <td class="text-nowrap" style="color: green">0.18</td>
                                 <td class="text-nowrap" style="color: green">(0.31%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>300&nbsp;&nbsp;</td>
                                 <td>Martin Marietta Materials Inc.</td>
                                 <td>MLM</td>
@@ -2742,7 +2742,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>301&nbsp;&nbsp;</td>
                                 <td>Kraft Heinz Company</td>
                                 <td>KHC</td>
@@ -2751,7 +2751,7 @@
                                 <td class="text-nowrap" style="color: green">0.05</td>
                                 <td class="text-nowrap" style="color: green">(0.18%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>302&nbsp;&nbsp;</td>
                                 <td>Mettler-Toledo International Inc.</td>
                                 <td>MTD</td>
@@ -2760,7 +2760,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>303&nbsp;&nbsp;</td>
                                 <td>Copart Inc.</td>
                                 <td>CPRT</td>
@@ -2769,7 +2769,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>304&nbsp;&nbsp;</td>
                                 <td>Carnival Corporation</td>
                                 <td>CCL</td>
@@ -2778,7 +2778,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>305&nbsp;&nbsp;</td>
                                 <td>Arthur J. Gallagher &amp; Co.</td>
                                 <td>AJG</td>
@@ -2787,7 +2787,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>306&nbsp;&nbsp;</td>
                                 <td>Laboratory Corporation of America Holdings</td>
                                 <td>LH</td>
@@ -2796,7 +2796,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>307&nbsp;&nbsp;</td>
                                 <td>Halliburton Company</td>
                                 <td>HAL</td>
@@ -2805,7 +2805,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>308&nbsp;&nbsp;</td>
                                 <td>Omnicom Group Inc</td>
                                 <td>OMC</td>
@@ -2814,7 +2814,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>309&nbsp;&nbsp;</td>
                                 <td>First Republic Bank</td>
                                 <td>FRC</td>
@@ -2823,7 +2823,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>310&nbsp;&nbsp;</td>
                                 <td>International Paper Company</td>
                                 <td>IP</td>
@@ -2832,7 +2832,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>311&nbsp;&nbsp;</td>
                                 <td>Kellogg Company</td>
                                 <td>K</td>
@@ -2841,7 +2841,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>312&nbsp;&nbsp;</td>
                                 <td>Maxim Integrated Products Inc.</td>
                                 <td>MXIM</td>
@@ -2850,7 +2850,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>313&nbsp;&nbsp;</td>
                                 <td>Best Buy Co. Inc.</td>
                                 <td>BBY</td>
@@ -2859,7 +2859,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>314&nbsp;&nbsp;</td>
                                 <td>Nucor Corporation</td>
                                 <td>NUE</td>
@@ -2868,7 +2868,7 @@
                                 <td class="text-nowrap" style="color: red">-0.52</td>
                                 <td class="text-nowrap" style="color: red">(-0.99%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>315&nbsp;&nbsp;</td>
                                 <td>Mid-America Apartment Communities Inc.</td>
                                 <td>MAA</td>
@@ -2877,7 +2877,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>316&nbsp;&nbsp;</td>
                                 <td>Amcor PLC</td>
                                 <td>AMCR</td>
@@ -2886,7 +2886,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>317&nbsp;&nbsp;</td>
                                 <td>Citizens Financial Group Inc.</td>
                                 <td>CFG</td>
@@ -2895,7 +2895,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>318&nbsp;&nbsp;</td>
                                 <td>Regions Financial Corporation</td>
                                 <td>RF</td>
@@ -2904,7 +2904,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>319&nbsp;&nbsp;</td>
                                 <td>Evergy Inc.</td>
                                 <td>EVRG</td>
@@ -2913,7 +2913,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>320&nbsp;&nbsp;</td>
                                 <td>Extra Space Storage Inc.</td>
                                 <td>EXR</td>
@@ -2922,7 +2922,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>321&nbsp;&nbsp;</td>
                                 <td>Skyworks Solutions Inc.</td>
                                 <td>SWKS</td>
@@ -2931,7 +2931,7 @@
                                 <td class="text-nowrap" style="color: green">0.25</td>
                                 <td class="text-nowrap" style="color: green">(0.29%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>322&nbsp;&nbsp;</td>
                                 <td>Celanese Corporation</td>
                                 <td>CE</td>
@@ -2940,7 +2940,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>323&nbsp;&nbsp;</td>
                                 <td>Teleflex Incorporated</td>
                                 <td>TFX</td>
@@ -2949,7 +2949,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>324&nbsp;&nbsp;</td>
                                 <td>Akamai Technologies Inc.</td>
                                 <td>AKAM</td>
@@ -2958,7 +2958,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>325&nbsp;&nbsp;</td>
                                 <td>CarMax Inc.</td>
                                 <td>KMX</td>
@@ -2967,7 +2967,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>326&nbsp;&nbsp;</td>
                                 <td>MGM Resorts International</td>
                                 <td>MGM</td>
@@ -2976,7 +2976,7 @@
                                 <td class="text-nowrap" style="color: green">0.33</td>
                                 <td class="text-nowrap" style="color: green">(1.18%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>327&nbsp;&nbsp;</td>
                                 <td>Cooper Companies Inc.</td>
                                 <td>COO</td>
@@ -2985,7 +2985,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>328&nbsp;&nbsp;</td>
                                 <td>Huntington Bancshares Incorporated</td>
                                 <td>HBAN</td>
@@ -2994,7 +2994,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>329&nbsp;&nbsp;</td>
                                 <td>Ulta Beauty Inc</td>
                                 <td>ULTA</td>
@@ -3003,7 +3003,7 @@
                                 <td class="text-nowrap" style="color: green">0.54</td>
                                 <td class="text-nowrap" style="color: green">(0.22%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>330&nbsp;&nbsp;</td>
                                 <td>UDR Inc.</td>
                                 <td>UDR</td>
@@ -3012,7 +3012,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>331&nbsp;&nbsp;</td>
                                 <td>Baker Hughes a GE Company Class A</td>
                                 <td>BHGE</td>
@@ -3021,7 +3021,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>332&nbsp;&nbsp;</td>
                                 <td>Waters Corporation</td>
                                 <td>WAT</td>
@@ -3030,7 +3030,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>333&nbsp;&nbsp;</td>
                                 <td>Align Technology Inc.</td>
                                 <td>ALGN</td>
@@ -3039,7 +3039,7 @@
                                 <td class="text-nowrap" style="color: green">0.24</td>
                                 <td class="text-nowrap" style="color: green">(0.12%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>334&nbsp;&nbsp;</td>
                                 <td>CenterPoint Energy Inc.</td>
                                 <td>CNP</td>
@@ -3048,7 +3048,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>335&nbsp;&nbsp;</td>
                                 <td>Broadridge Financial Solutions Inc.</td>
                                 <td>BR</td>
@@ -3057,7 +3057,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>336&nbsp;&nbsp;</td>
                                 <td>Principal Financial Group Inc.</td>
                                 <td>PFG</td>
@@ -3066,7 +3066,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>337&nbsp;&nbsp;</td>
                                 <td>Dover Corporation</td>
                                 <td>DOV</td>
@@ -3075,7 +3075,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>338&nbsp;&nbsp;</td>
                                 <td>Genuine Parts Company</td>
                                 <td>GPC</td>
@@ -3084,7 +3084,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>339&nbsp;&nbsp;</td>
                                 <td>Hasbro Inc.</td>
                                 <td>HAS</td>
@@ -3093,7 +3093,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>340&nbsp;&nbsp;</td>
                                 <td>Conagra Brands Inc.</td>
                                 <td>CAG</td>
@@ -3102,7 +3102,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>341&nbsp;&nbsp;</td>
                                 <td>Take-Two Interactive Software Inc.</td>
                                 <td>TTWO</td>
@@ -3111,7 +3111,7 @@
                                 <td class="text-nowrap" style="color: green">0.39</td>
                                 <td class="text-nowrap" style="color: green">(0.32%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>342&nbsp;&nbsp;</td>
                                 <td>Quest Diagnostics Incorporated</td>
                                 <td>DGX</td>
@@ -3120,7 +3120,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>343&nbsp;&nbsp;</td>
                                 <td>Darden Restaurants Inc.</td>
                                 <td>DRI</td>
@@ -3129,7 +3129,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>344&nbsp;&nbsp;</td>
                                 <td>Cardinal Health Inc.</td>
                                 <td>CAH</td>
@@ -3138,7 +3138,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>345&nbsp;&nbsp;</td>
                                 <td>MarketAxess Holdings Inc.</td>
                                 <td>MKTX</td>
@@ -3147,7 +3147,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>346&nbsp;&nbsp;</td>
                                 <td>Xylem Inc.</td>
                                 <td>XYL</td>
@@ -3156,7 +3156,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>347&nbsp;&nbsp;</td>
                                 <td>Diamondback Energy Inc.</td>
                                 <td>FANG</td>
@@ -3165,7 +3165,7 @@
                                 <td class="text-nowrap" style="color: red">-0.04</td>
                                 <td class="text-nowrap" style="color: red">(-0.05%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>348&nbsp;&nbsp;</td>
                                 <td>Incyte Corporation</td>
                                 <td>INCY</td>
@@ -3174,7 +3174,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>349&nbsp;&nbsp;</td>
                                 <td>Symantec Corporation</td>
                                 <td>SYMC</td>
@@ -3183,7 +3183,7 @@
                                 <td class="text-nowrap" style="color: green">0.04</td>
                                 <td class="text-nowrap" style="color: green">(0.17%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>350&nbsp;&nbsp;</td>
                                 <td>WellCare Health Plans Inc.</td>
                                 <td>WCG</td>
@@ -3192,7 +3192,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>351&nbsp;&nbsp;</td>
                                 <td>Kansas City Southern</td>
                                 <td>KSU</td>
@@ -3201,7 +3201,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>352&nbsp;&nbsp;</td>
                                 <td>Cboe Global Markets Inc</td>
                                 <td>CBOE</td>
@@ -3210,7 +3210,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>353&nbsp;&nbsp;</td>
                                 <td>Hologic Inc.</td>
                                 <td>HOLX</td>
@@ -3219,7 +3219,7 @@
                                 <td class="text-nowrap" style="color: green">0.27</td>
                                 <td class="text-nowrap" style="color: green">(0.56%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>354&nbsp;&nbsp;</td>
                                 <td>Freeport-McMoRan Inc.</td>
                                 <td>FCX</td>
@@ -3228,7 +3228,7 @@
                                 <td class="text-nowrap" style="color: green">0.03</td>
                                 <td class="text-nowrap" style="color: green">(0.31%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>355&nbsp;&nbsp;</td>
                                 <td>Atmos Energy Corporation</td>
                                 <td>ATO</td>
@@ -3237,7 +3237,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>356&nbsp;&nbsp;</td>
                                 <td>Loews Corporation</td>
                                 <td>L</td>
@@ -3246,7 +3246,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>357&nbsp;&nbsp;</td>
                                 <td>Concho Resources Inc.</td>
                                 <td>CXO</td>
@@ -3255,7 +3255,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>358&nbsp;&nbsp;</td>
                                 <td>W.W. Grainger Inc.</td>
                                 <td>GWW</td>
@@ -3264,7 +3264,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>359&nbsp;&nbsp;</td>
                                 <td>Gartner Inc.</td>
                                 <td>IT</td>
@@ -3273,7 +3273,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>360&nbsp;&nbsp;</td>
                                 <td>Alliant Energy Corp</td>
                                 <td>LNT</td>
@@ -3282,7 +3282,7 @@
                                 <td class="text-nowrap" style="color: green">0.01</td>
                                 <td class="text-nowrap" style="color: green">(0.01%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>361&nbsp;&nbsp;</td>
                                 <td>Seagate Technology PLC</td>
                                 <td>STX</td>
@@ -3291,7 +3291,7 @@
                                 <td class="text-nowrap" style="color: red">-0.05</td>
                                 <td class="text-nowrap" style="color: red">(-0.09%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>362&nbsp;&nbsp;</td>
                                 <td>Arista Networks Inc.</td>
                                 <td>ANET</td>
@@ -3300,7 +3300,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>363&nbsp;&nbsp;</td>
                                 <td>International Flavors &amp; Fragrances Inc.</td>
                                 <td>IFF</td>
@@ -3309,7 +3309,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>364&nbsp;&nbsp;</td>
                                 <td>Garmin Ltd.</td>
                                 <td>GRMN</td>
@@ -3318,7 +3318,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>365&nbsp;&nbsp;</td>
                                 <td>Expeditors International of Washington Inc.</td>
                                 <td>EXPD</td>
@@ -3327,7 +3327,7 @@
                                 <td class="text-nowrap" style="color: green">0.01</td>
                                 <td class="text-nowrap" style="color: green">(0.01%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>366&nbsp;&nbsp;</td>
                                 <td>CBS Corporation Class B</td>
                                 <td>CBS</td>
@@ -3336,7 +3336,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>367&nbsp;&nbsp;</td>
                                 <td>AmerisourceBergen Corporation</td>
                                 <td>ABC</td>
@@ -3345,7 +3345,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>368&nbsp;&nbsp;</td>
                                 <td>NVR Inc.</td>
                                 <td>NVR</td>
@@ -3354,7 +3354,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>369&nbsp;&nbsp;</td>
                                 <td>Jacobs Engineering Group Inc.</td>
                                 <td>JEC</td>
@@ -3363,7 +3363,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>370&nbsp;&nbsp;</td>
                                 <td>J.M. Smucker Company</td>
                                 <td>SJM</td>
@@ -3372,7 +3372,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>371&nbsp;&nbsp;</td>
                                 <td>Masco Corporation</td>
                                 <td>MAS</td>
@@ -3381,7 +3381,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>372&nbsp;&nbsp;</td>
                                 <td>DENTSPLY SIRONA Inc.</td>
                                 <td>XRAY</td>
@@ -3390,7 +3390,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>373&nbsp;&nbsp;</td>
                                 <td>Host Hotels &amp; Resorts Inc.</td>
                                 <td>HST</td>
@@ -3399,7 +3399,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>374&nbsp;&nbsp;</td>
                                 <td>Citrix Systems Inc.</td>
                                 <td>CTXS</td>
@@ -3408,7 +3408,7 @@
                                 <td class="text-nowrap" style="color: green">0.27</td>
                                 <td class="text-nowrap" style="color: green">(0.28%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>375&nbsp;&nbsp;</td>
                                 <td>Duke Realty Corporation</td>
                                 <td>DRE</td>
@@ -3417,7 +3417,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>376&nbsp;&nbsp;</td>
                                 <td>NetApp Inc.</td>
                                 <td>NTAP</td>
@@ -3426,7 +3426,7 @@
                                 <td class="text-nowrap" style="color: red">-0.65</td>
                                 <td class="text-nowrap" style="color: red">(-1.26%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>377&nbsp;&nbsp;</td>
                                 <td>Universal Health Services Inc. Class B</td>
                                 <td>UHS</td>
@@ -3435,7 +3435,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>378&nbsp;&nbsp;</td>
                                 <td>Westinghouse Air Brake Technologies Corporation</td>
                                 <td>WAB</td>
@@ -3444,7 +3444,7 @@
                                 <td class="text-nowrap" style="color: green">0.86</td>
                                 <td class="text-nowrap" style="color: green">(1.29%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>379&nbsp;&nbsp;</td>
                                 <td>IDEX Corporation</td>
                                 <td>IEX</td>
@@ -3453,7 +3453,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>380&nbsp;&nbsp;</td>
                                 <td>C.H. Robinson Worldwide Inc.</td>
                                 <td>CHRW</td>
@@ -3462,7 +3462,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>381&nbsp;&nbsp;</td>
                                 <td>Nasdaq Inc.</td>
                                 <td>NDAQ</td>
@@ -3471,7 +3471,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>382&nbsp;&nbsp;</td>
                                 <td>">Brown-Forman Corporation Class B</td>
                                 <td>">BF.B</td>
@@ -3480,7 +3480,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>383&nbsp;&nbsp;</td>
                                 <td>Regency Centers Corporation</td>
                                 <td>REG</td>
@@ -3489,7 +3489,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>384&nbsp;&nbsp;</td>
                                 <td>Hormel Foods Corporation</td>
                                 <td>HRL</td>
@@ -3498,7 +3498,7 @@
                                 <td class="text-nowrap" style="color: green">0.02</td>
                                 <td class="text-nowrap" style="color: green">(0.05%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>385&nbsp;&nbsp;</td>
                                 <td>Leidos Holdings Inc.</td>
                                 <td>LDOS</td>
@@ -3507,7 +3507,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>386&nbsp;&nbsp;</td>
                                 <td>Lincoln National Corporation</td>
                                 <td>LNC</td>
@@ -3516,7 +3516,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>387&nbsp;&nbsp;</td>
                                 <td>Advance Auto Parts Inc.</td>
                                 <td>AAP</td>
@@ -3525,7 +3525,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>388&nbsp;&nbsp;</td>
                                 <td>CenturyLink Inc.</td>
                                 <td>CTL</td>
@@ -3534,7 +3534,7 @@
                                 <td class="text-nowrap" style="color: green">0.04</td>
                                 <td class="text-nowrap" style="color: green">(0.34%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>389&nbsp;&nbsp;</td>
                                 <td>Lamb Weston Holdings Inc.</td>
                                 <td>LW</td>
@@ -3543,7 +3543,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>390&nbsp;&nbsp;</td>
                                 <td>Tractor Supply Company</td>
                                 <td>TSCO</td>
@@ -3552,7 +3552,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>391&nbsp;&nbsp;</td>
                                 <td>Fortinet Inc.</td>
                                 <td>FTNT</td>
@@ -3561,7 +3561,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>392&nbsp;&nbsp;</td>
                                 <td>Textron Inc.</td>
                                 <td>TXT</td>
@@ -3570,7 +3570,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>393&nbsp;&nbsp;</td>
                                 <td>Jack Henry &amp; Associates Inc.</td>
                                 <td>JKHY</td>
@@ -3579,7 +3579,7 @@
                                 <td class="text-nowrap" style="color: red">-0.10</td>
                                 <td class="text-nowrap" style="color: red">(-0.07%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>394&nbsp;&nbsp;</td>
                                 <td>NiSource Inc</td>
                                 <td>NI</td>
@@ -3588,7 +3588,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>395&nbsp;&nbsp;</td>
                                 <td>American Airlines Group Inc.</td>
                                 <td>AAL</td>
@@ -3597,7 +3597,7 @@
                                 <td class="text-nowrap" style="color: green">0.03</td>
                                 <td class="text-nowrap" style="color: green">(0.09%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>396&nbsp;&nbsp;</td>
                                 <td>CF Industries Holdings Inc.</td>
                                 <td>CF</td>
@@ -3606,7 +3606,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>397&nbsp;&nbsp;</td>
                                 <td>Fox Corporation Class A</td>
                                 <td>FOXA</td>
@@ -3615,7 +3615,7 @@
                                 <td class="text-nowrap" style="color: red">-0.11</td>
                                 <td class="text-nowrap" style="color: red">(-0.35%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>398&nbsp;&nbsp;</td>
                                 <td>Pinnacle West Capital Corporation</td>
                                 <td>PNW</td>
@@ -3624,7 +3624,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>399&nbsp;&nbsp;</td>
                                 <td>FMC Corporation</td>
                                 <td>FMC</td>
@@ -3633,7 +3633,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>400&nbsp;&nbsp;</td>
                                 <td>AES Corporation</td>
                                 <td>AES</td>
@@ -3642,7 +3642,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>401&nbsp;&nbsp;</td>
                                 <td>Molson Coors Brewing Company Class B</td>
                                 <td>TAP</td>
@@ -3651,7 +3651,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>402&nbsp;&nbsp;</td>
                                 <td>Norwegian Cruise Line Holdings Ltd.</td>
                                 <td>NCLH</td>
@@ -3660,7 +3660,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>403&nbsp;&nbsp;</td>
                                 <td>Wynn Resorts Limited</td>
                                 <td>WYNN</td>
@@ -3669,7 +3669,7 @@
                                 <td class="text-nowrap" style="color: green">0.97</td>
                                 <td class="text-nowrap" style="color: green">(0.86%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>404&nbsp;&nbsp;</td>
                                 <td>Arconic Inc.</td>
                                 <td>ARNC</td>
@@ -3678,7 +3678,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>405&nbsp;&nbsp;</td>
                                 <td>Everest Re Group Ltd.</td>
                                 <td>RE</td>
@@ -3687,7 +3687,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>406&nbsp;&nbsp;</td>
                                 <td>Western Union Company</td>
                                 <td>WU</td>
@@ -3696,7 +3696,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>407&nbsp;&nbsp;</td>
                                 <td>Packaging Corporation of America</td>
                                 <td>PKG</td>
@@ -3705,7 +3705,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>408&nbsp;&nbsp;</td>
                                 <td>SVB Financial Group</td>
                                 <td>SIVB</td>
@@ -3714,7 +3714,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>409&nbsp;&nbsp;</td>
                                 <td>Varian Medical Systems Inc.</td>
                                 <td>VAR</td>
@@ -3723,7 +3723,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>410&nbsp;&nbsp;</td>
                                 <td>Whirlpool Corporation</td>
                                 <td>WHR</td>
@@ -3732,7 +3732,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>411&nbsp;&nbsp;</td>
                                 <td>Vornado Realty Trust</td>
                                 <td>VNO</td>
@@ -3741,7 +3741,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>412&nbsp;&nbsp;</td>
                                 <td>NRG Energy Inc.</td>
                                 <td>NRG</td>
@@ -3750,7 +3750,7 @@
                                 <td class="text-nowrap" style="color: green">0.48</td>
                                 <td class="text-nowrap" style="color: green">(1.23%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>413&nbsp;&nbsp;</td>
                                 <td>Noble Energy Inc.</td>
                                 <td>NBL</td>
@@ -3759,7 +3759,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>414&nbsp;&nbsp;</td>
                                 <td>Raymond James Financial Inc.</td>
                                 <td>RJF</td>
@@ -3768,7 +3768,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>415&nbsp;&nbsp;</td>
                                 <td>Eastman Chemical Company</td>
                                 <td>EMN</td>
@@ -3777,7 +3777,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>416&nbsp;&nbsp;</td>
                                 <td>TechnipFMC Plc</td>
                                 <td>FTI</td>
@@ -3786,7 +3786,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>417&nbsp;&nbsp;</td>
                                 <td>Comerica Incorporated</td>
                                 <td>CMA</td>
@@ -3795,7 +3795,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>418&nbsp;&nbsp;</td>
                                 <td>PulteGroup Inc.</td>
                                 <td>PHM</td>
@@ -3804,7 +3804,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>419&nbsp;&nbsp;</td>
                                 <td>Mylan N.V.</td>
                                 <td>MYL</td>
@@ -3813,7 +3813,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>420&nbsp;&nbsp;</td>
                                 <td>Tiffany &amp; Co.</td>
                                 <td>TIF</td>
@@ -3822,7 +3822,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>421&nbsp;&nbsp;</td>
                                 <td>Allegion PLC</td>
                                 <td>ALLE</td>
@@ -3831,7 +3831,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>422&nbsp;&nbsp;</td>
                                 <td>Federal Realty Investment Trust</td>
                                 <td>FRT</td>
@@ -3840,7 +3840,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>423&nbsp;&nbsp;</td>
                                 <td>Avery Dennison Corporation</td>
                                 <td>AVY</td>
@@ -3849,7 +3849,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>424&nbsp;&nbsp;</td>
                                 <td>Henry Schein Inc.</td>
                                 <td>HSIC</td>
@@ -3858,7 +3858,7 @@
                                 <td class="text-nowrap" style="color: red">-0.02</td>
                                 <td class="text-nowrap" style="color: red">(-0.03%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>425&nbsp;&nbsp;</td>
                                 <td>Globe Life Inc.</td>
                                 <td>GL</td>
@@ -3867,7 +3867,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>426&nbsp;&nbsp;</td>
                                 <td>E*TRADE Financial Corporation</td>
                                 <td>ETFC</td>
@@ -3876,7 +3876,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>427&nbsp;&nbsp;</td>
                                 <td>LKQ Corporation</td>
                                 <td>LKQ</td>
@@ -3885,7 +3885,7 @@
                                 <td class="text-nowrap" style="color: green">0.01</td>
                                 <td class="text-nowrap" style="color: green">(0.02%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>428&nbsp;&nbsp;</td>
                                 <td>Iron Mountain Inc.</td>
                                 <td>IRM</td>
@@ -3894,7 +3894,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>429&nbsp;&nbsp;</td>
                                 <td>J.B. Hunt Transport Services Inc.</td>
                                 <td>JBHT</td>
@@ -3903,7 +3903,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>430&nbsp;&nbsp;</td>
                                 <td>Marathon Oil Corporation</td>
                                 <td>MRO</td>
@@ -3912,7 +3912,7 @@
                                 <td class="text-nowrap" style="color: green">0.02</td>
                                 <td class="text-nowrap" style="color: green">(0.17%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>431&nbsp;&nbsp;</td>
                                 <td>Qorvo Inc.</td>
                                 <td>QRVO</td>
@@ -3921,7 +3921,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>432&nbsp;&nbsp;</td>
                                 <td>WestRock Company</td>
                                 <td>WRK</td>
@@ -3930,7 +3930,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>433&nbsp;&nbsp;</td>
                                 <td>PerkinElmer Inc.</td>
                                 <td>PKI</td>
@@ -3939,7 +3939,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>434&nbsp;&nbsp;</td>
                                 <td>Discovery Inc. Class C</td>
                                 <td>DISCK</td>
@@ -3948,7 +3948,7 @@
                                 <td class="text-nowrap" style="color: green">0.01</td>
                                 <td class="text-nowrap" style="color: green">(0.02%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>435&nbsp;&nbsp;</td>
                                 <td>United Rentals Inc.</td>
                                 <td>URI</td>
@@ -3957,7 +3957,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>436&nbsp;&nbsp;</td>
                                 <td>Huntington Ingalls Industries Inc.</td>
                                 <td>HII</td>
@@ -3966,7 +3966,7 @@
                                 <td class="text-nowrap" style="color: red">-2.16</td>
                                 <td class="text-nowrap" style="color: red">(-1.02%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>437&nbsp;&nbsp;</td>
                                 <td>Kimco Realty Corporation</td>
                                 <td>KIM</td>
@@ -3975,7 +3975,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>438&nbsp;&nbsp;</td>
                                 <td>Snap-on Incorporated</td>
                                 <td>SNA</td>
@@ -3984,7 +3984,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>439&nbsp;&nbsp;</td>
                                 <td>Devon Energy Corporation</td>
                                 <td>DVN</td>
@@ -3993,7 +3993,7 @@
                                 <td class="text-nowrap" style="color: green">0.23</td>
                                 <td class="text-nowrap" style="color: green">(1.08%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>440&nbsp;&nbsp;</td>
                                 <td>Kohl's Corporation</td>
                                 <td>KSS</td>
@@ -4002,7 +4002,7 @@
                                 <td class="text-nowrap" style="color: green">0.12</td>
                                 <td class="text-nowrap" style="color: green">(0.23%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>441&nbsp;&nbsp;</td>
                                 <td>HollyFrontier Corporation</td>
                                 <td>HFC</td>
@@ -4011,7 +4011,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>442&nbsp;&nbsp;</td>
                                 <td>Juniper Networks Inc.</td>
                                 <td>JNPR</td>
@@ -4020,7 +4020,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>443&nbsp;&nbsp;</td>
                                 <td>Alaska Air Group Inc.</td>
                                 <td>ALK</td>
@@ -4029,7 +4029,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>444&nbsp;&nbsp;</td>
                                 <td>Campbell Soup Company</td>
                                 <td>CPB</td>
@@ -4038,7 +4038,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>445&nbsp;&nbsp;</td>
                                 <td>DISH Network Corporation Class A</td>
                                 <td>DISH</td>
@@ -4047,7 +4047,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>446&nbsp;&nbsp;</td>
                                 <td>Viacom Inc. Class B</td>
                                 <td>VIAB</td>
@@ -4056,7 +4056,7 @@
                                 <td class="text-nowrap" style="color: green">0.16</td>
                                 <td class="text-nowrap" style="color: green">(0.70%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>447&nbsp;&nbsp;</td>
                                 <td>Apartment Investment and Management Company Class A</td>
                                 <td>AIV</td>
@@ -4065,7 +4065,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>448&nbsp;&nbsp;</td>
                                 <td>F5 Networks Inc.</td>
                                 <td>FFIV</td>
@@ -4074,7 +4074,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>449&nbsp;&nbsp;</td>
                                 <td>National Oilwell Varco Inc.</td>
                                 <td>NOV</td>
@@ -4083,7 +4083,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>450&nbsp;&nbsp;</td>
                                 <td>Fortune Brands Home &amp; Security Inc.</td>
                                 <td>FBHS</td>
@@ -4092,7 +4092,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>451&nbsp;&nbsp;</td>
                                 <td>Assurant Inc.</td>
                                 <td>AIZ</td>
@@ -4101,7 +4101,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>452&nbsp;&nbsp;</td>
                                 <td>Interpublic Group of Companies Inc.</td>
                                 <td>IPG</td>
@@ -4110,7 +4110,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>453&nbsp;&nbsp;</td>
                                 <td>Zions Bancorporation N.A.</td>
                                 <td>ZION</td>
@@ -4119,7 +4119,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>454&nbsp;&nbsp;</td>
                                 <td>Apache Corporation</td>
                                 <td>APA</td>
@@ -4128,7 +4128,7 @@
                                 <td class="text-nowrap" style="color: green">0.03</td>
                                 <td class="text-nowrap" style="color: green">(0.14%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>455&nbsp;&nbsp;</td>
                                 <td>Franklin Resources Inc.</td>
                                 <td>BEN</td>
@@ -4137,7 +4137,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>456&nbsp;&nbsp;</td>
                                 <td>Cabot Oil &amp; Gas Corporation</td>
                                 <td>COG</td>
@@ -4146,7 +4146,7 @@
                                 <td class="text-nowrap" style="color: green">0.04</td>
                                 <td class="text-nowrap" style="color: green">(0.23%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>457&nbsp;&nbsp;</td>
                                 <td>Mohawk Industries Inc.</td>
                                 <td>MHK</td>
@@ -4155,7 +4155,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>458&nbsp;&nbsp;</td>
                                 <td>ABIOMED Inc.</td>
                                 <td>ABMD</td>
@@ -4164,7 +4164,7 @@
                                 <td class="text-nowrap" style="color: green">0.36</td>
                                 <td class="text-nowrap" style="color: green">(0.21%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>459&nbsp;&nbsp;</td>
                                 <td>Newell Brands Inc</td>
                                 <td>NWL</td>
@@ -4173,7 +4173,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>460&nbsp;&nbsp;</td>
                                 <td>BorgWarner Inc.</td>
                                 <td>BWA</td>
@@ -4182,7 +4182,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>461&nbsp;&nbsp;</td>
                                 <td>Tapestry Inc.</td>
                                 <td>TPR</td>
@@ -4191,7 +4191,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>462&nbsp;&nbsp;</td>
                                 <td>Nielsen Holdings Plc</td>
                                 <td>NLSN</td>
@@ -4200,7 +4200,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>463&nbsp;&nbsp;</td>
                                 <td>Perrigo Co. Plc</td>
                                 <td>PRGO</td>
@@ -4209,7 +4209,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>464&nbsp;&nbsp;</td>
                                 <td>FLIR Systems Inc.</td>
                                 <td>FLIR</td>
@@ -4218,7 +4218,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>465&nbsp;&nbsp;</td>
                                 <td>Albemarle Corporation</td>
                                 <td>ALB</td>
@@ -4227,7 +4227,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>466&nbsp;&nbsp;</td>
                                 <td>DXC Technology Co.</td>
                                 <td>DXC</td>
@@ -4236,7 +4236,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>467&nbsp;&nbsp;</td>
                                 <td>Mosaic Company</td>
                                 <td>MOS</td>
@@ -4245,7 +4245,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>468&nbsp;&nbsp;</td>
                                 <td>SL Green Realty Corp.</td>
                                 <td>SLG</td>
@@ -4254,7 +4254,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>469&nbsp;&nbsp;</td>
                                 <td>A. O. Smith Corporation</td>
                                 <td>AOS</td>
@@ -4263,7 +4263,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>470&nbsp;&nbsp;</td>
                                 <td>PVH Corp.</td>
                                 <td>PVH</td>
@@ -4272,7 +4272,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>471&nbsp;&nbsp;</td>
                                 <td>Robert Half International Inc.</td>
                                 <td>RHI</td>
@@ -4281,7 +4281,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>472&nbsp;&nbsp;</td>
                                 <td>Sealed Air Corporation</td>
                                 <td>SEE</td>
@@ -4290,7 +4290,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>473&nbsp;&nbsp;</td>
                                 <td>Pentair plc</td>
                                 <td>PNR</td>
@@ -4299,7 +4299,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>474&nbsp;&nbsp;</td>
                                 <td>People's United Financial Inc.</td>
                                 <td>PBCT</td>
@@ -4308,7 +4308,7 @@
                                 <td class="text-nowrap" style="color: green">0.96</td>
                                 <td class="text-nowrap" style="color: green">(6.08%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>475&nbsp;&nbsp;</td>
                                 <td>Invesco Ltd.</td>
                                 <td>IVZ</td>
@@ -4317,7 +4317,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>476&nbsp;&nbsp;</td>
                                 <td>Unum Group</td>
                                 <td>UNM</td>
@@ -4326,7 +4326,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>477&nbsp;&nbsp;</td>
                                 <td>Flowserve Corporation</td>
                                 <td>FLS</td>
@@ -4335,7 +4335,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>478&nbsp;&nbsp;</td>
                                 <td>Xerox Holdings Corporation</td>
                                 <td>XRX</td>
@@ -4344,7 +4344,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>479&nbsp;&nbsp;</td>
                                 <td>Quanta Services Inc.</td>
                                 <td>PWR</td>
@@ -4353,7 +4353,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>480&nbsp;&nbsp;</td>
                                 <td>DaVita Inc.</td>
                                 <td>DVA</td>
@@ -4362,7 +4362,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>481&nbsp;&nbsp;</td>
                                 <td>Harley-Davidson Inc.</td>
                                 <td>HOG</td>
@@ -4371,7 +4371,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>482&nbsp;&nbsp;</td>
                                 <td>Hanesbrands Inc.</td>
                                 <td>HBI</td>
@@ -4380,7 +4380,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>483&nbsp;&nbsp;</td>
                                 <td>Leggett &amp; Platt Incorporated</td>
                                 <td>LEG</td>
@@ -4389,7 +4389,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>484&nbsp;&nbsp;</td>
                                 <td>News Corporation Class A</td>
                                 <td>NWSA</td>
@@ -4398,7 +4398,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>485&nbsp;&nbsp;</td>
                                 <td>Rollins Inc.</td>
                                 <td>ROL</td>
@@ -4407,7 +4407,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>486&nbsp;&nbsp;</td>
                                 <td>Fox Corporation Class B</td>
                                 <td>FOX</td>
@@ -4416,7 +4416,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>487&nbsp;&nbsp;</td>
                                 <td>Alliance Data Systems Corporation</td>
                                 <td>ADS</td>
@@ -4425,7 +4425,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>488&nbsp;&nbsp;</td>
                                 <td>H&amp;R Block Inc.</td>
                                 <td>HRB</td>
@@ -4434,7 +4434,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>489&nbsp;&nbsp;</td>
                                 <td>Macy's Inc</td>
                                 <td>M</td>
@@ -4443,7 +4443,7 @@
                                 <td class="text-nowrap" style="color: green">0.03</td>
                                 <td class="text-nowrap" style="color: green">(0.19%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>490&nbsp;&nbsp;</td>
                                 <td>Ralph Lauren Corporation Class A</td>
                                 <td>RL</td>
@@ -4452,7 +4452,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>491&nbsp;&nbsp;</td>
                                 <td>IPG Photonics Corporation</td>
                                 <td>IPGP</td>
@@ -4461,7 +4461,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>492&nbsp;&nbsp;</td>
                                 <td>Cimarex Energy Co.</td>
                                 <td>XEC</td>
@@ -4470,7 +4470,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>493&nbsp;&nbsp;</td>
                                 <td>Discovery Inc. Class A</td>
                                 <td>DISCA</td>
@@ -4479,7 +4479,7 @@
                                 <td class="text-nowrap" style="color: green">0.46</td>
                                 <td class="text-nowrap" style="color: green">(1.64%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>494&nbsp;&nbsp;</td>
                                 <td>Capri Holdings Limited</td>
                                 <td>CPRI</td>
@@ -4488,7 +4488,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>495&nbsp;&nbsp;</td>
                                 <td>Helmerich &amp; Payne Inc.</td>
                                 <td>HP</td>
@@ -4497,7 +4497,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>496&nbsp;&nbsp;</td>
                                 <td>TripAdvisor Inc.</td>
                                 <td>TRIP</td>
@@ -4506,7 +4506,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>497&nbsp;&nbsp;</td>
                                 <td>L Brands Inc.</td>
                                 <td>LB</td>
@@ -4515,7 +4515,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>498&nbsp;&nbsp;</td>
                                 <td>Affiliated Managers Group Inc.</td>
                                 <td>AMG</td>
@@ -4524,7 +4524,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>499&nbsp;&nbsp;</td>
                                 <td>Gap Inc.</td>
                                 <td>GPS</td>
@@ -4533,7 +4533,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>500&nbsp;&nbsp;</td>
                                 <td>Under Armour Inc. Class A</td>
                                 <td>UAA</td>
@@ -4542,7 +4542,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>501&nbsp;&nbsp;</td>
                                 <td>Nordstrom Inc.</td>
                                 <td>JWN</td>
@@ -4551,7 +4551,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>502&nbsp;&nbsp;</td>
                                 <td>Under Armour Inc. Class C</td>
                                 <td>UA</td>
@@ -4560,7 +4560,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>503&nbsp;&nbsp;</td>
                                 <td>Coty Inc. Class A</td>
                                 <td>COTY</td>
@@ -4569,7 +4569,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>504&nbsp;&nbsp;</td>
                                 <td>Macerich Company</td>
                                 <td>MAC</td>
@@ -4578,7 +4578,7 @@
                                 <td class="text-nowrap" style="color: green">0.00</td>
                                 <td class="text-nowrap" style="color: green">(0.00%)</td>
                             </tr>
-                            <tr>
+                            <tr class='sp_list_item'>
                                 <td>505&nbsp;&nbsp;</td>
                                 <td>News Corporation Class B</td>
                                 <td>NWS</td>
