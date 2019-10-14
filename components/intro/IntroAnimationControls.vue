@@ -320,21 +320,68 @@ export default {
         "-=2000"
       );
       this.tl.add({
-        targets: ".sp_list_item",
+        targets: "#fund-concept",
+        scale: 1,
+        duration: 1
+      });
+      this.tl.add(
+        {
+          targets: that.currentTitle,
+          y: -40,
+          x: -20,
+          duration: 1
+        }); 
+      this.tl.add({
+        targets: "#fund-concept",
         opacity: 1,
         scale: 1,
-        duration: 400,
-        translateY: 270,
-        delay: anime.stagger(400),
+        duration: 1000,
+        easing: "easeInOutSine"
+      });
+           this.tl.add({
+        targets: "#fund-concept-two",
+        scale: 1,
+        duration: 1
+      });
+      this.tl.add(
+        {
+          targets: that.currentTitle,
+          y: -40,
+          x: -15,
+          duration: 1
+        }); 
+      this.tl.add({
+        targets: "#fund-concept-two",
+        opacity: 1,
+        scale: 1,
+        duration: 1000,
         easing: "easeInOutSine"
       });
       this.tl.add({
-        targets: ".sp_list_item",
-          opacity: 0,
-          duration: 2000,
-          easing: "easeInOutSine"
-      }, "-=2000"
-      );
+        targets: "#fund-concept",
+        scale: 0,
+        duration: 1
+      });
+         this.tl.add({
+        targets: "#fund-concept-two",
+        scale: 0,
+        duration: 1
+      });
+    
+
+      // this.tl.add({
+      //   targets: ".sp_list_item",
+      //   scale: 1,
+      //   easing: "easeInOutSine"
+      // });
+      // this.tl.add({
+      //   targets: ".sp_list_item",
+      //     opacity: 0,
+      //     easing: "easeInOutSine"
+      // }, "-=2000"
+      // );
+
+      
       // this.tl.add({
       //   targets: ".sp_list_item",
       //   opacity: 1,
