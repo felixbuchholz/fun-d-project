@@ -48,7 +48,7 @@ Key folders and files:
 
 
 
-####Nuxt
+#### Nuxt
 Nuxt.js uses: 
 - layouts: useally used to import styles
 - pages: contains index.vue and all the different 'routes' like pages. In our case we want to have different sections, we would have multiple vue files in pages. Index is our top hierarchy. In index is the <template> tag, signifying that that is the html file that you plugin. Has to have ONE container element (div, g, list or other html standard).
