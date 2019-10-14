@@ -54,6 +54,7 @@ export default {
           y: (change.y / 100) * this.height
         };
         for (const prop in newObject) {
+          // eslint-disable-next-line no-prototype-builtins
           if (newObject.hasOwnProperty(prop)) {
             if (newObject[prop] == this.globalTitle[prop]) {
               delete newObject[prop];
@@ -91,10 +92,10 @@ export default {
       const that = this;
       this.tl = anime.timeline({
         easing: "easeOutExpo",
-        update: function(anim) {
+        update: function() {
           that.progress = that.tl.progress;
         },
-        complete: function(anim) {
+        complete: function() {
           that.reset();
         }
       });
@@ -280,7 +281,7 @@ export default {
         {
           targets: "#passive-growth",
           opacity: 0,
-          duration: 2000,
+          duration: 1000,
           easing: "easeInOutSine"
         },
         "+=1500"
@@ -289,10 +290,10 @@ export default {
         {
           targets: "#passivegraph",
           opacity: 0,
-          duration: 2000,
+          duration: 1000,
           easing: "easeInOutSine"
         },
-        "-=2000"
+        "-=1000"
       );
       this.tl.add({
         targets: "#passive-growth",
@@ -304,13 +305,48 @@ export default {
         y: 0,
         duration: 1
       });
-      this.tl.add({
-        targets: ".info-overload",
-        opacity: 1,
-        duration: 400,
-        delay: anime.stagger(400),
-        easing: "easeInOutSine"
-      });
+      this.tl.add(
+        {
+          targets: ".info-overload",
+          opacity: 1,
+          duration: 200,
+          delay: anime.stagger(75, { from: "last" }),
+          easing: "easeInOutSine"
+        },
+        "+=400"
+      );
+      this.tl.add(
+        {
+          targets: ".info-overload",
+          translateY: "+=27%",
+          scale: "+=0.4",
+          easing: "easeInOutSine",
+          duration: 3200,
+          delay: anime.stagger(600, { from: "last" })
+        },
+        "+=400"
+      );
+      this.tl.add(
+        {
+          targets: ".info-overload",
+          opacity: 0,
+          duration: 300,
+          delay: anime.stagger(700, { from: "last" }),
+          easing: "easeInOutSine"
+        },
+        "-=5000"
+      );
+      // this.tl.add(
+      //   {
+      //     targets: ".info-overload",
+      //     opacity: 0,
+      //     duration: 200,
+      //     scale: 1.4,
+      //     delay: anime.stagger(400, { from: "last" }),
+      //     easing: "easeInOutSine"
+      //   },
+      //   "-=2400"
+      // );
 
       // strokeDashoffset: [anime.setDashoffset, 0],
       this.tl.pause();
