@@ -31,7 +31,7 @@ import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      progress: 90,
+      progress: 0,
       isPlaying: false,
       currentTitle: { x: 0, y: 0 }
     };
@@ -145,7 +145,7 @@ export default {
         targets: "#piggy",
         opacity: 1,
         scale: 1,
-        duration: 1500,
+        duration: 1200,
         easing: "easeInOutExpo"
       });
       this.tl.add(
@@ -156,7 +156,7 @@ export default {
           duration: 1500,
           easing: "easeInOutExpo"
         },
-        "+=500"
+        "+=0"
       );
       this.tl.add(
         {
@@ -166,7 +166,7 @@ export default {
           duration: 1500,
           easing: "easeInOutExpo"
         },
-        "+=3500"
+        "+=1000"
       );
       this.tl.add(
         {
@@ -176,7 +176,7 @@ export default {
           duration: 500,
           easing: "easeInOutExpo"
         },
-        "+=5500"
+        "+=3700"
       );
       this.tl.add(
         {
