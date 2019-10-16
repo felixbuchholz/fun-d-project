@@ -13,6 +13,7 @@
       How do people approach their <br />
       <span class="bold">financial future?</span>
     </div>
+
     <div
       id="passive-growth"
       class="center zero-opacity"
@@ -21,10 +22,34 @@
       Alongside the rise of retirement funds <br />
       <span class="bold">passive investment grew</span>
     </div>
-  </div>
+
+    <div
+      id="fund-concept"
+      class="left zero-opacity"
+      style="transform: scale(0)"
+    >
+    An index fund buys securities from <br> a pre-defined selection of companies <br />
+      <!-- <span class="bold">passive investment grew</span> -->
+    </div>
+
+    <div
+      id="fund-concept-two"
+      class="left  zero-opacity"
+      style="transform: scale(0)"
+    >
+    <br>
+    based on an existing list - an index. <br />
+      <!-- <span class="bold">passive investment grew</span> -->
+    </div>
+
+
+</div>
+
+
 </template>
 
 <script>
+
 import { mapState } from "vuex";
 
 export default {
@@ -34,6 +59,7 @@ export default {
     })
   }
 };
+
 </script>
 
 <style lang="scss">
@@ -50,3 +76,4 @@ export default {
   font-weight: 900;
 }
 </style>
+

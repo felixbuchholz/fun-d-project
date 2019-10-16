@@ -23,6 +23,9 @@
         <IntroTitles />
       </div>
       <div id="html-images"><researchimages /></div>
+      
+      <div id="index-list"><indexlist /></div>
+
       <IntroAnimationControls />
     </div>
   </div>
@@ -36,6 +39,7 @@ import IntroTitles from "~/components/intro/IntroTitles.vue";
 import ElementWrapper from "~/components/intro/elements/ElementWrapper.vue";
 import IntroAnimationControls from "~/components/intro/IntroAnimationControls.vue";
 import researchimages from "~/components/intro/elements/researchimages.vue";
+import indexlist from "~/components/intro/elements/index_list.vue"; 
 
 export default {
   name: "IntroAnimation",
@@ -46,7 +50,8 @@ export default {
     IntroTitles,
     ElementWrapper,
     IntroAnimationControls,
-    researchimages
+    researchimages, 
+    indexlist
   },
   computed: {
     ...mapState({

@@ -21,6 +21,9 @@
       </div>
     </div>
   </div>
+
+
+
 </template>
 
 <script>
@@ -336,6 +339,57 @@ export default {
         },
         "-=5000"
       );
+      this.tl.add({
+        targets: "#fund-concept",
+        scale: 1,
+        duration: 1,
+      });
+      this.tl.add(
+      {
+          targets: that.currentTitle,
+          x: -30,
+          y:-30,
+          duration: 1
+      });
+      this.tl.add({
+        targets: "#fund-concept",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+            this.tl.add({
+        targets: "#fund-concept-two",
+        scale: 1,
+        duration: 1,
+      });
+      this.tl.add(
+      {
+          targets: that.currentTitle,
+          x: -30,
+          y:-30,
+          duration: 1
+      });
+      this.tl.add({
+        targets: "#fund-concept-two",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#fund-concept",
+        scale: 0,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#fund-concept-two",
+        scale: 0,
+        duration: 1
+      });
+      
+
+
       // this.tl.add(
       //   {
       //     targets: ".info-overload",
