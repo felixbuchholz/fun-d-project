@@ -1,8 +1,8 @@
 <template>
   <div id="animation-controls">
-    <button id="start-button-big" ref="centeredPlayButton" @click="play">
+    <!-- <button id="start-button-big" ref="centeredPlayButton" @click="play">
       Play Intro
-    </button>
+    </button> -->
     <div id="animation-drawer-controls">
       <div id="drawer">
         <button @click="play">Play!</button>
@@ -344,34 +344,15 @@ export default {
         scale: 1,
         duration: 1,
       });
-      this.tl.add(
-      {
-          targets: that.currentTitle,
-          x: -30,
-          y:-30,
-          duration: 1
-      });
+      // this.tl.add(
+      // {
+      //     targets: that.currentTitle,
+      //     // x: -10,
+      //     // y:-30,
+      //     duration: 1
+      // });
       this.tl.add({
         targets: "#fund-concept",
-        opacity: 1,
-        scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
-            this.tl.add({
-        targets: "#fund-concept-two",
-        scale: 1,
-        duration: 1,
-      });
-      this.tl.add(
-      {
-          targets: that.currentTitle,
-          x: -30,
-          y:-30,
-          duration: 1
-      });
-      this.tl.add({
-        targets: "#fund-concept-two",
         opacity: 1,
         scale: 1,
         duration: 2000,
@@ -381,6 +362,20 @@ export default {
         targets: "#fund-concept",
         scale: 0,
         duration: 1
+      });
+      
+      
+      this.tl.add({
+        targets: "#fund-concept-two",
+        scale: 1,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#fund-concept-two",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
       });
       this.tl.add({
         targets: "#fund-concept-two",
@@ -388,7 +383,264 @@ export default {
         duration: 1
       });
       
+      
+        this.tl.add({
+        targets: "#why-pass-work",
+        scale: 1,
+        duration: 1,
+      });
+      //  this.tl.add(
+      //    {
+      //   targets: that.currentTitle,
+      //   x: 0,
+      //   y: -20,
+      //   duration: 1
+      // });
+      this.tl.add({
+        targets: "#why-pass-work",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#why-pass-work",
+        scale: 0,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#cheap-diversific",
+        scale: 1,
+        duration: 1,
+      });
+      this.tl.add(
+        {
+        targets: that.currentTitle,
+        y:-20,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#cheap-diversific",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#cheap-diversific",
+        scale: 0,
+        duration: 1
+      });
+      
+      
+      this.tl.add({
+        targets: "#diversific",
+        scale: 1,
+        duration: 1,
+      });
+      this.tl.add(
+        {
+        targets: that.currentTitle,
+        y:-20,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#diversific",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#diversific",
+        scale: 0,
+        duration: 1
+      });
+      
+      
+      this.tl.add({
+        targets: "#haystack",
+        scale: 1,
+        duration: 1,
+      });
+      //  this.tl.add(
+      //    {
+      //   targets: that.currentTitle,
+      //   x: 0,
+      //   y:-40,
+      //   duration: 1
+      // });
+      this.tl.add({
+        targets: "#haystack",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#haystack",
+        scale: 0,
+        duration: 1
+      });
+      
+      
+      this.tl.add({
+        targets: "#winners-pass",
+        scale: 1,
+        duration: 1,
+      });
+      this.tl.add(
+         {
+        targets: that.currentTitle,
+        x: 0,
+        y: -50,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#winners-pass",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#winners-pass",
+        scale: 0,
+        duration: 1
+      });
+      
+      
+      this.tl.add({
+        targets: "#winners-pass-two",
+        scale: 1,
+        duration: 1,
+      });
+      this.tl.add(
+         {
+        targets: that.currentTitle,
+        x: 0,
+        y: -55,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#winners-pass-two",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#winners-pass-two",
+        scale: 0,
+        duration: 1
+      });
+      
+      
+      this.tl.add({
+        targets: "#managing",
+        scale: 1,
+        duration: 1,
+      });
+      // this.tl.add(
+      //    {
+      //   targets: that.currentTitle,
+      //   x: 0,
+      //   y: -73,
+      //   duration: 1
+      // });
+      this.tl.add({
+        targets: "#managing",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#managing",
+        scale: 0,
+        duration: 1
+      });
+      
+      
+      this.tl.add({
+        targets: "#get_to_vote",
+        scale: 1,
+        duration: 1,
+      });
+      this.tl.add(
+         {
+        targets: that.currentTitle,
+        x: 0,
+        y: -49,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#get_to_vote",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#get_to_vote",
+        scale: 0,
+        duration: 1
+      });
+      
+      
+      this.tl.add({
+        targets: "#share_of_comps",
+        scale: 1,
+        duration: 1,
+      });
+      this.tl.add(
+         {
+        targets: that.currentTitle,
+        x: 0,
+        y: -51,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#share_of_comps",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#share_of_comps",
+        scale: 0,
+        duration: 1
+      });
+      
+      
+      this.tl.add({
+        targets: "#how_using_influence",
+        scale: 1,
+        duration: 1,
+      });
+      this.tl.add(
+         {
+        targets: that.currentTitle,
+        x: 0,
+        y: -50,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#how_using_influence",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#how_using_influence",
+        scale: 0,
+        duration: 1
+      });
+               
 
+      
 
       // this.tl.add(
       //   {

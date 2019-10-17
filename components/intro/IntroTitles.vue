@@ -10,7 +10,7 @@
       class="center zero-opacity"
       style="transform: scale(0)"
     >
-      How do people approach their <br />
+      How do people approach their
       <span class="bold">financial future?</span>
     </div>
 
@@ -42,6 +42,99 @@
       <!-- <span class="bold">passive investment grew</span> -->
     </div>
 
+    <div
+      id="why-pass-work"
+      class="left  zero-opacity"
+      style="transform: scale(0)"
+    >
+    <br>
+    Why does index investing work? <br />
+    </div>
+
+    <div
+      id="cheap-diversific"
+      class="left zero-opacity"
+      style="transform: scale(0)"
+    >
+    <br>
+    Index investing enables cheap diversification<br />
+    </div>
+
+    <div
+      id="diversific"
+      class="left  zero-opacity"
+      style="transform: scale(0)"
+    >
+    <br>
+    Diversification<br />
+    </div>
+
+    <div
+      id="haystack"
+      class="left zero-opacity"
+      style="transform: scale(0)"
+    >
+    <br>
+    Through index funds "you can just buy the haystack"<br />
+    <br>  
+    <span style="color:#B7B0B0">John Bogle</span>
+    </div>
+
+
+    <div
+      id="winners-pass"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
+    <br>
+    Winners of the passive investment trend<br />
+    </div>
+
+    <div
+      id="winners-pass-two"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
+    <br>
+    These three have about $15 trillion in assets under management<br />
+    </div>
+
+    <div
+      id="managing"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
+    <br>
+    ... managing thousands of funds, each composed of many companies.<br />
+    </div>
+
+    <div
+      id="get_to_vote"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
+    <br>
+    Asset managers get to vote on the shares in the funds they manage<br />
+    </div>
+
+    <div
+      id="share_of_comps"
+      class="left zero-opacity"
+      style="transform: scale(0)"
+    >
+    <br>
+    The share of companies owned by index funds is larger than ever<br />
+    </div>
+
+
+    <div
+      id="how_using_influence"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
+    <br>
+    How are the largest asset managers using their influence?<br />
+    </div>
 
 </div>
 
@@ -75,5 +168,10 @@ export default {
 .bold {
   font-weight: 900;
 }
+.top {
+    position: absolute;
+    top: 10%;
+}
+
 </style>
 
