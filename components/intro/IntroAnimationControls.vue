@@ -2,7 +2,7 @@
   <div id="animation-controls">
     <!-- <button id="start-button-big" ref="centeredPlayButton" @click="play">
       Play Intro
-    </button> -->
+    </button>-->
     <div id="animation-drawer-controls">
       <div id="drawer">
         <button @click="play">Play!</button>
@@ -21,9 +21,6 @@
       </div>
     </div>
   </div>
-
-
-
 </template>
 
 <script>
@@ -342,7 +339,7 @@ export default {
       this.tl.add({
         targets: "#fund-concept",
         scale: 1,
-        duration: 1,
+        duration: 1
       });
       // this.tl.add(
       // {
@@ -363,8 +360,7 @@ export default {
         scale: 0,
         duration: 1
       });
-      
-      
+
       this.tl.add({
         targets: "#fund-concept-two",
         scale: 1,
@@ -382,12 +378,11 @@ export default {
         scale: 0,
         duration: 1
       });
-      
-      
-        this.tl.add({
+
+      this.tl.add({
         targets: "#why-pass-work",
         scale: 1,
-        duration: 1,
+        duration: 1
       });
       //  this.tl.add(
       //    {
@@ -411,12 +406,11 @@ export default {
       this.tl.add({
         targets: "#cheap-diversific",
         scale: 1,
-        duration: 1,
+        duration: 1
       });
-      this.tl.add(
-        {
+      this.tl.add({
         targets: that.currentTitle,
-        y:-20,
+        y: -20,
         duration: 1
       });
       this.tl.add({
@@ -431,17 +425,15 @@ export default {
         scale: 0,
         duration: 1
       });
-      
-      
+
       this.tl.add({
         targets: "#diversific",
         scale: 1,
-        duration: 1,
+        duration: 1
       });
-      this.tl.add(
-        {
+      this.tl.add({
         targets: that.currentTitle,
-        y:-20,
+        y: -20,
         duration: 1
       });
       this.tl.add({
@@ -456,12 +448,11 @@ export default {
         scale: 0,
         duration: 1
       });
-      
-      
+
       this.tl.add({
         targets: "#haystack",
         scale: 1,
-        duration: 1,
+        duration: 1
       });
       //  this.tl.add(
       //    {
@@ -482,15 +473,13 @@ export default {
         scale: 0,
         duration: 1
       });
-      
-      
+
       this.tl.add({
         targets: "#winners-pass",
         scale: 1,
-        duration: 1,
+        duration: 1
       });
-      this.tl.add(
-         {
+      this.tl.add({
         targets: that.currentTitle,
         x: 0,
         y: -50,
@@ -508,15 +497,13 @@ export default {
         scale: 0,
         duration: 1
       });
-      
-      
+
       this.tl.add({
         targets: "#winners-pass-two",
         scale: 1,
-        duration: 1,
+        duration: 1
       });
-      this.tl.add(
-         {
+      this.tl.add({
         targets: that.currentTitle,
         x: 0,
         y: -55,
@@ -534,12 +521,11 @@ export default {
         scale: 0,
         duration: 1
       });
-      
-      
+
       this.tl.add({
         targets: "#managing",
         scale: 1,
-        duration: 1,
+        duration: 1
       });
       // this.tl.add(
       //    {
@@ -560,15 +546,13 @@ export default {
         scale: 0,
         duration: 1
       });
-      
-      
+
       this.tl.add({
         targets: "#get_to_vote",
         scale: 1,
-        duration: 1,
+        duration: 1
       });
-      this.tl.add(
-         {
+      this.tl.add({
         targets: that.currentTitle,
         x: 0,
         y: -49,
@@ -586,15 +570,13 @@ export default {
         scale: 0,
         duration: 1
       });
-      
-      
+
       this.tl.add({
         targets: "#share_of_comps",
         scale: 1,
-        duration: 1,
+        duration: 1
       });
-      this.tl.add(
-         {
+      this.tl.add({
         targets: that.currentTitle,
         x: 0,
         y: -51,
@@ -612,15 +594,13 @@ export default {
         scale: 0,
         duration: 1
       });
-      
-      
+
       this.tl.add({
         targets: "#how_using_influence",
         scale: 1,
-        duration: 1,
+        duration: 1
       });
-      this.tl.add(
-         {
+      this.tl.add({
         targets: that.currentTitle,
         x: 0,
         y: -50,
@@ -638,9 +618,6 @@ export default {
         scale: 0,
         duration: 1
       });
-               
-
-      
 
       // this.tl.add(
       //   {
