@@ -1,8 +1,8 @@
 <template>
   <div id="animation-controls">
-    <!-- <button id="start-button-big" ref="centeredPlayButton" @click="play">
+    <button id="start-button-big" ref="centeredPlayButton" @click="play">
       Play Intro
-    </button>-->
+    </button>
     <div id="animation-drawer-controls">
       <div id="drawer">
         <button @click="play">Play!</button>
@@ -129,7 +129,7 @@ export default {
         {
           targets: "#financial-future",
           opacity: 0,
-          scale: 2,
+          scale: 1,
           duration: 2000,
           easing: "easeInOutSine"
         },
@@ -358,21 +358,60 @@ export default {
       this.tl.add({
         targets: "#fund-concept",
         scale: 0,
-        duration: 1
+        duration: 100
       });
 
+      this.tl.add(
+        {
+          targets: "#index-list",
+          scale: 1,
+          duration: 1
+        },
+        "-=2500"
+      );
+      this.tl.add(
+        {
+          targets: "#index-list",
+          opacity: 1,
+          scale: 1,
+          duration: 2000,
+          easing: "easeInOutSine"
+        },
+        "-=2500"
+      );
+      this.tl.add(
+        {
+          targets: "#index-list",
+          translateY: "-50%",
+          duration: 4000,
+          easing: "easeInOutExpo"
+        },
+        "+=-2500"
+      );
       this.tl.add({
-        targets: "#fund-concept-two",
-        scale: 1,
-        duration: 1
+        targets: "#index-list",
+        scale: 0,
+        duration: 1000
       });
-      this.tl.add({
-        targets: "#fund-concept-two",
-        opacity: 1,
-        scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
+
+      this.tl.add(
+        {
+          targets: "#fund-concept-two",
+          scale: 1,
+          duration: 1
+        },
+        "-=2000"
+      );
+      this.tl.add(
+        {
+          targets: "#fund-concept-two",
+          opacity: 1,
+          scale: 1,
+          duration: 2000,
+          easing: "easeInOutSine"
+        },
+        "-=2000"
+      );
       this.tl.add({
         targets: "#fund-concept-two",
         scale: 0,

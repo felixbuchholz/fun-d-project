@@ -24,7 +24,10 @@
       </div>
       <div id="html-images"><researchimages /></div>
       
-      <div id="index-list"><indexlist /></div>
+      <div id='index-box'>  
+        <div id="index-list" class="zero-opacity"><indexlist /></div>
+      </div>
+
 
       <IntroAnimationControls />
     </div>
@@ -101,7 +104,7 @@ $grey: #6e6e6e;
   width: 100%;
 }
 #html-titles {
-  z-index: 9;
+  z-index: 8;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -109,6 +112,21 @@ $grey: #6e6e6e;
   // display: flex;
   // background: red;
 }
+
+#index-list {
+  z-index: 9;
+}
+
+#index-box {
+  z-index: 9;
+  overflow: hidden;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top:30%;
+  left: 40%
+}
+
 .line {
   fill: none;
   stroke: $grey;
@@ -152,4 +170,5 @@ text {
 .zero-scale {
   transform: scale(0);
 }
+
 </style>
