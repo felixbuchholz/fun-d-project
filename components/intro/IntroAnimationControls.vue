@@ -1,12 +1,12 @@
 <template>
   <div id="animation-controls">
     <button id="start-button-big" ref="centeredPlayButton" @click="play">
-      Play Intro
+      <fa icon="play" />&nbsp;Play Intro
     </button>
     <div id="animation-drawer-controls">
       <div id="drawer">
-        <button @click="play">Play!</button>
-        <button @click="pause">Pause!</button>
+        <button @click="play"><fa icon="play" />&nbsp;Play</button>
+        <button @click="pause"><fa icon="pause" />&nbsp;Pause</button>
         <!-- <button @click="seek">Seek!</button> -->
         <input
           id="myRange"
