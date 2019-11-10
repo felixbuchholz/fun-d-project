@@ -32,5 +32,22 @@ export default {
     setTimeout(() => {
       el.classList.remove("zero-opacity");
     }, 150);
+  },
+  getArrayOfObjectsCopy(array) {
+    // const newArray = array.map((x, i) => Object.assign({ index: i }, x));
+
+    const newArray = JSON.parse(JSON.stringify(array));
+
+    // let newArray = []
+    // for (const element of array.slice(0)) {
+    //   let newObject = {};
+    //   for (const key in element) {
+    //     if (element.hasOwnProperty(key)) {
+    //       newObject[key] = element[key];
+    //     }
+    //   }
+    //   newArray.push(newObject);
+    // }
+    return newArray;
   }
 };

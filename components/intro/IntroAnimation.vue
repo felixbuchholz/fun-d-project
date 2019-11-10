@@ -1,7 +1,7 @@
 <template>
   <!-- TODO: ref not needed here -->
   <!-- the "ref" is how you refer to it from other vue files. Alternative to
-      query selector or getbyID etc.  -->
+  query selector or getbyID etc.-->
 
   <div
     id="intro-animation"
@@ -22,12 +22,19 @@
       >
         <IntroTitles />
       </div>
-      <div id="html-images"><researchimages /></div>
-      
-      <div id='index-box'>  
-        <div id="index-list" class="zero-opacity"><indexlist /></div>
+      <div id="html-images">
+        <researchimages />
       </div>
 
+      <div id="index-box">
+        <div id="index-list" class="zero-opacity">
+          <indexlist />
+        </div>
+      </div>
+
+      <div id="diversification-container" class="zero-opacity">
+        <diversification />
+      </div>
 
       <IntroAnimationControls />
     </div>
@@ -42,7 +49,8 @@ import IntroTitles from "~/components/intro/IntroTitles.vue";
 import ElementWrapper from "~/components/intro/elements/ElementWrapper.vue";
 import IntroAnimationControls from "~/components/intro/IntroAnimationControls.vue";
 import researchimages from "~/components/intro/elements/researchimages.vue";
-import indexlist from "~/components/intro/elements/index_list.vue"; 
+import indexlist from "~/components/intro/elements/index_list.vue";
+import diversification from "~/components/intro/elements/diversification.vue";
 
 export default {
   name: "IntroAnimation",
@@ -53,8 +61,9 @@ export default {
     IntroTitles,
     ElementWrapper,
     IntroAnimationControls,
-    researchimages, 
-    indexlist
+    researchimages,
+    indexlist,
+    diversification
   },
   computed: {
     ...mapState({
@@ -123,8 +132,16 @@ $grey: #6e6e6e;
   position: absolute;
   width: 50%;
   height: 50%;
-  top:30%;
-  left: 40%
+  top: 30%;
+  left: 40%;
+}
+
+#diversification-container {
+  z-index: 9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .line {
@@ -170,5 +187,4 @@ text {
 .zero-scale {
   transform: scale(0);
 }
-
 </style>

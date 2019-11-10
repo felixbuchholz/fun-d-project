@@ -31,14 +31,18 @@ import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      progress: 0,
+      progress: 90,
       isPlaying: false,
-      currentTitle: { x: 0, y: 0 }
+      currentTitle: { x: 0, y: 0 },
+      diversification: { diameterPercent: null },
+      sharesLocal: []
     };
   },
   computed: {
     ...mapState({
-      globalTitle: state => state.timeline.currentTitle
+      globalTitle: state => state.timeline.currentTitle,
+      circlePacking: state => state.diversification.circlePacking,
+      sharesGlobal: state => state.diversification.shares
     }),
     ...mapGetters({
       width: ["window/width"],
@@ -66,9 +70,28 @@ export default {
           this.changeTitle(newObject);
         }
       }
+    },
+    diversification: {
+      deep: true,
+      handler(change) {
+        // console.log(change.diameterPercent);
+        this.$store.commit("diversification/CHANGE_CIRCLEPACKING", {
+          diameterPercent: change.diameterPercent
+        });
+      }
+    },
+    sharesLocal: {
+      deep: true,
+      handler(change) {
+        // console.log(change);
+        const newShares = this.$helpers.getArrayOfObjectsCopy(change);
+        this.$store.commit("diversification/CHANGE_SHARES", newShares);
+      }
     }
   },
   mounted() {
+    this.sharesLocal = this.$helpers.getArrayOfObjectsCopy(this.sharesGlobal);
+    this.diversification.diameterPercent = this.circlePacking.diameterPercent;
     this.defineSound();
     this.defineTimeline();
     this.getStartedToWork();
@@ -88,7 +111,7 @@ export default {
       });
     },
     defineTimeline() {
-      console.log("timeline is starting to define");
+      // console.log("timeline is starting to define");
       const that = this;
       this.tl = anime.timeline({
         easing: "easeOutExpo",
@@ -341,13 +364,6 @@ export default {
         scale: 1,
         duration: 1
       });
-      // this.tl.add(
-      // {
-      //     targets: that.currentTitle,
-      //     // x: -10,
-      //     // y:-30,
-      //     duration: 1
-      // });
       this.tl.add({
         targets: "#fund-concept",
         opacity: 1,
@@ -423,13 +439,7 @@ export default {
         scale: 1,
         duration: 1
       });
-      //  this.tl.add(
-      //    {
-      //   targets: that.currentTitle,
-      //   x: 0,
-      //   y: -20,
-      //   duration: 1
-      // });
+
       this.tl.add({
         targets: "#why-pass-work",
         opacity: 1,
@@ -470,6 +480,7 @@ export default {
         scale: 1,
         duration: 1
       });
+
       this.tl.add({
         targets: that.currentTitle,
         y: -20,
@@ -489,188 +500,215 @@ export default {
       });
 
       this.tl.add({
-        targets: "#haystack",
-        scale: 1,
-        duration: 1
-      });
-      //  this.tl.add(
-      //    {
-      //   targets: that.currentTitle,
-      //   x: 0,
-      //   y:-40,
-      //   duration: 1
-      // });
-      this.tl.add({
-        targets: "#haystack",
+        targets: "#diversification-container",
         opacity: 1,
-        scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
-      this.tl.add({
-        targets: "#haystack",
-        scale: 0,
-        duration: 1
+        duration: 800
       });
 
       this.tl.add({
-        targets: "#winners-pass",
-        scale: 1,
-        duration: 1
-      });
-      this.tl.add({
-        targets: that.currentTitle,
-        x: 0,
-        y: -50,
-        duration: 1
-      });
-      this.tl.add({
-        targets: "#winners-pass",
-        opacity: 1,
-        scale: 1,
+        targets: that.diversification,
+        diameterPercent: 60,
         duration: 2000,
-        easing: "easeInOutSine"
-      });
-      this.tl.add({
-        targets: "#winners-pass",
-        scale: 0,
-        duration: 1
+        easing: "cubicBezier(0.420, 0.000, 0.580, 1.000)"
       });
 
+      this.tl.add(
+        {
+          targets: that.sharesLocal,
+          amount: function(el, i) {
+            return el.amount * i;
+          },
+          duration: 2000,
+          easing: "easeInQuad"
+        },
+        "-=2000"
+      );
       this.tl.add({
-        targets: "#winners-pass-two",
-        scale: 1,
-        duration: 1
+        targets: that.diversification,
+        diameterPercent: 70,
+        duration: 3000,
+        easing: "cubicBezier(0.420, 0.000, 0.580, 1.000)"
       });
-      this.tl.add({
-        targets: that.currentTitle,
-        x: 0,
-        y: -55,
-        duration: 1
-      });
-      this.tl.add({
-        targets: "#winners-pass-two",
-        opacity: 1,
-        scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
-      this.tl.add({
-        targets: "#winners-pass-two",
-        scale: 0,
-        duration: 1
-      });
-
-      this.tl.add({
-        targets: "#managing",
-        scale: 1,
-        duration: 1
-      });
-      // this.tl.add(
-      //    {
-      //   targets: that.currentTitle,
-      //   x: 0,
-      //   y: -73,
-      //   duration: 1
-      // });
-      this.tl.add({
-        targets: "#managing",
-        opacity: 1,
-        scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
-      this.tl.add({
-        targets: "#managing",
-        scale: 0,
-        duration: 1
-      });
-
-      this.tl.add({
-        targets: "#get_to_vote",
-        scale: 1,
-        duration: 1
-      });
-      this.tl.add({
-        targets: that.currentTitle,
-        x: 0,
-        y: -49,
-        duration: 1
-      });
-      this.tl.add({
-        targets: "#get_to_vote",
-        opacity: 1,
-        scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
-      this.tl.add({
-        targets: "#get_to_vote",
-        scale: 0,
-        duration: 1
-      });
-
-      this.tl.add({
-        targets: "#share_of_comps",
-        scale: 1,
-        duration: 1
-      });
-      this.tl.add({
-        targets: that.currentTitle,
-        x: 0,
-        y: -51,
-        duration: 1
-      });
-      this.tl.add({
-        targets: "#share_of_comps",
-        opacity: 1,
-        scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
-      this.tl.add({
-        targets: "#share_of_comps",
-        scale: 0,
-        duration: 1
-      });
-
-      this.tl.add({
-        targets: "#how_using_influence",
-        scale: 1,
-        duration: 1
-      });
-      this.tl.add({
-        targets: that.currentTitle,
-        x: 0,
-        y: -50,
-        duration: 1
-      });
-      this.tl.add({
-        targets: "#how_using_influence",
-        opacity: 1,
-        scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
-      this.tl.add({
-        targets: "#how_using_influence",
-        scale: 0,
-        duration: 1
-      });
-
+      this.tl.add(
+        {
+          targets: that.sharesLocal,
+          amount: function(el, i) {
+            return (50 - i) * 10;
+          },
+          duration: 3000,
+          easing: "cubicBezier(0.420, 0.000, 0.580, 1.000)"
+        },
+        "-=3000"
+      );
       // this.tl.add(
       //   {
-      //     targets: ".info-overload",
-      //     opacity: 0,
-      //     duration: 200,
-      //     scale: 1.4,
-      //     delay: anime.stagger(400, { from: "last" }),
-      //     easing: "easeInOutSine"
+      //     targets: that.sharesLocal,
+      //     amount: function() {
+      //       return anime.random(20, 400);
+      //     },
+      //     duration: 1000
       //   },
-      //   "-=2400"
+      //   "-=0"
       // );
 
-      // strokeDashoffset: [anime.setDashoffset, 0],
+      // this.tl.add({
+      //   targets: "#haystack",
+      //   scale: 1,
+      //   duration: 1
+      // });
+
+      // this.tl.add({
+      //   targets: "#haystack",
+      //   opacity: 1,
+      //   scale: 1,
+      //   duration: 2000,
+      //   easing: "easeInOutSine"
+      // });
+      // this.tl.add({
+      //   targets: "#haystack",
+      //   scale: 0,
+      //   duration: 1
+      // });
+
+      // this.tl.add({
+      //   targets: "#winners-pass",
+      //   scale: 1,
+      //   duration: 1
+      // });
+      // this.tl.add({
+      //   targets: that.currentTitle,
+      //   x: 0,
+      //   y: -50,
+      //   duration: 1
+      // });
+      // this.tl.add({
+      //   targets: "#winners-pass",
+      //   opacity: 1,
+      //   scale: 1,
+      //   duration: 2000,
+      //   easing: "easeInOutSine"
+      // });
+      // this.tl.add({
+      //   targets: "#winners-pass",
+      //   scale: 0,
+      //   duration: 1
+      // });
+
+      // this.tl.add({
+      //   targets: "#winners-pass-two",
+      //   scale: 1,
+      //   duration: 1
+      // });
+      // this.tl.add({
+      //   targets: that.currentTitle,
+      //   x: 0,
+      //   y: -55,
+      //   duration: 1
+      // });
+      // this.tl.add({
+      //   targets: "#winners-pass-two",
+      //   opacity: 1,
+      //   scale: 1,
+      //   duration: 2000,
+      //   easing: "easeInOutSine"
+      // });
+      // this.tl.add({
+      //   targets: "#winners-pass-two",
+      //   scale: 0,
+      //   duration: 1
+      // });
+
+      // this.tl.add({
+      //   targets: "#managing",
+      //   scale: 1,
+      //   duration: 1
+      // });
+
+      // this.tl.add({
+      //   targets: "#managing",
+      //   opacity: 1,
+      //   scale: 1,
+      //   duration: 2000,
+      //   easing: "easeInOutSine"
+      // });
+      // this.tl.add({
+      //   targets: "#managing",
+      //   scale: 0,
+      //   duration: 1
+      // });
+
+      // this.tl.add({
+      //   targets: "#get_to_vote",
+      //   scale: 1,
+      //   duration: 1
+      // });
+      // this.tl.add({
+      //   targets: that.currentTitle,
+      //   x: 0,
+      //   y: -49,
+      //   duration: 1
+      // });
+      // this.tl.add({
+      //   targets: "#get_to_vote",
+      //   opacity: 1,
+      //   scale: 1,
+      //   duration: 2000,
+      //   easing: "easeInOutSine"
+      // });
+      // this.tl.add({
+      //   targets: "#get_to_vote",
+      //   scale: 0,
+      //   duration: 1
+      // });
+
+      // this.tl.add({
+      //   targets: "#share_of_comps",
+      //   scale: 1,
+      //   duration: 1
+      // });
+      // this.tl.add({
+      //   targets: that.currentTitle,
+      //   x: 0,
+      //   y: -51,
+      //   duration: 1
+      // });
+      // this.tl.add({
+      //   targets: "#share_of_comps",
+      //   opacity: 1,
+      //   scale: 1,
+      //   duration: 2000,
+      //   easing: "easeInOutSine"
+      // });
+      // this.tl.add({
+      //   targets: "#share_of_comps",
+      //   scale: 0,
+      //   duration: 1
+      // });
+
+      // this.tl.add({
+      //   targets: "#how_using_influence",
+      //   scale: 1,
+      //   duration: 1
+      // });
+      // this.tl.add({
+      //   targets: that.currentTitle,
+      //   x: 0,
+      //   y: -50,
+      //   duration: 1
+      // });
+      // this.tl.add({
+      //   targets: "#how_using_influence",
+      //   opacity: 1,
+      //   scale: 1,
+      //   duration: 2000,
+      //   easing: "easeInOutSine"
+      // });
+      // this.tl.add({
+      //   targets: "#how_using_influence",
+      //   scale: 0,
+      //   duration: 1
+      // });
+
       this.tl.pause();
     },
     /*
