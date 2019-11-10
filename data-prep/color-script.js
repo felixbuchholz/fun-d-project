@@ -13,7 +13,7 @@ let array = [...Array(200)].map(x => {
     getRandomArbitrary(0.7, 1),
     getRandomArbitrary(0.6, 0.9)
   );
-  return { amount: 100, color: chroma(random).hex() };
+  return { amount: 1, color: chroma(random).hex() };
 });
 
 console.log(array);
