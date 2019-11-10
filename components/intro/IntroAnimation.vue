@@ -32,7 +32,11 @@
         </div>
       </div>
 
-      <div id="diversification-container" class="zero-opacity">
+      <div
+        id="diversification-container"
+        class="zero-opacity"
+        style="transform: translateX(-50%) translateY(-50%);"
+      >
         <diversification />
       </div>
 
@@ -141,7 +145,6 @@ $grey: #6e6e6e;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
 }
 
 .line {

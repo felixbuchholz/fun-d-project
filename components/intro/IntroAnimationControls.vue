@@ -25,13 +25,14 @@
 
 <script>
 import anime from "animejs/lib/anime.es.js";
+import chroma from "chroma-js";
 import { Howl } from "howler";
 import { mapState, mapGetters } from "vuex";
 
 export default {
   data() {
     return {
-      progress: 80,
+      progress: 85,
       isPlaying: false,
       currentTitle: { x: 0, y: 0 },
       diversification: { diameterPercent: null },
@@ -258,11 +259,6 @@ export default {
           strokeDashoffset: [anime.setDashoffset, 0],
           easing: "easeInOutSine",
           duration: 2500
-          // direction: "reverse"
-          // begin: () => {
-          //   console.log("begin");
-          //   // console.log(anime.setDashoffset);
-          // }
         },
         "-=500"
       );
@@ -569,50 +565,184 @@ export default {
         "-=3000"
       );
 
+      this.tl.add(
+        {
+          targets: "#diversification-container",
+          opacity: 0,
+          duration: 800
+        },
+        "+=400"
+      );
+
+      this.tl.add({
+        targets: "#diversification-container",
+        scale: 0,
+        duration: 1
+      });
+      // Preparation for come back
+      this.tl.add({
+        targets: that.diversification,
+        diameterPercent: 25,
+        duration: 1
+      });
+
       //──── diversification end ───────────────────────────────────────────────────────────────────
 
-      // this.tl.add({
-      //   targets: "#haystack",
-      //   scale: 1,
-      //   duration: 1
-      // });
+      //──── haystack start ───────────────────────────────────────────────────────────────────
 
-      // this.tl.add({
-      //   targets: "#haystack",
-      //   opacity: 1,
-      //   scale: 1,
-      //   duration: 2000,
-      //   easing: "easeInOutSine"
-      // });
-      // this.tl.add({
-      //   targets: "#haystack",
-      //   scale: 0,
-      //   duration: 1
-      // });
+      this.tl.add(
+        {
+          targets: "#haystack",
+          opacity: 1,
+          scale: 1,
+          duration: 2000,
+          easing: "easeInOutSine"
+        },
+        "+=500"
+      );
 
-      // this.tl.add({
-      //   targets: "#winners-pass",
-      //   scale: 1,
-      //   duration: 1
-      // });
-      // this.tl.add({
-      //   targets: that.currentTitle,
-      //   x: 0,
-      //   y: -50,
-      //   duration: 1
-      // });
-      // this.tl.add({
-      //   targets: "#winners-pass",
-      //   opacity: 1,
-      //   scale: 1,
-      //   duration: 2000,
-      //   easing: "easeInOutSine"
-      // });
-      // this.tl.add({
-      //   targets: "#winners-pass",
-      //   scale: 0,
-      //   duration: 1
-      // });
+      this.tl.add({
+        targets: "#magnifier",
+        opacity: 1,
+        scale: 1,
+        duration: 500,
+        easing: "easeOutBounce"
+      });
+      var magnifierPath = anime.path("#magnifier-path");
+      this.tl.add({
+        targets: "#magnifier-mover",
+        translateX: magnifierPath("x"),
+        translateY: magnifierPath("y"),
+        // rotate: magnifierPath("angle"),
+        easing: "easeInOutQuad",
+        duration: 4000
+      });
+      this.tl.add({
+        targets: ".hay.needle",
+        stroke: "#0000ff",
+        easing: "easeInQuad",
+        duration: 200
+      });
+
+      this.tl.add(
+        {
+          targets: "#magnifier",
+          translateY: "125%",
+          translateX: "-=40%",
+          rotate: "300deg",
+          duration: 900,
+          easing: "easeInBack"
+        },
+        "+=900"
+      );
+
+      this.tl.add({
+        targets: "#magnifier",
+        opacity: 0,
+        scale: 0,
+        duration: 1
+      });
+
+      this.tl.add(
+        {
+          targets: ".hay",
+          stroke: function() {
+            return that.$helpers.getRandomColorHex();
+          },
+          easing: "easeInQuad",
+          duration: 200
+        },
+        "+=200"
+      );
+
+      this.tl.add({
+        targets: "#haystack",
+        scale: 0,
+        opacity: 0,
+        duration: 400,
+        easing: "easeInBack"
+      });
+
+      this.tl.add(
+        {
+          targets: "#diversification-container",
+          scale: 1,
+          opacity: 1,
+          duration: 400,
+          easing: "easeOutBack"
+        },
+        "-=250"
+      );
+
+      this.tl.add({
+        targets: "#haystack-title",
+        scale: 1,
+        duration: 1
+      });
+
+      this.tl.add(
+        {
+          targets: "#haystack-title",
+          opacity: 1,
+          duration: 2000,
+          easing: "easeInOutSine"
+        },
+        "+=500"
+      );
+      this.tl.add(
+        {
+          targets: "#haystack-title",
+          opacity: 0,
+          duration: 500,
+          easing: "easeInOutSine"
+        },
+        "+=500"
+      );
+
+      this.tl.add({
+        targets: "#haystack-title",
+        scale: 0,
+        duration: 1
+      });
+      this.tl.add(
+        {
+          targets: "#diversification-container",
+          opacity: 0,
+          duration: 500
+        },
+        "-=500"
+      );
+      this.tl.add({
+        targets: "#diversification-container",
+        scale: 0,
+        duration: 1
+      });
+
+      //──── haystack end ───────────────────────────────────────────────────────────────────
+
+      this.tl.add({
+        targets: "#winners-pass",
+        scale: 1,
+        duration: 1
+      });
+      this.tl.add({
+        targets: that.currentTitle,
+        x: 0,
+        y: -50,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#winners-pass",
+        opacity: 1,
+        scale: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+      this.tl.add({
+        targets: "#winners-pass",
+        scale: 0,
+        duration: 1
+      });
 
       // this.tl.add({
       //   targets: "#winners-pass-two",

@@ -33,9 +33,19 @@ import house from "~/components/intro/elements/house.vue";
 import nestegg from "~/components/intro/elements/nestegg.vue";
 import passivegraph from "~/components/intro/elements/passivegraph.vue";
 import newelement from "~/components/intro/elements/newelement.vue";
+import haystack from "~/components/intro/elements/haystack.vue";
+import magnifier from "~/components/intro/elements/magnifier.vue";
 
 export default {
-  components: { piggy, house, nestegg, passivegraph, newelement },
+  components: {
+    piggy,
+    house,
+    nestegg,
+    passivegraph,
+    newelement,
+    haystack,
+    magnifier
+  },
   data() {
     return {
       elements: [
@@ -43,7 +53,9 @@ export default {
         { name: "house", x: 50, y: 50, cX: -46, cY: -46 },
         { name: "nestegg", x: 75, y: 50, cX: -41, cY: -46, elementScale: 1.2 },
         { name: "passivegraph", x: 50, y: 50, cX: -430, cY: -232 },
-        { name: "newelement", x: 50, y: 50, cX: -13.5, cY: -13.5 }
+        { name: "newelement", x: 50, y: 50, cX: -13.5, cY: -13.5 },
+        { name: "haystack", x: 50, y: 48.5, cX: -134, cY: -76 },
+        { name: "magnifier", x: 53.25, y: 50, cX: -105, cY: -72 }
       ]
     };
   },

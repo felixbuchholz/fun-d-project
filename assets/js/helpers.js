@@ -1,3 +1,5 @@
+import chroma from "chroma-js";
+
 export default {
   getViewportSize() {
     var e = window;
@@ -35,9 +37,7 @@ export default {
   },
   getArrayOfObjectsCopy(array) {
     // const newArray = array.map((x, i) => Object.assign({ index: i }, x));
-
     const newArray = JSON.parse(JSON.stringify(array));
-
     // let newArray = []
     // for (const element of array.slice(0)) {
     //   let newObject = {};
@@ -49,5 +49,16 @@ export default {
     //   newArray.push(newObject);
     // }
     return newArray;
+  },
+  getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  },
+  getRandomColorHex() {
+    const random = chroma.hsl(
+      this.getRandomArbitrary(0, 360),
+      this.getRandomArbitrary(0.7, 1),
+      this.getRandomArbitrary(0.6, 0.9)
+    );
+    return chroma(random).hex();
   }
 };
