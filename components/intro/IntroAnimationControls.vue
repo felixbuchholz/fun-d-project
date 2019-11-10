@@ -31,7 +31,7 @@ import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      progress: 90,
+      progress: 80,
       isPlaying: false,
       currentTitle: { x: 0, y: 0 },
       diversification: { diameterPercent: null },
@@ -499,57 +499,77 @@ export default {
         duration: 1
       });
 
+      //──── diversification start ───────────────────────────────────────────────────────────────────
+
       this.tl.add({
         targets: "#diversification-container",
         opacity: 1,
         duration: 800
       });
 
-      this.tl.add({
-        targets: that.diversification,
-        diameterPercent: 60,
-        duration: 2000,
-        easing: "cubicBezier(0.420, 0.000, 0.580, 1.000)"
-      });
-
+      this.tl.add(
+        {
+          targets: that.diversification,
+          diameterPercent: 40,
+          duration: 4000,
+          easing: "linear"
+        },
+        "+=800"
+      );
       this.tl.add(
         {
           targets: that.sharesLocal,
           amount: function(el, i) {
-            return el.amount * i;
+            return 1 + i * 0.1;
           },
-          duration: 2000,
+          duration: 4000,
           easing: "easeInQuad"
         },
-        "-=2000"
+        "-=4000"
       );
-      this.tl.add({
-        targets: that.diversification,
-        diameterPercent: 70,
-        duration: 3000,
-        easing: "cubicBezier(0.420, 0.000, 0.580, 1.000)"
-      });
+      this.tl.add(
+        {
+          targets: that.diversification,
+          diameterPercent: 50,
+          duration: 1500,
+          easing: "linear"
+        },
+        "+=0"
+      );
+      this.tl.add(
+        {
+          targets: that.sharesLocal,
+
+          amount: function(el, i) {
+            return 1 + i * 0.02;
+          },
+          duration: 1500,
+          easing: "linear"
+        },
+        "-=1500"
+      );
+      this.tl.add(
+        {
+          targets: that.diversification,
+          diameterPercent: 60,
+          duration: 3000,
+          easing: "linear"
+        },
+        "+=0"
+      );
       this.tl.add(
         {
           targets: that.sharesLocal,
           amount: function(el, i) {
-            return (50 - i) * 10;
+            return 1 + Math.pow(i, 6) * 0.000000000001;
           },
           duration: 3000,
-          easing: "cubicBezier(0.420, 0.000, 0.580, 1.000)"
+          easing: "easeInOutQuad"
         },
         "-=3000"
       );
-      // this.tl.add(
-      //   {
-      //     targets: that.sharesLocal,
-      //     amount: function() {
-      //       return anime.random(20, 400);
-      //     },
-      //     duration: 1000
-      //   },
-      //   "-=0"
-      // );
+
+      //──── diversification end ───────────────────────────────────────────────────────────────────
 
       // this.tl.add({
       //   targets: "#haystack",

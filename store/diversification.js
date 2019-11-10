@@ -1,8 +1,9 @@
 import shares from "~/static/data/shares.json";
 
+console.log(shares.length);
 export const state = () => ({
   circlePacking: {
-    diameterPercent: 50,
+    diameterPercent: 30,
     padding: 2
   },
   shares: shares

@@ -1,12 +1,12 @@
 <template>
   <div>
     <svg :width="diameterPx" :height="diameterPx">
-      <circle
+      <!-- <circle
         id="diversification-circle-background"
         :cx="diameterPx / 2"
         :cy="diameterPx / 2"
         :r="diameterPx / 2"
-      />
+      />-->
       <g
         v-for="(childElement, index) in layoutData.children"
         :key="`childElement-${index}`"
@@ -15,7 +15,11 @@
           transform: `translate(${childElement.x}px, ${childElement.y}px)`
         }"
       >
-        <circle class="childElement-circle" :r="childElement.r" :fill="childElement.data.color" />
+        <circle
+          class="childElement-circle"
+          :r="childElement.r"
+          :fill="childElement.data.color"
+        />
         <!-- <text class="childElement-label">{{ childElement.data.imglink }}</text> -->
       </g>
     </svg>
