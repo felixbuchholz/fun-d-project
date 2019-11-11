@@ -5,8 +5,12 @@
     </button>
     <div id="animation-drawer-controls">
       <div id="drawer">
-        <button @click="play"><fa icon="play" />&nbsp;Play</button>
-        <button @click="pause"><fa icon="pause" />&nbsp;Pause</button>
+        <button @click="play">
+          <fa icon="play" />&nbsp;Play
+        </button>
+        <button @click="pause">
+          <fa icon="pause" />&nbsp;Pause
+        </button>
         <!-- <button @click="seek">Seek!</button> -->
         <input
           id="myRange"
@@ -32,7 +36,7 @@ import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      progress: 85,
+      progress: 90,
       isPlaying: false,
       currentTitle: { x: 0, y: 0 },
       diversification: { diameterPercent: null },
@@ -202,6 +206,13 @@ export default {
         },
         "+=3700"
       );
+
+      this.tl.add({
+        targets: "#house",
+        translateX: "75%",
+        duration: 1
+      });
+
       this.tl.add(
         {
           targets: "#piggy",
@@ -650,18 +661,21 @@ export default {
             return that.$helpers.getRandomColorHex();
           },
           easing: "easeInQuad",
-          duration: 200
+          duration: 800
         },
         "+=200"
       );
 
-      this.tl.add({
-        targets: "#haystack",
-        scale: 0,
-        opacity: 0,
-        duration: 400,
-        easing: "easeInBack"
-      });
+      this.tl.add(
+        {
+          targets: "#haystack",
+          scale: 0,
+          opacity: 0,
+          duration: 400,
+          easing: "easeInBack"
+        },
+        "+=400"
+      );
 
       this.tl.add(
         {
@@ -720,6 +734,8 @@ export default {
 
       //──── haystack end ───────────────────────────────────────────────────────────────────
 
+      //──── winner start ───────────────────────────────────────────────────────────────────
+
       this.tl.add({
         targets: "#winners-pass",
         scale: 1,
@@ -738,11 +754,173 @@ export default {
         duration: 2000,
         easing: "easeInOutSine"
       });
+
+      this.tl.add(
+        {
+          targets: ".mgmt-house",
+          opacity: 1,
+          scale: 1,
+          duration: 600,
+          delay: anime.stagger(200, { from: "first" }),
+          easing: "easeInOutQuad"
+        },
+        "+=200"
+      );
+
+      this.tl.add(
+        {
+          targets: ".manager-logos",
+          opacity: 1,
+          scale: 1,
+          duration: 600,
+          delay: anime.stagger(300, { from: "center" }),
+          easing: "easeInOutQuad"
+        },
+        "-=200"
+      );
+
+      this.tl.add(
+        {
+          targets: ".manager-logos",
+          opacity: 1,
+          scale: 0.7,
+          duration: 500,
+          easing: "easeInOutQuad"
+        },
+        "+=700"
+      );
+
+      this.tl.add(
+        {
+          targets: "#blackrocklogo",
+          left: "30%",
+          top: "62%",
+          duration: 700,
+          easing: "easeInOutSine"
+        },
+        "-=500"
+      );
+
+      this.tl.add(
+        {
+          targets: "#vh",
+          translateX: "30%",
+          translateY: "31.5%",
+          duration: 700,
+          easing: "easeInOutSine"
+        },
+        "-=700"
+      );
+
+      this.tl.add(
+        {
+          targets: "#vanguardlogo",
+          left: "30%",
+          top: "70%",
+          duration: 700,
+          easing: "easeInOutSine"
+        },
+        "-=700"
+      );
+
+      this.tl.add(
+        {
+          targets: "#ssh",
+          translateX: "36.5%",
+          translateY: "45%",
+          duration: 700,
+          easing: "easeInOutSine"
+        },
+        "-=700"
+      );
+
       this.tl.add({
         targets: "#winners-pass",
         scale: 0,
         duration: 1
       });
+
+      this.tl.add(
+        {
+          targets: "#statestreetlogo",
+          left: "30%",
+          top: "80%",
+          duration: 700,
+          easing: "easeInOutSine"
+        },
+        "-=700"
+      );
+
+      this.tl.add(
+        {
+          targets: "#equals",
+          opacity: 1,
+          scale: 1,
+          duration: 400,
+          easing: "easeOutBounce"
+        },
+        "+=400"
+      );
+
+      this.tl.add(
+        {
+          targets: "#house",
+          opacity: 1,
+          scale: 1,
+          duration: 800,
+          easing: "easeInOutExpo"
+        },
+        "-=200"
+      );
+
+      this.tl.add({
+        targets: that.currentTitle,
+        x: 25,
+        y: -120,
+        duration: 1
+      });
+
+      this.tl.add({
+        targets: "#household-equivalent",
+        opacity: 1,
+        scale: 1,
+        duration: 600,
+        easing: "easeOutSine"
+      });
+
+      this.tl.add(
+        {
+          targets: that.currentTitle,
+          x: 25,
+          y: -5,
+          duration: 400,
+          easing: "easeOutBack"
+        },
+        "-=500"
+      );
+
+      this.tl.add({
+        targets: ["#house", "#household-equivalent"],
+        opactity: 0,
+        duration: 600,
+        easing: "easeInQuad"
+      });
+
+      // this.tl.add({
+      //   targets: "#vanguardlogo",
+      //   left: "25%",
+      //   top: "85%",
+      //   duration: 2000,
+      //   easing: "easeInOutSine"
+      // });
+
+      // this.tl.add({
+      //   targets: "#statestreetlogo",
+      //   left: "25%",
+      //   top: "95%",
+      //   duration: 2000,
+      //   easing: "easeInOutSine"
+      // });
 
       // this.tl.add({
       //   targets: "#winners-pass-two",

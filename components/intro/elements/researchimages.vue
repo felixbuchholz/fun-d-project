@@ -21,7 +21,7 @@
       <img class="info-overload zero-opacity" src="~/assets/img/ft.jpg" />
       <img class="info-overload zero-opacity" src="~/assets/img/econom.jpg" />
       <img class="info-overload zero-opacity" src="~/assets/img/apple.jpg" />
-      <img class="info-overload zero-opacity" src="~/assets/img/balancse.jpg" /> -->
+      <img class="info-overload zero-opacity" src="~/assets/img/balancse.jpg" />-->
     </div>
   </div>
 </template>
@@ -46,7 +46,6 @@ export default {
 <style lang="scss" scoped>
 #research-images {
   position: absolute;
-  top: 0;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%) scale(1);

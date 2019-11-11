@@ -5,80 +5,122 @@
     class="current-title"
     :style="`transform: translateX(${title.x}px) translateY(${title.y}px)`"
   >
-    <div id="financial-future" class="center zero-opacity" style="transform: scale(0)">
+    <div
+      id="financial-future"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
       How do people approach their
       <span class="bold">financial future?</span>
     </div>
 
-    <div id="passive-growth" class="center zero-opacity" style="transform: scale(0)">
+    <div
+      id="passive-growth"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
       Alongside the rise of retirement funds
-      <br />
       <span class="bold">passive investment grew</span>
     </div>
 
-    <div id="fund-concept" class="left zero-opacity" style="transform: scale(0)">
+    <div
+      id="fund-concept"
+      class="left zero-opacity"
+      style="transform: scale(0)"
+    >
       An index fund buys securities from
-      <br />a pre-defined selection of companies
-      <br />
+      <p>a pre-defined selection of companies</p>
       <!-- <span class="bold">passive investment grew</span> -->
     </div>
 
-    <div id="fund-concept-two" class="left zero-opacity" style="transform: scale(0)">
-      <br />based on an existing list - an index.
-      <br />
+    <div
+      id="fund-concept-two"
+      class="left zero-opacity"
+      style="transform: scale(0)"
+    >
+      based on an existing list - an index.
       <!-- <span class="bold">passive investment grew</span> -->
     </div>
 
-    <div id="why-pass-work" class="left zero-opacity" style="transform: scale(0)">
-      <br />Why does index investing work?
-      <br />
+    <div
+      id="why-pass-work"
+      class="left zero-opacity"
+      style="transform: scale(0)"
+    >
+      Why does index investing work?
     </div>
 
-    <div id="cheap-diversific" class="left zero-opacity" style="transform: scale(0)">
-      <br />Index investing enables cheap diversification
-      <br />
+    <div
+      id="cheap-diversific"
+      class="left zero-opacity"
+      style="transform: scale(0)"
+    >
+      Index investing enables cheap diversification
     </div>
 
     <div id="diversific" class="left zero-opacity" style="transform: scale(0)">
-      <br />Diversification
-      <br />
+      Diversification
     </div>
 
-    <div id="haystack-title" class="left zero-opacity" style="transform: scale(0)">
-      <br />Through index funds "you can just buy the haystack"
-      <br />
-      <br />
-      <span style="color:#B7B0B0">John Bogle</span>
+    <div
+      id="haystack-title"
+      class="left zero-opacity"
+      style="transform: scale(0)"
+    >
+      Through index funds "you can just buy the haystack"
+      <p style="color:#B7B0B0">John Bogle</p>
     </div>
 
-    <div id="winners-pass" class="center zero-opacity" style="transform: scale(0)">
-      <br />Winners of the passive investment trend
-      <br />
+    <div
+      id="winners-pass"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
+      Winners of the passive investment trend
     </div>
 
-    <div id="winners-pass-two" class="center zero-opacity" style="transform: scale(0)">
-      <br />These three have about $15 trillion in assets under management
-      <br />
+    <div
+      id="winners-pass-two"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
+      These three have about $15 trillion in assets under management
+    </div>
+
+    <div
+      id="household-equivalent"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
+      155 million US households
     </div>
 
     <div id="managing" class="center zero-opacity" style="transform: scale(0)">
-      <br />... managing thousands of funds, each composed of many companies.
-      <br />
+      ... managing thousands of funds, each composed of many companies.
     </div>
 
-    <div id="get_to_vote" class="center zero-opacity" style="transform: scale(0)">
-      <br />Asset managers get to vote on the shares in the funds they manage
-      <br />
+    <div
+      id="get_to_vote"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
+      Asset managers get to vote on the shares in the funds they manage
     </div>
 
-    <div id="share_of_comps" class="left zero-opacity" style="transform: scale(0)">
-      <br />The share of companies owned by index funds is larger than ever
-      <br />
+    <div
+      id="share_of_comps"
+      class="left zero-opacity"
+      style="transform: scale(0)"
+    >
+      The share of companies owned by index funds is larger than ever
     </div>
 
-    <div id="how_using_influence" class="center zero-opacity" style="transform: scale(0)">
-      <br />How are the largest asset managers using their influence?
-      <br />
+    <div
+      id="how_using_influence"
+      class="center zero-opacity"
+      style="transform: scale(0)"
+    >
+      How are the largest asset managers using their influence?
     </div>
   </div>
 </template>
@@ -113,4 +155,3 @@ export default {
   top: 10%;
 }
 </style>
-

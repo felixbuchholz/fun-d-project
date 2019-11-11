@@ -5,7 +5,7 @@
       v-for="(el, index) in elements"
       :id="el.name"
       :key="`icons-${index}`"
-      class="zero-opacity"
+      :class="`${el.class ? el.class : ''} zero-opacity`"
       :style="
         `transform: translateX(${el.x}%) translateY(${el.y}%) scale(${
           el.initialScale ? el.initialScale : 0
@@ -35,6 +35,10 @@ import passivegraph from "~/components/intro/elements/passivegraph.vue";
 import newelement from "~/components/intro/elements/newelement.vue";
 import haystack from "~/components/intro/elements/haystack.vue";
 import magnifier from "~/components/intro/elements/magnifier.vue";
+import brh from "~/components/intro/elements/blackrockhouse.vue";
+import vh from "~/components/intro/elements/vanguardhouse.vue";
+import ssh from "~/components/intro/elements/statestreethouse.vue";
+import equals from "~/components/intro/elements/equals.vue";
 
 export default {
   components: {
@@ -44,7 +48,11 @@ export default {
     passivegraph,
     newelement,
     haystack,
-    magnifier
+    magnifier,
+    brh,
+    vh,
+    ssh,
+    equals
   },
   data() {
     return {
@@ -55,7 +63,11 @@ export default {
         { name: "passivegraph", x: 50, y: 50, cX: -430, cY: -232 },
         { name: "newelement", x: 50, y: 50, cX: -13.5, cY: -13.5 },
         { name: "haystack", x: 50, y: 48.5, cX: -134, cY: -76 },
-        { name: "magnifier", x: 53.25, y: 50, cX: -105, cY: -72 }
+        { name: "magnifier", x: 53.25, y: 50, cX: -105, cY: -72 },
+        { name: "vh", x: 50, y: 45, cX: -100, cY: -80, class: "mgmt-house" },
+        { name: "brh", x: 25, y: 45, cX: -100, cY: -104, class: "mgmt-house" },
+        { name: "ssh", x: 75, y: 45, cX: -89, cY: -75, class: "mgmt-house" },
+        { name: "equals", x: 55, y: 50, cX: -35, cY: -16 }
       ]
     };
   },

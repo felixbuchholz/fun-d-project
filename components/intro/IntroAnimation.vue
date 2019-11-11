@@ -3,11 +3,7 @@
   <!-- the "ref" is how you refer to it from other vue files. Alternative to
   query selector or getbyID etc.-->
 
-  <div
-    id="intro-animation"
-    ref="introAnimation"
-    :style="`padding: ${window.animationFrame}px;`"
-  >
+  <div id="intro-animation" ref="introAnimation" :style="`padding: ${window.animationFrame}px;`">
     <div id="animation">
       <div id="svg-animation" v-resize:throttle="onResize">
         <svg id="intro-svg" :width="width" :height="height">
@@ -16,13 +12,11 @@
         </svg>
       </div>
       <!-- scale(0); -->
-      <div
-        id="html-titles"
-        style="transform: translateX(-50%) translateY(-50%)"
-      >
+      <div id="html-titles" style="transform: translateX(-50%) translateY(-50%)">
         <IntroTitles />
       </div>
       <div id="html-images">
+        <LogoWrapper />
         <researchimages />
       </div>
 
@@ -51,6 +45,7 @@ import { mapState, mapGetters } from "vuex";
 
 import IntroTitles from "~/components/intro/IntroTitles.vue";
 import ElementWrapper from "~/components/intro/elements/ElementWrapper.vue";
+import LogoWrapper from "~/components/intro/elements/LogoWrapper.vue";
 import IntroAnimationControls from "~/components/intro/IntroAnimationControls.vue";
 import researchimages from "~/components/intro/elements/researchimages.vue";
 import indexlist from "~/components/intro/elements/index_list.vue";
@@ -64,6 +59,7 @@ export default {
   components: {
     IntroTitles,
     ElementWrapper,
+    LogoWrapper,
     IntroAnimationControls,
     researchimages,
     indexlist,
