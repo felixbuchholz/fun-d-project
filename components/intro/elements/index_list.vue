@@ -58,8 +58,8 @@
                             </tr>
                             <tr class='sp_list_item'>
                                 <td>5&nbsp;&nbsp;</td>
-                                <td>"Berkshire Hathaway Inc. Class B</td>
-                                <td>"BRK.B</td>
+                                <td>Berkshire Hathaway Inc. Class B</td>
+                                <td>BRK.B</td>
                                 <td>1.663716</td>
                                 <td class="text-nowrap"> &nbsp;&nbsp;208.60</td>
                                 <td class="text-nowrap" style="color: green">0.52</td>
