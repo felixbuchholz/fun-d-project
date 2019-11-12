@@ -1,15 +1,15 @@
 <template>
   <div id="animation-controls">
-    <button id="start-button-big" ref="centeredPlayButton" @click="play">
-      <fa icon="play" />&nbsp;Play Intro
+    <button id="start-button-big" ref="centeredPlayButton" @click="playOrPause">
+      &nbsp;<fa icon="play" />
     </button>
     <div id="animation-drawer-controls">
       <div id="drawer">
-        <button @click="play">
-          <fa icon="play" />&nbsp;Play
+        <button v-if="!isPlaying" @click="playOrPause">
+          <fa icon="play" />&nbsp;&nbsp;Play
         </button>
-        <button @click="pause">
-          <fa icon="pause" />&nbsp;Pause
+        <button v-else @click="playOrPause">
+          <fa icon="pause" />&nbsp;&nbsp;Pause
         </button>
         <!-- <button @click="seek">Seek!</button> -->
         <input
@@ -22,6 +22,7 @@
           class="slider"
           @input="sliderChange"
         />
+        <div id="playback-time">0:00</div>
       </div>
     </div>
   </div>
@@ -36,7 +37,7 @@ import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      progress: 95,
+      progress: 0,
       isPlaying: false,
       currentTitle: { x: 0, y: 0 },
       diversification: { diameterPercent: null },
@@ -1218,16 +1219,18 @@ export default {
         this.seek(this.progress);
       }, 200);
     },
-    play() {
-      this.$helpers.fadeOutAndHide(this.$refs.centeredPlayButton);
-      this.sound.play();
-      this.tl.play();
-      this.isPlaying = true;
-    },
-    pause() {
-      this.sound.pause();
-      this.tl.pause();
-      this.isPlaying = false;
+    playOrPause() {
+      if (!this.isPlaying) {
+        this.$helpers.fadeOutAndHide(this.$refs.centeredPlayButton);
+        this.sound.play();
+        this.tl.play();
+        this.isPlaying = true;
+      } else {
+        this.sound.pause();
+        this.tl.pause();
+        this.isPlaying = false;
+        this.$helpers.displayAndFadeIn(this.$refs.centeredPlayButton);
+      }
     },
     seek(percent) {
       const miliseconds = this.tl.duration * (percent / 100);
@@ -1265,11 +1268,7 @@ export default {
     },
     handleSpaceKeydown(event) {
       if (event.which == 32) {
-        if (this.isPlaying) {
-          this.pause();
-        } else {
-          this.play();
-        }
+        this.playOrPause();
       }
     },
     removeEventlistener() {
@@ -1281,40 +1280,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-#start-button-big {
-  transition: opacity 150ms ease-in;
-  z-index: 9;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 30px;
-  font-weight: 900;
-}
-#animation-drawer-controls {
-  width: 100%;
-  height: 60px;
-  overflow: hidden;
-  position: absolute;
-  bottom: 0px;
-}
-#animation-drawer-controls #drawer {
-  transition: transform 200ms ease-in-out;
-  transform: translateY(60px);
-}
-#animation-drawer-controls:hover {
-  & #drawer {
-    transform: translateY(13px);
-  }
-}
-#drawer {
-  display: grid;
-  grid-column-gap: 10px;
-  grid-template-columns: 100px 100px auto;
-  align-items: center;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.1);
-}
-</style>

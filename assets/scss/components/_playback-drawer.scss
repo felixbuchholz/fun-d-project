@@ -1,0 +1,44 @@
+$shadow-blur: 6px;
+
+#animation-drawer-controls {
+  width: 100%;
+  height: $drawer-height + 2 * $shadow-blur;
+
+  overflow: hidden;
+  position: absolute;
+  bottom: 0px;
+}
+#animation-drawer-controls #drawer {
+  transition: transform 200ms ease-in-out;
+  transform: translateY($drawer-height + 3 * $shadow-blur);
+}
+#animation-drawer-controls:hover {
+  & #drawer {
+    transform: translateY(2 * $shadow-blur);
+  }
+}
+#drawer {
+  height: $drawer-height;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: 100px auto 50px;
+  align-items: center;
+  padding: 20px;
+
+  // border-top: 1px solid $third;
+  box-shadow: 0px 0px $shadow-blur 1px rgba(0, 0, 0, 0.1);
+  @include background-opacity($white, 0.2);
+
+  & button,
+  #playback-time {
+    background: none;
+    border: none;
+    color: $black;
+  }
+  & button {
+    &:hover {
+      color: $first;
+      transform: scale(1.025);
+    }
+  }
+}

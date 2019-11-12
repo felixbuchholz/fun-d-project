@@ -4,6 +4,7 @@ module.exports = {
     node: true
   },
   extends: [
+    "prettier",
     "plugin:vue/recommended",
     "eslint:recommended",
     "prettier/vue",

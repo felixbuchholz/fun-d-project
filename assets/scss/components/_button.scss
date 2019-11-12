@@ -2,19 +2,24 @@
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
 button {
-  transition: background 150ms ease-in-out;
-  border: 0;
+  transition: all 130ms ease-in-out;
+
+  cursor: pointer;
   outline: none;
-  background: rgb(100, 100, 100);
-  color: white;
-  font-family: system-ui, sans-serif;
+  text-decoration: none;
+
+  padding: 0.5rem 0.5rem;
+
   font-size: 1rem;
   line-height: 1.2;
   white-space: nowrap;
-  text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  cursor: pointer;
+
+  border: 1px solid $first;
+  background: $white;
+  color: $first;
+
   &:hover {
-    background: rgb(0, 0, 0);
+    background: $first;
+    color: $white;
   }
 }
