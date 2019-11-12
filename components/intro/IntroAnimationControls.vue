@@ -36,7 +36,7 @@ import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      progress: 90,
+      progress: 95,
       isPlaying: false,
       currentTitle: { x: 0, y: 0 },
       diversification: { diameterPercent: null },
@@ -114,6 +114,8 @@ export default {
         src: ["intro.m4a"],
         autoplay: false
       });
+      // TODO: remove later
+      this.sound.volume(0);
     },
     defineTimeline() {
       // console.log("timeline is starting to define");
@@ -899,28 +901,189 @@ export default {
         "-=500"
       );
 
+      this.tl.add(
+        {
+          targets: [
+            "#house",
+            ".mgmt-house",
+            ".manager-logos",
+            "#equals",
+            "#household-equivalent"
+          ],
+          opacity: 0,
+          scale: 0,
+          duration: 500,
+          easing: "easeInOutExpo"
+        },
+        "+=500"
+      );
+
+      this.tl.add(
+        {
+          targets: "#all-funds-container",
+          opacity: 1,
+          duration: 500,
+          easing: "easeInOutExpo"
+        },
+        "+=500"
+      );
+
+      this.tl.add(
+        {
+          targets: "#all-funds-mover",
+          translateX: "-1000%",
+          duration: 9000,
+          easing: "easeInQuart"
+        },
+        "+=500"
+      );
+
+      this.tl.add(
+        {
+          targets: "#all-funds-container",
+          opacity: 0,
+          duration: 1000,
+          easing: "easeInOutQuad"
+        },
+        "-=1000"
+      );
+
+      this.tl.add(
+        {
+          targets: "#companycircle",
+          opacity: 1,
+          scale: 1,
+          duration: 500,
+          easing: "easeOutBounce"
+        },
+        "+=500"
+      );
+
       this.tl.add({
-        targets: ["#house", "#household-equivalent"],
-        opactity: 0,
-        duration: 600,
-        easing: "easeInQuad"
+        targets: "#arrow",
+        scale: 1,
+        opacity: 1,
+        duration: 1
       });
 
-      // this.tl.add({
-      //   targets: "#vanguardlogo",
-      //   left: "25%",
-      //   top: "85%",
-      //   duration: 2000,
-      //   easing: "easeInOutSine"
-      // });
+      this.tl.add(
+        {
+          targets: "#agenda",
+          opacity: 1,
+          scale: 1,
+          translateX: {
+            value: "50%",
+            delay: 200,
+            duration: 800
+          },
+          duration: 1000,
+          easing: "easeInQuad"
+        },
+        "+=500"
+      );
 
-      // this.tl.add({
-      //   targets: "#statestreetlogo",
-      //   left: "25%",
-      //   top: "95%",
-      //   duration: 2000,
-      //   easing: "easeInOutSine"
-      // });
+      this.tl.add(
+        {
+          targets: ".arrow-line",
+          strokeDashoffset: [anime.setDashoffset, 0],
+          delay: anime.stagger(400, { from: "center" }),
+          duration: 400,
+          easing: "easeInQuad"
+        },
+        "-=400"
+      );
+
+      this.tl.add(
+        {
+          targets: ["#voteyes1", "#voteno1", "#voteno2"],
+          translateX: "60%",
+          scale: 1.2,
+          opacity: 1,
+          duration: 500,
+          delay: anime.stagger(300),
+          easing: "easeOutBack"
+        },
+        "+=500"
+      );
+
+      this.tl.add(
+        {
+          targets: [
+            "#voteyes1",
+            "#voteno1",
+            "#voteno2",
+            "#agenda",
+            "#arrow",
+            "#companycircle"
+          ],
+          scale: 0,
+          opacity: 0,
+          duration: 300,
+          delay: anime.stagger(100),
+          easing: "easeInQuad"
+        },
+        "+=500"
+      );
+
+      this.tl.add({
+        targets: ".voteno",
+        rotate: "-30deg",
+        duration: 1
+      });
+
+      this.tl.add(
+        {
+          targets: "#smallslice",
+          scale: 1,
+          opacity: 1,
+          translateY: "45%",
+          duration: 500,
+          easing: "easeInOutQuint"
+        },
+        "+= 300"
+      );
+
+      this.tl.add(
+        {
+          targets: ".voteno",
+          scale: 1.2,
+          opacity: 1,
+          translateX: function(el, i) {
+            return 26 + i * 3 + "%";
+          },
+          translateY: "60%",
+          rotate: "0deg",
+          duration: 300,
+          delay: anime.stagger(100),
+          easing: "easeInQuad"
+        },
+        "+=500"
+      );
+
+      this.tl.add(
+        {
+          targets: "#bigslice",
+          scale: 1,
+          opacity: 1,
+          translateY: "45%",
+          duration: 500,
+          easing: "easeInOutQuint"
+        },
+        "+= 300"
+      );
+
+      this.tl.add(
+        {
+          targets: "#voteyes2",
+          scale: 5,
+          opacity: 1,
+          translateX: "60%",
+          translateY: "45%",
+          duration: 500,
+          easing: "easeOutBack"
+        },
+        "+= 600"
+      );
 
       // this.tl.add({
       //   targets: "#winners-pass-two",

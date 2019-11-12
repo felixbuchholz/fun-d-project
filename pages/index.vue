@@ -1,6 +1,6 @@
 <template>
   <div id="page-container">
-     <h1>Fund project</h1>
+    <h1>Fund project</h1>
     <Intro />
   </div>
 </template>

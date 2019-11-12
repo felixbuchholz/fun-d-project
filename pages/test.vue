@@ -1,17 +1,17 @@
 <template>
   <div id="page-container">
     <h1>Test site</h1>
-    <diversification />
+    <fundblobs />
   </div>
 </template>
 
 <script>
 // import IntroAnimation from "~/components/IntroAnimation.vue";
-import diversification from "~/components/intro/elements/diversification.vue";
+import fundblobs from "~/components/intro/elements/fundblobs.vue";
 
 export default {
   components: {
-    diversification
+    fundblobs
   },
   data() {
     return {};

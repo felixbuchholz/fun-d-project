@@ -3,7 +3,7 @@
     <!-- initial-position -->
     <g
       v-for="(el, index) in elements"
-      :id="el.name"
+      :id="el.name ? el.name : el.class + '-' + index"
       :key="`icons-${index}`"
       :class="`${el.class ? el.class : ''} zero-opacity`"
       :style="
@@ -13,7 +13,7 @@
       "
     >
       <component
-        :is="el.name"
+        :is="el.comp ? el.comp : el.name"
         class="center-in-g"
         :style="
           `transform:translate(${el.cX}px, ${el.cY}px) scale(${
@@ -39,6 +39,13 @@ import brh from "~/components/intro/elements/blackrockhouse.vue";
 import vh from "~/components/intro/elements/vanguardhouse.vue";
 import ssh from "~/components/intro/elements/statestreethouse.vue";
 import equals from "~/components/intro/elements/equals.vue";
+import agenda from "~/components/intro/elements/agenda.vue";
+import companycircle from "~/components/intro/elements/companycircle.vue";
+import arrow from "~/components/intro/elements/arrow.vue";
+import voteyes from "~/components/intro/elements/voteyes.vue";
+import voteno from "~/components/intro/elements/voteno.vue";
+import smallslice from "~/components/intro/elements/smallslice.vue";
+import bigslice from "~/components/intro/elements/bigslice.vue";
 
 export default {
   components: {
@@ -52,7 +59,14 @@ export default {
     brh,
     vh,
     ssh,
-    equals
+    equals,
+    agenda,
+    companycircle,
+    arrow,
+    voteyes,
+    voteno,
+    smallslice,
+    bigslice
   },
   data() {
     return {
@@ -67,7 +81,23 @@ export default {
         { name: "vh", x: 50, y: 45, cX: -100, cY: -80, class: "mgmt-house" },
         { name: "brh", x: 25, y: 45, cX: -100, cY: -104, class: "mgmt-house" },
         { name: "ssh", x: 75, y: 45, cX: -89, cY: -75, class: "mgmt-house" },
-        { name: "equals", x: 55, y: 50, cX: -35, cY: -16 }
+        { name: "equals", x: 55, y: 50, cX: -35, cY: -16 },
+        { name: "companycircle", x: 25, y: 50, cX: 0, cY: 0 },
+        { name: "agenda", x: 25, y: 50, cX: -109, cY: -170 },
+        { name: "arrow", x: 35, y: 50, cX: -73.5, cY: -22 },
+        { name: "voteyes1", x: 50, y: 38, cX: -19.5, cY: -38, comp: "voteyes" },
+        { name: "voteno1", x: 50, y: 50, cX: -19.5, cY: -38, comp: "voteno" },
+        { name: "voteno2", x: 50, y: 62, cX: -19.5, cY: -38, comp: "voteyes" },
+        { x: 36, y: 45, cX: -19.5, cY: -38, comp: "voteno", class: "voteno" },
+        { x: 36, y: 45, cX: -19.5, cY: -38, comp: "voteno", class: "voteno" },
+        { x: 36, y: 45, cX: -19.5, cY: -38, comp: "voteno", class: "voteno" },
+        { x: 36, y: 45, cX: -19.5, cY: -38, comp: "voteno", class: "voteno" },
+        { x: 36, y: 45, cX: -19.5, cY: -38, comp: "voteno", class: "voteno" },
+        { x: 36, y: 45, cX: -19.5, cY: -38, comp: "voteno", class: "voteno" },
+        { x: 36, y: 45, cX: -19.5, cY: -38, comp: "voteno", class: "voteno" },
+        { name: "smallslice", x: 36, y: 60, cX: -50, cY: -50 },
+        { name: "voteyes2", x: 70, y: 60, cX: -19.5, cY: -38, comp: "voteyes" },
+        { name: "bigslice", x: 70, y: 60, cX: -50, cY: -50 }
       ]
     };
   },

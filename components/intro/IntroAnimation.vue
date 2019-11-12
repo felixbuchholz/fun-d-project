@@ -34,6 +34,8 @@
         <diversification />
       </div>
 
+      <fundblobs />
+
       <IntroAnimationControls />
     </div>
   </div>
@@ -50,6 +52,7 @@ import IntroAnimationControls from "~/components/intro/IntroAnimationControls.vu
 import researchimages from "~/components/intro/elements/researchimages.vue";
 import indexlist from "~/components/intro/elements/index_list.vue";
 import diversification from "~/components/intro/elements/diversification.vue";
+import fundblobs from "~/components/intro/elements/fundblobs.vue";
 
 export default {
   name: "IntroAnimation",
@@ -63,7 +66,8 @@ export default {
     IntroAnimationControls,
     researchimages,
     indexlist,
-    diversification
+    diversification,
+    fundblobs
   },
   computed: {
     ...mapState({

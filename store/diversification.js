@@ -1,12 +1,13 @@
 import shares from "~/static/data/shares.json";
+import helpers from "~/assets/js/helpers.js";
 
-console.log(shares.length);
 export const state = () => ({
   circlePacking: {
     diameterPercent: 30,
     padding: 2
   },
-  shares: shares
+  shares: shares,
+  companyColor: helpers.getRandomColorHex()
 });
 
 export const getters = {
