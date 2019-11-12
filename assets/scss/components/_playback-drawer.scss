@@ -10,7 +10,7 @@ $shadow-blur: 6px;
 }
 #animation-drawer-controls #drawer {
   transition: transform 200ms ease-in-out;
-  // transform: translateY($drawer-height + 3 * $shadow-blur);
+  transform: translateY($drawer-height + 3 * $shadow-blur);
 }
 #animation-drawer-controls:hover {
   & #drawer {
