@@ -1252,14 +1252,14 @@ export default {
       const wasPlaying = this.isPlaying;
       // console.log(wasPlaying);
       if (this.isPlaying) {
-        this.pause();
+        this.playOrPause();
       }
       // console.log(wasPlaying);
       // TODO: Improve the throttling to on mouse donw / up
       this.seek(this.progress);
       if (wasPlaying) {
         setTimeout(() => {
-          this.play();
+          this.playOrPause();
         }, 500);
       }
     },
