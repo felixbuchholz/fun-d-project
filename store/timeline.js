@@ -1,7 +1,10 @@
 export const state = () => ({
   currentTitle: {
     x: 0,
-    y: 0
+    y: 0,
+    scale: 0,
+    opacity: 0,
+    title: ""
   }
 });
 

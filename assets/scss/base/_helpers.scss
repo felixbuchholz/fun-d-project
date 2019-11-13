@@ -38,3 +38,17 @@
   position: absolute;
   width: 1px;
 }
+
+.margin-center {
+  margin: auto;
+}
+
+.zero-opacity {
+  opacity: 0;
+}
+.hidden {
+  visibility: hidden;
+}
+.zero-scale {
+  transform: scale(0);
+}

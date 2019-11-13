@@ -16,20 +16,37 @@ $text-font-stack: "IBM Plex Sans", "Helvetica Neue Light", "Helvetica Neue",
 /// @type Color
 $black: #222 !default;
 $white: #fff !default;
+$gray: gray;
+$intro-color: $black;
 
 $first: #ff8546;
 $second: #02735e;
 $third: #707070;
 
+$active: #0071bc;
+$passive: #f7931e;
+
+$positive: #4daf4a;
+$negative: #e41a1c;
+
 $drawer-height: 70px;
 
-/// Breakpoints map
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
-$breakpoints: (
-  "small": 320px,
-  "medium": 768px,
-  "large": 1024px
-) !default;
+// TODO map these variables to classes: fill, stroke, color, background and combos
+
+.first-color {
+  color: $first;
+}
+.second-color {
+  color: $second;
+}
+// Check breakpoints @ mixins.scss
+// /// Breakpoints map
+// /// @prop {String} keys - Keys are identifiers mapped to a given length
+// /// @prop {Map} values - Values are actual breakpoints expressed in pixels
+// $breakpoints: (
+//   "small": 320px,
+//   "medium": 768px,
+//   "large": 1024px
+// ) !default;
 
 $base-url: "/assets/" !default;

@@ -1,0 +1,77 @@
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+.left {
+  text-align: left;
+}
+.bold {
+  font-weight: 900;
+}
+.top {
+  position: absolute;
+  top: 10%;
+}
+
+.quote {
+  font-size: 1.3em;
+  font-style: italic;
+}
+
+.quote-author {
+  font-size: 1em;
+  font-style: regular;
+  color: $gray;
+}
+
+.big-number {
+  font-size: 5em;
+  line-height: 1.05;
+  font-weight: 900;
+}
+
+.big-numbers {
+  font-size: 1.2em;
+  position: absolute;
+  top: 50%;
+}
+
+#big-numbers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#big-s-and-p {
+  @extend .big-numbers;
+  text-align: right;
+  left: 45%;
+  transform: translate(-100%, -50%);
+  & .big-number {
+    @extend .first-color;
+    @extend .big-number;
+  }
+}
+
+#big-majority {
+  @extend .big-numbers;
+  left: 55%;
+  transform: translate(0, -50%);
+  & div + div {
+    margin-top: 4px;
+  }
+  & .medium-number {
+    @extend .second-color;
+    font-size: 2em;
+    line-height: 1;
+    font-weight: 900;
+  }
+  & .big-number {
+    @extend .second-color;
+    @extend .big-number;
+  }
+}

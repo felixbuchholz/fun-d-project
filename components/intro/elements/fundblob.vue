@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import anime from "animejs/lib/anime.es.js";
-import chroma from "chroma-js";
 import { hierarchy, pack } from "d3-hierarchy";
 
 export default {

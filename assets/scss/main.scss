@@ -10,11 +10,13 @@
 @import "base/base", "base/fonts", "base/typography", "base/helpers";
 
 // 4. Layout-related sections
-@import "layout/header", "layout/footer";
+@import "layout/header", "layout/footer", "layout/intro-animation";
 
 // 5. Components
 @import "components/button", "components/button-play-overlay",
-  "components/_playback-drawer";
+  "components/_playback-drawer", "components/intro-elements",
+  "components/intro-research-images", "components/intro-index-list",
+  "components/intro-titles";
 
 // 6. Page-specific styles
 @import "pages/home";

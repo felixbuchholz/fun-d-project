@@ -1,0 +1,90 @@
+//──── Strokes ───────────────────────────────────────────────────────────────────────────
+.simple-line {
+  fill: none;
+  stroke: $intro-color;
+}
+
+.cap-round {
+  stroke-linecap: round;
+}
+.linejoin-round {
+  stroke-linejoin: round;
+}
+.both-round {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.line-thin {
+  @extend .simple-line;
+  stroke-width: 1.5;
+}
+
+.line {
+  @extend .simple-line;
+  stroke-width: 3;
+}
+
+.line-medium {
+  @extend .simple-line;
+  @extend .both-round;
+  stroke-width: 4;
+}
+
+.axis,
+.dashed {
+  stroke-linecap: square;
+  stroke: $intro-color;
+  stroke-width: 1;
+}
+
+.dashed {
+  stroke: $gray;
+  stroke-dasharray: 3, 3;
+}
+
+//──── Fills ─────────────────────────────────────────────────────────────────────────────
+.fill {
+  fill: $intro-color;
+}
+.background {
+  fill: $white;
+}
+
+//──── Text ──────────────────────────────────────────────────────────────────────────────
+text {
+  fill: $intro-color;
+  font-size: 18px;
+}
+
+.svg-text-center {
+  text-anchor: middle;
+}
+
+.svg-text-right {
+  text-anchor: end;
+}
+
+.text-sign {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+//──── Additional colors ─────────────────────────────────────────────────────────────────
+
+.active-stroke {
+  // TODO: color variables!
+  stroke: $active !important;
+}
+
+.passive-stroke {
+  stroke: $passive !important;
+}
+
+.pos-color {
+  color: $positive;
+}
+
+.neg-color {
+  color: $negative;
+}

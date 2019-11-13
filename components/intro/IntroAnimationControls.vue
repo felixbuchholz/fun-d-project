@@ -1,7 +1,7 @@
 <template>
   <div id="animation-controls">
     <button id="start-button-big" ref="centeredPlayButton" @click="playOrPause">
-      &nbsp;<fa icon="play" />
+      <fa icon="play" class="correct-center" />
     </button>
     <div id="animation-drawer-controls">
       <div id="drawer">
@@ -22,7 +22,7 @@
           class="slider"
           @input="sliderChange"
         />
-        <div id="playback-time">0:00</div>
+        <div id="playback-time">{{ currentTimeForTimer }}</div>
       </div>
     </div>
   </div>
@@ -39,9 +39,11 @@ export default {
     return {
       progress: 0,
       isPlaying: false,
-      currentTitle: { x: 0, y: 0 },
+      currentTitle: { x: 0, y: 0, scale: 0, opacity: 0, title: "" },
       diversification: { diameterPercent: null },
-      sharesLocal: []
+      sharesLocal: [],
+      currentTimeForTimer: "0:00",
+      tl: {}
     };
   },
   computed: {
@@ -54,14 +56,32 @@ export default {
       width: ["window/width"],
       height: ["window/height"]
     })
+    // currentTimeForTimer() {
+    //   console.log(this.tl);
+    //   if (this.tl) {
+    //     const seconds = Math.floor(this.tl.currentTime);
+    //     const minutes = Math.floor(this.tl.currentTime / 60);
+    //     let remainder = seconds % 60;
+    //     remainder = remainder < 10 ? "0" + remainder : remainder;
+    //     const string = `${minutes}:${remainder}`;
+    //     return string;
+    //   } else {
+    //     return "0:00";
+    //   }
+    // }
   },
   watch: {
     currentTitle: {
       deep: true,
       handler(change) {
+        // console.log(change.title);
         let newObject = {
           x: (change.x / 100) * this.width,
-          y: (change.y / 100) * this.height
+          y: (change.y / 100) * this.height,
+          scale: change.scale,
+          opacity: change.opacity,
+          // anime adds "0 "
+          title: change.title.slice(0, -2)
         };
         for (const prop in newObject) {
           // eslint-disable-next-line no-prototype-builtins
@@ -144,34 +164,33 @@ export default {
                                                                   
       
       */
+      //──── Financial future start ────────────────────────────────────────────────────────────
+
+      // Setup & blend in title
+      // Move
       this.tl.add({
-        targets: "#financial-future",
-        scale: 1,
+        targets: that.currentTitle,
+        y: 0,
         duration: 1
       });
       this.tl.add({
         targets: "#financial-future",
-        opacity: 1,
         scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 2000
+        }
       });
-      this.tl.add(
-        {
-          targets: "#financial-future",
-          opacity: 0,
-          scale: 1,
-          duration: 2000,
-          easing: "easeInOutSine"
-        },
-        "+=700"
-      );
+
       this.tl.add({
-        targets: "#financial-future",
-        scale: 0,
-        duration: 1
+        targets: that.currentTitle,
+        y: -40,
+        duration: 500
       });
-      4700;
+
+      // Pop in piggy bank
       this.tl.add({
         targets: "#piggy",
         opacity: 1,
@@ -179,6 +198,7 @@ export default {
         duration: 1200,
         easing: "easeInOutExpo"
       });
+      // Pop in house
       this.tl.add(
         {
           targets: "#house",
@@ -189,6 +209,7 @@ export default {
         },
         "+=0"
       );
+      // Pop in nest egg
       this.tl.add(
         {
           targets: "#nestegg",
@@ -199,6 +220,7 @@ export default {
         },
         "+=1000"
       );
+      // Pop out house
       this.tl.add(
         {
           targets: "#house",
@@ -209,13 +231,13 @@ export default {
         },
         "+=3700"
       );
-
+      // Prepare house for later
       this.tl.add({
         targets: "#house",
         translateX: "75%",
         duration: 1
       });
-
+      // Pop out piggy bank
       this.tl.add(
         {
           targets: "#piggy",
@@ -226,6 +248,7 @@ export default {
         },
         "+=-250"
       );
+      // Move nest egg to the center
       this.tl.add(
         {
           targets: "#nestegg",
@@ -235,6 +258,8 @@ export default {
         },
         "+=-250"
       );
+
+      // Blow up and fade out nest egg
       this.tl.add(
         {
           targets: "#nestegg",
@@ -244,6 +269,7 @@ export default {
         },
         "+=250"
       );
+      // …
       this.tl.add(
         {
           targets: "#nestegg",
@@ -255,89 +281,105 @@ export default {
         },
         "+=-550"
       );
-      // TODO: check if this is right, should be passive-growth
+      // Blend out & clear title
+      this.tl.add(
+        {
+          targets: "#financial-future",
+          scale: 0,
+          height: 0,
+          duration: 1,
+          delay: 500,
+          opacity: {
+            value: 0,
+            delay: 0,
+            duration: 500
+          }
+        },
+        "-=500"
+      );
+      //──── Financial future end ──────────────────────────────────────────────────────────────
+
+      //──── Passive - active graph start ──────────────────────────────────────────────────────
+      // Blend in the comparison graph
       this.tl.add({
         targets: "#passivegraph",
         scale: 1,
-        duration: 1
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 700,
+          easing: "easeInOutSine"
+        }
       });
-      this.tl.add({
-        targets: "#passivegraph",
-        opacity: 1,
-        duration: 700,
-        easing: "easeInOutSine"
-      });
+      // Animate line graphs
       this.tl.add(
         {
-          targets: "#passivegraphlinesactive",
+          targets: ["#passivegraphlinesactive", "#passivegraphlinespassive"],
           strokeDashoffset: [anime.setDashoffset, 0],
           easing: "easeInOutSine",
           duration: 2500
         },
         "-=500"
       );
-      this.tl.add(
-        {
-          targets: "#passivegraphlinespassive",
-          strokeDashoffset: [anime.setDashoffset, 0],
-          easing: "easeInOutSine",
-          duration: 2500
-        },
-        "-=2500"
-      );
-      this.tl.add(
-        {
-          targets: "#passive-growth",
-          scale: 1,
-          duration: 1
-        },
-        "-=2500"
-      );
-      this.tl.add(
-        {
-          targets: that.currentTitle,
-          y: -40,
-          duration: 1
-        },
-        "-=2500"
-      );
+      // Setup & blend in title
+      // Move
+      this.tl.add({
+        targets: that.currentTitle,
+        y: -40,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#passive-growth",
+        scale: 1,
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 2000
+        }
+      });
+      // Blend out & clear title
       this.tl.add(
         {
           targets: "#passive-growth",
-          opacity: 1,
-          duration: 800,
-          easing: "easeInOutSine"
+          scale: 0,
+          height: 0,
+          duration: 1,
+          delay: 2000,
+          opacity: {
+            value: 0,
+            delay: 0,
+            duration: 2000
+          }
         },
-        "-=2500"
+        "+=500"
       );
-      this.tl.add(
-        {
-          targets: "#passive-growth",
-          opacity: 0,
-          duration: 1000,
-          easing: "easeInOutSine"
-        },
-        "+=1500"
-      );
+      // Blend out & clear the graph
       this.tl.add(
         {
           targets: "#passivegraph",
           opacity: 0,
           duration: 1000,
-          easing: "easeInOutSine"
+          easing: "easeInOutSine",
+          scale: {
+            value: 0,
+            delay: 1000,
+            duration: 1
+          }
         },
         "-=1000"
       );
+      //──── Passive & active graph end ────────────────────────────────────────────────────────
+
+      //──── Research screenshots start ────────────────────────────────────────────────────────
+      // Scale up container
       this.tl.add({
-        targets: "#passive-growth",
-        scale: 0,
+        targets: "#research-images",
+        scale: 1,
         duration: 1
       });
-      this.tl.add({
-        targets: that.currentTitle,
-        y: 0,
-        duration: 1
-      });
+
+      // Morphing time machine animation
       this.tl.add(
         {
           targets: ".info-overload",
@@ -369,42 +411,60 @@ export default {
         },
         "-=5000"
       );
+
+      // Clear container
       this.tl.add({
-        targets: "#fund-concept",
-        scale: 1,
+        targets: "#research-images",
+        scale: 0,
+        duration: 1
+      });
+
+      //──── Research screenshots end ──────────────────────────────────────────────────────────
+
+      //──── Index list start ─────────────────────────────────────────────────────────────
+
+      // Setup & blend in title
+      // Move
+      this.tl.add({
+        targets: that.currentTitle,
+        y: -45,
         duration: 1
       });
       this.tl.add({
         targets: "#fund-concept",
+        scale: 1,
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 2000
+        }
+      });
+      // Bounce in second part of the title
+      this.tl.add({
+        targets: "#fund-concept-two",
         opacity: 1,
         scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
-      this.tl.add({
-        targets: "#fund-concept",
-        scale: 0,
-        duration: 100
+        duration: 600,
+        easing: "easeOutBack"
       });
 
       this.tl.add(
         {
-          targets: "#index-list",
+          targets: "#index-box",
           scale: 1,
           duration: 1
         },
         "-=2500"
       );
-      this.tl.add(
-        {
-          targets: "#index-list",
-          opacity: 1,
-          scale: 1,
-          duration: 2000,
-          easing: "easeInOutSine"
-        },
-        "-=2500"
-      );
+
+      this.tl.add({
+        targets: "#index-box",
+        opacity: 1,
+        duration: 2000,
+        easing: "easeInOutSine"
+      });
+
       this.tl.add(
         {
           targets: "#index-list",
@@ -415,112 +475,113 @@ export default {
         "+=-2500"
       );
       this.tl.add({
-        targets: "#index-list",
+        targets: "#index-box",
         scale: 0,
+        opacity: 0,
         duration: 1000
       });
-
+      // Blend out & clear title
       this.tl.add(
         {
-          targets: "#fund-concept-two",
-          scale: 1,
-          duration: 1
+          targets: "#fund-concept",
+          scale: 0,
+          height: 0,
+          duration: 1,
+          delay: 2000,
+          opacity: {
+            value: 0,
+            delay: 0,
+            duration: 1000
+          }
         },
-        "-=2000"
+        "-=1000"
       );
-      this.tl.add(
-        {
-          targets: "#fund-concept-two",
-          opacity: 1,
-          scale: 1,
-          duration: 2000,
-          easing: "easeInOutSine"
-        },
-        "-=2000"
-      );
-      this.tl.add({
-        targets: "#fund-concept-two",
-        scale: 0,
-        duration: 1
-      });
 
-      this.tl.add({
-        targets: "#why-pass-work",
-        scale: 1,
-        duration: 1
-      });
-
-      this.tl.add({
-        targets: "#why-pass-work",
-        opacity: 1,
-        scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
-      this.tl.add({
-        targets: "#why-pass-work",
-        scale: 0,
-        duration: 1
-      });
-      this.tl.add({
-        targets: "#cheap-diversific",
-        scale: 1,
-        duration: 1
-      });
+      // Setup & blend in title
+      // Move
       this.tl.add({
         targets: that.currentTitle,
-        y: -20,
+        y: -0,
         duration: 1
       });
       this.tl.add({
-        targets: "#cheap-diversific",
-        opacity: 1,
+        targets: "#why-pass-work",
         scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
-      });
-      this.tl.add({
-        targets: "#cheap-diversific",
-        scale: 0,
-        duration: 1
-      });
-
-      this.tl.add({
-        targets: "#diversific",
-        scale: 1,
-        duration: 1
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 2000
+        }
       });
 
       this.tl.add({
         targets: that.currentTitle,
-        y: -20,
-        duration: 1
+        y: -40,
+        duration: 700
       });
+
       this.tl.add({
-        targets: "#diversific",
-        opacity: 1,
+        targets: "#cheap-diversific",
         scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
+        translateY: "25px",
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 2000
+        }
       });
+
       this.tl.add({
         targets: "#diversific",
-        scale: 0,
-        duration: 1
+        scale: 1,
+        translateY: "50px",
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 2000
+        }
       });
+
+      this.tl.add({
+        targets: "#diversific",
+        translateY: "0px",
+        duration: 500
+      });
+
+      // Blend out & clear title
+      this.tl.add(
+        {
+          targets: ["#cheap-diversific", "#why-pass-work"],
+          scale: 0,
+          height: 0,
+          duration: 1,
+          delay: 500,
+          opacity: {
+            value: 0,
+            delay: 0,
+            duration: 500
+          }
+        },
+        "-=500"
+      );
 
       //──── diversification start ───────────────────────────────────────────────────────────────────
 
       this.tl.add({
         targets: "#diversification-container",
         opacity: 1,
-        duration: 800
+        scale: 1,
+        duration: 200,
+        easing: "easeOutBack"
       });
 
       this.tl.add(
         {
           targets: that.diversification,
-          diameterPercent: 40,
+          diameterPercent: 35,
           duration: 4000,
           easing: "linear"
         },
@@ -540,8 +601,8 @@ export default {
       this.tl.add(
         {
           targets: that.diversification,
-          diameterPercent: 50,
-          duration: 1500,
+          diameterPercent: 38,
+          duration: 3000,
           easing: "linear"
         },
         "+=0"
@@ -551,17 +612,17 @@ export default {
           targets: that.sharesLocal,
 
           amount: function(el, i) {
-            return 1 + i * 0.02;
+            return 1 + i * 0.01;
           },
-          duration: 1500,
+          duration: 3000,
           easing: "linear"
         },
-        "-=1500"
+        "-=3000"
       );
       this.tl.add(
         {
           targets: that.diversification,
-          diameterPercent: 60,
+          diameterPercent: 41,
           duration: 3000,
           easing: "linear"
         },
@@ -571,10 +632,10 @@ export default {
         {
           targets: that.sharesLocal,
           amount: function(el, i) {
-            return 1 + Math.pow(i, 6) * 0.000000000001;
+            return 1 + Math.pow(i, 4) * 0.00000001;
           },
           duration: 3000,
-          easing: "easeInOutQuad"
+          easing: "easeOutQuad"
         },
         "-=3000"
       );
@@ -586,6 +647,23 @@ export default {
           duration: 800
         },
         "+=400"
+      );
+
+      // Blend out & clear title
+      this.tl.add(
+        {
+          targets: "#diversific",
+          scale: 0,
+          height: 0,
+          duration: 1,
+          delay: 500,
+          opacity: {
+            value: 0,
+            delay: 0,
+            duration: 500
+          }
+        },
+        "-=800"
       );
 
       this.tl.add({
@@ -600,6 +678,14 @@ export default {
         duration: 1
       });
 
+      // Get container out of the way
+      this.tl.add({
+        targets: "#diversification-container",
+        opacity: 0,
+        scale: 0,
+        duration: 1
+      });
+
       //──── diversification end ───────────────────────────────────────────────────────────────────
 
       //──── haystack start ───────────────────────────────────────────────────────────────────
@@ -609,7 +695,7 @@ export default {
           targets: "#haystack",
           opacity: 1,
           scale: 1,
-          duration: 2000,
+          duration: 1000,
           easing: "easeInOutSine"
         },
         "+=500"
@@ -691,36 +777,24 @@ export default {
         "-=250"
       );
 
+      // Setup & blend in title
+      // Move
+      this.tl.add({
+        targets: that.currentTitle,
+        y: -25,
+        duration: 1
+      });
       this.tl.add({
         targets: "#haystack-title",
         scale: 1,
-        duration: 1
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 2000
+        }
       });
 
-      this.tl.add(
-        {
-          targets: "#haystack-title",
-          opacity: 1,
-          duration: 2000,
-          easing: "easeInOutSine"
-        },
-        "+=500"
-      );
-      this.tl.add(
-        {
-          targets: "#haystack-title",
-          opacity: 0,
-          duration: 500,
-          easing: "easeInOutSine"
-        },
-        "+=500"
-      );
-
-      this.tl.add({
-        targets: "#haystack-title",
-        scale: 0,
-        duration: 1
-      });
       this.tl.add(
         {
           targets: "#diversification-container",
@@ -729,33 +803,47 @@ export default {
         },
         "-=500"
       );
+
       this.tl.add({
         targets: "#diversification-container",
         scale: 0,
         duration: 1
       });
 
+      // Blend out & clear title
+      this.tl.add({
+        targets: "#haystack-title",
+        scale: 0,
+        height: 0,
+        duration: 1,
+        delay: 1200,
+        opacity: {
+          value: 0,
+          delay: 0,
+          duration: 1200
+        }
+      });
+
       //──── haystack end ───────────────────────────────────────────────────────────────────
 
       //──── winner start ───────────────────────────────────────────────────────────────────
 
-      this.tl.add({
-        targets: "#winners-pass",
-        scale: 1,
-        duration: 1
-      });
+      // Setup & blend in title
+      // Move
       this.tl.add({
         targets: that.currentTitle,
-        x: 0,
-        y: -50,
+        y: -40,
         duration: 1
       });
       this.tl.add({
         targets: "#winners-pass",
-        opacity: 1,
         scale: 1,
-        duration: 2000,
-        easing: "easeInOutSine"
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 2000
+        }
       });
 
       this.tl.add(
@@ -837,12 +925,6 @@ export default {
         "-=700"
       );
 
-      this.tl.add({
-        targets: "#winners-pass",
-        scale: 0,
-        duration: 1
-      });
-
       this.tl.add(
         {
           targets: "#statestreetlogo",
@@ -854,16 +936,50 @@ export default {
         "-=700"
       );
 
+      this.tl.add({
+        targets: "#winners-pass-two",
+        scale: 1,
+        height: "auto",
+        translateY: "25px",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 2000
+        }
+      });
+
+      // Blend out & clear title
       this.tl.add(
         {
-          targets: "#equals",
-          opacity: 1,
-          scale: 1,
-          duration: 400,
-          easing: "easeOutBounce"
+          targets: ["#winners-pass", "#winners-pass-two"],
+          scale: 0,
+          height: 0,
+          duration: 1,
+          delay: 500,
+          opacity: {
+            value: 0,
+            delay: 0,
+            duration: 500
+          }
         },
-        "+=400"
+        "+=500"
       );
+      // Setup title
+      // Move
+      this.tl.add({
+        targets: that.currentTitle,
+        x: 25,
+        y: -120,
+        duration: 1
+      });
+
+      this.tl.add({
+        targets: "#equals",
+        opacity: 1,
+        scale: 0.8,
+        duration: 400,
+        easing: "easeOutBounce"
+      });
 
       this.tl.add(
         {
@@ -876,30 +992,29 @@ export default {
         "-=200"
       );
 
-      this.tl.add({
-        targets: that.currentTitle,
-        x: 25,
-        y: -120,
-        duration: 1
-      });
-
-      this.tl.add({
-        targets: "#household-equivalent",
-        opacity: 1,
-        scale: 1,
-        duration: 600,
-        easing: "easeOutSine"
-      });
+      this.tl.add(
+        {
+          targets: "#household-equivalent",
+          scale: 1,
+          height: "auto",
+          duration: 1,
+          opacity: {
+            value: 1,
+            duration: 600
+          }
+        },
+        "-=600"
+      );
 
       this.tl.add(
         {
           targets: that.currentTitle,
           x: 25,
-          y: -5,
+          y: 8,
           duration: 400,
           easing: "easeOutBack"
         },
-        "-=500"
+        "-=200"
       );
 
       this.tl.add(
@@ -916,8 +1031,36 @@ export default {
           duration: 500,
           easing: "easeInOutExpo"
         },
-        "+=500"
+        "+=2500"
       );
+      //──── Winner end ────────────────────────────────────────────────────────────────────────
+
+      //──── Fundblob scrolling start ──────────────────────────────────────────────────────────
+      // Blend in the fundblob container
+      this.tl.add({
+        targets: "#all-funds-container",
+        scale: 1,
+        duration: 1
+      });
+
+      // Setup & blend in title
+      // Move
+      this.tl.add({
+        targets: that.currentTitle,
+        y: -40,
+        x: 0,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#managing",
+        scale: 1,
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 1000
+        }
+      });
 
       this.tl.add(
         {
@@ -926,7 +1069,7 @@ export default {
           duration: 500,
           easing: "easeInOutExpo"
         },
-        "+=500"
+        "-=900"
       );
 
       this.tl.add(
@@ -936,7 +1079,7 @@ export default {
           duration: 9000,
           easing: "easeInQuart"
         },
-        "+=500"
+        "-=900"
       );
 
       this.tl.add(
@@ -948,6 +1091,34 @@ export default {
         },
         "-=1000"
       );
+      //──── Fund blob scrolling end ───────────────────────────────────────────────────────────
+
+      this.tl.add({
+        targets: "#managing",
+        scale: 0,
+        height: 0,
+        duration: 1,
+        delay: 500,
+        opacity: {
+          value: 0,
+          delay: 0,
+          duration: 500
+        }
+      });
+
+      //──── Get to vote start ─────────────────────────────────────────────────────────────────
+
+      // Setup & blend in title
+      this.tl.add({
+        targets: "#get-to-vote",
+        scale: 1,
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 700
+        }
+      });
 
       this.tl.add(
         {
@@ -997,7 +1168,7 @@ export default {
       this.tl.add(
         {
           targets: ["#voteyes1", "#voteno1", "#voteno2"],
-          translateX: "60%",
+          translateX: "65%",
           scale: 1.2,
           opacity: 1,
           duration: 500,
@@ -1023,8 +1194,132 @@ export default {
           delay: anime.stagger(100),
           easing: "easeInQuad"
         },
+        "+=3000"
+      );
+
+      // Blend out & clear title
+      this.tl.add(
+        {
+          targets: "#get-to-vote",
+          scale: 0,
+          height: 0,
+          duration: 1,
+          delay: 500,
+          opacity: {
+            value: 0,
+            delay: 0,
+            duration: 500
+          }
+        },
+        "-=400"
+      );
+      //──── Get to vote end ───────────────────────────────────────────────────────────────────
+
+      //──── Big numbers start ─────────────────────────────────────────────────────────────────
+      // Setup & blend in title
+      // Move
+      this.tl.add({
+        targets: that.currentTitle,
+        y: -40,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#share-of-comps",
+        scale: 1,
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 2000
+        }
+      });
+
+      // Scale up container
+      this.tl.add({
+        targets: "#big-numbers",
+        scale: 1,
+        duration: 1
+      });
+
+      this.tl.add({
+        targets: "#big-s-and-p",
+        opacity: 1,
+        scale: 1,
+        duration: 600,
+        easing: "easeOutBack"
+      });
+
+      this.tl.add({
+        targets: "#big-majority",
+        scale: 1,
+        duration: 1
+      });
+
+      this.tl.add(
+        {
+          targets: ".bm-elements",
+          opacity: 1,
+          scale: 1,
+          duration: 600,
+          delay: anime.stagger(800),
+          easing: "easeOutQuad"
+        },
+        "+=1000"
+      );
+
+      // Blend out & clear the container
+      this.tl.add(
+        {
+          targets: "#big-numbers div",
+          opacity: 0,
+          duration: 500,
+          delay: anime.stagger(100),
+          easing: "easeInOutSine",
+          scale: {
+            value: 0,
+            delay: 2000,
+            duration: 1
+          }
+        },
+        "+=2500"
+      );
+
+      // Blend out & clear title
+      this.tl.add(
+        {
+          targets: "#share-of-comps",
+          scale: 0,
+          height: 0,
+          duration: 1,
+          delay: 2000,
+          opacity: {
+            value: 0,
+            delay: 0,
+            duration: 2000
+          }
+        },
         "+=500"
       );
+      //──── Big numbers end ───────────────────────────────────────────────────────────────────
+
+      //──── Majority start ────────────────────────────────────────────────────────────────────
+      // Setup & blend in title
+      // Move
+      this.tl.add({
+        targets: that.currentTitle,
+        y: -40,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#majority",
+        scale: 1,
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 1000
+        }
+      });
 
       this.tl.add({
         targets: ".voteno",
@@ -1086,120 +1381,71 @@ export default {
         "+= 600"
       );
 
-      // this.tl.add({
-      //   targets: "#winners-pass-two",
-      //   scale: 1,
-      //   duration: 1
-      // });
-      // this.tl.add({
-      //   targets: that.currentTitle,
-      //   x: 0,
-      //   y: -55,
-      //   duration: 1
-      // });
-      // this.tl.add({
-      //   targets: "#winners-pass-two",
-      //   opacity: 1,
-      //   scale: 1,
-      //   duration: 2000,
-      //   easing: "easeInOutSine"
-      // });
-      // this.tl.add({
-      //   targets: "#winners-pass-two",
-      //   scale: 0,
-      //   duration: 1
-      // });
+      this.tl.add(
+        {
+          targets: ["#voteyes2", "#bigslice", "#smallslice", ".voteno"],
+          scale: 0,
+          opacity: 0,
+          duration: 300,
+          delay: anime.stagger(100, { from: "center" }),
+          easing: "easeInQuad"
+        },
+        "+=3000"
+      );
 
-      // this.tl.add({
-      //   targets: "#managing",
-      //   scale: 1,
-      //   duration: 1
-      // });
+      // Blend out & clear title
+      this.tl.add(
+        {
+          targets: "#majority",
+          scale: 0,
+          height: 0,
+          duration: 1,
+          delay: 1000,
+          opacity: {
+            value: 0,
+            delay: 0,
+            duration: 1000
+          }
+        },
+        "-=500"
+      );
 
-      // this.tl.add({
-      //   targets: "#managing",
-      //   opacity: 1,
-      //   scale: 1,
-      //   duration: 2000,
-      //   easing: "easeInOutSine"
-      // });
-      // this.tl.add({
-      //   targets: "#managing",
-      //   scale: 0,
-      //   duration: 1
-      // });
+      //──── Majority end ──────────────────────────────────────────────────────────────────────
 
-      // this.tl.add({
-      //   targets: "#get_to_vote",
-      //   scale: 1,
-      //   duration: 1
-      // });
-      // this.tl.add({
-      //   targets: that.currentTitle,
-      //   x: 0,
-      //   y: -49,
-      //   duration: 1
-      // });
-      // this.tl.add({
-      //   targets: "#get_to_vote",
-      //   opacity: 1,
-      //   scale: 1,
-      //   duration: 2000,
-      //   easing: "easeInOutSine"
-      // });
-      // this.tl.add({
-      //   targets: "#get_to_vote",
-      //   scale: 0,
-      //   duration: 1
-      // });
-
-      // this.tl.add({
-      //   targets: "#share_of_comps",
-      //   scale: 1,
-      //   duration: 1
-      // });
-      // this.tl.add({
-      //   targets: that.currentTitle,
-      //   x: 0,
-      //   y: -51,
-      //   duration: 1
-      // });
-      // this.tl.add({
-      //   targets: "#share_of_comps",
-      //   opacity: 1,
-      //   scale: 1,
-      //   duration: 2000,
-      //   easing: "easeInOutSine"
-      // });
-      // this.tl.add({
-      //   targets: "#share_of_comps",
-      //   scale: 0,
-      //   duration: 1
-      // });
-
-      // this.tl.add({
-      //   targets: "#how_using_influence",
-      //   scale: 1,
-      //   duration: 1
-      // });
-      // this.tl.add({
-      //   targets: that.currentTitle,
-      //   x: 0,
-      //   y: -50,
-      //   duration: 1
-      // });
-      // this.tl.add({
-      //   targets: "#how_using_influence",
-      //   opacity: 1,
-      //   scale: 1,
-      //   duration: 2000,
-      //   easing: "easeInOutSine"
-      // });
-      // this.tl.add({
-      //   targets: "#how_using_influence",
-      //   scale: 0,
-      //   duration: 1
-      // });
+      //──── THE END ───────────────────────────────────────────────────────────────────────────
+      // Setup & blend in title
+      // Move
+      this.tl.add({
+        targets: that.currentTitle,
+        y: 0,
+        duration: 1
+      });
+      this.tl.add({
+        targets: "#how-using-influence",
+        scale: 1,
+        height: "auto",
+        duration: 1,
+        opacity: {
+          value: 1,
+          duration: 2000
+        }
+      });
+      // Blend out & clear title
+      this.tl.add(
+        {
+          targets: "#how-using-influence",
+          scale: 0,
+          height: 0,
+          duration: 1,
+          delay: 2000,
+          opacity: {
+            value: 0,
+            delay: 0,
+            duration: 2000
+          }
+        },
+        "+=500"
+      );
 
       this.tl.pause();
     },
@@ -1220,16 +1466,35 @@ export default {
       }, 200);
     },
     playOrPause() {
+      // console.log(this.tl);
+
       if (!this.isPlaying) {
         this.$helpers.fadeOutAndHide(this.$refs.centeredPlayButton);
         this.sound.play();
         this.tl.play();
         this.isPlaying = true;
+        const that = this;
+        this.tickerForTimer = setInterval(function() {
+          that.setTimer(that.tl.currentTime);
+        }, 1000);
       } else {
+        clearInterval(this.tickerForTimer);
         this.sound.pause();
         this.tl.pause();
         this.isPlaying = false;
         this.$helpers.displayAndFadeIn(this.$refs.centeredPlayButton);
+      }
+    },
+    setTimer(millis) {
+      if (this.tl) {
+        const seconds = Math.floor(millis / 1000);
+        const minutes = Math.floor(seconds / 60);
+        let remainder = seconds % 60;
+        remainder = remainder < 10 ? "0" + remainder : remainder;
+        const string = `${minutes}:${remainder}`;
+        this.currentTimeForTimer = string;
+      } else {
+        this.currentTimeForTimer = "0:00";
       }
     },
     seek(percent) {
@@ -1248,7 +1513,6 @@ export default {
       }, 1000);
     },
     sliderChange() {
-      // console.log(this.progress);
       const wasPlaying = this.isPlaying;
       // console.log(wasPlaying);
       if (this.isPlaying) {
@@ -1257,6 +1521,7 @@ export default {
       // console.log(wasPlaying);
       // TODO: Improve the throttling to on mouse donw / up
       this.seek(this.progress);
+      this.setTimer(this.tl.currentTime);
       if (wasPlaying) {
         setTimeout(() => {
           this.playOrPause();

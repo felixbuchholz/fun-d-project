@@ -1,126 +1,12 @@
 <template>
-  <!-- `transform: translateX(${xPosition}px) translateY(${yPosition}px; text-align: ${align})` -->
-  <div
-    id="titles"
-    class="current-title"
-    :style="`transform: translateX(${title.x}px) translateY(${title.y}px)`"
-  >
-    <div
-      id="financial-future"
-      class="center zero-opacity"
-      style="transform: scale(0)"
-    >
-      How do people approach their
-      <span class="bold">financial future?</span>
-    </div>
-
-    <div
-      id="passive-growth"
-      class="center zero-opacity"
-      style="transform: scale(0)"
-    >
-      Alongside the rise of retirement funds
-      <span class="bold">passive investment grew</span>
-    </div>
-
-    <div
-      id="fund-concept"
-      class="left zero-opacity"
-      style="transform: scale(0)"
-    >
-      An index fund buys securities from
-      <p>a pre-defined selection of companies</p>
-      <!-- <span class="bold">passive investment grew</span> -->
-    </div>
-
-    <div
-      id="fund-concept-two"
-      class="left zero-opacity"
-      style="transform: scale(0)"
-    >
-      based on an existing list - an index.
-      <!-- <span class="bold">passive investment grew</span> -->
-    </div>
-
-    <div
-      id="why-pass-work"
-      class="left zero-opacity"
-      style="transform: scale(0)"
-    >
-      Why does index investing work?
-    </div>
-
-    <div
-      id="cheap-diversific"
-      class="left zero-opacity"
-      style="transform: scale(0)"
-    >
-      Index investing enables cheap diversification
-    </div>
-
-    <div id="diversific" class="left zero-opacity" style="transform: scale(0)">
-      Diversification
-    </div>
-
-    <div
-      id="haystack-title"
-      class="left zero-opacity"
-      style="transform: scale(0)"
-    >
-      Through index funds "you can just buy the haystack"
-      <p style="color:#B7B0B0">John Bogle</p>
-    </div>
-
-    <div
-      id="winners-pass"
-      class="center zero-opacity"
-      style="transform: scale(0)"
-    >
-      Winners of the passive investment trend
-    </div>
-
-    <div
-      id="winners-pass-two"
-      class="center zero-opacity"
-      style="transform: scale(0)"
-    >
-      These three have about $15 trillion in assets under management
-    </div>
-
-    <div
-      id="household-equivalent"
-      class="center zero-opacity"
-      style="transform: scale(0)"
-    >
-      155 million US households
-    </div>
-
-    <div id="managing" class="center zero-opacity" style="transform: scale(0)">
-      ... managing thousands of funds, each composed of many companies.
-    </div>
-
-    <div
-      id="get_to_vote"
-      class="center zero-opacity"
-      style="transform: scale(0)"
-    >
-      Asset managers get to vote on the shares in the funds they manage
-    </div>
-
-    <div
-      id="share_of_comps"
-      class="left zero-opacity"
-      style="transform: scale(0)"
-    >
-      The share of companies owned by index funds is larger than ever
-    </div>
-
-    <div
-      id="how_using_influence"
-      class="center zero-opacity"
-      style="transform: scale(0)"
-    >
-      How are the largest asset managers using their influence?
+  <div id="html-titles" :style="`transform: translateX(-50%) translateY(-50%)`">
+    <div id="title-mover" :style="`transform: translateX(${title.x}px) translateY(${title.y}px) `">
+      <component
+        :is="title"
+        v-for="(title, index) in titles"
+        :key="`title-${index}`"
+        :style="`opacity: 0; transform: scale(0); height: 0;`"
+      />
     </div>
   </div>
 </template>
@@ -128,7 +14,61 @@
 <script>
 import { mapState } from "vuex";
 
+import financialFuture from "~/components/intro/elements/titles/financial-future.vue";
+import winnersPass from "~/components/intro/elements/titles/winners-pass.vue";
+import cheapDiversific from "~/components/intro/elements/titles/cheap-diversific.vue";
+import diversific from "~/components/intro/elements/titles/diversific.vue";
+import fundConcept from "~/components/intro/elements/titles/fund-concept.vue";
+import getToVote from "~/components/intro/elements/titles/get-to-vote.vue";
+import haytackTitle from "~/components/intro/elements/titles/haytack-title.vue";
+import householdEquivalent from "~/components/intro/elements/titles/household-equivalent.vue";
+import howUsingInfluence from "~/components/intro/elements/titles/how-using-influence.vue";
+import managing from "~/components/intro/elements/titles/managing.vue";
+import passiveGrowth from "~/components/intro/elements/titles/passive-growth.vue";
+import shareOfComps from "~/components/intro/elements/titles/share-of-comps.vue";
+import whyPassWork from "~/components/intro/elements/titles/why-pass-work.vue";
+import winnersPassTwo from "~/components/intro/elements/titles/winners-pass-two.vue";
+import majority from "~/components/intro/elements/titles/majority.vue";
+
 export default {
+  components: {
+    financialFuture,
+    winnersPass,
+    cheapDiversific,
+    diversific,
+    fundConcept,
+    getToVote,
+    haytackTitle,
+    householdEquivalent,
+    howUsingInfluence,
+    managing,
+    passiveGrowth,
+    shareOfComps,
+    whyPassWork,
+    winnersPassTwo,
+    majority
+  },
+  data() {
+    return {
+      titles: [
+        "financialFuture",
+        "winnersPass",
+        "cheapDiversific",
+        "diversific",
+        "fundConcept",
+        "getToVote",
+        "haytackTitle",
+        "householdEquivalent",
+        "howUsingInfluence",
+        "managing",
+        "passiveGrowth",
+        "shareOfComps",
+        "whyPassWork",
+        "winnersPassTwo",
+        "majority"
+      ]
+    };
+  },
   computed: {
     ...mapState({
       title: state => state.timeline.currentTitle
@@ -136,22 +76,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.center {
-  text-align: center;
-}
-.right {
-  text-align: right;
-}
-.left {
-  text-align: left;
-}
-.bold {
-  font-weight: 900;
-}
-.top {
-  position: absolute;
-  top: 10%;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div id="all-funds-container" class="zero-opacity">
+  <div id="all-funds-container" class="zero-opacity" style="transform: translateY(-50%) scale(0)">
     <div id="all-funds-mover" :style="'transform: translateX(40%);'">
       <div v-for="(blob, index) in blobArray" :key="`blob-${index}`">
         <fundblob
@@ -49,10 +49,8 @@ export default {
 
 <style lang="scss">
 #all-funds-container {
-  // background: gray;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   align-items: center;
   display: flex;
   width: 100%;
