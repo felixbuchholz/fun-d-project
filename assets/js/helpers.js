@@ -1,6 +1,16 @@
 import chroma from "chroma-js";
 
 export default {
+  // https://stackoverflow.com/a/7178381
+  // love this guy!
+  findWithAttr(array, attr, value) {
+    for (var i = 0; i < array.length; i += 1) {
+      if (array[i][attr] === value) {
+        return i;
+      }
+    }
+    return -1;
+  },
   getViewportSize() {
     var e = window;
     var a = "inner";

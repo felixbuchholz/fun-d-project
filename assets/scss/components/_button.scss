@@ -21,5 +21,16 @@ button {
   &:hover {
     background: $first;
     color: $white;
+    & rect,
+    & path {
+      fill: $white;
+    }
+  }
+}
+
+.play-btns {
+  & rect,
+  & path {
+    fill: $first;
   }
 }
