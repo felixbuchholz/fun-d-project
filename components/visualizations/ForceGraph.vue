@@ -27,9 +27,11 @@
 import * as d3 from "d3";
 
 import { mapGetters } from "vuex";
-// import { manyBodyReuse } from "d3-force-reuse";
+import * as forceManyBodyReuse from "d3-force-reuse";
 
-import br from "~/static/data/BR_reduced_18.csv";
+d3.forceManyBodyReuse = forceManyBodyReuse;
+
+// import br from "~/static/data/BR_reduced_18.csv";
 
 export default {
   props: {
@@ -89,7 +91,7 @@ export default {
       });
     },
     centers() {
-      console.log(this.width);
+      // console.log(this.width);
       return [
         { x: this.width * 0.4, y: this.height * 0.4 },
         { x: this.width * 0.6, y: this.height * 0.4 },
@@ -119,7 +121,7 @@ export default {
   methods: {
     updateGraph() {
       this.nodes = this.$helpers.getArrayOfObjectsCopy(this.nodesStore);
-      console.log(this.nodes.length);
+      // console.log(this.nodes.length);
       setTimeout(() => {
         this.simulate();
       }, 500);
@@ -130,7 +132,7 @@ export default {
         "issueCode",
         issue
       );
-      console.log(index);
+      // console.log(index);
       return index;
     },
     changeForces() {
@@ -171,7 +173,7 @@ export default {
     simulate() {
       this.simulation = d3
         .forceSimulation(this.nodes)
-        .force("charge", d3.forceManyBody().strength(-20))
+        .force("charge", d3.forceManyBodyReuse().strength(-20))
         // .force("center", d3.forceCenter(this.width / 2, this.height / 2))
         .force(
           "x",

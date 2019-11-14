@@ -41,3 +41,11 @@ const config = {
 ### 2. https://www.papaparse.com/
 
 #### 2.1 npm install papaparse
+
+# Nice references:
+
+API calls and filtering:
+https://itnext.io/filtering-data-in-vuex-7361141d7baa
+
+Function library
+https://ramdajs.com/docs/
