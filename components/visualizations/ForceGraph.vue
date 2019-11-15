@@ -86,7 +86,7 @@ export default {
   methods: {
     ticked() {
       // ticked has no parameter!
-      console.log("tick");
+      // console.log("tick");
     },
     initGraphOnDataChange() {
       this.nodes = this.$helpers.getArrayOfObjectsCopy(
@@ -95,7 +95,7 @@ export default {
       // console.log(this.nodes.length);
       setTimeout(() => {
         this.simulate();
-      }, 50);
+      }, 1000 * this.managerIndex + 50);
     },
     getIndexByIssue(issue) {
       // console.log(this.categories);
@@ -127,7 +127,9 @@ export default {
         .y(function(d) {
           return that.centers[that.getIndexByIssue(d.issue)].y;
         });
-      this.simulation.alpha(0.8).restart();
+      setTimeout(() => {
+        this.simulation.alpha(1).restart();
+      }, 1000 * this.managerIndex);
     },
     simulate() {
       const that = this;
@@ -183,11 +185,11 @@ export default {
             .iterations(1)
         )
         .on("tick", this.ticked);
-
+      console.log(this.managerIndex);
       setTimeout(() => {
         this.simulation.restart();
         this.isGraphInitialized = true;
-      }, 50);
+      }, 1000 * this.managerIndex + 50);
 
       // console.log(this.simulation);
     }
