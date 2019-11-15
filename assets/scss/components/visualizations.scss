@@ -1,10 +1,15 @@
-.svg-container {
+.flex {
   width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.svg-container {
+  // width: 100%;
   height: 100vh;
   display: flex;
 }
 .svg-element {
-  margin: auto;
+  // margin: auto;
 }
 .svg-background {
   height: 100%;

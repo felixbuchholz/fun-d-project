@@ -3,7 +3,12 @@
     <div class="fast-margin">
       <h2>Test site</h2>
       <Controls />
-      <ForceGraph />
+      <button @click="toggleCenters">Toggle Centers</button>
+      <div class="flex">
+        <ForceGraph :manager-index="0" />
+        <ForceGraph :manager-index="1" />
+        <ForceGraph :manager-index="2" />
+      </div>
     </div>
   </div>
 </template>
@@ -15,12 +20,25 @@ import ForceGraph from "~/components/visualizations/ForceGraph.vue";
 import Controls from "~/components/ui/Controls.vue";
 
 export default {
+  head() {
+    return {
+      script: [
+        { src: "https://d3js.org/d3.v5.min.js" },
+        { src: "d3-force-sampled.js" }
+      ]
+    };
+  },
   components: {
     ForceGraph,
     Controls
   },
   data() {
     return {};
+  },
+  methods: {
+    toggleCenters() {
+      this.$store.commit("forceGraph/TOGGLE_CENTERED");
+    }
   }
 };
 </script>

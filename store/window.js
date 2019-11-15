@@ -1,6 +1,10 @@
 // passive state
 export const state = () => ({
-  window: { width: 360, height: 640, animationFrame: 20 }
+  window: {
+    width: 1920,
+    height: 900,
+    animationFrame: 20
+  }
 });
 
 // Automatic active: in case something changes in the state, this is a recalculation

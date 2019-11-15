@@ -3,7 +3,7 @@
   query selector or getbyID etc.-->
   <div id="intro-animation" :style="`padding: ${window.animationFrame}px;`">
     <div id="animation">
-      <div id="svg-animation" v-resize:throttle="onResize">
+      <div id="svg-animation">
         <svg id="intro-svg" :width="width" :height="height">
           <rect id="svg-background" :width="width" :height="height" />
           <ElementWrapper />
@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import resize from "vue-resize-directive";
 import { mapState, mapGetters } from "vuex";
 
 import IntroTitles from "~/components/intro/IntroTitles.vue";
@@ -41,9 +40,6 @@ import bignumbers from "~/components/intro/elements/bignumbers.vue";
 
 export default {
   name: "IntroAnimation",
-  directives: {
-    resize
-  },
   components: {
     IntroTitles,
     ElementWrapper,
@@ -63,12 +59,6 @@ export default {
       width: ["window/width"],
       height: ["window/height"]
     })
-  },
-  methods: {
-    onResize() {
-      // console.log("resized IntroAnimation");
-      this.$helpers.resize(this);
-    }
   }
 };
 </script>
