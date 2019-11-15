@@ -9,6 +9,7 @@
         <circle
           v-for="(node, i) in nodes"
           :key="`nodes-${i}`"
+          v-tooltip="markupTooltip(node)"
           :cx="coords[i].x"
           :cy="coords[i].y"
           :r="circle.radius"
@@ -18,6 +19,8 @@
             } ${node.issue}`
           "
         />
+        <!-- @mouseenter="showTooltip($event, node.company)" -->
+        <!-- https://stackoverflow.com/questions/40956671/passing-event-and-argument-to-v-on-in-vue-js -->
         <!-- @mousedown="currentMove = {x: $event.screenX, y: $event.screenY, node: node}" -->
       </svg>
     </div>
@@ -26,6 +29,7 @@
 
 <script>
 import * as d3 from "d3";
+import voca from "voca";
 // import * as forceManyBodySampled from "d3-force-sampled";
 
 import { mapState, mapGetters } from "vuex";
@@ -72,7 +76,7 @@ export default {
       this.initGraphOnDataChange();
     },
     centers() {
-      console.log("centers have changed");
+      // console.log("centers have changed");
       if (this.isGraphInitialized) {
         this.updateGraphOnParameterChange();
       }
@@ -84,6 +88,13 @@ export default {
   },
   mounted() {},
   methods: {
+    markupTooltip(node) {
+      return `<div class="resolution">${
+        node.resolution
+      }</div> <div class="information">Company: <span class="company">${voca.titleCase(
+        node.company
+      )}</span></div>`;
+    },
     ticked() {
       // ticked has no parameter!
       // console.log("tick");
@@ -185,7 +196,7 @@ export default {
             .iterations(1)
         )
         .on("tick", this.ticked);
-      console.log(this.managerIndex);
+      // console.log(this.managerIndex);
       setTimeout(() => {
         this.simulation.restart();
         this.isGraphInitialized = true;
