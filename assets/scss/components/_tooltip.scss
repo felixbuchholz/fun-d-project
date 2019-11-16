@@ -1,16 +1,48 @@
+// TODO bigger arrow?
 .tooltip {
   display: block !important;
   z-index: 10000;
   // ! MAX WIDTH !
   max-width: 250px;
 
+  &.soc {
+    .tooltip-inner,
+    .tooltip-arrow {
+      border-color: $soc;
+    }
+  }
+  &.gg {
+    .tooltip-inner,
+    .tooltip-arrow {
+      border-color: $gg;
+    }
+  }
+  &.env {
+    .tooltip-inner,
+    .tooltip-arrow {
+      border-color: $env;
+    }
+  }
+  &.profit {
+    .tooltip-inner,
+    .tooltip-arrow {
+      border-color: $profit;
+    }
+  }
+  &.no-esg {
+    .tooltip-inner,
+    .tooltip-arrow {
+      border-color: $no-esg;
+    }
+  }
+
   .tooltip-inner {
     // background: $black;
     @include background-opacity($black, 0.9);
     color: $white;
-    border: 1px solid $first;
     border-radius: 1px;
     padding: 15px 20px 16px;
+    border: 2px solid $first;
   }
 
   .tooltip-arrow {

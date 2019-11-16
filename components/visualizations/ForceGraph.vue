@@ -6,17 +6,22 @@
     <div class="svg-container">
       <svg class="svg-element" :width="width" :height="height">
         <rect :width="width" :height="height" class="svg-background" />
+        <!-- :cx="coords[i] ? coords[i].x : 0"
+          :cy="coords[i] ? coords[i].y : 0" -->
         <circle
           v-for="(node, i) in nodes"
           :key="`nodes-${i}`"
-          v-tooltip="markupTooltip(node)"
-          :cx="coords[i].x"
-          :cy="coords[i].y"
+          v-tooltip="tooltipOptions(node)"
           :r="circle.radius"
           :class="
-            `mean-activist-circle mean-activist-${
-              node.meanActivist > 0.5 ? 'yes' : 'no'
-            } ${node.issue}`
+            `mean-activist-${node.meanActivist > 0.5 ? 'yes' : 'no'} ${
+              node.issue
+            }`
+          "
+          :style="
+            `transform: translateX(${
+              coords[i] ? coords[i].x : 0
+            }px) translateY(${coords[i] ? coords[i].y : 0}px)`
           "
         />
         <!-- @mouseenter="showTooltip($event, node.company)" -->
@@ -47,7 +52,8 @@ export default {
       nodes: [],
       simulation: null,
       centered: true,
-      isGraphInitialized: false
+      isGraphInitialized: false,
+      coords: {}
     };
   },
   computed: {
@@ -60,15 +66,17 @@ export default {
       height: ["forceGraph/heightManager"],
       nodesStore: [`forceGraph/nodesPerYear`],
       centers: [`forceGraph/centers`]
-    }),
-    coords() {
-      return this.nodes.map(node => {
-        return {
-          x: node.x,
-          y: node.y
-        };
-      });
-    }
+    })
+    // coords() {
+    //   return this.nodes.map(node => {
+    //     return {
+    //       // x: node.x,
+    //       // y: node.y
+    //       x: 10,
+    //       y: 10
+    //     };
+    //   });
+    // }
   },
   watch: {
     nodesStore() {
@@ -76,10 +84,10 @@ export default {
       this.initGraphOnDataChange();
     },
     centers() {
-      // console.log("centers have changed");
-      if (this.isGraphInitialized) {
-        this.updateGraphOnParameterChange();
-      }
+      console.log("centers have changed");
+      this.updateGraphOnParameterChange();
+      // if (this.isGraphInitialized) {
+      // }
     }
   },
   created() {
@@ -88,6 +96,12 @@ export default {
   },
   mounted() {},
   methods: {
+    tooltipOptions(node) {
+      return {
+        content: this.markupTooltip(node),
+        classes: node.issue
+      };
+    },
     markupTooltip(node) {
       return `<div class="resolution">${
         node.resolution
@@ -97,7 +111,11 @@ export default {
     },
     ticked() {
       // ticked has no parameter!
-      // console.log("tick");
+      console.log("tick");
+    },
+    ended() {
+      // ticked has no parameter!
+      console.log("end");
     },
     initGraphOnDataChange() {
       this.nodes = this.$helpers.getArrayOfObjectsCopy(
@@ -119,6 +137,7 @@ export default {
       return index;
     },
     updateGraphOnParameterChange() {
+      console.log("the old function happened");
       const that = this;
       this.simulation
         .force("x")
@@ -148,8 +167,8 @@ export default {
         .forceSimulation(this.nodes)
         // Move the parameters to the store later
         .alpha(1) // Starting point, alpha is the "ticks" unit or counter // default: 1, range: [0,1]
-        .alphaDecay(0.08) // Acceleration of the animation // default: 0.0288, range [0,1]
-        .alphaMin(0.002) // Stopping point // default: 0.001, range [0,1]
+        .alphaDecay(0.1) // Acceleration of the animation // default: 0.0288, range [0,1]
+        .alphaMin(0.004) // Stopping point // default: 0.001, range [0,1]
         .alphaTarget(0) // Target! // default: 0, range [0,1]
         .velocityDecay(0.4) // Friction or "mass" // default: 0.4, range [0,1]
         .force(
@@ -195,12 +214,38 @@ export default {
             .strength(0.7) // find default
             .iterations(1)
         )
-        .on("tick", this.ticked);
+        .on("tick", this.ticked)
+        .on("end", this.ended)
+        .stop();
       // console.log(this.managerIndex);
+      // this.simulation.stop().start();
       setTimeout(() => {
-        this.simulation.restart();
-        this.isGraphInitialized = true;
-      }, 1000 * this.managerIndex + 50);
+        for (
+          var i = 0,
+            n = Math.ceil(
+              Math.log(this.simulation.alphaMin()) /
+                Math.log(1 - this.simulation.alphaDecay())
+            );
+          i < n;
+          ++i
+        ) {
+          this.simulation.tick();
+        }
+        console.log("finished");
+        this.coords = this.nodes.map(node => {
+          return {
+            x: node.x,
+            y: node.y
+            // x: 20,
+            // y: 20
+          };
+        });
+      }, 500);
+      // setTimeout(() => {
+      //   this.simulation.restart();
+      //   for (var i = 0; i < 100; ++i) this.simulation.tick();
+      //   this.isGraphInitialized = true;
+      // }, 1000 * this.managerIndex + 50);
 
       // console.log(this.simulation);
     }
