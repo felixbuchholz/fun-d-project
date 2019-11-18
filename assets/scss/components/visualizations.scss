@@ -38,6 +38,9 @@ circle {
 .profit {
   fill: $profit;
 }
+.exit {
+  opacity: 0.03 !important;
+}
 .mean-activist-no {
   opacity: 0.25;
   &.env {

@@ -78,16 +78,30 @@ export const getters = {
         y: getters.heightManager / 2
       }));
     } else {
-      const x0 = getters.widthManager * 1;
-      const x1 = getters.widthManager * 0.4;
-      const x2 = getters.widthManager * 0.6;
-      const y0 = getters.widthManager * 0.05;
+      const h = getters.heightManager;
+      const w = getters.widthManager;
+      let xN = w * 0.5;
+      if (rootState.year.direction == "positive") {
+        xN = w * 1.1;
+      } else {
+        xN = w * -1;
+      }
+      const xO = w * -1;
+      const x1 = w * 0.4;
+      const x2 = w * 0.6;
+      const yO = h * 0.5;
+
       return [
-        { x0: x0, x1: x1, x2: x2, y0: y0, y: getters.heightManager * 0.28 }, // old: 0.20
-        { x0: x0, x1: x1, x2: x2, y0: y0, y: getters.heightManager * 0.5 }, // old: 0.34
-        { x0: x0, x1: x1, x2: x2, y0: y0, y: getters.heightManager * 0.72 }, // old: 0.41
-        { x0: x0, x1: x1, x2: x2, y0: y0, y: getters.heightManager * 0.85 }, // old: 0.58
-        { x0: x0, x1: x1, x2: x2, y0: y0, y: getters.heightManager * 0 } // old: 0.75
+        { xO: xO, xN: xN, x1: x1, x2: x2, yO: yO, y: h * 0.28 },
+        // old: 0.20
+        { xO: xO, xN: xN, x1: x1, x2: x2, yO: yO, y: h * 0.5 },
+        // old: 0.34
+        { xO: xO, xN: xN, x1: x1, x2: x2, yO: yO, y: h * 0.72 },
+        // old: 0.41
+        { xO: xO, xN: xN, x1: x1, x2: x2, yO: yO, y: h * 0.8 },
+        // old: 0.58
+        { xO: xO, xN: xN, x1: x1, x2: x2, yO: yO, y: h * 0 }
+        // old: 0.75
       ];
     }
   }

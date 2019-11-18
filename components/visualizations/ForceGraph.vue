@@ -20,8 +20,10 @@
           "
           :style="
             `transform: translateX(${
-              coords[i] ? coords[i].x : 10
-            }px) translateY(${coords[i] ? coords[i].y : 10}px)`
+              coords[i] ? coords[i].x : getCoordsByIssue(node.issue).x
+            }px) translateY(${
+              coords[i] ? coords[i].y : getCoordsByIssue(node.issue).y
+            }px)`
           "
         />
         <!-- @mouseenter="showTooltip($event, node.company)" -->
@@ -105,11 +107,11 @@ export default {
     },
     ticked() {
       // ticked has no parameter!
-      console.log("tick");
+      // console.log("tick");
     },
     ended() {
       // ticked has no parameter!
-      console.log("end");
+      // console.log("end");
     },
     initGraphOnDataChange() {
       let oldLocal = this.nodes;
@@ -119,9 +121,9 @@ export default {
       const oldLength = oldLocal.length;
       const newLength = newStore.length;
 
-      console.log(oldLocal);
-      console.log(newStore);
-      console.log(oldLocal.length, newStore.length);
+      // console.log(oldLocal);
+      // console.log(newStore);
+      // console.log(oldLocal.length, newStore.length);
 
       let exitIndexes = [];
       this.exitNodes = [];
@@ -147,25 +149,26 @@ export default {
         }
       }
 
+      // setTimeout(() => {
+      //   this.nodes = oldLocal;
+      //   this.simulate();
       setTimeout(() => {
-        this.nodes = oldLocal;
-        this.simulate();
-        setTimeout(() => {
-          for (const index of exitIndexes) {
-            if (newStore.length > 0) {
-              oldLocal[index] = newStore[0];
-              newStore.splice(0, 1);
-            } else {
-              oldLocal.splice(index, 1);
-            }
+        for (const index of exitIndexes) {
+          // this.assignCoordsToObj(oldLocal[index]);
+          if (newStore.length > 0) {
+            oldLocal[index] = newStore[0];
+            newStore.splice(0, 1);
+          } else {
+            oldLocal.splice(index, 1);
           }
-          this.nodes = [...this.nodes, ...newStore];
-          console.log(oldLength, newLength);
-          this.nodes.splice(newLength);
-          console.log("combined", this.nodes.length);
-          this.simulate();
-        }, 1500);
-      }, 1500);
+        }
+        this.nodes = [...this.nodes, ...newStore];
+        // console.log(oldLength, newLength);
+        this.nodes.splice(newLength);
+        // console.log("combined", this.nodes.length);
+        this.simulate();
+      }, 1200);
+      // }, 700);
 
       // for (let index = oldLocal.length; index < this.nodes.length; index++) {
       //   this.nodes[index].x = 10;
@@ -176,6 +179,15 @@ export default {
       // setTimeout(() => {
       //   this.simulate();
       // }, 2000 * this.managerIndex + 400);
+    },
+    getCoordsByIssue(issue) {
+      const xN = this.centers[this.getIndexByIssue(issue)].xN;
+      const y = this.centers[this.getIndexByIssue(issue)].y;
+      return { x: xN, y: y };
+    },
+    assignCoordsToObj(obj) {
+      obj.x = this.centers[0].xN;
+      obj.y = this.centers[0].y;
     },
     group(array) {
       return d3array.groups(array, d => d.issue, d => d.active);
@@ -204,7 +216,7 @@ export default {
       receiver.y = sender.y;
     },
     transferPropsKeepCoords(receiver, sender) {
-      console.log("transfer");
+      // console.log("transfer");
       const keepCoords = ["x", "y", "vx", "vy"];
       for (const prop in sender) {
         if (!keepCoords.includes(prop)) {
@@ -277,7 +289,7 @@ export default {
             })
             .x(function(d) {
               if (d.issue == "exit") {
-                return 1;
+                return that.centers[0].xN;
               }
               const x1 = that.centers[that.getIndexByIssue(d.issue)].x1;
               const x2 = that.centers[that.getIndexByIssue(d.issue)].x2;
@@ -294,7 +306,7 @@ export default {
             })
             .y(function(d) {
               if (d.issue == "exit") {
-                return 1;
+                return that.centers[0].yO;
               }
               return that.centers[that.getIndexByIssue(d.issue)].y;
             })
