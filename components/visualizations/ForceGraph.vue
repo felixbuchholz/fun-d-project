@@ -156,6 +156,7 @@ export default {
         for (const index of exitIndexes) {
           // this.assignCoordsToObj(oldLocal[index]);
           if (newStore.length > 0) {
+            // ! TODO: this assignment is kind of random, can be improved
             oldLocal[index] = newStore[0];
             newStore.splice(0, 1);
           } else {
@@ -167,7 +168,7 @@ export default {
         this.nodes.splice(newLength);
         // console.log("combined", this.nodes.length);
         this.simulate();
-      }, 1200);
+      }, 100);
       // }, 700);
 
       // for (let index = oldLocal.length; index < this.nodes.length; index++) {
