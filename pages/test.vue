@@ -3,11 +3,11 @@
     <div class="fast-margin">
       <h2>Test site</h2>
       <Controls />
-      <button @click="toggleCenters">Toggle Centers</button>
+      <!-- <button @click="toggleCenters">Toggle Centers</button> -->
       <div class="flex">
         <ForceGraph :manager-index="0" />
-        <ForceGraph :manager-index="1" />
-        <ForceGraph :manager-index="2" />
+        <!-- <ForceGraph :manager-index="1" />
+        <ForceGraph :manager-index="2" /> -->
       </div>
     </div>
   </div>
