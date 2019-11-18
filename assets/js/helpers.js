@@ -11,6 +11,14 @@ export default {
     }
     return -1;
   },
+  findWith2Attrs(array, attr, value, attr2, value2) {
+    for (var i = 0; i < array.length; i += 1) {
+      if (array[i][attr] === value && array[i][attr2] === value2) {
+        return i;
+      }
+    }
+    return -1;
+  },
   getViewportSize() {
     var e = window;
     var a = "inner";

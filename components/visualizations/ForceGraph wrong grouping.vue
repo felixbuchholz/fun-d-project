@@ -52,7 +52,7 @@ export default {
       circle: { radius: 4, padding: 1 },
       enterNodes: [],
       nodes: [],
-      exitNodes: [],
+      exitNodex: [],
       simulation: null,
       centered: true,
       isGraphInitialized: false,
@@ -110,58 +110,178 @@ export default {
       console.log("end");
     },
     initGraphOnDataChange() {
+      // d3.group(data, d => d.name);
+      // Array.from(d3.group(data, d => d.name));
       let oldLocal = this.nodes;
       let newStore = this.$helpers.getArrayOfObjectsCopy(
         this.nodesStore[this.managerIndex]
       );
-
-      console.log(oldLocal);
-      console.log(newStore);
       console.log(oldLocal.length, newStore.length);
 
-      let exitIndexes = [];
-      this.exitNodes = [];
-      for (let i = 0; i < oldLocal.length; i++) {
-        const proposal = oldLocal[i];
-        const foundIndex = this.$helpers.findWith2Attrs(
-          newStore,
-          "issue",
-          proposal.issue,
-          "active",
-          proposal.active
-        );
-        if (foundIndex != -1) {
-          newStore.splice(foundIndex, 1);
-        } else {
-          // console.log(i);
-          proposal.issue = "exit";
-          this.exitNodes.push(proposal);
-          exitIndexes.push(i);
-          // oldLocal.splice(i, 1);
-        }
-      }
+      let groupedOldLocal = this.group(oldLocal);
+      let groupedNewStore = this.group(newStore);
 
-      this.nodes = oldLocal;
-      // for (let index = oldLocal.length; index < this.nodes.length; index++) {
-      //   this.nodes[index].x = 10;
-      //   this.nodes[index].y = 10;
+      let flatOldLocal = this.flattenArray(groupedOldLocal);
+      let flatNewStore = this.flattenArray(groupedNewStore);
+
+      // if (oldLocal.length == 0) {
+      //   this.nodes = newStore;
+      // } else if (oldLocal.length < newStore.length) {
+      // if (oldLocal.length < newStore.length) {
+      //   // } else {
+      //   let groupedNewStore = this.group(newStore);
+      //   let groupedOldLocal = this.group(oldLocal);
+
+      //   // console.log(groupedOldLocal);
+      //   for (
+      //     let issueIndex = 0;
+      //     issueIndex < groupedOldLocal.length;
+      //     issueIndex++
+      //   ) {
+      //     const issue = groupedOldLocal[issueIndex][1];
+      //     // let issueNew = groupedNewStore[issueIndex][1];
+
+      //     // console.log(issue);
+      //     for (
+      //       let activismIndex = 0;
+      //       activismIndex < issue.length;
+      //       activismIndex++
+      //     ) {
+      //       const activism = issue[activismIndex][1];
+      //       // let activismNew = issueNew[activismIndex][1];
+      //       // console.log(activism);
+      //       for (let propIndex = 0; propIndex < activism.length; propIndex++) {
+      //         // let propOld = activism[propIndex];
+      //         console.log("+++");
+      //         // console.log("old", propOld);
+      //         // const propNew = activismNew[propIndex];
+      //         // console.log("new", propNew);
+      //         // console.log(groupedNewStore[issueIndex]);
+      //         // this.transferPropsKeepCoords(
+      //         //   groupedOldLocal[issueIndex][1][activismIndex][1][propIndex],
+      //         //   groupedNewStore[issueIndex][1][activismIndex][1][propIndex]
+      //         // );
+      //         if (groupedNewStore[issueIndex]) {
+      //           // console.log(groupedOldLocal[issueIndex][0]);
+      //           // console.log(groupedNewStore[issueIndex][0]);
+      //           // console.log(groupedNewStore[issueIndex][1][activismIndex]);
+      //           if (groupedNewStore[issueIndex][1][activismIndex]) {
+      //             // console.log(
+      //             //   groupedNewStore[issueIndex][1][activismIndex][1][propIndex]
+      //             // );
+      //             // console.log(groupedOldLocal[issueIndex][1][activismIndex]);
+      //             // console.log(groupedNewStore[issueIndex][1][activismIndex]);
+      //             // console.log(groupedNewStore[issueIndex][0]);
+      //             if (
+      //               groupedNewStore[issueIndex][1][activismIndex][1][propIndex]
+      //             ) {
+      //               if (issueIndex == 0) {
+      //                 console.log(
+      //                   groupedOldLocal[issueIndex][1][activismIndex][1][
+      //                     propIndex
+      //                   ],
+      //                   groupedNewStore[issueIndex][1][activismIndex][1][
+      //                     propIndex
+      //                   ]
+      //                 );
+      //               }
+      //               this.transferPropsKeepCoords(
+      //                 groupedOldLocal[issueIndex][1][activismIndex][1][
+      //                   propIndex
+      //                 ],
+      //                 groupedNewStore[issueIndex][1][activismIndex][1][
+      //                   propIndex
+      //                 ]
+      //               );
+
+      //               groupedNewStore[issueIndex][1][activismIndex][1].splice(
+      //                 propIndex,
+      //                 1
+      //               );
+      //             } else {
+      //               console.log("innermost");
+      //               groupedOldLocal[issueIndex][1][activismIndex][1][
+      //                 propIndex
+      //               ].issue = "test";
+      //             }
+      //           } else {
+      //             console.log("in between");
+      //             groupedOldLocal[issueIndex][1][activismIndex][1][
+      //               propIndex
+      //             ].issue = "test";
+      //           }
+      //         } else {
+      //           console.log("outermost");
+      //           groupedOldLocal[issueIndex][1][activismIndex][1][
+      //             propIndex
+      //           ].issue = "test";
+      //         }
+      //         console.log("nothing");
+
+      //         console.log("---");
+      //       }
+      //     }
+      //   }
+      //   let flatOldLocal = this.flattenArray(groupedOldLocal);
+      //   let flatNewStore = this.flattenArray(groupedNewStore);
+
+      // console.log(flatOldLocal);
+      // console.log(flatNewStore);
+      // this.nodes = [...oldLocal, ...newStore];
+      // console.log(this.nodes);
+
+      // for (let i = oldLocal.length; i < newStore.length; i++) {
+      //   this.coords[i] = {
+      //     x: this.centers[this.getIndexByIssue(this.nodes[i].issue)].x0,
+      //     y: this.centers[this.getIndexByIssue(this.nodes[i].issue)].y
+      //   };
       // }
-      // console.log("combined", this.nodes);
+
+      // else end
+      // }
+      this.nodes = [...flatOldLocal, ...flatNewStore];
+      console.log(this.nodes);
+
+      // const oldLocalLength = this.nodes.length;
+      // const newStoreLength = this.nodesStore[this.managerIndex].length;
+      // console.log(newStoreLength, oldLocalLength);
+      // this.enterNodes = [];
+      // for (let i = oldLocalLength; i < newStoreLength; i++) {
+      //   this.enterNodes.push(this.nodesStore[this.managerIndex][i]);
+      // }
+      // console.log(this.enterNodes);
+      // this.nodes = this.$helpers.getArrayOfObjectsCopy(
+      //   this.nodesStore[this.managerIndex]
+      // );
+      // for (let i = oldLocalLength; i < newStoreLength; i++) {
+      //   this.coords[i] = {
+      //     x: this.centers[this.getIndexByIssue(this.nodes[i].issue)].x0,
+      //     y: this.centers[this.getIndexByIssue(this.nodes[i].issue)].y
+      //   };
+      // }
 
       setTimeout(() => {
         this.simulate();
-      }, 2000 * this.managerIndex + 400);
+      }, 2000 * this.managerIndex + 2000);
 
-      for (const index of exitIndexes) {
-        oldLocal.splice(index, 1);
-      }
-
-      this.nodes = [...this.nodes, ...newStore];
-      setTimeout(() => {
-        this.simulate();
-      }, 2000 * this.managerIndex + 5000);
+      // let issuesCounters = [...Array(this.categories.length)].map(() => 0);
+      // for (let i = oldLocalLength; i < newStoreLength; i++) {
+      //   let issueCounter =
+      //     issuesCounters[this.getIndexByIssue(this.nodes[i].issue)];
+      //   this.coords[i] = {
+      //     x: this.centers[this.getIndexByIssue(this.nodes[i].issue)].x0,
+      //     y:
+      //       this.centers[this.getIndexByIssue(this.nodes[i].issue)].y0 +
+      //       (this.circle.radius * 2 + this.circle.padding) * issueCounter
+      //   };
+      //   issuesCounters[this.getIndexByIssue(this.nodes[i].issue)]++;
+      // }
+      // console.log(this.nodes.length);
+      // this.simulate();
+      // setTimeout(() => {
+      //   this.simulate();
+      // }, 2000 * this.managerIndex + 50);
     },
-
     group(array) {
       return d3array.groups(array, d => d.issue, d => d.active);
     },
@@ -261,9 +381,6 @@ export default {
               return 0.5;
             })
             .x(function(d) {
-              if (d.issue == "exit") {
-                return 1;
-              }
               const x1 = that.centers[that.getIndexByIssue(d.issue)].x1;
               const x2 = that.centers[that.getIndexByIssue(d.issue)].x2;
               return d.meanActivist > 0.5 ? x2 : x1;
@@ -278,9 +395,6 @@ export default {
               return 0.5;
             })
             .y(function(d) {
-              if (d.issue == "exit") {
-                return 1;
-              }
               return that.centers[that.getIndexByIssue(d.issue)].y;
             })
         )
