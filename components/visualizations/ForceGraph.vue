@@ -99,7 +99,9 @@ export default {
         node.resolution
       }</div> <div class="information">Company: <span class="company">${voca.titleCase(
         node.company
-      )}</span></div>`;
+      )}</span></div><div class="information">Year: <span class="bold">${
+        node.year
+      }</span></div>`;
     },
     ticked() {
       // ticked has no parameter!
@@ -114,6 +116,8 @@ export default {
       let newStore = this.$helpers.getArrayOfObjectsCopy(
         this.nodesStore[this.managerIndex]
       );
+      const oldLength = oldLocal.length;
+      const newLength = newStore.length;
 
       console.log(oldLocal);
       console.log(newStore);
@@ -131,6 +135,8 @@ export default {
           proposal.active
         );
         if (foundIndex != -1) {
+          this.transferPropsKeepCoords(oldLocal[i], newStore[foundIndex]);
+
           newStore.splice(foundIndex, 1);
         } else {
           // console.log(i);
@@ -141,27 +147,36 @@ export default {
         }
       }
 
-      this.nodes = oldLocal;
+      setTimeout(() => {
+        this.nodes = oldLocal;
+        this.simulate();
+        setTimeout(() => {
+          for (const index of exitIndexes) {
+            if (newStore.length > 0) {
+              oldLocal[index] = newStore[0];
+              newStore.splice(0, 1);
+            } else {
+              oldLocal.splice(index, 1);
+            }
+          }
+          this.nodes = [...this.nodes, ...newStore];
+          console.log(oldLength, newLength);
+          this.nodes.splice(newLength);
+          console.log("combined", this.nodes.length);
+          this.simulate();
+        }, 1500);
+      }, 1500);
+
       // for (let index = oldLocal.length; index < this.nodes.length; index++) {
       //   this.nodes[index].x = 10;
       //   this.nodes[index].y = 10;
       // }
       // console.log("combined", this.nodes);
 
-      setTimeout(() => {
-        this.simulate();
-      }, 2000 * this.managerIndex + 400);
-
-      for (const index of exitIndexes) {
-        oldLocal.splice(index, 1);
-      }
-
-      this.nodes = [...this.nodes, ...newStore];
-      setTimeout(() => {
-        this.simulate();
-      }, 2000 * this.managerIndex + 5000);
+      // setTimeout(() => {
+      //   this.simulate();
+      // }, 2000 * this.managerIndex + 400);
     },
-
     group(array) {
       return d3array.groups(array, d => d.issue, d => d.active);
     },
