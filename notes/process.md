@@ -65,3 +65,9 @@ https://vocajs.com/
 npm install voca
 
 I’m using it just in components for now
+
+## scrollama
+
+https://github.com/vgshenoy/vue-scrollama#vue-scrollama
+
+npm install vue-scrollama intersection-observer

@@ -4,11 +4,13 @@
       <h2>Test site</h2>
       <Controls />
       <!-- <button @click="toggleCenters">Toggle Centers</button> -->
-      <div class="flex">
-        <ForceGraph :manager-index="0" />
-        <!-- <ForceGraph :manager-index="1" />
-        <ForceGraph :manager-index="2" /> -->
-      </div>
+      <Scrollama @step-enter="stepEnterHandler">
+        <div class="flex">
+          <ForceGraph :manager-index="0" />
+          <ForceGraph :manager-index="1" />
+          <ForceGraph :manager-index="2" />
+        </div>
+      </Scrollama>
     </div>
   </div>
 </template>
@@ -36,6 +38,9 @@ export default {
     return {};
   },
   methods: {
+    stepEnterHandler(event) {
+      console.log(event);
+    },
     toggleCenters() {
       this.$store.commit("forceGraph/TOGGLE_CENTERED");
     }

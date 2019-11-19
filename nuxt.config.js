@@ -34,6 +34,7 @@ export default {
     { src: "~/plugins/helpers" },
     // { src: "~/plugins/resize" },
     { src: "~/plugins/v-tooltip" },
+    { src: "~/plugins/vue-scrollama" },
     { src: "~/plugins/vue-slider" }
   ],
   /*

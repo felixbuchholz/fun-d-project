@@ -168,7 +168,7 @@ export default {
         this.nodes.splice(newLength);
         // console.log("combined", this.nodes.length);
         this.simulate();
-      }, 100);
+      }, 100); // was
       // }, 700);
 
       // for (let index = oldLocal.length; index < this.nodes.length; index++) {
