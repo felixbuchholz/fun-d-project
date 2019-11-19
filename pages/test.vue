@@ -4,18 +4,14 @@
       <h2>Test site</h2>
       <Controls />
       <!-- <button @click="toggleCenters">Toggle Centers</button> -->
-      <div class="visual_1_container">  
-        
-        <div class='three_graphs'>
-          <div class="flex">
-            <ForceGraph :manager-index="0" />
-            <ForceGraph :manager-index="1" />
-            <ForceGraph :manager-index="2" />
-          </div>
+      <div class="visual_1_container">
+        <div class="flex">
+          <ForceGraph :manager-index="0" />
+          <ForceGraph :manager-index="1" />
+          <ForceGraph :manager-index="2" />
         </div>
 
-        <VisualizationText /> 
-
+        <VisualizationText />
       </div>
     </div>
   </div>
@@ -40,14 +36,14 @@ export default {
   components: {
     ForceGraph,
     Controls,
-    VisualizationText,
+    VisualizationText
   },
   data() {
     return {};
   },
   methods: {
     stepEnterHandler(event) {
-        console.log("scrollalama")
+      console.log(event);
     },
     toggleCenters() {
       this.$store.commit("forceGraph/TOGGLE_CENTERED");

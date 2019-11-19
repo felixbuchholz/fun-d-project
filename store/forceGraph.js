@@ -31,7 +31,9 @@ export const getters = {
   widthManager(state, getters, rootState, rootGetters) {
     // syntax ["store/getter"]
     // Width and height should be relative to the container in the end
-    return rootGetters["window/width"] / 3 - state.paadingBetweenManagers * 2;
+    return (
+      rootGetters["window/width"] * 0.28 - state.paadingBetweenManagers * 2
+    );
   },
   heightManager(state, getters, rootState, rootGetters) {
     return rootGetters["window/height"] * state.forceGraphHeight;

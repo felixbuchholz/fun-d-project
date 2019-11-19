@@ -1,6 +1,6 @@
 import Vue from "vue";
-import intersectionOberser from "intersection-observer";
+import intersectionObserver from "intersection-observer"; // for cross-browser support
 import Scrollama from "vue-scrollama";
 
-Vue.component('Scrollama', Scrollama);
-Vue.use(intersectionOberser)
+Vue.component("Scrollama", Scrollama);
+Vue.use(intersectionObserver);
