@@ -6,6 +6,7 @@
 
 <script>
 import IntroAnimation from "~/components/intro/IntroAnimation.vue";
+import IntroHeader from "~/components/intro/IntroHeader.vue"
 
 export default {
   components: { IntroAnimation }
