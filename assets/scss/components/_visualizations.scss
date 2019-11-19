@@ -6,14 +6,15 @@ circle {
   display: flex;
   justify-content: space-around;
   //overflow: hidden;
-  position:sticky;
+  position: sticky;
   top: 20px;
 }
-.svg-container {
+.graph-container {
   // width: 100%;
+  position: sticky;
+  top: 20px;
   height: 100vh;
-  display: flex;
-
+  // display: flex;
 }
 // .svg-element {
 //   // margin: auto;

@@ -1,9 +1,9 @@
 <template>
   <!-- // https://codepen.io/koumoul/pen/XMGOdJ -->
   <div>
-    <h3>{{ managers[managerIndex].name }}</h3>
     <!-- <button @click="changeForces">Toggle center</button> -->
-    <div class="svg-container">
+    <div class="graph-container">
+      <h3>{{ managers[managerIndex].name }}</h3>
       <svg class="svg-element" :width="width" :height="height">
         <rect :width="width" :height="height" class="svg-background" />
         <!-- :cx="coords[i] ? coords[i].x : 0"
