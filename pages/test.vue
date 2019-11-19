@@ -6,14 +6,16 @@
       <!-- <button @click="toggleCenters">Toggle Centers</button> -->
       <div class="visual_1_container">  
         
-        <div class="flex">
-          <ForceGraph :manager-index="0" />
-          <ForceGraph :manager-index="1" />
-          <ForceGraph :manager-index="2" />
+        <div class='three_graphs'>
+          <div class="flex">
+            <ForceGraph :manager-index="0" />
+            <ForceGraph :manager-index="1" />
+            <ForceGraph :manager-index="2" />
+          </div>
         </div>
-     
+
         <VisualizationText /> 
-        
+
       </div>
     </div>
   </div>
