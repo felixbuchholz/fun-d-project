@@ -4,10 +4,16 @@
       <h2>Test site</h2>
       <Controls />
       <!-- <button @click="toggleCenters">Toggle Centers</button> -->
-      <div class="flex">
-        <ForceGraph :manager-index="0" />
-        <!-- <ForceGraph :manager-index="1" />
-        <ForceGraph :manager-index="2" /> -->
+      <div class="visual_1_container">  
+        
+        <div class="flex">
+          <ForceGraph :manager-index="0" />
+          <ForceGraph :manager-index="1" />
+          <ForceGraph :manager-index="2" />
+        </div>
+     
+        <VisualizationText /> 
+        
       </div>
     </div>
   </div>
@@ -18,6 +24,7 @@
 // import fundblobs from "~/components/intro/elements/fundblobs.vue";
 import ForceGraph from "~/components/visualizations/ForceGraph.vue";
 import Controls from "~/components/ui/Controls.vue";
+import VisualizationText from "~/components/visualizations/VisualizationText.vue";
 
 export default {
   head() {
@@ -30,12 +37,16 @@ export default {
   },
   components: {
     ForceGraph,
-    Controls
+    Controls,
+    VisualizationText,
   },
   data() {
     return {};
   },
   methods: {
+    stepEnterHandler(event) {
+        console.log("scrollalama")
+    },
     toggleCenters() {
       this.$store.commit("forceGraph/TOGGLE_CENTERED");
     }

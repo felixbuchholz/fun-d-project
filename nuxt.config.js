@@ -34,7 +34,8 @@ export default {
     { src: "~/plugins/helpers" },
     // { src: "~/plugins/resize" },
     { src: "~/plugins/v-tooltip" },
-    { src: "~/plugins/vue-slider" }
+    { src: "~/plugins/vue-slider" },
+    { src: "~/plugins/vue-scrollama" }
   ],
   /*
    ** Nuxt.js dev-modules

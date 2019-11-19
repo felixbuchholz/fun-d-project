@@ -1,16 +1,19 @@
 <template>
   <div id="page-container">
-    <h1>Fund project</h1>
+    <IntroHeader />
     <Intro />
   </div>
 </template>
 
 <script>
 // import IntroAnimation from "~/components/IntroAnimation.vue";
+import IntroHeader from "~/components/intro/IntroHeader.vue";
 import Intro from "~/components/intro/Intro.vue";
+
 
 export default {
   components: {
+    IntroHeader,
     Intro
   },
   data() {

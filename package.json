@@ -20,6 +20,7 @@
     "d3-array": "^2.4.0",
     "d3-hierarchy": "^1.1.8",
     "howler": "^2.1.2",
+    "intersection-observer": "^0.7.0",
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0",
     "papaparse": "^5.1.0",
@@ -28,6 +29,7 @@
     "v-tooltip": "^2.0.2",
     "voca": "^1.4.0",
     "vue-resize-directive": "^1.2.0",
+    "vue-scrollama": "^1.1.9",
     "vue-slider-component": "^3.0.41"
   },
   "devDependencies": {
