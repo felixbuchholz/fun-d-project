@@ -5,24 +5,42 @@ console.log(brProposals);
 
 export const state = () => ({
   proposals: [brProposals, vgProposals, ssProposals],
-  categories: [
-    { name: "Good Governance", issueCode: "gg" },
-    { name: "Environmental", issueCode: "env" },
-    { name: "Social", issueCode: "soc" },
-    { name: "Profitability", issueCode: "profit" },
-    { name: "Non-ESG", issueCode: "no-esg" }
+  categoriesToggle: [
+    { name: "Environmental", issueCode: "env", activated: true },
+    { name: "Social", issueCode: "soc", activated: true },
+    { name: "Good Governance", issueCode: "gg", activated: true },
+    { name: "Profitability", issueCode: "profit", activated: true },
+    { name: "Non-ESG", issueCode: "no-esg", activated: false }
   ]
 });
 
+export const mutations = {
+  SET_ACTIVE_CATEGORIES(state, array) {
+    for (const element of state.categoriesToggle) {
+      if (array.includes(element.issueCode)) {
+        element.activated = true;
+      } else {
+        element.activated = false;
+      }
+    }
+  }
+};
+
 export const getters = {
-  proposalsCurrentYear(state, getters, rootState, rootGetters) {
+  proposalsCurrentYear(state, getters, rootState) {
     let newArray = [];
     for (const manager of state.proposals) {
-      const yearFilter = manager.filter(
-        x => x.year == rootState.year.year && x.issue != "no-esg"
-      );
+      const yearFilter = manager.filter(x => {
+        const checkArray = state.categoriesToggle
+          .filter(x => x.activated == true)
+          .map(x => x.issueCode);
+        return x.year == rootState.year.year && checkArray.includes(x.issue);
+      });
       newArray.push(yearFilter);
     }
     return newArray;
+  },
+  categories(state) {
+    return state.categoriesToggle.filter(x => x.activated == true);
   }
 };

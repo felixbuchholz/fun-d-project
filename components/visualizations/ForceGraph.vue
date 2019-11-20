@@ -1,23 +1,17 @@
 <template>
   <!-- // https://codepen.io/koumoul/pen/XMGOdJ -->
-  <div>
-    <!-- <button @click="changeForces">Toggle center</button> -->
-    <div class="graph-container">
-      <h3>{{ managers[managerIndex].name }}</h3>
+
+  <!-- <button @click="changeForces">Toggle center</button> -->
+  <div class="manager-container">
+    <h3>{{ managers[managerIndex].name }}</h3>
+    <div class="svg-container">
       <svg class="svg-element" :width="width" :height="height">
         <rect :width="width" :height="height" class="svg-background" />
-        <!-- :cx="coords[i] ? coords[i].x : 0"
-        :cy="coords[i] ? coords[i].y : 0"-->
-        <circle
+        <g
           v-for="(node, i) in nodes"
           :key="`nodes-${i}`"
           v-tooltip="tooltipOptions(node)"
-          :r="circle.radius"
-          :class="
-            `mean-activist-${node.meanActivist > 0.5 ? 'yes' : 'no'} ${
-              node.issue
-            }`
-          "
+          class="node-circle-mover"
           :style="
             `transform: translateX(${
               coords[i] ? coords[i].x : getCoordsByIssue(node.issue).x
@@ -25,7 +19,16 @@
               coords[i] ? coords[i].y : getCoordsByIssue(node.issue).y
             }px)`
           "
-        />
+        >
+          <circle
+            :r="circle.radius"
+            :class="
+              `node-circle mean-activist-${
+                node.meanActivist > 0.5 ? 'yes' : 'no'
+              } ${node.issue}`
+            "
+          />
+        </g>
         <!-- @mouseenter="showTooltip($event, node.company)" -->
         <!-- https://stackoverflow.com/questions/40956671/passing-event-and-argument-to-v-on-in-vue-js -->
         <!-- @mousedown="currentMove = {x: $event.screenX, y: $event.screenY, node: node}" -->
@@ -38,6 +41,7 @@
 import * as d3 from "d3";
 import * as d3array from "d3-array";
 import voca from "voca";
+
 // import * as forceManyBodySampled from "d3-force-sampled";
 
 import { mapState, mapGetters } from "vuex";
@@ -51,10 +55,12 @@ export default {
   },
   data() {
     return {
-      circle: { radius: 4, padding: 1 },
-      enterNodes: [],
+      circle: { radius: 4, padding: 1.5 },
       nodes: [],
-      exitNodes: [],
+      oldLocal: [],
+      newStore: [],
+      newLength: [],
+      exitIndexes: [],
       simulation: null,
       centered: true,
       isGraphInitialized: false,
@@ -64,18 +70,28 @@ export default {
   computed: {
     ...mapState({
       managers: state => state.managers.managers,
-      categories: state => state.proposals.categories
+      // categories: state => state.proposals.categories,
+      width: state => state.forceGraph.width,
+      height: state => state.forceGraph.height,
+      animationIndex: state => state.forceGraph.animationIndex
     }),
     ...mapGetters({
-      width: ["forceGraph/widthManager"],
-      height: ["forceGraph/heightManager"],
       nodesStore: [`forceGraph/nodesPerYear`],
-      centers: [`forceGraph/centers`]
+      centers: [`forceGraph/centers`],
+      categories: [`proposals/categories`]
     })
   },
   watch: {
     nodesStore() {
-      this.initGraphOnDataChange();
+      if (this.managerIndex == 0) {
+        this.initGraphOnDataChange();
+      }
+    },
+    animationIndex() {
+      // console.log("Animation index changed");
+      if (this.managerIndex != 0 && this.animationIndex == this.managerIndex) {
+        this.initGraphOnDataChange();
+      }
     },
     centers() {
       // console.log("centers have changed");
@@ -84,11 +100,12 @@ export default {
       // }
     }
   },
-  created() {
-    // console.log(d3);
-    this.initGraphOnDataChange();
+  created() {},
+  mounted() {
+    // setTimeout(() => {
+    //   this.initGraphOnDataChange();
+    // }, 6000);
   },
-  mounted() {},
   methods: {
     tooltipOptions(node) {
       return {
@@ -113,155 +130,74 @@ export default {
       // ticked has no parameter!
       // console.log("end");
     },
-    initGraphOnDataChange() {
-      let oldLocal = this.nodes;
-      let newStore = this.$helpers.getArrayOfObjectsCopy(
+    updateCoordinates() {
+      this.coords = [];
+      for (let index = 0; index < this.nodes.length; index++) {
+        const node = this.nodes[index];
+        this.coords.push({
+          x: node.x,
+          y: node.y
+        });
+      }
+      this.updateAnimationIndex();
+    },
+    runSimulationTicks() {
+      for (
+        var i = 0,
+          n = Math.ceil(
+            Math.log(this.simulation.alphaMin()) /
+              Math.log(1 - this.simulation.alphaDecay())
+          );
+        i < n;
+        ++i
+      ) {
+        this.simulation.tick();
+      }
+    },
+    findExitNodes() {
+      this.oldLocal = this.nodes;
+      this.newStore = this.$helpers.getArrayOfObjectsCopy(
         this.nodesStore[this.managerIndex]
       );
-      const oldLength = oldLocal.length;
-      const newLength = newStore.length;
+      this.newLength = this.newStore.length;
 
-      // console.log(oldLocal);
-      // console.log(newStore);
-      // console.log(oldLocal.length, newStore.length);
-
-      let exitIndexes = [];
-      this.exitNodes = [];
-      for (let i = 0; i < oldLocal.length; i++) {
-        const proposal = oldLocal[i];
+      this.exitIndexes = [];
+      for (let i = 0; i < this.oldLocal.length; i++) {
+        const proposal = this.oldLocal[i];
         const foundIndex = this.$helpers.findWith2Attrs(
-          newStore,
+          this.newStore,
           "issue",
           proposal.issue,
           "active",
           proposal.active
         );
         if (foundIndex != -1) {
-          this.transferPropsKeepCoords(oldLocal[i], newStore[foundIndex]);
-
-          newStore.splice(foundIndex, 1);
+          this.transferPropsKeepCoords(
+            this.oldLocal[i],
+            this.newStore[foundIndex]
+          );
+          this.newStore.splice(foundIndex, 1);
         } else {
-          // console.log(i);
           proposal.issue = "exit";
-          this.exitNodes.push(proposal);
-          exitIndexes.push(i);
-          // oldLocal.splice(i, 1);
-        }
-      }
-
-      // setTimeout(() => {
-      //   this.nodes = oldLocal;
-      //   this.simulate();
-      setTimeout(() => {
-        for (const index of exitIndexes) {
-          // this.assignCoordsToObj(oldLocal[index]);
-          if (newStore.length > 0) {
-            // ! TODO: this assignment is kind of random, can be improved
-            oldLocal[index] = newStore[0];
-            newStore.splice(0, 1);
-          } else {
-            oldLocal.splice(index, 1);
-          }
-        }
-        this.nodes = [...this.nodes, ...newStore];
-        // console.log(oldLength, newLength);
-        this.nodes.splice(newLength);
-        // console.log("combined", this.nodes.length);
-        this.simulate();
-      }, 100); // was
-      // }, 700);
-
-      // for (let index = oldLocal.length; index < this.nodes.length; index++) {
-      //   this.nodes[index].x = 10;
-      //   this.nodes[index].y = 10;
-      // }
-      // console.log("combined", this.nodes);
-
-      // setTimeout(() => {
-      //   this.simulate();
-      // }, 2000 * this.managerIndex + 400);
-    },
-    getCoordsByIssue(issue) {
-      const xN = this.centers[this.getIndexByIssue(issue)].xN;
-      const y = this.centers[this.getIndexByIssue(issue)].y;
-      return { x: xN, y: y };
-    },
-    assignCoordsToObj(obj) {
-      obj.x = this.centers[0].xN;
-      obj.y = this.centers[0].y;
-    },
-    group(array) {
-      return d3array.groups(array, d => d.issue, d => d.active);
-    },
-    flattenArray(array) {
-      let newArray = [];
-      for (let issueIndex = 0; issueIndex < array.length; issueIndex++) {
-        const issue = array[issueIndex][1];
-        for (
-          let activismIndex = 0;
-          activismIndex < issue.length;
-          activismIndex++
-        ) {
-          const activism = issue[activismIndex][1];
-          // console.log(activism);
-          for (let propIndex = 0; propIndex < activism.length; propIndex++) {
-            let prop = activism[propIndex];
-            newArray.push(prop);
-          }
-        }
-      }
-      return newArray;
-    },
-    transferCoordinates(receiver, sender) {
-      receiver.x = sender.x;
-      receiver.y = sender.y;
-    },
-    transferPropsKeepCoords(receiver, sender) {
-      // console.log("transfer");
-      const keepCoords = ["x", "y", "vx", "vy"];
-      for (const prop in sender) {
-        if (!keepCoords.includes(prop)) {
-          receiver[prop] = sender[prop];
+          this.exitIndexes.push(i);
         }
       }
     },
-    getIndexByIssue(issue) {
-      // console.log(this.categories);
-      const index = this.$helpers.findWithAttr(
-        this.categories,
-        "issueCode",
-        issue
-      );
-      // console.log(index);
-      return index;
+    reassignExitNodes() {
+      for (const index of this.exitIndexes) {
+        // this.assignCoordsToObj(this.oldLocal[index]);
+        if (this.newStore.length > 0) {
+          // ? TODO: this assignment is kind of random, can be improved
+          this.oldLocal[index] = this.newStore[0];
+          this.newStore.splice(0, 1);
+        } else {
+          this.oldLocal.splice(index, 1);
+        }
+      }
+      this.nodes = [...this.nodes, ...this.newStore];
+      this.nodes.splice(this.newLength);
     },
-
-    // updateGraphOnParameterChange() {
-    //   console.log("the old function happened");
-    //   const that = this;
-    //   this.simulation
-    //     .force("x")
-    //     // .strength(function(d) {
-    //     //   // return d.meanActivist == 1 ? 0.3 : 0.2;
-    //     //   return 0.5;
-    //     // })
-    //     .x(function(d) {
-    //       return that.centers[that.getIndexByIssue(d.issue)].x;
-    //     });
-    //   this.simulation
-    //     .force("y")
-    //     // .strength(function(d) {
-    //     //   // return d.meanActivist == 1 ? 0.3 : 0.2;
-    //     //   return 0.5;
-    //     // })
-    //     .y(function(d) {
-    //       return that.centers[that.getIndexByIssue(d.issue)].y;
-    //     });
-    //   setTimeout(() => {
-    //     this.simulation.alpha(1).restart();
-    //   }, 1200 * this.managerIndex);
-    // },
-    simulate() {
+    defineSimulation() {
       const that = this;
       this.simulation = d3
         .forceSimulation(this.nodes)
@@ -275,10 +211,10 @@ export default {
           "charge",
           d3
             .forceManyBody()
-            .strength(-15)
+            .strength(-14)
             .theta(0.9)
-            .distanceMin(2)
-            .distanceMax(800)
+            .distanceMin(1)
+            .distanceMax(600)
         )
         .force(
           "x",
@@ -286,7 +222,7 @@ export default {
             .forceX()
             .strength(function(d) {
               // return d.meanActivist > 0.5 ? 0.4 : 0.4;
-              return 0.5;
+              return 1;
             })
             .x(function(d) {
               if (d.issue == "exit") {
@@ -303,7 +239,7 @@ export default {
             .forceY()
             .strength(function(d) {
               // return d.meanActivist > 0.5 ? 0.8 : 0.5;
-              return 0.5;
+              return 1;
             })
             .y(function(d) {
               if (d.issue == "exit") {
@@ -312,58 +248,80 @@ export default {
               return that.centers[that.getIndexByIssue(d.issue)].y;
             })
         )
-        // .force("center", d3.forceCenter(this.width / 2, this.height / 2))
-        // –––
         .force(
           "collision",
           d3
             .forceCollide()
             .radius(this.circle.radius + this.circle.padding)
             .strength(0.9) // find default
-            .iterations(10)
+            .iterations(2)
         )
         // .on("tick", this.ticked)
         // .on("end", this.ended)
         .stop();
-      // console.log(this.managerIndex);
-      // this.simulation.stop().start();
-      setTimeout(() => {
-        for (
-          var i = 0,
-            n = Math.ceil(
-              Math.log(this.simulation.alphaMin()) /
-                Math.log(1 - this.simulation.alphaDecay())
-            );
-          i < n;
-          ++i
-        ) {
-          this.simulation.tick();
+    },
+    getCoordsByIssue(issue) {
+      const xN = this.centers[this.getIndexByIssue(issue)].xN;
+      const y = this.centers[this.getIndexByIssue(issue)].y;
+      return { x: xN, y: y };
+    },
+    assignCoordsToObj(obj) {
+      obj.x = this.centers[0].xN;
+      obj.y = this.centers[0].y;
+    },
+    transferCoordinates(receiver, sender) {
+      receiver.x = sender.x;
+      receiver.y = sender.y;
+    },
+    transferPropsKeepCoords(receiver, sender) {
+      // console.log("transfer");
+      const keepCoords = ["x", "y", "vx", "vy"];
+      for (const prop in sender) {
+        if (!keepCoords.includes(prop)) {
+          receiver[prop] = sender[prop];
         }
-        console.log("finished");
-        this.coords = [];
-        for (let index = 0; index < this.nodes.length; index++) {
-          const node = this.nodes[index];
-          this.coords.push({
-            x: node.x,
-            y: node.y
-          });
-        }
-        // this.coords = this.nodes.map(node => {
-        //   return {
-        //     x: node.x,
-        //     y: node.y
-        //     // x: 20,
-        //     // y: 20
-        //   };
-        // });
-      }, 100);
-      // setTimeout(() => {
-      //   this.simulation.restart();
-      //   for (var i = 0; i < 100; ++i) this.simulation.tick();
-      //   this.isGraphInitialized = true;
-      // }, 1000 * this.managerIndex + 50);
+      }
+    },
+    getIndexByIssue(issue) {
+      const index = this.$helpers.findWithAttr(
+        this.categories,
+        "issueCode",
+        issue
+      );
+      // console.log(index);
+      return index;
+    },
+    initGraphOnDataChange() {
+      this.findExitNodes();
 
-      // console.log(this.simulation);
+      setTimeout(() => {
+        this.reassignExitNodes();
+        this.simulate();
+      }, 100);
+    },
+    simulate() {
+      this.defineSimulation();
+      this.runSimulationTicks();
+
+      let smallPause = 0;
+      if (this.nodes < 500) {
+        smallPause = 200;
+      }
+      setTimeout(() => {
+        this.updateCoordinates();
+      }, smallPause);
+    },
+    updateAnimationIndex() {
+      if (this.managerIndex != this.managers.length - 1) {
+        setTimeout(() => {
+          this.$store.commit(
+            "forceGraph/CHANGE_ANIMATION_INDEX",
+            this.managerIndex + 1
+          );
+        }, 1050);
+      } else {
+        this.$store.commit("forceGraph/CHANGE_ANIMATION_INDEX", 0);
+      }
     }
   }
 };

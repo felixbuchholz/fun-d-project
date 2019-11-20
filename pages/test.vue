@@ -4,14 +4,9 @@
       <h2>Test site</h2>
       <Controls />
       <!-- <button @click="toggleCenters">Toggle Centers</button> -->
-      <div class="visual_1_container">
-        <div class="flex">
-          <ForceGraph :manager-index="0" />
-          <ForceGraph :manager-index="1" />
-          <ForceGraph :manager-index="2" />
-        </div>
-
+      <div id="scrolly-telling-1-container">
         <VisualizationText />
+        <ForceGraphGroup />
       </div>
     </div>
   </div>
@@ -20,7 +15,7 @@
 <script>
 // import IntroAnimation from "~/components/IntroAnimation.vue";
 // import fundblobs from "~/components/intro/elements/fundblobs.vue";
-import ForceGraph from "~/components/visualizations/ForceGraph.vue";
+import ForceGraphGroup from "~/components/visualizations/ForceGraphGroup.vue";
 import Controls from "~/components/ui/Controls.vue";
 import VisualizationText from "~/components/visualizations/VisualizationText.vue";
 
@@ -34,7 +29,7 @@ export default {
     };
   },
   components: {
-    ForceGraph,
+    ForceGraphGroup,
     Controls,
     VisualizationText
   },

@@ -35,6 +35,18 @@ $soc: #ff8546;
 $gg: #3f6089;
 $profit: #ecce76;
 
+$no-esg-dark: darken($no-esg, 20%);
+$env-dark: darken($env, 20%);
+$soc-dark: darken($soc, 20%);
+$gg-dark: darken($gg, 20%);
+$profit-dark: darken($profit, 20%);
+
+$no-esg-no: rgba(112, 112, 112, 0.33);
+$env-no: rgba(77, 175, 74, 0.32);
+$soc-no: rgba(255, 133, 70, 0.3);
+$gg-no: rgba(63, 96, 137, 0.25);
+$profit-no: rgba(236, 206, 118, 0.42);
+
 $drawer-height: 70px;
 
 // TODO map these variables to classes: fill, stroke, color, background and combos

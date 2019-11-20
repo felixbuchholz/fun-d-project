@@ -1,24 +1,47 @@
-circle {
-  transition: all 1000ms ease-in-out;
+.node-circle-mover {
+  transition: transform 900ms ease-in-out;
 }
-.flex {
-  width: 72%;
+
+.node-circle {
+  transition: all 200ms ease-in-out;
+  border-color: transparent;
+  stroke-width: 0px;
+  &:hover {
+    // border-width: 2px;
+    // border-style: solid;
+    transform: scale(1.4);
+    stroke-width: 2px;
+  }
+}
+
+#scrolly-telling-1-container {
   display: flex;
-  justify-content: space-around;
-  //overflow: hidden;
+}
+.scrolly-telling-text {
+  width: 23%;
+}
+.manager-group {
   position: sticky;
   top: 20px;
+  display: flex;
+  justify-content: space-between;
+  height: 95vh;
+  width: 77%;
 }
-.graph-container {
-  // width: 100%;
-  position: sticky;
-  top: 20px;
-  height: 100vh;
-  // display: flex;
+
+.manager-container {
+  width: 33%;
+  height: 100%;
 }
-// .svg-element {
-//   // margin: auto;
-// }
+.svg-container {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 90%;
+}
+.svg-element {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 .svg-background {
   height: 100%;
   width: 100%;
@@ -30,31 +53,38 @@ circle {
 // }
 .no-esg {
   fill: $no-esg;
+  stroke: $no-esg-dark;
 }
 .env {
   fill: $env;
+  stroke: $env-dark;
 }
 .soc {
   fill: $soc;
+  stroke: $soc-dark;
 }
 .gg {
   fill: $gg;
+  stroke: $gg-dark;
 }
 .profit {
   fill: $profit;
+  stroke: $profit-dark;
 }
 .exit {
   opacity: 0.03 !important;
 }
 .mean-activist-no {
-  opacity: 0.25;
   &.env {
-    opacity: 0.39;
-  }
-  &.profit {
-    opacity: 0.4;
+    fill: $env-no;
   }
   &.soc {
-    opacity: 0.3;
+    fill: $soc-no;
+  }
+  &.gg {
+    fill: $gg-no;
+  }
+  &.profit {
+    fill: $profit-no;
   }
 }
