@@ -1,7 +1,177 @@
 /**
- * Basic typography style for copy text
+ * Basic typography style for copy text.
  */
 body {
   color: $black;
-  font: normal 100% / 1.4 $text-font-stack;
+  font: normal 100% / 1.4 $text-font-stack; 
 }
+
+h1 {
+  color: rgb(54, 53, 53);
+  font-family: $title-font-stack;
+  font-size: 2.6em;
+  margin-bottom: 2px;
+}
+h2 {
+  color: $gray;
+  margin-top: 0px;
+  font-style: italic; 
+  font-size: 1.2em;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 2px solid rgb(255, 196, 0);
+  margin: .4em 0;
+  padding: 0;
+}
+/// @type: Tooltips
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,200i,400,400i,500,500i,700,700i');
+/*tipped element. should be inline-block or block*/
+.qtip {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;  
+  border-bottom: 2px solid $info_underline;
+  box-sizing: border-box;
+  font-style: normal;
+  transition:all .25s ease-in-out
+}
+.qtip:hover {  background: rgba(108, 144, 212, 0.637);
+  color: whites;
+  border-bottom: 2px dotted $info_underline}
+/*the tip*/
+.qtip:before {
+  content: attr(data-tip);
+  position: absolute;
+  background: rgba(20, 25, 31, 0.836);
+  color: #fff;
+  padding: 0.5em;
+  font-size: .8em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+  max-width: 10%;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease-in-out;
+  font-family: $text-font-stack;
+
+}
+.qtip:after {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  content: '';
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease-in-out
+}
+.qtip:hover:before,
+.qtip:hover:after {
+  visibility: visible;
+  opacity: 1
+}
+/*top*/
+.qtip.tip-top:before {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, calc(-100% - 8px));
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.qtip.tip-top:after {
+  border-width: 8px 8px 0 8px;
+  border-color: rgba(10, 20, 30, 0.85) transparent transparent transparent;
+  top: -8px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+/*bottom*/
+.qtip.tip-bottom:before {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, calc(100% + 8px));
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.qtip.tip-bottom:after {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent rgba(10, 20, 30, 0.85) transparent;
+  bottom: -8px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+/*left*/
+.qtip.tip-left:before {
+  left: 0;
+  top: 50%;
+  transform: translate(calc(-100% - 8px), -50%);
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.qtip.tip-left:after {
+  border-width: 8px 0 8px 8px;
+  border-color: transparent transparent transparent rgba(10, 20, 30, 0.85);
+  left: -8px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+/*right*/
+.qtip.tip-right:before {
+  right: 0;
+  top: 50%;
+  transform: translate(calc(100% + 8px), -50%);
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.qtip.tip-right:after {
+  border-width: 8px 8px 8px 0;
+  border-color: transparent rgba(10, 20, 30, 0.85) transparent transparent;
+  right: -8px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+
+/// @type: Links
+
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+  color: $black;
+  font-weight: 300;
+  margin: 0px;
+}
+
+a:link {
+  color: $black;
+  text-decoration: none;
+  scale: 1.4;
+  border-bottom: 2px solid $link_underline;
+}
+
+a:visited {
+  border-bottom: 2px dotted $link_underline_visited;
+}
+
+a:focus {
+  color: $black;
+}
+
+a:hover {
+  border-bottom: 2px $link_underline;     
+  background: $linkColor;
+  text-decoration: none;
+}
+
+a:active {
+  color: rgb(253, 253, 253);
+}
+
+
