@@ -12,6 +12,8 @@
       <h3>Engaged shareholders</h3>
       <p>Over the past years, index fund managers have been scrutinized for underinvest ing in governance and voting policies: they would too often vote <i class="qtip tip-top" data-tip="In our data, funds disclose how they voted: which is mostly “for” or “against” a proposal. Proposals brought by management are - not surprisingly - always supported by management: they recommend shareholders to vote “for”. Almost always, management recommends to vote  against  shareholder proposals."> with management</i>  or fully outsource their decision-forming to a small selection of proxy advisors.</p>
       
+      
+      
       <div class="wrap-collabsible">
         <input id="collapsible" class="toggle" type="checkbox">
         <label for="collapsible" class="lbl-toggle">What are proxy advisors?</label>
@@ -23,9 +25,9 @@
             </div>
           </div>
         </div> <!-- end div collapse -->
-        <p>This ignited concerns that the rise of passive investing translated into growing passivity of shareholders towards management.</p>
       
-      <div class="wrap-collabsible">
+        
+        <p>This raised concerns that the rise of passive investing translated into growing passivity of shareholders towards management. In voting on proposals, often the most telling cases are when asset managers get to choose between supporting management or activist shareholders. Indeed, even though most shareholder proposals don’t pass, the issue being on the agenda can already ignite a debate.</p>       <div class="wrap-collabsible">
         <input id="collapsible-2" class="toggle" type="checkbox">
         <label for="collapsible-2" class="lbl-toggle">Why management vs shareholders?</label>
           <div class="collapsible-content">
@@ -36,9 +38,8 @@
             </div>
           </div>
         </div> <!-- end div collapse -->
-        <p>In voting on proposals, often the most telling cases are when asset managers get to choose between supporting management or activist shareholders. Indeed, even though most shareholder proposals don’t pass, the issue being on the agenda can already ignite a debate.</p>
-        <p>However, an excessive passivity of the largest asset managers in scrutinizing management would defeat the option for shareholders to hold management accountable. Indirectly this would forfeit the opportunity to vote for all people that have (a tiny) share in a fund.</p>
-        <p>The passive giants - Vanguard, State Street and Blackrock - are all attentive to this concern. Each of them explicitly emphasize and explicate their proactive approach in engaging with the companies in their funds. However, it remains difficult for investors in index funds to assess how their approach plays out in practice.</p>
+        <p>However, an excessive passivity of the largest asset managers in scrutinizing management would defeat the option for shareholders to hold management accountable. Indirectly this would forfeit the opportunity to vote for all people that have (a tiny) share in a fund.
+        The passive giants - Vanguard, State Street and Blackrock - are all attentive to this concern. Each of them explicitly emphasize and explicate their proactive approach in engaging with the companies in their funds. However, it remains difficult for investors in index funds to assess how their approach plays out in practice.</p>
         <br>
         <h3>The future of capitalism </h3>
         <p>Financial markets are showing more interest in issues such as  <a href="https://www.unepfi.org/news/themes/climate-change/leading-financial-firms-commit-to-improved-transparency-on-the-risks-of-climate-change/" target="_blank">climate change</a> and <a href="https://www.unpri.org/download?ac=5599" target="_blank">income inequality</a>. Rather than focusing on shareholder returns only, there is a growing public demand for companies to increase corporate accountability. The substantial voting power of the three largest asset managers puts them in a spotlight. They can often tip the needle on these more “societal” proposals brought by shareholders. As law professor John Morley writes: “The future of American capitalism belongs to a handful of giant investment managers”.<a href="https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3384274_code669617.pdf?abstractid=3225555&amp;mirid=1" target="_blank">  &#9758;   </a> </p>
