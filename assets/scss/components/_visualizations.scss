@@ -17,16 +17,24 @@
 #scrolly-telling-1-container {
   display: flex;
 }
+.graph-and-controls-container {
+  overflow-x: hidden;
+  position: sticky;
+  top: 0px;
+  height: 92vh;
+  width: 77%;
+}
 .scrolly-telling-text {
   width: 23%;
 }
 .manager-group {
-  position: sticky;
-  top: 20px;
+  position: relative;
+  z-index: 0;
   display: flex;
   justify-content: space-between;
-  height: 95vh;
-  width: 77%;
+  margin: 0;
+  // height: 100%;
+  height: calc(100% - 66px);
 }
 
 .manager-container {
@@ -36,7 +44,7 @@
 .svg-container {
   margin: 0 !important;
   padding: 0 !important;
-  height: 90%;
+  height: calc(100% - 66px);
 }
 .svg-element {
   margin: 0 !important;

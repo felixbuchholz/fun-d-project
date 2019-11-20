@@ -23,7 +23,7 @@ button {
     color: $white;
     & rect,
     & path {
-      fill: $white;
+      fill: $first;
     }
   }
 }

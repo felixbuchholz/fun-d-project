@@ -1,25 +1,12 @@
 <template>
   <div id="page-container">
-    <div class="fast-margin">
+    <div>
       <h2>Test site</h2>
       <Controls />
       <!-- <button @click="toggleCenters">Toggle Centers</button> -->
-<<<<<<< HEAD
       <div id="scrolly-telling-1-container">
         <VisualizationText />
         <ForceGraphGroup />
-=======
-     
-      <div class="visual_1_container">
-        
-        <div class="flex">
-          <ForceGraph :manager-index="0" />
-          <ForceGraph :manager-index="1" />
-          <ForceGraph :manager-index="2" />
-        </div>
-        <VisualizationText />
-
->>>>>>> 257b182152642816f5e269541738520bd642131a
       </div>
     </div>
   </div>
