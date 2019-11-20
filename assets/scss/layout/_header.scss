@@ -1,3 +1,28 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+.above_intro_text {
+    display: flex;
+    flex-direction: column;
+    margin: 5em auto 2em auto;
+    max-width: 900px;
+    justify-content: center;
+    } 
+ 
+    
+.p_before_intro {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    @include breakpoint(mobileonly) {
+        flex-direction: column;
+        margin: 2em auto 2em auto;
+      }
+    & p {
+        max-width: 45%;
+        text-align: justify;
+        max-height: 30%;
+        padding-right: 4%;
+        }
+    }
+

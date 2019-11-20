@@ -1,7 +1,169 @@
 /**
- * Basic typography style for copy text
+ * Basic typography style for copy text.
  */
 body {
   color: $black;
-  font: normal 100% / 1.4 $text-font-stack;
+  font: normal 100% / 1.4 $text-font-stack; 
 }
+
+h1 {
+  color: $gray;
+  font-family: 1.4 $title-font-stack;
+}
+
+.text_more_info {
+  //background: rgb(216, 225, 240);
+  position: relative;
+}
+.text_more_info:hover {
+  border-bottom: 1px solid;     
+  background: rgb(108, 144, 212);
+  position: relative;
+  color: white;
+}
+
+
+/// @type: Tooltips
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,200i,400,400i,500,500i,700,700i');
+/*tipped element. should be inline-block or block*/
+.qtip {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;  
+  border-bottom: 0.05em dotted #0464e0;
+  box-sizing: border-box;
+  font-style: normal;
+  transition:all .25s ease-in-out
+}
+.qtip:hover {  background: rgb(108, 144, 212);
+  color: whites;
+  border-bottom:0.05em dotted #069}
+/*the tip*/
+.qtip:before {
+  content: attr(data-tip);
+  position: absolute;
+  background: rgba(20, 25, 31, 0.767);
+  color: #fff;
+  padding: 0.5em;
+  font-size: .8em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+  max-width: 10%;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease-in-out;
+  font-family: $text-font-stack;
+
+}
+.qtip:after {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  content: '';
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease-in-out
+}
+.qtip:hover:before,
+.qtip:hover:after {
+  visibility: visible;
+  opacity: 1
+}
+/*top*/
+.qtip.tip-top:before {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, calc(-100% - 8px));
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.qtip.tip-top:after {
+  border-width: 8px 8px 0 8px;
+  border-color: rgba(10, 20, 30, 0.85) transparent transparent transparent;
+  top: -8px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+/*bottom*/
+.qtip.tip-bottom:before {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, calc(100% + 8px));
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.qtip.tip-bottom:after {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent rgba(10, 20, 30, 0.85) transparent;
+  bottom: -8px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+/*left*/
+.qtip.tip-left:before {
+  left: 0;
+  top: 50%;
+  transform: translate(calc(-100% - 8px), -50%);
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.qtip.tip-left:after {
+  border-width: 8px 0 8px 8px;
+  border-color: transparent transparent transparent rgba(10, 20, 30, 0.85);
+  left: -8px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+/*right*/
+.qtip.tip-right:before {
+  right: 0;
+  top: 50%;
+  transform: translate(calc(100% + 8px), -50%);
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.qtip.tip-right:after {
+  border-width: 8px 8px 8px 0;
+  border-color: transparent rgba(10, 20, 30, 0.85) transparent transparent;
+  right: -8px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+
+/// @type: Links
+
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+
+a:link {
+  color: $black;
+  border-bottom: 2px solid;
+  border-color: $linkColor;
+}
+
+a:visited {
+  color: $gray;
+}
+
+a:focus {
+  background: rgb(157, 172, 196);
+}
+
+a:hover {
+  border-bottom: 1px solid;     
+  background: #CDFEAA;
+}
+
+a:active {
+  background: rgb(52, 109, 201);
+  color: rgb(253, 253, 253);
+}
+
+
