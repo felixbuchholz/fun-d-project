@@ -19,9 +19,13 @@ $title-font-stack: 'IBM Plex Serif', serif !default;
 $black: #222 !default;
 $white:  #fff !default ;
 $gray: rgba(109, 102, 102, 0.685) !default;
-$linkColor:  rgba(163, 150, 150, 0.342);
+$linkColor:  rgba(247, 148, 0, 0.712);
 $intro-color: $black;
-$link_underline:  rgb(241, 81, 7);
+$info_underline:  rgb(241, 81, 7);
+$link_underline:  rgb(30, 54, 185);
+$link_underline_visited:  rgb(66, 84, 190);
+$collapse_box_closed: rgb(122, 148, 204);
+$collapse_box_open: rgba(122, 148, 204, 0.5);
 
 $first: #ff8546;
 $second: #02735e;
