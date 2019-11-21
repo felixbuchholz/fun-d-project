@@ -1,5 +1,11 @@
-#intro-animation {
+#intro-scroll-position {
   position: relative;
+  height: 108vh;
+}
+
+#intro-animation {
+  position: sticky;
+  top: 0px;
   width: 100vw;
   height: 100vh;
   background: #eee;
