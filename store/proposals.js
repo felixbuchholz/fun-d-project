@@ -14,19 +14,22 @@ export const state = () => ({
   ]
 });
 
+// checking if need to change and activates change.
+// This allows for changing the state. Getters are computed properties, automotically updated when state changes.
+// Mutations connects with visulaitiontext.vue - there the methods are committed and then available to use in scrolllmaa
 export const mutations = {
   SET_ACTIVE_CATEGORIES(state, array) {
     for (const element of state.categoriesToggle) {
-      if (array.includes(element.issueCode)) {
-        element.activated = true;
+      if (array.includes(element.issueCode)) { // loop, if passed array includes that element, then activated.
+        element.activated = true; // only those updated are passed to component. 
       } else {
-        element.activated = false;
+        element.activated = false; // in getters its going away due to filter method.
       }
     }
   }
 };
 
-export const getters = {
+export const getters = { // backup is all possible. 
   proposalsCurrentYear(state, getters, rootState) {
     let newArray = [];
     for (const manager of state.proposals) {
@@ -34,6 +37,8 @@ export const getters = {
         const checkArray = state.categoriesToggle
           .filter(x => x.activated == true)
           .map(x => x.issueCode);
+        // rootstate is info from other element from store: in rootstate you can access all states from 
+        //all modules. that is how to filter out year
         return x.year == rootState.year.year && checkArray.includes(x.issue);
       });
       newArray.push(yearFilter);
