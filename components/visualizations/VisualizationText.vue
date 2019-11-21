@@ -36,11 +36,12 @@ export default {
           if (down) {
             console.log("2 down");
           } else if (up) {
-            console.log("2 down");
+            console.log("2 up");
           }
           break;
       }
     }
+
   }
 };
 </script>
