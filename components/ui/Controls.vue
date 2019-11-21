@@ -4,19 +4,14 @@
     <div id="year-input" class="controls-input">
       <div class="regular year-label">Year:</div>
       <div class="cursor">
-        <input
-          v-model.number="yearModel"
-          type="number"
-          step="1"
-          class="sublte-input"
-        />
+        <input v-model.number="yearModel" type="number" step="1" class="sublte-input" />
         <i></i>
       </div>
     </div>
     <div class="buttons">
       <!-- <button id="play" class="btn-first" @click="togglePausePlay">
         <Icon :icon="playing ? 'pause' : 'play'" />
-      </button> -->
+      </button>-->
       <button id="previous" class="btn-first" @click="changeYear(-1)">
         <Icon icon="previous" />
       </button>

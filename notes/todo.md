@@ -73,5 +73,6 @@ To Remove before production, if not used later:
 1. vue-slider-component
 2. Svg.js
 3. \_for_reference_only
+4. Controls component
 
 Check package size with font-awesome!

@@ -3,10 +3,11 @@
 
   <!-- <button @click="changeForces">Toggle center</button> -->
   <div class="manager-container">
-    <h3>{{ managers[managerIndex].name }}</h3>
+    <h3 class="manager-headline">{{ managers[managerIndex].name }}</h3>
     <div class="svg-container">
+      <div class="svg-background"></div>
       <svg class="svg-element" :width="width" :height="height">
-        <rect :width="width" :height="height" class="svg-background" />
+        <!-- <rect :width="width" :height="height" class="svg-background" /> -->
         <g
           v-for="(node, i) in nodes"
           :key="`nodes-${i}`"
