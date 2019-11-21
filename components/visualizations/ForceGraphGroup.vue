@@ -6,6 +6,7 @@
         :key="`manager-${managerIndex}`"
         :manager-index="managerIndex"
       />
+      <i></i>
     </div>
     <GraphControlsDrawer />
   </div>

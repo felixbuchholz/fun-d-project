@@ -13,8 +13,6 @@
 </template>
 
 <script>
-// import IntroAnimation from "~/components/IntroAnimation.vue";
-// import fundblobs from "~/components/intro/elements/fundblobs.vue";
 import ForceGraphGroup from "~/components/visualizations/ForceGraphGroup.vue";
 import Controls from "~/components/ui/Controls.vue";
 import VisualizationText from "~/components/visualizations/VisualizationText.vue";
