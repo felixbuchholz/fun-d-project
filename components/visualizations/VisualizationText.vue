@@ -2,7 +2,13 @@
   <div class="scrolly-telling-text">
     <Scrollama @step-enter="stepEnterHandler">
       <div class="margin-scrollama-text">CONTAINER FOR LLAMA</div>
-      <div class="margin-scrollama-text">CONTAINER FOR LLAMA</div>
+      <div id="tester" class="margin-scrollama-text">
+        This is where env comes in. When scrolling up it is removed again.
+        Turned on the border so you see the whole container. With scrollama it
+        sometimes makes sense to have a smaller div to control the state and
+        then a larger one for the spacing. We can also change the height on
+        screen when the trigger happens.
+      </div>
       <div class="margin-scrollama-text">CONTAINER FOR LLAMA</div>
     </Scrollama>
   </div>
@@ -38,3 +44,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+#tester {
+  border: 1px solid;
+}
+</style>

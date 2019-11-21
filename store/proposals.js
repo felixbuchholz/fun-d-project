@@ -6,10 +6,10 @@ console.log(brProposals);
 export const state = () => ({
   proposals: [brProposals, vgProposals, ssProposals],
   categoriesToggle: [
-    { name: "Environmental", issueCode: "env", activated: true },
-    { name: "Social", issueCode: "soc", activated: true },
-    { name: "Good Governance", issueCode: "gg", activated: true },
-    { name: "Profitability", issueCode: "profit", activated: true },
+    { name: "Environmental", issueCode: "env", activated: false },
+    { name: "Social", issueCode: "soc", activated: false },
+    { name: "Good Governance", issueCode: "gg", activated: false },
+    { name: "Profitability", issueCode: "profit", activated: false },
     { name: "Non-ESG", issueCode: "no-esg", activated: false }
   ]
 });
