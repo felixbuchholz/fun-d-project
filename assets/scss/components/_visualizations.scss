@@ -1,3 +1,47 @@
+//──── Drawing on top of the group & controls ────────────────────────────────────────────
+.drawing-canvas {
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  // background: red;
+}
+
+//──── Grouping the force graphs ─────────────────────────────────────────────────────────
+#scrolly-telling-1-container {
+  display: flex;
+}
+.graph-and-controls-container {
+  overflow-x: hidden;
+  position: sticky;
+  top: 2.5vh;
+  height: 94vh;
+  width: 77%;
+}
+.scrolly-telling-text {
+  width: 23%;
+}
+.manager-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  // height: 100%;
+  height: calc(100% - 66px);
+}
+.manager-container {
+  width: 33%;
+  height: 100%;
+}
+.manager-headline {
+  margin: 0;
+  height: 40px;
+  text-align: center;
+}
+
+//──── Force graph per manager ───────────────────────────────────────────────────────────
 .node-circle-mover {
   transition: transform 900ms ease-in-out;
 }
@@ -14,51 +58,29 @@
   }
 }
 
-#scrolly-telling-1-container {
-  display: flex;
-}
-.graph-and-controls-container {
-  overflow-x: hidden;
-  position: sticky;
-  top: 0px;
-  height: 92vh;
-  width: 77%;
-}
-.scrolly-telling-text {
-  width: 23%;
-}
-.manager-group {
-  position: relative;
-  z-index: 0;
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  // height: 100%;
-  height: calc(100% - 66px);
-}
-
-.manager-container {
-  width: 33%;
-  height: 100%;
-}
 .svg-container {
+  position: relative;
   margin: 0 !important;
   padding: 0 !important;
-  height: calc(100% - 66px);
+  height: calc(100% - 40px);
 }
 .svg-element {
+  position: relative;
+  z-index: 9;
   margin: 0 !important;
   padding: 0 !important;
 }
+
 .svg-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
   height: 100%;
   width: 100%;
-  fill: #fbfbfb;
+  background: $light-bg-gray;
 }
-// .mean-activist-circle {
-//   // stroke-width: 3;
-//   // stroke: $white;
-// }
+
 .no-esg {
   fill: $no-esg;
   stroke: $no-esg-dark;

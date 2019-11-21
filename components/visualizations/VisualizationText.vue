@@ -13,7 +13,10 @@
     </Scrollama>
   </div>
 </template>
+
 <script>
+import anime from "animejs/lib/anime.es.js";
+
 export default {
   methods: {
     setActiveCats(array) {
@@ -35,6 +38,19 @@ export default {
         case 2:
           if (down) {
             console.log("2 down");
+            anime({
+              targets: ".drawing-canvas-svg",
+              opacity: 1
+            });
+            anime({
+              targets: ".drawing-canvas-svg path",
+              strokeDashoffset: [anime.setDashoffset, 0],
+              easing: "easeInOutSine",
+              duration: 1500,
+              delay: function(el, i) {
+                return i * 1000;
+              }
+            });
           } else if (up) {
             console.log("2 down");
           }
