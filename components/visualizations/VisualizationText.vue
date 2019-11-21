@@ -7,7 +7,7 @@
         Turned on the border so you see the whole container. With scrollama it
         sometimes makes sense to have a smaller div to control the state and
         then a larger one for the spacing. We can also change the height on
-        screen when the trigger happens.
+        screen where the trigger happens.
       </div>
       <div class="margin-scrollama-text">CONTAINER FOR LLAMA</div>
     </Scrollama>
