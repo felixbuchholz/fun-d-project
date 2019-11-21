@@ -1,8 +1,8 @@
 <template>
   <div id="page-container">
-    <div>
-      <h2>Test site</h2>
-      <Controls />
+    <div id="fast-small-padding">
+      <h1>Test site</h1>
+      <p>Scrolly telling experiments</p>
       <!-- <button @click="toggleCenters">Toggle Centers</button> -->
       <div id="scrolly-telling-1-container">
         <VisualizationText />
@@ -46,10 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
-.fast-margin {
-  margin: 20px 20px;
-  & div {
-    margin: 8px 0;
-  }
+#fast-small-padding {
+  padding: 20px;
 }
 </style>

@@ -3,7 +3,7 @@
 
   <!-- <button @click="changeForces">Toggle center</button> -->
   <div class="manager-container">
-    <h3>{{ managers[managerIndex].name }}</h3>
+    <h3 class="center">{{ managers[managerIndex].name }}</h3>
     <div class="svg-container">
       <svg class="svg-element" :width="width" :height="height">
         <rect :width="width" :height="height" class="svg-background" />
