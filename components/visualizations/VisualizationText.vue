@@ -9,7 +9,9 @@
         then a larger one for the spacing. We can also change the height on
         screen where the trigger happens.
       </div>
-      <div class="margin-scrollama-text">CONTAINER FOR LLAMA</div>
+      <div class="margin-scrollama-text">
+        This is where some drawing happens.
+      </div>
     </Scrollama>
   </div>
 </template>
