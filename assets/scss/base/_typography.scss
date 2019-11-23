@@ -6,17 +6,30 @@ body {
   font: normal 100% / 1.4 $text-font-stack; 
 }
 
-h1 {
+#topTitle  {
+  color: $info_mark_blue;
+  text-transform: uppercase;
+  font-size: .9em;
+  margin-bottom: 2px;
+}
+
+#mainTitle {
   color: rgb(54, 53, 53);
   font-family: $title-font-stack;
   font-size: 2.6em;
   margin-bottom: 2px;
+  margin-top: 0px;
 }
+
 h2 {
   color: $gray;
   margin-top: 0px;
   font-style: italic; 
   font-size: 1.2em;
+}
+
+.above_intro_text > p {
+  margin: 0px 0px;
 }
 
 hr {
@@ -27,6 +40,7 @@ hr {
   margin: .4em 0;
   padding: 0;
 }
+
 /// @type: Tooltips
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,200i,400,400i,500,500i,700,700i');
@@ -35,15 +49,17 @@ hr {
   display: inline-block;
   position: relative;
   cursor: pointer;  
-  border-bottom: 2px solid $info_underline;
+  //border-bottom: 2px solid $info_underline;
+  color: rgba(128, 128, 128, 0.664);
   box-sizing: border-box;
   font-style: normal;
   transition:all .25s ease-in-out
 }
-.qtip:hover {  background: rgba(108, 144, 212, 0.637);
-  color: whites;
-  border-bottom: 2px dotted $info_underline}
-/*the tip*/
+.qtip:hover {  
+  color: $info_mark_blue;
+  //border-bottom: 2px dotted $info_underline 
+}
+  /*the tip*/
 .qtip:before {
   content: attr(data-tip);
   position: absolute;

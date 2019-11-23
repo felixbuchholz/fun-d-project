@@ -12,40 +12,39 @@
         largest three managers – Blackrock, Vanguard, and State Street – vote
         about 20% of the shares in most large companies, most of these shares
         are in passive index funds. And in reality, their voting power is even
-        higher as participation from
+        higher as participation from retail investors.
         <i
           class="qtip tip-top"
           data-tip="Individuals, non-professional investors who generally invest way smaller amounts than larger, institutional investors. Retail investors represent about 30% in public stock ownership."
-          >retail investors</i
+          >  <fa icon="question-circle" />  </i
         >
         in shareholder voting is only 28%
         <a
           href="https://corpgov.law.harvard.edu/2019/10/28/2019-proxy-season-review/"
           target="_blank"
           >&#9758;</a
-        >.
-      </p>
+        >. </p> <br>
       <p>
         That concentration of shareholder power sparked a debate over the
         influence of the world’s largest asset managers. The involvement of
         asset managers with the companies in their funds affects thousands of
         companies, the economy and society more broadly.
-      </p>
+      </p> <br>
       <p>
         Yet, the point of index investing is a passive approach to investments.
         Less work means less costs. Once an index fund is launched, asset
-        managers pay license fees to
+        managers pay license fees to index providers.
         <i
           class="qtip tip-top"
           data-tip="Index providers create lists ('indices') in stocks and other asset class indices. They classify and define “markets” and sub-markets: an index provides a benchmark of performance for that market or sector. A well-known example is S&amp;P Dow Jones Indices, that has the S&amp;P 500 index."
-          >index providers</i
-        >. But fund managers incur minimal costs on optimizing the fund
-        portfolio or the specifics of respective
+          ><fa icon="question-circle" /></i
+        > But fund managers incur minimal costs on optimizing the fund
+        portfolio or the specifics of respective securities.
         <i
           class="qtip tip-bottom"
           data-tip="Securities is the broader term that is used to refer to equity and debt (also called fixed income). Stocks (or shares) refers to equity, which represents ownership in a company."
-          >securities</i
-        >. The portfolio of an index fund consists of the securities in an
+          ><fa icon="question-circle" /></i
+        > The portfolio of an index fund consists of the securities in an
         index. This passive investment approach contrasts with the requirement
         for funds to vote their proxies on shareholder meetings. The largest
         asset managers are voting on hundreds of thousands of resolutions put to
@@ -56,11 +55,11 @@
       <p>
         Over the past years, index fund managers have been scrutinized for
         underinvest ing in governance and voting policies: they would too often
-        vote
+        vote with management.
         <i
           class="qtip tip-top"
           data-tip="In our data, funds disclose how they voted: which is mostly “for” or “against” a proposal. Proposals brought by management are - not surprisingly - always supported by management: they recommend shareholders to vote “for”. Almost always, management recommends to vote  against  shareholder proposals."
-          >with management</i
+          ><fa icon="question-circle" /></i
         >
         or fully outsource their decision-forming to a small selection of proxy
         advisors.
@@ -162,9 +161,8 @@
         <a
           href="https://papers.ssrn.com/sol3/Delivery.cfm/SSRN_ID3384274_code669617.pdf?abstractid=3225555&amp;mirid=1"
           target="_blank"
-          >&#9758;</a
-        >
-      </p>
+          >&#9758;</a>
+      </p> <br>
       <p>
         So, the voting behavior of the three largest asset managers matters.
         Every mutual fund is required to publish annually how it casted each
@@ -173,11 +171,11 @@
         enthusiasts will find obscure. For the millions of mainstream fund
         investors (such as everyone who has some form of retirement plan), the
         public data barely give a clear picture of how the funds they invested
-        in voted. Also
+        in voted. Also SEC
         <i
           class="qtip tip-top"
           data-tip="Securities and Exchange Commission (“SEC”) is the US’ federal regulator, overseeing securities markets"
-          >SEC</i
+          > <fa icon="question-circle" />  </i
         >
         Commissioner Robert Jackson previously called out the lack of
         transparency of how index funds votes.

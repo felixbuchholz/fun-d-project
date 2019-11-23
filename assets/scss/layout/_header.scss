@@ -40,12 +40,13 @@
         font-size: .9em;
         padding: .4rem;
         color: rgb(66, 64, 64);
-        border-style: dotted;
-        border-width: 2px;
-        border-color: $collapse_box_closed;
+        // border-style: dotted;
+        // border-width: 2px;
+        // border-color: $collapse_box_closed;
         cursor: pointer;
-        border-radius: 3px;
+        border-radius: 1px;
         transition: all 0.25s ease-out;
+        font-style: italic;
     
       }
       
