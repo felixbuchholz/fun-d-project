@@ -1,7 +1,7 @@
 import brProposals from "~/static/data/BR_reduced_18.csv";
 import vgProposals from "~/static/data/VG_reduced_18.csv";
 import ssProposals from "~/static/data/SS_reduced_18.csv";
-console.log(brProposals);
+//console.log(brProposals);
 
 export const state = () => ({
   proposals: [brProposals, vgProposals, ssProposals],

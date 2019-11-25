@@ -68,9 +68,7 @@ export default {
     yearModel: {
       set(val) {
         if (val < this.yearRange[0]) {
-          // this.$store.commit("counties/CHANGE_YEAR", 1999);
         } else if (val > this.yearRange[1]) {
-          // this.$store.commit("counties/CHANGE_YEAR", 2015);
         } else {
           this.$store.commit("year/CHANGE_YEAR", val);
         }

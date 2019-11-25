@@ -12,7 +12,7 @@
         largest three managers – Blackrock, Vanguard, and State Street – vote
         about 20% of the shares in most large companies, most of these shares
         are in passive index funds. And in reality, their voting power is even
-        higher as participation from retail investors.
+        higher as participation from retail investors
         <i
           class="qtip tip-top"
           data-tip="Individuals, non-professional investors who generally invest way smaller amounts than larger, institutional investors. Retail investors represent about 30% in public stock ownership."
@@ -79,19 +79,16 @@
               two dominant proxy advisory firms. A concern about proxy advisors
               is that many institutional investors (like asset managers)
               essentially delegate their voting decisions to these two advisors.
-              <a
-                href="https://accfcorpgov.org/wp-content/uploads/ACCF-RoboVoting-Report_11_8_FINAL.pdf"
+              <a href="https://accfcorpgov.org/wp-content/uploads/ACCF-RoboVoting-Report_11_8_FINAL.pdf"
                 target="_blank"
-                >&#9758;</a
-              >
+                >&#9758;</a>
               <br />This is less of a concern for the largest asset managers,
               which have a special “stewardship” department to engage with
               portfolio companies and direct funds’ votes.
             </p>
           </div>
         </div>
-      </div>
-      <!-- end div collapse -->
+      </div> <!-- end div collapse -->
 
       <p>
         This raised concerns that the rise of passive investing translated into
@@ -104,8 +101,7 @@
       <div class="wrap-collabsible">
         <input id="collapsible-2" class="toggle" type="checkbox" />
         <label for="collapsible-2" class="lbl-toggle"
-          >Why management vs shareholders?</label
-        >
+          >Why management vs shareholders?</label>
         <div class="collapsible-content">
           <div class="content-inner">
             <p>
