@@ -1,5 +1,5 @@
 export const state = () => ({
-  year: 2009,
+  year: 2014,
   yearRange: [2009, 2018],
   direction: "positive"
 });
