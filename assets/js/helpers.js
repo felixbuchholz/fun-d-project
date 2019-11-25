@@ -61,6 +61,8 @@ export default {
   getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
   },
+
+  // if need to change colors
   getRandomColorHex() {
     const random = chroma.hsl(
       this.getRandomArbitrary(0, 360),

@@ -54,11 +54,12 @@ export default {
               }
             });
           } else if (up) {
-            console.log("2 down");
+            console.log("2 up");
           }
           break;
       }
     }
+
   }
 };
 </script>
