@@ -3,13 +3,15 @@ import vgProposals from "~/static/data/VG_reduced_18.csv";
 import ssProposals from "~/static/data/SS_reduced_18.csv";
 console.log(brProposals);
 
+import * as d3array from "d3-array";
+
 export const state = () => ({
   proposals: [brProposals, vgProposals, ssProposals],
   categoriesToggle: [
-    { name: "Environmental", issueCode: "env", activated: false },
-    { name: "Social", issueCode: "soc", activated: false },
+    { name: "Environmental", issueCode: "env", activated: true },
+    { name: "Social", issueCode: "soc", activated: true },
     { name: "Good Governance", issueCode: "gg", activated: false },
-    { name: "Profitability", issueCode: "profit", activated: false },
+    { name: "Profitability", issueCode: "profit", activated: true },
     { name: "Non-ESG", issueCode: "no-esg", activated: false }
   ]
 });
@@ -42,5 +44,21 @@ export const getters = {
   },
   categories(state) {
     return state.categoriesToggle.filter(x => x.activated == true);
+  },
+  proposalsByCompany(state, getters) {
+    let newArray = [];
+    for (const manager of getters.proposalsCurrentYear) {
+      let groupedByCompany = d3array.groups(manager, d => d.company);
+      groupedByCompany = groupedByCompany.sort((a, b) => {
+        const proposalsA = a[1].length;
+        const proposalsB = b[1].length;
+        if (proposalsA < proposalsB) return 1;
+        if (proposalsA > proposalsB) return -1;
+      });
+      console.log(groupedByCompany);
+      newArray.push(groupedByCompany);
+    }
+
+    return newArray;
   }
 };

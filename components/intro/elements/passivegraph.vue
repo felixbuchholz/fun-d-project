@@ -36,7 +36,7 @@
 <script>
 export default {
   mounted() {
-    console.log("graph is mounted");
+    // console.log("graph is mounted");
   }
 };
 </script>
