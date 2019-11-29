@@ -1,7 +1,7 @@
 # How to solve:
 
 ## Do the outlines and mapping for distinct activism
-- add a toggle variable to see if we are at that stae
+- add a toggle variable to see if we are at that state
 - if we are at that state add a class and then add classes according to the four cases
   - 1. passive (maybe exclude these, we are doing a zoom-in), 
   - 2. active with the pack (should stay filled) 

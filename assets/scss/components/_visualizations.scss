@@ -1,3 +1,44 @@
+//──── Animation in progress ─────────────────────────────────────────────────────────────
+.scroll-popover-modal {
+  transition: opacity 300ms ease-out;
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  @include background-opacity($white, 0.95);
+}
+.scroll-popover-container {
+  padding: 20px;
+  // border: 1px solid $first;
+  width: 70%;
+}
+.scroll-popover-icon {
+  color: $first;
+  font-size: 2em;
+  margin-bottom: 0.3em;
+}
+.scroll-popover-message {
+  color: $gray;
+  font-size: 0.8em;
+}
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotating 1200ms linear infinite;
+}
+
 //──── Drawing on top of the group & controls ────────────────────────────────────────────
 .drawing-canvas {
   position: absolute;
@@ -22,6 +63,7 @@
   width: 77%;
 }
 .scrolly-telling-text {
+  position: relative;
   width: 23%;
 }
 .manager-group {

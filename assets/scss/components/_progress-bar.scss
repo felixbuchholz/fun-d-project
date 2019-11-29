@@ -1,0 +1,20 @@
+#progress-modal {
+  transition: all 350ms ease-in-out;
+  width: 100%;
+  height: 4px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $medium-bg-gray;
+}
+
+#progress-mover {
+  transition: transform 1500ms linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background: $first;
+}

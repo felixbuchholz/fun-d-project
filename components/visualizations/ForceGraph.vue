@@ -30,9 +30,6 @@
             "
           />
         </g>
-        <!-- @mouseenter="showTooltip($event, node.company)" -->
-        <!-- https://stackoverflow.com/questions/40956671/passing-event-and-argument-to-v-on-in-vue-js -->
-        <!-- @mousedown="currentMove = {x: $event.screenX, y: $event.screenY, node: node}" -->
       </svg>
     </div>
   </div>
@@ -71,7 +68,6 @@ export default {
   computed: {
     ...mapState({
       managers: state => state.managers.managers,
-      // categories: state => state.proposals.categories,
       width: state => state.forceGraph.width,
       height: state => state.forceGraph.height,
       animationIndex: state => state.forceGraph.animationIndex
@@ -83,8 +79,9 @@ export default {
     })
   },
   watch: {
-    nodesStore() {
-      if (this.managerIndex == 0) {
+    nodesStore(change) {
+      console.log("nodes in Store have changed");
+      if (change.every(el => el.length != 0) && this.managerIndex == 0) {
         this.initGraphOnDataChange();
       }
     },
@@ -102,11 +99,7 @@ export default {
     }
   },
   created() {},
-  mounted() {
-    // setTimeout(() => {
-    //   this.initGraphOnDataChange();
-    // }, 6000);
-  },
+  mounted() {},
   methods: {
     tooltipOptions(node) {
       return {
@@ -128,10 +121,10 @@ export default {
       // console.log("tick");
     },
     ended() {
-      // ticked has no parameter!
       // console.log("end");
     },
     updateCoordinates() {
+      console.log("updated coordinates");
       this.coords = [];
       for (let index = 0; index < this.nodes.length; index++) {
         const node = this.nodes[index];
@@ -140,7 +133,6 @@ export default {
           y: node.y
         });
       }
-      this.updateAnimationIndex();
     },
     runSimulationTicks() {
       for (
@@ -186,7 +178,6 @@ export default {
     },
     reassignExitNodes() {
       for (const index of this.exitIndexes) {
-        // this.assignCoordsToObj(this.oldLocal[index]);
         if (this.newStore.length > 0) {
           // ? TODO: this assignment is kind of random, can be improved
           this.oldLocal[index] = this.newStore[0];
@@ -284,33 +275,58 @@ export default {
       }
     },
     getIndexByIssue(issue) {
+      // console.log(this.categories, issue);
       const index = this.$helpers.findWithAttr(
         this.categories,
         "issueCode",
         issue
       );
-      // console.log(index);
       return index;
     },
     initGraphOnDataChange() {
+      console.log("graph is changing");
+      // this.resetProgressbarOnFirst();
+      // this.setProgressBar();
+
       this.findExitNodes();
 
       setTimeout(() => {
         this.reassignExitNodes();
         this.simulate();
       }, 100);
-    },
-    simulate() {
-      this.defineSimulation();
-      this.runSimulationTicks();
 
-      let smallPause = 0;
+      let smallPause = 1;
       if (this.nodes < 500) {
         smallPause = 200;
       }
       setTimeout(() => {
         this.updateCoordinates();
+        this.updateAnimationIndex();
       }, smallPause);
+    },
+    simulate() {
+      this.defineSimulation();
+      this.runSimulationTicks();
+      // this.resetProgressBar();
+    },
+    setProgressBar() {
+      if (this.managerIndex == 0) {
+        this.$helpers.displayOrHideProgressBar("display");
+      }
+      this.$store.commit(
+        "progressBar/CHANGE_PROGRESS",
+        (100 / this.managers.length) * (this.managerIndex + 1)
+      );
+    },
+    resetProgressBar() {
+      if (this.managerIndex == this.managers.length - 1) {
+        setTimeout(() => {
+          this.$helpers.displayOrHideProgressBar("hide");
+        }, 1500);
+        setTimeout(() => {
+          this.$store.commit("progressBar/CHANGE_PROGRESS", 0);
+        }, 2000);
+      }
     },
     updateAnimationIndex() {
       if (this.managerIndex != this.managers.length - 1) {
