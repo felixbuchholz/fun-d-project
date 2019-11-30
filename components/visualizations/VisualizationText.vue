@@ -32,6 +32,11 @@
            Sometimes however hedge funds are useful for their entensive research into structural improvement opportunities in companies that are ineffectively managed. Board members can be lazy, in need of a shakeup. Activist shareholder proposals can be justified or not - it depends. For other shareholders, including asset managers, this assessment requires an active approach to proxy voting.</p>
       </div>
 
+      <div class="margin-scrollama-text" id='sroll_5'  >
+         <p>Clearly, these asset managers are more often supporting management. Most activist proposals do not pass at general shareholders meetings. The average support for shareholder proposals is about 30%. However, looking at two shareholder proposal types in detail shows there are varying degrees of support.</p>
+      </div>
+
+
 
             <div class="margin-scrollama-text">
         This is where some drawing happens.
@@ -40,6 +45,7 @@
             <div class="margin-scrollama-text">
         This is where some drawing happens.
       </div>
+
     </Scrollama>
   </div>
 </template>
@@ -48,7 +54,10 @@
 import anime from "animejs/lib/anime.es.js";
 
 export default {
-  methods: {
+  methods: { 
+    setActiveCats(array) {
+      this.$store.commit("proposals/SET_ACTIVE_CATEGORIES", array);
+    },
     setActiveCats(array) {
       this.$store.commit("proposals/SET_ACTIVE_CATEGORIES", array);
     },
@@ -108,11 +117,20 @@ export default {
             this.setActiveCats(["env", "soc", "gg"]);
           }
           break;
-
-
+          
         case 5:
           if (down) {
             console.log("5 down");
+            
+          } else if (up) {
+            console.log("5 up");
+            
+          }
+          break;
+
+        case 6:
+          if (down) {
+            console.log("6 down");
             anime({
               targets: ".drawing-canvas-svg",
               opacity: 1
@@ -127,7 +145,7 @@ export default {
               }
             });
           } else if (up) {
-            console.log("5 up");
+            console.log("6 up");
           }
           break;
       }

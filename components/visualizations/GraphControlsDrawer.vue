@@ -60,7 +60,7 @@
 import { mapState } from "vuex";
 
 export default {
-  computed: {
+  computed: { 
     ...mapState({
       year: state => state.year.year,
       yearRange: state => state.year.yearRange

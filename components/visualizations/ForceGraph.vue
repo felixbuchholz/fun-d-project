@@ -204,10 +204,10 @@ export default {
         .forceSimulation(this.nodes)
         // Move the parameters to the store later
         .alpha(0.9) // Starting point, alpha is the "ticks" unit or counter // default: 1, range: [0,1]
-        .alphaDecay(0.2) // Acceleration of the animation // default: 0.0288, range [0,1]
-        .alphaMin(0.006) // Stopping point // default: 0.001, range [0,1]
+        .alphaDecay(0.01) // Acceleration of the animation // default: 0.0288, range [0,1]
+        .alphaMin(0.00006) // Stopping point // default: 0.001, range [0,1]
         .alphaTarget(0) // Target! // default: 0, range [0,1]
-        .velocityDecay(0.4) // Friction or "mass" // default: 0.4, range [0,1]
+        .velocityDecay(0.3) // Friction or "mass" // default: 0.4, range [0,1]
         .force(
           "charge",
           d3
