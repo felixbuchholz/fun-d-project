@@ -102,12 +102,6 @@
       <div class="margin-scrollama-text">
         This is where the distinct outlines are activated
       </div>
-<<<<<<< HEAD
-
-=======
-      <div class="margin-scrollama-text">This is just for spacing</div>
-      <div class="margin-scrollama-text">This is just for spacing</div>
->>>>>>> bb94f707f4dbba97a401550fbb07f4f2b60e3117
     </Scrollama>
   </div>
 </template>
@@ -176,34 +170,6 @@ export default {
           
         case 5:
           if (down) {
-<<<<<<< HEAD
-            console.log("5 down");
-            
-          } else if (up) {
-            console.log("5 up");
-            
-          }
-          break;
-
-        case 6:
-          if (down) {
-            console.log("6 down");
-            anime({
-              targets: ".drawing-canvas-svg",
-              opacity: 1
-            });
-            anime({
-              targets: ".drawing-canvas-svg path",
-              strokeDashoffset: [anime.setDashoffset, 0],
-              easing: "easeInOutSine",
-              duration: 500,
-              delay: function(el, i) {
-                return i * 1000;
-              }
-            });
-          } else if (up) {
-            console.log("6 up");
-=======
             this.drawSmthRandom();
           } else if (up) {
             this.removeDrawing();
@@ -221,7 +187,6 @@ export default {
               "proposals/SET_ARE_DISTINCT_OUTLINES_ACTIVE",
               false
             );
->>>>>>> bb94f707f4dbba97a401550fbb07f4f2b60e3117
           }
           break;
       }
