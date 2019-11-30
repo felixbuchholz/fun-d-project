@@ -12,6 +12,7 @@ $text-font-stack: "IBM Plex Sans", "Helvetica Neue Light", "Helvetica Neue",
 $title-font-stack: "IBM Plex Serif", serif !default;
 
 $shadow-blur: 6px;
+$padding-desktop: 20px;
 
 /// @type Color
 $black: #222 !default;
@@ -40,13 +41,14 @@ $negative: #e41a1c;
 $no-esg: #707070;
 $env: #4daf4a;
 $soc: #ff8546;
-$gg: #3f6089;
+// $gg: #3f6089;
+$gg: #85a6ce;
 $profit: #ecce76;
 
 $no-esg-dark: darken($no-esg, 20%);
 $env-dark: darken($env, 20%);
-$soc-dark: darken($soc, 20%);
-$gg-dark: darken($gg, 20%);
+$soc-dark: darken($soc, 30%);
+$gg-dark: darken($gg, 30%);
 $profit-dark: darken($profit, 20%);
 
 $no-esg-no: rgba(112, 112, 112, 0.33);

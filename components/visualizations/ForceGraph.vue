@@ -26,9 +26,10 @@
             :class="
               `node-circle mean-activist-${
                 node.meanActivist > 0.5 ? 'yes' : 'no'
-              } ${node.issue}`
+              } ${node.issue} ${getDistinctClass(node)}`
             "
           />
+          <!--  -->
         </g>
         <!-- @mouseenter="showTooltip($event, node.company)" -->
         <!-- https://stackoverflow.com/questions/40956671/passing-event-and-argument-to-v-on-in-vue-js -->
@@ -40,7 +41,6 @@
 
 <script>
 import * as d3 from "d3";
-import * as d3array from "d3-array";
 import voca from "voca";
 
 // import * as forceManyBodySampled from "d3-force-sampled";
@@ -56,7 +56,6 @@ export default {
   },
   data() {
     return {
-      circle: { radius: 4, padding: 1.5 },
       nodes: [],
       oldLocal: [],
       newStore: [],
@@ -74,18 +73,24 @@ export default {
       // categories: state => state.proposals.categories,
       width: state => state.forceGraph.width,
       height: state => state.forceGraph.height,
-      animationIndex: state => state.forceGraph.animationIndex
+      animationIndex: state => state.forceGraph.animationIndex,
+      areDistinctOutlinesActive: state =>
+        state.proposals.areDistinctOutlinesActive
     }),
     ...mapGetters({
       nodesStore: [`forceGraph/nodesPerYear`],
       centers: [`forceGraph/centers`],
       categories: [`proposals/categories`]
-    })
+    }),
+    circle() {
+      const padding = this.areDistinctOutlinesActive ? 2 : 1;
+      return { radius: 4, padding: padding };
+    }
   },
   watch: {
     nodesStore(change) {
-      console.log("nodes have changed");
-      console.log(change);
+      // console.log("nodes have changed");
+      // console.log(change);
       if (change.every(el => el.length != 0) && this.managerIndex == 0) {
         this.$helpers.displayOrHideProgressBar("display");
         this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
@@ -95,6 +100,15 @@ export default {
     animationIndex() {
       // console.log("Animation index changed");
       if (this.managerIndex != 0 && this.animationIndex == this.managerIndex) {
+        this.initGraphOnDataChange();
+      }
+    },
+    areDistinctOutlinesActive(change) {
+      this.addOrRemoveOutlines(change);
+      // !Optional
+      if (this.managerIndex == 0) {
+        this.$helpers.displayOrHideProgressBar("display");
+        this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
         this.initGraphOnDataChange();
       }
     },
@@ -112,6 +126,34 @@ export default {
     // }, 6000);
   },
   methods: {
+    getDistinctClass(node) {
+      if (this.areDistinctOutlinesActive == true) {
+        return node.modeDistinct == 0 ? "" : "distinct";
+      } else {
+        return "";
+      }
+    },
+    addOrRemoveOutlines(change) {
+      setTimeout(() => {
+        const circles = this.$el.querySelectorAll(".distinct");
+        // console.log(circles);
+        if (change) {
+          for (const circle of circles) {
+            circle.classList.add("distinct-stroke");
+            setTimeout(() => {
+              circle.classList.add("distinct-stroke-opacity");
+            }, 100);
+          }
+        } else {
+          for (const circle of circles) {
+            circle.classList.remove("distinct-stroke-opacity");
+            setTimeout(() => {
+              circle.classList.remove("distinct-stroke");
+            }, 350);
+          }
+        }
+      }, 200);
+    },
     tooltipOptions(node) {
       return {
         content: this.markupTooltip(node),
@@ -226,8 +268,7 @@ export default {
           d3
             .forceX()
             .strength(function(d) {
-              // return d.meanActivist > 0.5 ? 0.4 : 0.4;
-              return 1;
+              return that.getXYStrength(d);
             })
             .x(function(d) {
               if (d.issue == "exit") {
@@ -243,8 +284,7 @@ export default {
           d3
             .forceY()
             .strength(function(d) {
-              // return d.meanActivist > 0.5 ? 0.8 : 0.5;
-              return 1;
+              return that.getXYStrength(d);
             })
             .y(function(d) {
               if (d.issue == "exit") {
@@ -264,6 +304,13 @@ export default {
         // .on("tick", this.ticked)
         // .on("end", this.ended)
         .stop();
+    },
+    getXYStrength(d) {
+      if (this.areDistinctOutlinesActive) {
+        return d.modeDistinct > 0.5 ? 1.3 : 0.9;
+      } else {
+        return 1;
+      }
     },
     getCoordsByIssue(issue) {
       const xN = this.centers[this.getIndexByIssue(issue)].xN;

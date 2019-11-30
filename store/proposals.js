@@ -13,11 +13,12 @@ export const state = () => ({
     { name: "Good Governance", issueCode: "gg", activated: false },
     { name: "Profitability", issueCode: "profit", activated: false },
     { name: "Non-ESG", issueCode: "no-esg", activated: false }
-  ]
+  ],
+  areDistinctOutlinesActive: false
 });
 
 // checking if need to change and activates change.
-// This allows for changing the state. Getters are computed properties, automotically updated when state changes.
+// This allows for changing the state. Getters are computed properties, automatically updated when state changes.
 // Mutations connects with visulaitiontext.vue - there the methods are committed and then available to use in scrolllmaa
 export const mutations = {
   SET_ACTIVE_CATEGORIES(state, array) {
@@ -29,6 +30,9 @@ export const mutations = {
         element.activated = false; // in getters its going away due to filter method.
       }
     }
+  },
+  SET_ARE_DISTINCT_OUTLINES_ACTIVE(state, bool) {
+    state.areDistinctOutlinesActive = bool;
   }
 };
 
