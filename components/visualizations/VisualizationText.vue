@@ -1,5 +1,5 @@
 <template>
-  <div class="scrolly-telling-text">
+  <div id="scrolly1" class="scrolly-telling-text">
     <!-- TODO: transition not working (classes work) -->
     <transition name="fade">
       <div v-if="processCounter > 1" class="scroll-popover-modal">
@@ -11,6 +11,9 @@
         </div>
       </div>
     </transition>
+
+    <fa icon="long-arrow-alt-right" class="scrolly-indicator" />
+
     <Scrollama @step-enter="stepEnterHandler">
       <div id="sroll_0" class="margin-scrollama-text">
         <h4 class="scrollyTitle">
@@ -38,6 +41,7 @@
       </div>
 
       <div id="sroll_1" class="margin-scrollama-text">
+        <fa icon="spinner" class />
         <p>
           <span class="env_li" style="vertical-align: -1px">&#8226;</span>
           <span style="font-weight: 800;">Environmental</span> topics brought by
@@ -110,8 +114,10 @@
       </div>
 
       <div class="margin-scrollama-text">
-        This is where some drawing happens.
+        This is where the distinct outlines are activated
       </div>
+      <div class="margin-scrollama-text">This is just for spacing</div>
+      <div class="margin-scrollama-text">This is just for spacing</div>
     </Scrollama>
   </div>
 </template>
@@ -131,81 +137,107 @@ export default {
       this.$store.commit("proposals/SET_ACTIVE_CATEGORIES", array);
     },
     stepEnterHandler(event) {
-      const up = event.direction == "up";
-      const down = event.direction == "down";
-      switch (event.index) {
+      const index = event.index;
+      const direction = event.direction;
+      const up = direction == "up";
+      const down = direction == "down";
+
+      console.log(index, direction);
+
+      switch (index) {
         case 0:
           if (down) {
-            console.log("0 down");
-            this.setActiveCats(["env"]);
+            this.setActiveCats([]);
           } else if (up) {
-            console.log("0 up");
             this.setActiveCats([]);
           }
           break;
 
         case 1:
           if (down) {
-            console.log("1 down");
             this.setActiveCats(["env"]);
           } else if (up) {
-            console.log("1 up");
             this.setActiveCats(["env"]);
           }
           break;
 
         case 2:
           if (down) {
-            console.log("2 down");
             this.setActiveCats(["env", "soc"]);
           } else if (up) {
-            console.log("2 up");
             this.setActiveCats(["env"]);
           }
           break;
 
         case 3:
           if (down) {
-            console.log("3 down");
             this.setActiveCats(["env", "soc", "gg"]);
             //this.select(".gg").style("color: red")
           } else if (up) {
-            console.log("3 up");
             this.setActiveCats(["env", "soc"]);
           }
           break;
 
         case 4:
           if (down) {
-            console.log("4 down");
             this.setActiveCats(["env", "soc", "gg", "profit"]);
           } else if (up) {
-            console.log("4 up");
             this.setActiveCats(["env", "soc", "gg"]);
           }
           break;
 
         case 5:
           if (down) {
-            console.log("5 down");
-            anime({
-              targets: ".drawing-canvas-svg",
-              opacity: 1
-            });
-            anime({
-              targets: ".drawing-canvas-svg path",
-              strokeDashoffset: [anime.setDashoffset, 0],
-              easing: "easeInOutSine",
-              duration: 500,
-              delay: function(el, i) {
-                return i * 1000;
-              }
-            });
+            this.drawSmthRandom();
           } else if (up) {
-            console.log("5 up");
+            this.removeDrawing();
+          }
+          break;
+
+        case 6:
+          if (down) {
+            this.$store.commit(
+              "proposals/SET_ARE_DISTINCT_OUTLINES_ACTIVE",
+              true
+            );
+          } else if (up) {
+            this.$store.commit(
+              "proposals/SET_ARE_DISTINCT_OUTLINES_ACTIVE",
+              false
+            );
           }
           break;
       }
+    },
+    drawSmthRandom() {
+      anime({
+        targets: ".drawing-canvas-svg",
+        opacity: 1
+      });
+      anime({
+        targets: ".drawing-canvas-svg path",
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: "easeInOutSine",
+        duration: 500,
+        delay: function(el, i) {
+          return i * 1000;
+        }
+      });
+    },
+    removeDrawing() {
+      anime({
+        targets: ".drawing-canvas-svg path",
+        strokeDashoffset: [0, anime.setDashoffset],
+        easing: "easeInOutSine",
+        duration: 500,
+        delay: function(el, i) {
+          return i * 1000;
+        }
+      });
+      anime({
+        targets: ".drawing-canvas-svg",
+        opacity: 0
+      });
     }
   }
 };

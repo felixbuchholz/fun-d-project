@@ -45,6 +45,3 @@
 
 5. Find a way to distribute most equally over an area for x amount of centers (voronoi?)
 6. Display the company names!
-
-
-   

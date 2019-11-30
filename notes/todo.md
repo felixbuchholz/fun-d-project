@@ -1,5 +1,8 @@
 ## UI
 1. Add feedback (loading animation) to the previous and next buttons
+2. When the distinct outlines are removed there is no transition for some reason
+3. Fix tooltip is scrolling with the text.
+4. Reset scrolly telling if the processes freeze
 
 ## Visualization
 

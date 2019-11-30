@@ -38,7 +38,7 @@ export default {
     }, time);
   },
   displayAndFadeIn(el, time = 150) {
-    console.log("fade in");
+    // console.log("fade in");
     el.classList.remove("hidden");
     setTimeout(() => {
       el.classList.remove("zero-opacity");
