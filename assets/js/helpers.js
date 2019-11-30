@@ -38,6 +38,7 @@ export default {
     }, time);
   },
   displayAndFadeIn(el, time = 150) {
+    console.log("fade in");
     el.classList.remove("hidden");
     setTimeout(() => {
       el.classList.remove("zero-opacity");
@@ -47,7 +48,7 @@ export default {
     const progressBar = document.querySelector("#progress-modal");
     switch (switcher) {
       case "display":
-        this.displayAndFadeIn(progressBar, 300);
+        this.displayAndFadeIn(progressBar, 0);
         break;
       case "hide":
         this.fadeOutAndHide(progressBar, 300);

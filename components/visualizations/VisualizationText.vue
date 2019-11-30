@@ -1,13 +1,16 @@
 <template>
   <div class="scrolly-telling-text">
-    <div class="scroll-popover-modal hidden zero-opacity">
-      <div class="scroll-popover-container">
-        <fa icon="spinner" class="scroll-popover-icon rotating" />
-        <div class="scroll-popover-message">
-          Please wait until animation is finished&nbsp;…
+    <!-- TODO: transition not working (classes work) -->
+    <transition name="fade">
+      <div v-if="processCounter > 1" class="scroll-popover-modal">
+        <div class="scroll-popover-container">
+          <fa icon="spinner" class="scroll-popover-icon rotating" />
+          <div class="scroll-popover-message">
+            Please wait until animation is finished&nbsp;…
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
     <Scrollama @step-enter="stepEnterHandler">
       <div id="sroll_0" class="margin-scrollama-text">
         <h4 class="scrollyTitle">
@@ -54,7 +57,7 @@
         <p>
           Topics in the
           <span class="soc_li" style="vertical-align: -1px">&#8226;</span>
-          <span style="font-weight: 800;">social</span>category are often calls
+          <span style="font-weight: 800;">social</span> category are often calls
           for companies to be more transparent about political contributions;
           their lobbying; human rights policies. <br />Social shareholder
           proposals also include employment issues such as employee diversity,
@@ -115,8 +118,14 @@
 
 <script>
 import anime from "animejs/lib/anime.es.js";
+import { mapState } from "vuex";
 
 export default {
+  computed: {
+    ...mapState({
+      processCounter: state => state.progressBar.processCounter
+    })
+  },
   methods: {
     setActiveCats(array) {
       this.$store.commit("proposals/SET_ACTIVE_CATEGORIES", array);

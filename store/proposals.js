@@ -62,7 +62,7 @@ export const getters = {
         if (proposalsA < proposalsB) return 1;
         if (proposalsA > proposalsB) return -1;
       });
-      console.log(groupedByCompany);
+      // console.log(groupedByCompany);
       newArray.push(groupedByCompany);
     }
 

@@ -1,6 +1,7 @@
 <template>
   <div id="graph-control-drawer">
     <div class="col left">
+      <!-- Processes: {{ processCounter }} -->
       <div class="year-label">Year</div>
       <div class="year-big">
         <input
@@ -63,7 +64,8 @@ export default {
   computed: {
     ...mapState({
       year: state => state.year.year,
-      yearRange: state => state.year.yearRange
+      yearRange: state => state.year.yearRange,
+      processCounter: state => state.progressBar.processCounter
     }),
     yearModel: {
       set(val) {

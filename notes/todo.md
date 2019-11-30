@@ -1,3 +1,6 @@
+## UI
+1. Add feedback (loading animation) to the previous and next buttons
+
 ## Visualization
 
 1. Comparison of the three managers
