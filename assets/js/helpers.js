@@ -31,17 +31,29 @@ export default {
   changeTitle(that, obj) {
     that.$store.commit("timeline/CHANGE_CURRENT_TITLE", obj);
   },
-  fadeOutAndHide(el) {
+  fadeOutAndHide(el, time = 150) {
     el.classList.add("zero-opacity");
     setTimeout(() => {
       el.classList.add("hidden");
-    }, 150);
+    }, time);
   },
-  displayAndFadeIn(el) {
+  displayAndFadeIn(el, time = 150) {
+    console.log("fade in");
     el.classList.remove("hidden");
     setTimeout(() => {
       el.classList.remove("zero-opacity");
-    }, 150);
+    }, time);
+  },
+  displayOrHideProgressBar(switcher) {
+    const progressBar = document.querySelector("#progress-modal");
+    switch (switcher) {
+      case "display":
+        this.displayAndFadeIn(progressBar, 0);
+        break;
+      case "hide":
+        this.fadeOutAndHide(progressBar, 300);
+        break;
+    }
   },
   getArrayOfObjectsCopy(array) {
     // const newArray = array.map((x, i) => Object.assign({ index: i }, x));

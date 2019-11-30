@@ -8,10 +8,10 @@ import * as d3array from "d3-array";
 export const state = () => ({
   proposals: [brProposals, vgProposals, ssProposals],
   categoriesToggle: [
-    { name: "Environmental", issueCode: "env", activated: true },
-    { name: "Social", issueCode: "soc", activated: true },
+    { name: "Environmental", issueCode: "env", activated: false },
+    { name: "Social", issueCode: "soc", activated: false },
     { name: "Good Governance", issueCode: "gg", activated: false },
-    { name: "Profitability", issueCode: "profit", activated: true },
+    { name: "Profitability", issueCode: "profit", activated: false },
     { name: "Non-ESG", issueCode: "no-esg", activated: false }
   ]
 });
@@ -22,8 +22,9 @@ export const state = () => ({
 export const mutations = {
   SET_ACTIVE_CATEGORIES(state, array) {
     for (const element of state.categoriesToggle) {
-      if (array.includes(element.issueCode)) { // loop, if passed array includes that element, then activated.
-        element.activated = true; // only those updated are passed to component. 
+      if (array.includes(element.issueCode)) {
+        // loop, if passed array includes that element, then activated.
+        element.activated = true; // only those updated are passed to component.
       } else {
         element.activated = false; // in getters its going away due to filter method.
       }
@@ -31,7 +32,8 @@ export const mutations = {
   }
 };
 
-export const getters = { // backup is all possible. 
+export const getters = {
+  // backup is all possible.
   proposalsCurrentYear(state, getters, rootState) {
     let newArray = [];
     for (const manager of state.proposals) {
@@ -39,7 +41,7 @@ export const getters = { // backup is all possible.
         const checkArray = state.categoriesToggle
           .filter(x => x.activated == true)
           .map(x => x.issueCode);
-        // rootstate is info from other element from store: in rootstate you can access all states from 
+        // rootstate is info from other element from store: in rootstate you can access all states from
         //all modules. that is how to filter out year
         return x.year == rootState.year.year && checkArray.includes(x.issue);
       });
@@ -60,7 +62,7 @@ export const getters = { // backup is all possible.
         if (proposalsA < proposalsB) return 1;
         if (proposalsA > proposalsB) return -1;
       });
-      console.log(groupedByCompany);
+      // console.log(groupedByCompany);
       newArray.push(groupedByCompany);
     }
 

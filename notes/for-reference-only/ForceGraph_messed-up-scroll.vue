@@ -30,9 +30,6 @@
             "
           />
         </g>
-        <!-- @mouseenter="showTooltip($event, node.company)" -->
-        <!-- https://stackoverflow.com/questions/40956671/passing-event-and-argument-to-v-on-in-vue-js -->
-        <!-- @mousedown="currentMove = {x: $event.screenX, y: $event.screenY, node: node}" -->
       </svg>
     </div>
   </div>
@@ -71,7 +68,6 @@ export default {
   computed: {
     ...mapState({
       managers: state => state.managers.managers,
-      // categories: state => state.proposals.categories,
       width: state => state.forceGraph.width,
       height: state => state.forceGraph.height,
       animationIndex: state => state.forceGraph.animationIndex
@@ -84,11 +80,8 @@ export default {
   },
   watch: {
     nodesStore(change) {
-      console.log("nodes have changed");
-      console.log(change);
+      console.log("nodes in Store have changed");
       if (change.every(el => el.length != 0) && this.managerIndex == 0) {
-        this.$helpers.displayOrHideProgressBar("display");
-        this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
         this.initGraphOnDataChange();
       }
     },
@@ -106,11 +99,7 @@ export default {
     }
   },
   created() {},
-  mounted() {
-    // setTimeout(() => {
-    //   this.initGraphOnDataChange();
-    // }, 6000);
-  },
+  mounted() {},
   methods: {
     tooltipOptions(node) {
       return {
@@ -132,10 +121,10 @@ export default {
       // console.log("tick");
     },
     ended() {
-      // ticked has no parameter!
       // console.log("end");
     },
     updateCoordinates() {
+      console.log("updated coordinates");
       this.coords = [];
       for (let index = 0; index < this.nodes.length; index++) {
         const node = this.nodes[index];
@@ -144,7 +133,6 @@ export default {
           y: node.y
         });
       }
-      this.updateAnimationIndex();
     },
     runSimulationTicks() {
       for (
@@ -190,7 +178,6 @@ export default {
     },
     reassignExitNodes() {
       for (const index of this.exitIndexes) {
-        // this.assignCoordsToObj(this.oldLocal[index]);
         if (this.newStore.length > 0) {
           // ? TODO: this assignment is kind of random, can be improved
           this.oldLocal[index] = this.newStore[0];
@@ -208,10 +195,10 @@ export default {
         .forceSimulation(this.nodes)
         // Move the parameters to the store later
         .alpha(0.9) // Starting point, alpha is the "ticks" unit or counter // default: 1, range: [0,1]
-        .alphaDecay(0.01) // Acceleration of the animation // default: 0.0288, range [0,1]
-        .alphaMin(0.00006) // Stopping point // default: 0.001, range [0,1]
+        .alphaDecay(0.2) // Acceleration of the animation // default: 0.0288, range [0,1]
+        .alphaMin(0.006) // Stopping point // default: 0.001, range [0,1]
         .alphaTarget(0) // Target! // default: 0, range [0,1]
-        .velocityDecay(0.3) // Friction or "mass" // default: 0.4, range [0,1]
+        .velocityDecay(0.4) // Friction or "mass" // default: 0.4, range [0,1]
         .force(
           "charge",
           d3
@@ -288,57 +275,60 @@ export default {
       }
     },
     getIndexByIssue(issue) {
+      // console.log(this.categories, issue);
       const index = this.$helpers.findWithAttr(
         this.categories,
         "issueCode",
         issue
       );
-      // console.log(index);
       return index;
     },
     initGraphOnDataChange() {
-      this.startProgressBar();
+      console.log("graph is changing");
+      // this.resetProgressbarOnFirst();
+      // this.setProgressBar();
+
       this.findExitNodes();
 
       setTimeout(() => {
         this.reassignExitNodes();
         this.simulate();
       }, 100);
-    },
-    simulate() {
-      this.defineSimulation();
-      this.runSimulationTicks();
 
-      let smallPause = 0;
+      let smallPause = 1;
       if (this.nodes < 500) {
         smallPause = 200;
       }
       setTimeout(() => {
         this.updateCoordinates();
+        this.updateAnimationIndex();
       }, smallPause);
     },
-    startProgressBar() {
-      const managerPositionInPercent =
-        (100 / this.managers.length) * (this.managerIndex + 1);
-      setTimeout(() => {
-        this.$store.commit(
-          "progressBar/CHANGE_PROGRESS",
-          managerPositionInPercent
-        );
-      }, 150);
+    simulate() {
+      this.defineSimulation();
+      this.runSimulationTicks();
+      // this.resetProgressBar();
     },
-    endProgressBar() {
+    setProgressBar() {
+      if (this.managerIndex == 0) {
+        this.$helpers.displayOrHideProgressBar("display");
+      }
+      this.$store.commit(
+        "progressBar/CHANGE_PROGRESS",
+        (100 / this.managers.length) * (this.managerIndex + 1)
+      );
+    },
+    resetProgressBar() {
       if (this.managerIndex == this.managers.length - 1) {
         setTimeout(() => {
           this.$helpers.displayOrHideProgressBar("hide");
-        }, 2000);
+        }, 1500);
         setTimeout(() => {
           this.$store.commit("progressBar/CHANGE_PROGRESS", 0);
-        }, 2500);
+        }, 2000);
       }
     },
     updateAnimationIndex() {
-      this.endProgressBar();
       if (this.managerIndex != this.managers.length - 1) {
         setTimeout(() => {
           this.$store.commit(
@@ -348,7 +338,6 @@ export default {
         }, 1050);
       } else {
         this.$store.commit("forceGraph/CHANGE_ANIMATION_INDEX", 0);
-        this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 0);
       }
     }
   }
