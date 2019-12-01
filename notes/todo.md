@@ -1,3 +1,33 @@
+## 3rd Chapter
+- Specific companies with interesting proposals (amazon), 
+  - Amazon has been targeted by their own employees
+
+## Show the prev / next button only after the three categories are introduced
+
+## Tooltip
+- Use the item description as a title
+- Use resolution only for filtering
+- Add a highlight for the other two managers on hover 
+  - Create proposal ID in python
+
+## Drawing / restructuring over different aspects
+
+- Social: **Gun violence** issues: 2018 / 2019 (Walmart, Sturm & Roger [these are in the funds]): filter by: *weapon related*
+  - Board diversity!
+  - All three vote activist
+- Social: **Board diversity** (also outside of the public realm – lobbying)
+- Environmental: **2 degree goal** (Exxon or all the oil companies)
+- Good governance: **Compensation** (we can look at executive pay)
+- Amazon: 2012-13-14-15 political contribution proposals
+
+
+## Design
+- How to show multiple years: use the vertical axis – only relevant years with a label. 
+- Only weapons 
+
+## Scrolly intro
+1. first screen: example circles on the canvas
+   
 ## UI
 1. Add feedback (loading animation) to the previous and next buttons
 2. When the distinct outlines are removed there is no transition for some reason

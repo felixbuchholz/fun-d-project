@@ -11,11 +11,17 @@
         </div>
       </div>
     </transition>
+    <div ref="indicator-mover-1" class="scrolly-indicator-mover">
+      <div
+        ref="indicator-1"
+        class="scrolly-indicator feedback feedback--effect-ivana small"
+      >
+        <fa icon="long-arrow-alt-right" class />
+      </div>
+    </div>
 
-    <fa icon="long-arrow-alt-right" class="scrolly-indicator" />
-
-    <Scrollama @step-enter="stepEnterHandler">
-      <div id="sroll_0" class="margin-scrollama-text">
+    <Scrollama :offset="0.35" @step-enter="stepEnterHandler">
+      <div id="scroll_0" class="margin-scrollama-text">
         <h4 class="scrollyTitle">
           Where activists meet the passive investment giants
         </h4>
@@ -36,12 +42,14 @@
             <span>governance</span>
           </li>
         </ul>
-        Funds from one manager may vote differently. This visual takes the most
-        common vote for each manager.
+        <p>
+          Funds from one manager may vote differently. This visual takes the
+          most common vote for each manager.
+        </p>
       </div>
 
-      <div id="sroll_1" class="margin-scrollama-text">
-        <fa icon="spinner" class />
+      <div id="scroll_1" :class="`margin-scrollama-text ${getLoadingState(1)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           <span class="env_li" style="vertical-align: -1px">&#8226;</span>
           <span style="font-weight: 800;">Environmental</span> topics brought by
@@ -57,7 +65,8 @@
         </p>
       </div>
 
-      <div id="sroll_2" class="margin-scrollama-text">
+      <div id="scroll_2" :class="`margin-scrollama-text ${getLoadingState(2)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           Topics in the
           <span class="soc_li" style="vertical-align: -1px">&#8226;</span>
@@ -70,7 +79,8 @@
         </p>
       </div>
 
-      <div id="sroll_3" class="margin-scrollama-text">
+      <div id="scroll_3" :class="`margin-scrollama-text ${getLoadingState(3)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           Proposals targeting
           <span class="gov_li" style="vertical-align: -2px">&#8226;</span>
@@ -89,11 +99,36 @@
         </p>
       </div>
 
-      <div class="margin-scrollama-text" id='sroll_5'  >
-         <p>Clearly, these asset managers are more often supporting management. Most activist proposals do not pass at general shareholders meetings. The average support for shareholder proposals is about 30%. However, looking at two shareholder proposal types in detail shows there are varying degrees of support.</p>
+      <div id="scroll_4" :class="`margin-scrollama-text ${getLoadingState(4)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>
+          We noticed a few shareholder proposals asking the target company to
+          hire an advisor to maximize shareholder value. Most of this comes from
+          "activist hedge funds" that buy a certain amount of stock in a
+          company, to be able to enforce key changes at target companies. The
+          goal of shareholder value maximization is not without controversy. It
+          can conflict with other stakeholders’ interests, like when a
+          reorganization seeks to dispose of many employees, with the purpose of
+          realizing a short-term gain rather than improving the company.
+          <br />
+          <br />Sometimes however hedge funds are useful for their entensive
+          research into structural improvement opportunities in companies that
+          are ineffectively managed. Board members can be lazy, in need of a
+          shakeup. Activist shareholder proposals can be justified or not - it
+          depends. For other shareholders, including asset managers, this
+          assessment requires an active approach to proxy voting.
+        </p>
       </div>
 
 
+
+      <div class="margin-scrollama-text">
+        This is where we “click” through a couple of years
+      </div>
+
+      <div class="margin-scrollama-text">
+        This is where we go start talking about specific issues
+      </div>
 
       <div class="margin-scrollama-text">
         This is where some drawing happens.
@@ -111,27 +146,67 @@ import anime from "animejs/lib/anime.es.js";
 import { mapState } from "vuex";
 
 export default {
-  methods: { 
+  data: function() {
+    return {
+      lastStep: ""
+    };
+  },
+  computed: {
+    ...mapState({
+      processCounter: state => state.progressBar.processCounter,
+      stepArray: state => state.progressBar.stepArray
+    })
+  },
+  methods: {
     setActiveCats(array) {
-      this.$store.commit("proposals/SET_ACTIVE_CATEGORIES", array);
+      setTimeout(() => {
+        this.$store.commit("proposals/SET_ACTIVE_CATEGORIES", array);
+      }, 100);
     },
-    setActiveCats(array) {
-      this.$store.commit("proposals/SET_ACTIVE_CATEGORIES", array);
+    getLoadingState(num) {
+      if (this.stepArray.includes(num)) {
+        return "loading";
+      } else {
+        return "";
+      }
     },
     stepEnterHandler(event) {
+      // Convenient variables
       const index = event.index;
       const direction = event.direction;
+      const thisStep = index + direction;
       const up = direction == "up";
       const down = direction == "down";
+      const indicatorMover = this.$refs["indicator-mover-1"];
+      const indicator = this.$refs["indicator-1"];
+      const stepIndicator = this.$el.querySelector(
+        `#scroll_${index} .scrolly-step-indicator`
+      );
+
+      // Do on every step
+      indicator.classList.add("feedback--click");
+      setTimeout(() => {
+        indicator.classList.remove("feedback--click");
+      }, 400);
+
+      // TODO: make this a function and put it in the right steps / up & down condition to not add too much logic
+      // or copy the condition from the ForceGraph
+      console.log(stepIndicator);
+      if (stepIndicator && this.lastStep != thisStep && thisStep != "1up") {
+        this.$store.commit("progressBar/ADD_TO_STEP_ARRAY", index);
+      }
 
       console.log(index, direction);
 
+      // Steps
       switch (index) {
         case 0:
           if (down) {
-            this.setActiveCats([]);
+            this.setActiveCats([""]);
+            indicatorMover.classList.add("active");
           } else if (up) {
-            this.setActiveCats([]);
+            this.setActiveCats([""]);
+            indicatorMover.classList.remove("active");
           }
           break;
 
@@ -167,29 +242,38 @@ export default {
             this.setActiveCats(["env", "soc", "gg"]);
           }
           break;
-          
-        case 5:
-          if (down) {
-            this.drawSmthRandom();
-          } else if (up) {
-            this.removeDrawing();
-          }
-          break;
 
-        case 6:
+        // case 5:
+        //   if (down) {
+        //     this.drawSmthRandom();
+        //   } else if (up) {
+        //     this.removeDrawing();
+        //   }
+        //   break;
+
+        // case 6:
+        //   if (down) {
+        //     this.$store.commit(
+        //       "proposals/SET_ARE_DISTINCT_OUTLINES_ACTIVE",
+        //       true
+        //     );
+        //   } else if (up) {
+        //     this.$store.commit(
+        //       "proposals/SET_ARE_DISTINCT_OUTLINES_ACTIVE",
+        //       false
+        //     );
+        //   }
+        //   break;
+        case 9:
           if (down) {
-            this.$store.commit(
-              "proposals/SET_ARE_DISTINCT_OUTLINES_ACTIVE",
-              true
-            );
+            indicator.classList.remove("active");
           } else if (up) {
-            this.$store.commit(
-              "proposals/SET_ARE_DISTINCT_OUTLINES_ACTIVE",
-              false
-            );
+            indicator.classList.add("active");
           }
-          break;
       }
+
+      // Update last step
+      this.lastStep = index + direction;
     },
     drawSmthRandom() {
       anime({

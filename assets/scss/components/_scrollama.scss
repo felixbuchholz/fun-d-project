@@ -1,24 +1,37 @@
 .visual_1_container {
-    display: flex;
+  display: flex;
 }
 
 .margin-scrollama-text {
-    padding-bottom: 20vh;
-    margin: 20vh 2vh 0 3vh;
+  // padding-bottom: 20vh;
+  margin: 40vh 2vh 0 3vh;
+  border-bottom: 1px dotted $gray;
 }
 
 .scrollyTitle {
-    font-style: italic;
-    font-weight: 140;
+  font-style: italic;
+  font-weight: 140;
 }
 
-.env_li { color: $env;font-size: 140%}
-.soc_li { color: $soc;font-size: 140%}
-.gov_li { color: $gg;font-size: 140%}
-.gov_li_light { color: $gg-no;font-size: 140%}
+.env_li {
+  color: $env;
+  font-size: 140%;
+}
+.soc_li {
+  color: $soc;
+  font-size: 140%;
+}
+.gov_li {
+  color: $gg;
+  font-size: 140%;
+}
+.gov_li_light {
+  color: $gg-no;
+  font-size: 140%;
+}
 
 li span {
-    color:$black;
-    font-size: 1rem;
-    vertical-align: 2px;
+  color: $black;
+  font-size: 1rem;
+  vertical-align: 2px;
 }
