@@ -92,7 +92,8 @@ export default {
       // console.log("nodes have changed");
       // console.log(change);
       // TODO this is not working to reset the whole thing!
-      if (change.every(el => el.length != 0) && this.managerIndex == 0) {
+      // if (change.every(el => el.length != 0) && this.managerIndex == 0) {
+      if (this.managerIndex == 0) {
         this.$helpers.displayOrHideProgressBar("display");
         this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
         this.initGraphOnDataChange();

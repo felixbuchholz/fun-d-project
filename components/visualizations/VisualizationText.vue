@@ -5,19 +5,26 @@
       <div v-if="processCounter > 1" class="scroll-popover-modal">
         <div class="scroll-popover-container">
           <fa icon="spinner" class="scroll-popover-icon rotating" />
-          <div class="scroll-popover-message">Please wait until animation is finished&nbsp;…</div>
+          <div class="scroll-popover-message">
+            Please wait until animation is finished&nbsp;…
+          </div>
         </div>
       </div>
     </transition>
     <div ref="indicator-mover-1" class="scrolly-indicator-mover">
-      <div ref="indicator-1" class="scrolly-indicator feedback feedback--effect-ivana small">
+      <div
+        ref="indicator-1"
+        class="scrolly-indicator feedback feedback--effect-ivana small"
+      >
         <fa icon="long-arrow-alt-right" class />
       </div>
     </div>
 
     <Scrollama :offset="0.35" @step-enter="stepEnterHandler">
       <div id="scroll_0" class="margin-scrollama-text">
-        <h4 class="scrollyTitle">Where activists meet the passive investment giants</h4>
+        <h4 class="scrollyTitle">
+          Where activists meet the passive investment giants
+        </h4>
         <p>
           First look at how these three asset management firms compare in terms
           of siding with or against management.
@@ -65,15 +72,14 @@
           <span class="soc_li" style="vertical-align: -1px">&#8226;</span>
           <span style="font-weight: 800;">social</span> category are often calls
           for companies to be more transparent about political contributions;
-          their lobbying; human rights policies.
-          <br />Social shareholder
+          their lobbying; human rights policies. <br />Social shareholder
           proposals also include employment issues such as employee diversity,
           pay-gaps and greater support for workers’ rights (for example minimum
           wage reform).
         </p>
       </div>
 
-      <div id="scroll_3" class="margin-scrollama-text">
+      <div id="scroll_3" :class="`margin-scrollama-text ${getLoadingState(3)}`">
         <p>
           Proposals targeting
           <span class="gov_li" style="vertical-align: -2px">&#8226;</span>
@@ -86,14 +92,13 @@
           Darker
           <span class="gov_li" style="vertical-align: -2px">&#8226;</span>:
           manager voted against management for that agenda item across most of
-          its funds.
-          <br />Lighter
+          its funds. <br />Lighter
           <span class="gov_li_light" style="vertical-align: -2px">&#8226;</span>
           : manager supported the company's management.
         </p>
       </div>
 
-      <div id="scroll_4" class="margin-scrollama-text">
+      <div id="scroll_4" :class="`margin-scrollama-text ${getLoadingState(4)}`">
         <p>
           We noticed a few shareholder proposals asking the target company to
           hire an advisor to maximize shareholder value. Most of this comes from
@@ -113,13 +118,21 @@
         </p>
       </div>
 
-      <div class="margin-scrollama-text">This is where we “click” through a couple of years</div>
+      <div class="margin-scrollama-text">
+        This is where we “click” through a couple of years
+      </div>
 
-      <div class="margin-scrollama-text">This is where we go start talking about specific issues</div>
+      <div class="margin-scrollama-text">
+        This is where we go start talking about specific issues
+      </div>
 
-      <div class="margin-scrollama-text">This is where some drawing happens.</div>
+      <div class="margin-scrollama-text">
+        This is where some drawing happens.
+      </div>
 
-      <div class="margin-scrollama-text">This is where the distinct outlines are activated</div>
+      <div class="margin-scrollama-text">
+        This is where the distinct outlines are activated
+      </div>
       <div class="margin-scrollama-text">This is just for spacing</div>
       <div class="margin-scrollama-text">This is just for spacing</div>
     </Scrollama>
@@ -172,8 +185,10 @@ export default {
         indicator.classList.remove("feedback--click");
       }, 400);
 
+      // TODO: make this a function and put it in the right steps / up & down condition to not add too much logic
+      // or copy the condition from the ForceGraph
       console.log(stepIndicator);
-      if (stepIndicator && this.lastStep != thisStep && thisStep != "1up  ") {
+      if (stepIndicator && this.lastStep != thisStep && thisStep != "1up") {
         this.$store.commit("progressBar/ADD_TO_STEP_ARRAY", index);
       }
 
