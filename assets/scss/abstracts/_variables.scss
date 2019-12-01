@@ -28,7 +28,11 @@ $link_underline_visited: rgb(66, 84, 190);
 $collapse_box_closed: rgb(122, 148, 204);
 $collapse_box_open: rgba(122, 148, 204, 0.5);
 
+$feedback-size: 70px;
+$feedback-size-small: 50px;
+
 $first: #ff8546;
+$first-light: lighten($first, 30%);
 $second: #02735e;
 $third: #707070;
 

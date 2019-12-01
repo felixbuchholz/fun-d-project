@@ -91,6 +91,7 @@ export default {
     nodesStore(change) {
       // console.log("nodes have changed");
       // console.log(change);
+      // TODO this is not working to reset the whole thing!
       if (change.every(el => el.length != 0) && this.managerIndex == 0) {
         this.$helpers.displayOrHideProgressBar("display");
         this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
@@ -396,6 +397,7 @@ export default {
       } else {
         this.$store.commit("forceGraph/CHANGE_ANIMATION_INDEX", 0);
         this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 0);
+        this.$store.commit("progressBar/REMOVE_LAST_FROM_STEP_ARRAY", 0);
       }
     }
   }
