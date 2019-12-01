@@ -398,7 +398,9 @@ export default {
       } else {
         this.$store.commit("forceGraph/CHANGE_ANIMATION_INDEX", 0);
         this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 0);
-        this.$store.commit("progressBar/REMOVE_LAST_FROM_STEP_ARRAY", 0);
+        setTimeout(() => {
+          this.$store.commit("progressBar/REMOVE_LAST_FROM_STEP_ARRAY", 0);
+        }, 1050);
       }
     }
   }

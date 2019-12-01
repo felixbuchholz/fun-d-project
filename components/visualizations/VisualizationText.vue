@@ -80,6 +80,7 @@
       </div>
 
       <div id="scroll_3" :class="`margin-scrollama-text ${getLoadingState(3)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           Proposals targeting
           <span class="gov_li" style="vertical-align: -2px">&#8226;</span>
@@ -99,6 +100,7 @@
       </div>
 
       <div id="scroll_4" :class="`margin-scrollama-text ${getLoadingState(4)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           We noticed a few shareholder proposals asking the target company to
           hire an advisor to maximize shareholder value. Most of this comes from
@@ -157,7 +159,9 @@ export default {
   },
   methods: {
     setActiveCats(array) {
-      this.$store.commit("proposals/SET_ACTIVE_CATEGORIES", array);
+      setTimeout(() => {
+        this.$store.commit("proposals/SET_ACTIVE_CATEGORIES", array);
+      }, 100);
     },
     getLoadingState(num) {
       if (this.stepArray.includes(num)) {
