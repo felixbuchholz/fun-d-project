@@ -22,9 +22,9 @@
 
     <Scrollama :offset="0.35" @step-enter="stepEnterHandler">
       <div id="scroll_0" class="margin-scrollama-text">
-        <h4 class="scrollyTitle">
+        <h3 class="scrollyTitle">
           Where activists meet the passive investment giants
-        </h4>
+        </h3>
         <p>
           First look at how these three asset management firms compare in terms
           of siding with or against management.
@@ -45,6 +45,14 @@
         <p>
           Funds from one manager may vote differently. This visual takes the
           most common vote for each manager.
+        </p>
+        <p>
+          Darker
+          <span class="gov_li" style="vertical-align: -2px">&#8226;</span>:
+          manager voted against management for that agenda item across most of
+          its funds. <br />Lighter
+          <span class="gov_li_light" style="vertical-align: -2px">&#8226;</span>
+          : manager supported the company's management.
         </p>
       </div>
 
@@ -89,14 +97,6 @@
           and CEO roles (to de-concentrate corporate leadership), and proposals
           to empower minority shareholder blocks.
         </p>
-        <p>
-          Darker
-          <span class="gov_li" style="vertical-align: -2px">&#8226;</span>:
-          manager voted against management for that agenda item across most of
-          its funds. <br />Lighter
-          <span class="gov_li_light" style="vertical-align: -2px">&#8226;</span>
-          : manager supported the company's management.
-        </p>
       </div>
 
       <div id="scroll_4" :class="`margin-scrollama-text ${getLoadingState(4)}`">
@@ -111,7 +111,7 @@
           reorganization seeks to dispose of many employees, with the purpose of
           realizing a short-term gain rather than improving the company.
           <br />
-          <br />Sometimes however hedge funds are useful for their entensive
+          <br />Sometimes however hedge funds are useful for their extensive
           research into structural improvement opportunities in companies that
           are ineffectively managed. Board members can be lazy, in need of a
           shakeup. Activist shareholder proposals can be justified or not - it
@@ -123,12 +123,12 @@
 
 
       <div class="margin-scrollama-text">
-        This is where we “click” through a couple of years
+        Clearly, these asset managers are more often supporting management by voting against activist shareholders. Most shareholder proposals do not pass. The average support for shareholder proposals has been fairly constant at about 30% over the past 10 years. However, shareholder meeting dynamics did change significantly in this period. Shareholders became more active: more capital was invested by activists to force corporate change, and shareholders submitted more resolutions. <br /> <br />
+        Meanwhile, voting has become less of a “compliance” exercise: institutional shareholders have become more keen on pro-active engagement as “stewards”. This shows as good corporate governance rose as a focus area for investors. That is probably also because of governance scandals (think Kobe Steel or Volkswagen) and increased regulatory attention. In most recent years, a record shareholder proposals is about social and environmental issues - and an increasing amount of such proposals pass.
       </div>
 
       <div class="margin-scrollama-text">
-        This is where we go start talking about specific issues
-      </div>
+After Newtown, Connecticut and Parkland, Florida, the impact of mass shootings have yet to produce new gun-safety laws in the United States. Where the Trump administration is reluctant to overhaul gun laws, some corporate shareholders are pushing for stronger gun control policies. We noticed shareholder proposals asking that companies stop selling guns, or openly distantiate from National Rifle Association (NRA). For example, Walmart and Dick’s Sporting Goods placed new restrictions on gun sales. Delta Airlines, MetLife and FedEx voted to part ways with or discontinue preferential treatment of the NRA. Two firearm companies, American Outdoor Brands and Sturm, Ruger &amp; Co were targeted by investors to produce a report on gun violence.      </div>
 
       <div class="margin-scrollama-text">
         This is where some drawing happens.
@@ -204,6 +204,7 @@ export default {
           if (down) {
             this.setActiveCats([""]);
             indicatorMover.classList.add("active");
+            
           } else if (up) {
             this.setActiveCats([""]);
             indicatorMover.classList.remove("active");
