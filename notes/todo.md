@@ -1,3 +1,5 @@
+# Add all three of them were active symbol!
+
 ## 3rd Chapter
 - Specific companies with interesting proposals (amazon), 
   - Amazon has been targeted by their own employees

@@ -211,39 +211,18 @@ export default {
 
         case 1:
           this.setActiveCats(["env"]);
-          // if (down) {
-          //   this.setActiveCats(["env"]);
-          // } else if (up) {
-          //   this.setActiveCats(["env"]);
-          // }
           break;
 
         case 2:
           this.setActiveCats(["env", "soc"]);
-          // if (down) {
-          //   this.setActiveCats(["env", "soc"]);
-          // } else if (up) {
-          //   this.setActiveCats(["env", "soc"]);
-          // }
           break;
 
         case 3:
           this.setActiveCats(["env", "soc", "gg"]);
-          // if (down) {
-          //   this.setActiveCats(["env", "soc", "gg"]);
-          //   //this.select(".gg").style("color: red")
-          // } else if (up) {
-          //   this.setActiveCats(["env", "soc", "gg"]);
-          // }
           break;
 
         case 4:
           this.setActiveCats(["env", "soc", "gg", "profit"]);
-          // if (down) {
-          //   this.setActiveCats(["env", "soc", "gg", "profit"]);
-          // } else if (up) {
-          //   this.setActiveCats(["env", "soc", "gg", "profit"]);
-          // }
           break;
 
         // case 5:
