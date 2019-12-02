@@ -21,7 +21,8 @@
     </div>
 
     <Scrollama :offset="0.35" @step-enter="stepEnterHandler">
-      <div id="scroll_0" class="margin-scrollama-text">
+      <div id="scroll_0" :class="`margin-scrollama-text ${getLoadingState(0)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
         <h4 class="scrollyTitle">
           Where activists meet the passive investment giants
         </h4>
@@ -148,7 +149,8 @@ import { mapState } from "vuex";
 export default {
   data: function() {
     return {
-      lastStep: ""
+      lastStep: "",
+      lastIndex: 0
     };
   },
   computed: {
@@ -189,11 +191,9 @@ export default {
         indicator.classList.remove("feedback--click");
       }, 400);
 
-      // TODO: make this a function and put it in the right steps / up & down condition to not add too much logic
-      // or copy the condition from the ForceGraph
-      console.log(stepIndicator);
-      if (stepIndicator && this.lastStep != thisStep && thisStep != "1up") {
+      if (stepIndicator && this.lastIndex != index) {
         this.$store.commit("progressBar/ADD_TO_STEP_ARRAY", index);
+        this.$helpers.displayOrHideProgressBar("display");
       }
 
       console.log(index, direction);
@@ -202,7 +202,6 @@ export default {
       switch (index) {
         case 0:
           if (down) {
-            this.setActiveCats([""]);
             indicatorMover.classList.add("active");
           } else if (up) {
             this.setActiveCats([""]);
@@ -211,36 +210,40 @@ export default {
           break;
 
         case 1:
-          if (down) {
-            this.setActiveCats(["env"]);
-          } else if (up) {
-            this.setActiveCats(["env"]);
-          }
+          this.setActiveCats(["env"]);
+          // if (down) {
+          //   this.setActiveCats(["env"]);
+          // } else if (up) {
+          //   this.setActiveCats(["env"]);
+          // }
           break;
 
         case 2:
-          if (down) {
-            this.setActiveCats(["env", "soc"]);
-          } else if (up) {
-            this.setActiveCats(["env"]);
-          }
+          this.setActiveCats(["env", "soc"]);
+          // if (down) {
+          //   this.setActiveCats(["env", "soc"]);
+          // } else if (up) {
+          //   this.setActiveCats(["env", "soc"]);
+          // }
           break;
 
         case 3:
-          if (down) {
-            this.setActiveCats(["env", "soc", "gg"]);
-            //this.select(".gg").style("color: red")
-          } else if (up) {
-            this.setActiveCats(["env", "soc"]);
-          }
+          this.setActiveCats(["env", "soc", "gg"]);
+          // if (down) {
+          //   this.setActiveCats(["env", "soc", "gg"]);
+          //   //this.select(".gg").style("color: red")
+          // } else if (up) {
+          //   this.setActiveCats(["env", "soc", "gg"]);
+          // }
           break;
 
         case 4:
-          if (down) {
-            this.setActiveCats(["env", "soc", "gg", "profit"]);
-          } else if (up) {
-            this.setActiveCats(["env", "soc", "gg"]);
-          }
+          this.setActiveCats(["env", "soc", "gg", "profit"]);
+          // if (down) {
+          //   this.setActiveCats(["env", "soc", "gg", "profit"]);
+          // } else if (up) {
+          //   this.setActiveCats(["env", "soc", "gg", "profit"]);
+          // }
           break;
 
         // case 5:
@@ -273,7 +276,8 @@ export default {
       }
 
       // Update last step
-      this.lastStep = index + direction;
+      this.lastStep = thisStep;
+      this.lastIndex = index;
     },
     drawSmthRandom() {
       anime({

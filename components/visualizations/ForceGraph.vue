@@ -28,7 +28,7 @@
             :class="
               `node-circle mean-activist-${
                 node.meanActivist > 0.5 ? 'yes' : 'no'
-              } ${node.issue} ${node.uID} ${getDistinctClass(node)}`
+              } ${node.issue} id-${node.uID} ${getDistinctClass(node)}`
             "
           />
           <!--  -->
@@ -77,7 +77,8 @@ export default {
       height: state => state.forceGraph.height,
       animationIndex: state => state.forceGraph.animationIndex,
       areDistinctOutlinesActive: state =>
-        state.proposals.areDistinctOutlinesActive
+        state.proposals.areDistinctOutlinesActive,
+      nodeChangeCounter: state => state.progressBar.nodeChangeCounter
     }),
     ...mapGetters({
       nodesStore: [`forceGraph/nodesPerYear`],
@@ -91,14 +92,15 @@ export default {
   },
   watch: {
     nodesStore(change) {
-      // console.log("nodes have changed");
-      // console.log(change);
-      // TODO this is not working to reset the whole thing!
-      // if (change.every(el => el.length != 0) && this.managerIndex == 0) {
       if (this.managerIndex == 0) {
-        this.$helpers.displayOrHideProgressBar("display");
-        this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
-        this.initGraphOnDataChange();
+        console.log("nodes have changed");
+        // console.log(change);
+        this.$store.commit("progressBar/INCREMENT_NODE_CHANGE_COUNTER");
+        if (this.nodeChangeCounter > 0) {
+          this.$helpers.displayOrHideProgressBar("display");
+          this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
+          this.initGraphOnDataChange();
+        }
       }
     },
     animationIndex() {
@@ -175,14 +177,14 @@ export default {
       }</span></div>`;
     },
     activateForSameProposals(node) {
-      const samePropCircles = document.querySelectorAll(`.${node.uID}`);
+      const samePropCircles = document.querySelectorAll(`.id-${node.uID}`);
       // console.log(samePropCircles);
       for (const circle of samePropCircles) {
         circle.classList.add("active");
       }
     },
     deactivateForSameProposals(node) {
-      const samePropCircles = document.querySelectorAll(`.${node.uID}`);
+      const samePropCircles = document.querySelectorAll(`.id-${node.uID}`);
       // console.log(samePropCircles);
       for (const circle of samePropCircles) {
         circle.classList.remove("active");

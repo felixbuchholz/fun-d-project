@@ -1,6 +1,7 @@
 export const state = () => ({
   progress: 0,
   processCounter: 0,
+  nodeChangeCounter: 0,
   stepArray: []
 });
 
@@ -20,6 +21,9 @@ export const mutations = {
     } else {
       state.processCounter += val;
     }
+  },
+  INCREMENT_NODE_CHANGE_COUNTER(state) {
+    state.nodeChangeCounter++;
   },
   ADD_TO_STEP_ARRAY(state, val) {
     state.stepArray.push(val);
