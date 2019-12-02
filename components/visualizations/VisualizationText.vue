@@ -121,8 +121,9 @@
         </p>
       </div>
 
-      <div class="margin-scrollama-text">
-        This is where we “click” through a couple of years
+      <div id="scroll_5" :class="`margin-scrollama-text ${getLoadingState(5)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>This is where we “click” through a couple of years</p>
       </div>
 
       <div class="margin-scrollama-text">
@@ -156,10 +157,34 @@ export default {
   computed: {
     ...mapState({
       processCounter: state => state.progressBar.processCounter,
-      stepArray: state => state.progressBar.stepArray
+      stepArray: state => state.progressBar.stepArray,
+      year: state => state.year.year,
+      yearRange: state => state.year.yearRange
     })
   },
   methods: {
+    changeYear(val) {
+      this.$store.commit("year/CHANGE_YEAR", val);
+    },
+    browseThroughYears(endYear) {
+      if (this.year < endYear) {
+        this.$store.commit("progressBar/UPDATE_BROWSING_YEARS", true);
+        const that = this;
+        let timer = setInterval(() => {
+          // console.log("interval");
+          if (this.processCounter == 0) {
+            // console.log("processCounter == 0");
+            that.changeYear(1);
+          }
+          if (this.year == endYear) {
+            this.$store.commit("progressBar/UPDATE_BROWSING_YEARS", false);
+            clearInterval(timer);
+          }
+        }, 100);
+      } else {
+        // TODO: what to do if current year is later than endYear?
+      }
+    },
     setActiveCats(array) {
       setTimeout(() => {
         this.$store.commit("proposals/SET_ACTIVE_CATEGORIES", array);
@@ -225,13 +250,15 @@ export default {
           this.setActiveCats(["env", "soc", "gg", "profit"]);
           break;
 
-        // case 5:
-        //   if (down) {
-        //     this.drawSmthRandom();
-        //   } else if (up) {
-        //     this.removeDrawing();
-        //   }
-        //   break;
+        case 5:
+          if (down) {
+            if (this.lastIndex != index) {
+              this.browseThroughYears(this.yearRange[1]);
+            }
+          } else if (up) {
+            this.changeYear(2010);
+          }
+          break;
 
         // case 6:
         //   if (down) {

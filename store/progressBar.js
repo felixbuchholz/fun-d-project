@@ -3,7 +3,8 @@ export const state = () => ({
   processCounter: 0,
   nodeChangeCounter: 0,
   stepArray: [],
-  animationDuration: 200
+  animationDuration: 200,
+  browsingYears: false
 });
 
 export const getters = {
@@ -37,5 +38,8 @@ export const mutations = {
   },
   UPDATE_ANIMATION_DURATION(state, val) {
     state.animationDuration = val;
+  },
+  UPDATE_BROWSING_YEARS(state, bool) {
+    state.browsingYears = bool;
   }
 };

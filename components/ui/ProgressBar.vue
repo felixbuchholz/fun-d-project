@@ -3,7 +3,7 @@
     <div
       id="progress-mover"
       :style="
-        `transform: translateX(${transform}%); transition: transform 900ms linear;`
+        `transform: translateX(${transform}%); transition: transform ${animationDuration}ms linear;`
       "
     ></div>
   </div>

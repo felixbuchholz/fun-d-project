@@ -82,7 +82,8 @@ export default {
       animationIndex: state => state.forceGraph.animationIndex,
       areDistinctOutlinesActive: state =>
         state.proposals.areDistinctOutlinesActive,
-      nodeChangeCounter: state => state.progressBar.nodeChangeCounter
+      nodeChangeCounter: state => state.progressBar.nodeChangeCounter,
+      browsingYears: state => state.progressBar.browsingYears
     }),
     ...mapGetters({
       nodesStore: [`forceGraph/nodesPerYear`],
@@ -106,7 +107,7 @@ export default {
       const newLength = change[this.managerIndex].length;
       const difference = Math.abs(oldLength - newLength);
       this.pauseBetweenManagers = parseInt(
-        240 + 1.5 * difference + 0.4 * (0.5 * oldLength + newLength)
+        240 + 1.5 * difference + 0.38 * (0.65 * oldLength + newLength)
       );
       this.animationDuration = parseInt(0.85 * this.pauseBetweenManagers);
 
@@ -415,7 +416,9 @@ export default {
     endProgressBar() {
       if (this.managerIndex == this.managers.length - 1) {
         setTimeout(() => {
-          this.$helpers.displayOrHideProgressBar("hide");
+          if (!this.browsingYears) {
+            this.$helpers.displayOrHideProgressBar("hide");
+          }
         }, 1.9 * this.pauseBetweenManagers);
         setTimeout(() => {
           this.$store.commit("progressBar/CHANGE_PROGRESS", 0);
@@ -437,7 +440,9 @@ export default {
         setTimeout(() => {
           this.$store.commit("progressBar/UPDATE_ANIMATION_DURATION", 200);
           this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 0);
-          this.$store.commit("progressBar/CLEAR_STEP_ARRAY");
+          if (!this.browsingYears) {
+            this.$store.commit("progressBar/CLEAR_STEP_ARRAY");
+          }
         }, this.pauseBetweenManagers);
       }
     }
