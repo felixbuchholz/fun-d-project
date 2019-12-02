@@ -106,7 +106,7 @@ export default {
       const newLength = change[this.managerIndex].length;
       const difference = Math.abs(oldLength - newLength);
       this.pauseBetweenManagers = parseInt(
-        250 + 1.2 * difference + 0.4 * (0.5 * oldLength + newLength)
+        240 + 1.5 * difference + 0.4 * (0.5 * oldLength + newLength)
       );
       this.animationDuration = parseInt(0.85 * this.pauseBetweenManagers);
 
