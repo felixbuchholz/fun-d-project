@@ -183,7 +183,7 @@ export default {
             this.$store.commit("progressBar/UPDATE_BROWSING_YEARS", false);
             clearInterval(timer);
           }
-        }, 100);
+        }, 150);
       } else {
         // TODO: what to do if current year is later than endYear?
       }
@@ -274,7 +274,6 @@ export default {
           break;
 
         case 6:
-          this.setActiveCats(["soc"]);
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
             logic: "or",
             array: [

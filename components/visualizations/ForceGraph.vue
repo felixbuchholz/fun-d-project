@@ -240,12 +240,13 @@ export default {
       }
     },
     findExitNodes() {
+      // TODO: include find same proposal
       this.oldLocal = this.nodes;
       this.newStore = this.$helpers.getArrayOfObjectsCopy(
         this.nodesStore[this.managerIndex]
       );
       this.newLength = this.newStore.length;
-
+      // console.log(this.oldLocal, this.newStore);
       this.exitIndexes = [];
       for (let i = 0; i < this.oldLocal.length; i++) {
         const proposal = this.oldLocal[i];
@@ -279,7 +280,9 @@ export default {
           this.oldLocal.splice(index, 1);
         }
       }
+      // This is bad when filtering for the same year, I think
       this.nodes = [...this.nodes, ...this.newStore];
+      // this is bad, when filtering – removes the new Selection
       this.nodes.splice(this.newLength);
     },
     defineSimulation() {
@@ -287,11 +290,11 @@ export default {
       this.simulation = d3
         .forceSimulation(this.nodes)
         // Move the parameters to the store later
-        .alpha(0.85) // Starting point, alpha is the "ticks" unit or counter // default: 1, range: [0,1] // was: 0.9
-        .alphaDecay(0.25) // Acceleration of the animation // default: 0.0288, range [0,1] // was: 0.2
+        .alpha(0.9) // Starting point, alpha is the "ticks" unit or counter // default: 1, range: [0,1] // was: 0.9
+        .alphaDecay(0.2) // Acceleration of the animation // default: 0.0288, range [0,1] // was: 0.2
         .alphaMin(0.006) // Stopping point // default: 0.001, range [0,1]
         .alphaTarget(0) // Target! // default: 0, range [0,1]
-        .velocityDecay(0.5) // Friction or "mass" // default: 0.4, range [0,1] // was: 0.4
+        .velocityDecay(0.45) // Friction or "mass" // default: 0.4, range [0,1] // was: 0.4
         .force(
           "charge",
           d3
