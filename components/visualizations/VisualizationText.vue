@@ -2,7 +2,7 @@
   <div id="scrolly1" class="scrolly-telling-text">
     <!-- TODO: transition not working (classes work) -->
     <transition name="fade">
-      <div v-if="processCounter > 1" class="scroll-popover-modal">
+      <div v-if="processCounter > 2" class="scroll-popover-modal">
         <div class="scroll-popover-container">
           <fa icon="spinner" class="scroll-popover-icon rotating" />
           <div class="scroll-popover-message">
@@ -100,7 +100,10 @@
         </p>
       </div>
 
-      <div id="scroll_4" :class="`margin-scrollama-text ${getLoadingState(4)}`">
+      <div
+        id="scroll_4"
+        :class="`margin-scrollama-text ${getLoadingState(4)} last-category`"
+      >
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           We noticed a few shareholder proposals asking the target company to
@@ -198,9 +201,11 @@ export default {
       }
     },
     stepEnterHandler(event) {
+      // console.log(event);
       // Convenient variables
       const index = event.index;
       const direction = event.direction;
+      const isLastCategory = event.element.className.includes("last-category");
       const thisStep = index + direction;
       const up = direction == "up";
       const down = direction == "down";
@@ -217,8 +222,12 @@ export default {
       }, 400);
 
       if (stepIndicator && this.lastIndex != index) {
-        this.$store.commit("progressBar/ADD_TO_STEP_ARRAY", index);
-        this.$helpers.displayOrHideProgressBar("display");
+        // exclude last category switch & up direction
+        // console.log(isLastCategory);
+        if (!isLastCategory && !up) {
+          this.$store.commit("progressBar/ADD_TO_STEP_ARRAY", index);
+          this.$helpers.displayOrHideProgressBar("display");
+        }
       }
 
       console.log(index, direction);
@@ -251,6 +260,10 @@ export default {
           break;
 
         case 5:
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            array: []
+          });
           if (down) {
             if (this.lastIndex != index) {
               this.browseThroughYears(this.yearRange[1]);
@@ -258,6 +271,19 @@ export default {
           } else if (up) {
             this.changeYear(2010);
           }
+          break;
+
+        case 6:
+          this.setActiveCats(["soc"]);
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            array: [
+              { prop: "resolution", val: "weapon" },
+              { prop: "resolution", val: "gun" },
+              { prop: "desc", val: "gun" },
+              { prop: "company", val: "sturm" }
+            ]
+          });
           break;
 
         // case 6:

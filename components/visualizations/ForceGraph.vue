@@ -113,7 +113,7 @@ export default {
 
       // console.log("nodes have changed:", this.nodeChangeCounter);
       // console.log(old, change);
-      console.log("pause:", this.pauseBetweenManagers);
+      // console.log("pause:", this.pauseBetweenManagers);
 
       if (this.managerIndex == 0) {
         this.$store.commit(
@@ -287,11 +287,11 @@ export default {
       this.simulation = d3
         .forceSimulation(this.nodes)
         // Move the parameters to the store later
-        .alpha(0.9) // Starting point, alpha is the "ticks" unit or counter // default: 1, range: [0,1]
-        .alphaDecay(0.2) // Acceleration of the animation // default: 0.0288, range [0,1]
+        .alpha(0.85) // Starting point, alpha is the "ticks" unit or counter // default: 1, range: [0,1] // was: 0.9
+        .alphaDecay(0.25) // Acceleration of the animation // default: 0.0288, range [0,1] // was: 0.2
         .alphaMin(0.006) // Stopping point // default: 0.001, range [0,1]
         .alphaTarget(0) // Target! // default: 0, range [0,1]
-        .velocityDecay(0.4) // Friction or "mass" // default: 0.4, range [0,1]
+        .velocityDecay(0.5) // Friction or "mass" // default: 0.4, range [0,1] // was: 0.4
         .force(
           "charge",
           d3
@@ -336,7 +336,7 @@ export default {
           d3
             .forceCollide()
             .radius(this.circle.radius + this.circle.padding)
-            .strength(0.9) // find default
+            .strength(1) // find default // was: 0.9
             .iterations(2)
         )
         // .on("tick", this.ticked)
@@ -422,7 +422,7 @@ export default {
         }, 1.9 * this.pauseBetweenManagers);
         setTimeout(() => {
           this.$store.commit("progressBar/CHANGE_PROGRESS", 0);
-        }, 1.9 * this.pauseBetweenManagers + 50);
+        }, 1.9 * this.pauseBetweenManagers + 5);
       }
     },
     updateAnimationIndex() {
