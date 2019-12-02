@@ -20,13 +20,15 @@
               coords[i] ? coords[i].y : getCoordsByIssue(node.issue).y
             }px)`
           "
+          @mouseenter="activateForSameProposals(node)"
+          @mouseleave="deactivateForSameProposals(node)"
         >
           <circle
             :r="circle.radius"
             :class="
               `node-circle mean-activist-${
                 node.meanActivist > 0.5 ? 'yes' : 'no'
-              } ${node.issue} ${getDistinctClass(node)}`
+              } ${node.issue} ${node.uID} ${getDistinctClass(node)}`
             "
           />
           <!--  -->
@@ -159,17 +161,32 @@ export default {
     tooltipOptions(node) {
       return {
         content: this.markupTooltip(node),
-        classes: node.issue
+        classes: node.issue,
+        offset: 3
       };
     },
     markupTooltip(node) {
       return `<div class="resolution">${
-        node.resolution
+        node.desc
       }</div> <div class="information">Company: <span class="company">${voca.titleCase(
         node.company
       )}</span></div><div class="information">Year: <span class="bold">${
         node.year
       }</span></div>`;
+    },
+    activateForSameProposals(node) {
+      const samePropCircles = document.querySelectorAll(`.${node.uID}`);
+      // console.log(samePropCircles);
+      for (const circle of samePropCircles) {
+        circle.classList.add("active");
+      }
+    },
+    deactivateForSameProposals(node) {
+      const samePropCircles = document.querySelectorAll(`.${node.uID}`);
+      // console.log(samePropCircles);
+      for (const circle of samePropCircles) {
+        circle.classList.remove("active");
+      }
     },
     ticked() {
       // ticked has no parameter!
