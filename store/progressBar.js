@@ -2,7 +2,8 @@ export const state = () => ({
   progress: 0,
   processCounter: 0,
   nodeChangeCounter: 0,
-  stepArray: []
+  stepArray: [],
+  animationDuration: 200
 });
 
 export const getters = {
@@ -28,7 +29,13 @@ export const mutations = {
   ADD_TO_STEP_ARRAY(state, val) {
     state.stepArray.push(val);
   },
+  CLEAR_STEP_ARRAY(state) {
+    state.stepArray = [];
+  },
   REMOVE_LAST_FROM_STEP_ARRAY(state) {
     state.stepArray.pop();
+  },
+  UPDATE_ANIMATION_DURATION(state, val) {
+    state.animationDuration = val;
   }
 };

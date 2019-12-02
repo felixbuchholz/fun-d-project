@@ -18,11 +18,12 @@
               coords[i] ? coords[i].x : getCoordsByIssue(node.issue).x
             }px) translateY(${
               coords[i] ? coords[i].y : getCoordsByIssue(node.issue).y
-            }px)`
+            }px); transition: transform ${animationDuration} ease-in-out;`
           "
           @mouseenter="activateForSameProposals(node)"
           @mouseleave="deactivateForSameProposals(node)"
         >
+          <!-- transition: transform ${animationDuration} ease-in-out; -->
           <circle
             :r="circle.radius"
             :class="
@@ -58,15 +59,18 @@ export default {
   },
   data() {
     return {
+      pauseBetweenManagers: 600,
+      oldNodesLength: 0,
+      smallPause: 50,
       nodes: [],
+      coords: [],
       oldLocal: [],
       newStore: [],
       newLength: [],
       exitIndexes: [],
       simulation: null,
       centered: true,
-      isGraphInitialized: false,
-      coords: []
+      isGraphInitialized: false
     };
   },
   computed: {
@@ -89,18 +93,38 @@ export default {
       const padding = this.areDistinctOutlinesActive ? 2 : 1;
       return { radius: 4, padding: padding };
     }
+    // animationDuration() {
+    //   return (
+    //     1.8 * this.nodesStore[this.managerIndex].length +
+    //     0.8 * this.oldNodesLength
+    //   );
+    // }
   },
   watch: {
-    nodesStore(change) {
+    nodesStore(change, old) {
+      const oldLength = old[this.managerIndex].length;
+      const newLength = change[this.managerIndex].length;
+      const difference = Math.abs(oldLength - newLength);
+      this.pauseBetweenManagers = parseInt(
+        250 + 1.2 * difference + 0.4 * (0.5 * oldLength + newLength)
+      );
+      this.animationDuration = parseInt(0.85 * this.pauseBetweenManagers);
+
+      // console.log("nodes have changed:", this.nodeChangeCounter);
+      // console.log(old, change);
+      console.log("pause:", this.pauseBetweenManagers);
+
       if (this.managerIndex == 0) {
-        console.log("nodes have changed");
-        // console.log(change);
-        this.$store.commit("progressBar/INCREMENT_NODE_CHANGE_COUNTER");
+        this.$store.commit(
+          "progressBar/UPDATE_ANIMATION_DURATION",
+          200 + this.pauseBetweenManagers
+        );
         if (this.nodeChangeCounter > 0) {
           this.$helpers.displayOrHideProgressBar("display");
           this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
           this.initGraphOnDataChange();
         }
+        this.$store.commit("progressBar/INCREMENT_NODE_CHANGE_COUNTER");
       }
     },
     animationIndex() {
@@ -112,25 +136,17 @@ export default {
     areDistinctOutlinesActive(change) {
       this.addOrRemoveOutlines(change);
       // !Optional
-      if (this.managerIndex == 0) {
+      // console.log("Outlines have changed");
+
+      if (this.managerIndex == 0 && this.nodeChangeCounter > 0) {
         this.$helpers.displayOrHideProgressBar("display");
         this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
         this.initGraphOnDataChange();
       }
-    },
-    centers() {
-      // console.log("centers have changed");
-      // this.updateGraphOnParameterChange();
-      // if (this.isGraphInitialized) {
-      // }
     }
   },
   created() {},
-  mounted() {
-    // setTimeout(() => {
-    //   this.initGraphOnDataChange();
-    // }, 6000);
-  },
+  mounted() {},
   methods: {
     getDistinctClass(node) {
       if (this.areDistinctOutlinesActive == true) {
@@ -365,13 +381,14 @@ export default {
       return index;
     },
     initGraphOnDataChange() {
+      // console.log("graph function called");
       this.startProgressBar();
       this.findExitNodes();
 
       setTimeout(() => {
         this.reassignExitNodes();
         this.simulate();
-      }, 100);
+      }, this.smallPause);
     },
     simulate() {
       this.defineSimulation();
@@ -379,7 +396,7 @@ export default {
 
       let smallPause = 0;
       if (this.nodes < 500) {
-        smallPause = 200;
+        smallPause = this.smallPause * 2;
       }
       setTimeout(() => {
         this.updateCoordinates();
@@ -399,10 +416,10 @@ export default {
       if (this.managerIndex == this.managers.length - 1) {
         setTimeout(() => {
           this.$helpers.displayOrHideProgressBar("hide");
-        }, 2000);
+        }, 1.9 * this.pauseBetweenManagers);
         setTimeout(() => {
           this.$store.commit("progressBar/CHANGE_PROGRESS", 0);
-        }, 2500);
+        }, 1.9 * this.pauseBetweenManagers + 50);
       }
     },
     updateAnimationIndex() {
@@ -413,13 +430,15 @@ export default {
             "forceGraph/CHANGE_ANIMATION_INDEX",
             this.managerIndex + 1
           );
-        }, 1050);
+        }, this.pauseBetweenManagers);
       } else {
         this.$store.commit("forceGraph/CHANGE_ANIMATION_INDEX", 0);
-        this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 0);
+
         setTimeout(() => {
-          this.$store.commit("progressBar/REMOVE_LAST_FROM_STEP_ARRAY", 0);
-        }, 1050);
+          this.$store.commit("progressBar/UPDATE_ANIMATION_DURATION", 200);
+          this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 0);
+          this.$store.commit("progressBar/CLEAR_STEP_ARRAY");
+        }, this.pauseBetweenManagers);
       }
     }
   }

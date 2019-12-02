@@ -10,7 +10,8 @@
 }
 
 #progress-mover {
-  transition: transform 1050ms linear;
+  // TODO calculacte by nodelength
+  transition: transform 900ms linear;
   position: absolute;
   top: 0;
   left: 0;
