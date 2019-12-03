@@ -1,8 +1,20 @@
 export const state = () => ({
-  year: 2014,
+  year: 2018,
   yearRange: [2009, 2018],
-  direction: "positive"
+  direction: "positive",
+  currentYearRange: [2009, 2018],
+  useYearRange: false
 });
+
+export const getters = {
+  currentYearRangeArray(state) {
+    const currentYearDifference =
+      state.currentYearRange[1] - state.currentYearRange[0];
+    return [...Array(currentYearDifference + 1)].map(
+      (x, i) => state.currentYearRange[0] + i
+    );
+  }
+};
 
 export const mutations = {
   CHANGE_YEAR(state, val) {
@@ -24,5 +36,8 @@ export const mutations = {
     } else {
       state.direction = "negative";
     }
+  },
+  SET_USE_YEAR_RANGE(state, bool) {
+    state.useYearRange = bool;
   }
 };

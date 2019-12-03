@@ -35,8 +35,8 @@ export const mutations = {
   SET_ARE_DISTINCT_OUTLINES_ACTIVE(state, bool) {
     state.areDistinctOutlinesActive = bool;
   },
-  UPDATE_PROPOSAL_FILTER(state, array) {
-    state.proposalFilter = array;
+  UPDATE_PROPOSAL_FILTER(state, obj) {
+    state.proposalFilter = obj;
   }
   // COMBINE_CAT_AND_FILTER_CHANGES(state, combo) {
   //   for (const element of state.categoriesToggle) {
@@ -53,11 +53,19 @@ export const mutations = {
 
 export const getters = {
   // backup is all possible.
-  proposalsCurrentYear(state, getters, rootState) {
+  proposalsCurrentYear(state, getters, rootState, rootGetters) {
+    // console.log(rootGetters);
+    const currentYearRangeArray = rootGetters["year/currentYearRangeArray"];
+    const useYearRange = rootState.year.useYearRange;
     let newArray = [];
     for (const manager of state.proposals) {
       const yearFilter = manager.filter(x => {
-        const matchesYear = x.year == rootState.year.year;
+        let matchesYear = false;
+        if (!useYearRange) {
+          matchesYear = x.year == rootState.year.year;
+        } else {
+          matchesYear = currentYearRangeArray.includes(x.year);
+        }
         if (matchesYear) {
           // Check if proposal is active right now
           const checkArray = state.categoriesToggle

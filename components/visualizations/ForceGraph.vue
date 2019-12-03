@@ -7,6 +7,9 @@
     <div class="svg-container">
       <div class="svg-background"></div>
       <svg class="svg-element" :width="width" :height="height">
+        
+          <line class="year-line" :x1="0" :x2="width" :y1="0" :y2="0" />
+        </g>
         <!-- <rect :width="width" :height="height" class="svg-background" /> -->
         <g
           v-for="(node, i) in nodes"
@@ -88,7 +91,8 @@ export default {
     ...mapGetters({
       nodesStore: [`forceGraph/nodesPerYear`],
       centers: [`forceGraph/centers`],
-      categories: [`proposals/categories`]
+      categories: [`proposals/categories`],
+      currentYearRangeArray: [`year/currentYearRangeArray`]
     }),
     circle() {
       const padding = this.areDistinctOutlinesActive ? 2 : 1;
@@ -123,7 +127,7 @@ export default {
         if (this.nodeChangeCounter > 0) {
           this.$helpers.displayOrHideProgressBar("display");
           this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
-          this.initGraphOnDataChange();
+            this.initGraphOnDataChange();
         }
         this.$store.commit("progressBar/INCREMENT_NODE_CHANGE_COUNTER");
       }
@@ -246,10 +250,20 @@ export default {
         this.nodesStore[this.managerIndex]
       );
       this.newLength = this.newStore.length;
-      // console.log(this.oldLocal, this.newStore);
       this.exitIndexes = [];
+      // ! Only looping once causes an issue here: fix in  new branch !
+          // if (this.managerIndex == 0) {
+          //   console.log(this.$helpers.getArrayOfObjectsCopy(this.oldLocal), this.$helpers.getArrayOfObjectsCopy(this.newStore));
+          // }
+          // for (let i = 0; i < this.oldLocal.length; i++) {
+          //   const proposal = this.oldLocal[i];
+          //   const foundID = this.$helpers.findWithAttr(this.newStore, "uID", proposal.uID);
+          //   console.log(foundID);
+          // }
       for (let i = 0; i < this.oldLocal.length; i++) {
         const proposal = this.oldLocal[i];
+        
+
         const foundIndex = this.$helpers.findWith2Attrs(
           this.newStore,
           "issue",
@@ -387,7 +401,9 @@ export default {
     initGraphOnDataChange() {
       // console.log("graph function called");
       this.startProgressBar();
-      this.findExitNodes();
+      setTimeout(() => {
+        this.findExitNodes();
+      });
 
       setTimeout(() => {
         this.reassignExitNodes();
