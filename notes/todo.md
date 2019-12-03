@@ -1,14 +1,12 @@
+# Add all three of them were active symbol!
+
 ## 3rd Chapter
 - Specific companies with interesting proposals (amazon), 
   - Amazon has been targeted by their own employees
 
 ## Show the prev / next button only after the three categories are introduced
 
-## Tooltip
-- Use the item description as a title
-- Use resolution only for filtering
-- Add a highlight for the other two managers on hover 
-  - Create proposal ID in python
+
 
 ## Drawing / restructuring over different aspects
 
@@ -31,8 +29,9 @@
 ## UI
 1. Add feedback (loading animation) to the previous and next buttons
 2. When the distinct outlines are removed there is no transition for some reason
-3. Fix tooltip is scrolling with the text.
+3. Fix tooltip: is scrolling with the text.
 4. Reset scrolly telling if the processes freeze
+5. Scrolly telling feedback: come up with the right conditions, standardize them and move the progressBarFade in to before the start of the calculcation
 
 ## Visualization
 
@@ -84,6 +83,12 @@
         .reduce((memo, val) => (memo.diff < val.diff ? memo : val));
     },
 ```
+
+## Tooltip – done
+- Use the item description as a title
+- Use resolution only for filtering
+- Add a highlight for the other two managers on hover 
+  - Create proposal ID in python
 
 ## Intro part
 

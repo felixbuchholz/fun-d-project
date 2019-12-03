@@ -1,7 +1,10 @@
 export const state = () => ({
   progress: 0,
   processCounter: 0,
-  stepArray: []
+  nodeChangeCounter: 0,
+  stepArray: [],
+  animationDuration: 200,
+  browsingYears: false
 });
 
 export const getters = {
@@ -21,10 +24,22 @@ export const mutations = {
       state.processCounter += val;
     }
   },
+  INCREMENT_NODE_CHANGE_COUNTER(state) {
+    state.nodeChangeCounter++;
+  },
   ADD_TO_STEP_ARRAY(state, val) {
     state.stepArray.push(val);
   },
+  CLEAR_STEP_ARRAY(state) {
+    state.stepArray = [];
+  },
   REMOVE_LAST_FROM_STEP_ARRAY(state) {
     state.stepArray.pop();
+  },
+  UPDATE_ANIMATION_DURATION(state, val) {
+    state.animationDuration = val;
+  },
+  UPDATE_BROWSING_YEARS(state, bool) {
+    state.browsingYears = bool;
   }
 };

@@ -11,8 +11,12 @@ $text-font-stack: "IBM Plex Sans", "Helvetica Neue Light", "Helvetica Neue",
   "Helvetica", "Arial", sans-serif !default;
 $title-font-stack: "IBM Plex Serif", serif !default;
 
+$circle-movement-duration: 500ms;
+
 $shadow-blur: 6px;
 $padding-desktop: 20px;
+$feedback-size: 70px;
+$feedback-size-small: 50px;
 
 /// @type Color
 $black: #222 !default;
@@ -27,9 +31,6 @@ $link_underline: rgb(30, 54, 185);
 $link_underline_visited: rgb(66, 84, 190);
 $collapse_box_closed: rgb(122, 148, 204);
 $collapse_box_open: rgba(122, 148, 204, 0.5);
-
-$feedback-size: 70px;
-$feedback-size-small: 50px;
 
 $first: #ff8546;
 $first-light: lighten($first, 30%);

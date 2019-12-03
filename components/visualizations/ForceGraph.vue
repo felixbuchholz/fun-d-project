@@ -18,15 +18,18 @@
               coords[i] ? coords[i].x : getCoordsByIssue(node.issue).x
             }px) translateY(${
               coords[i] ? coords[i].y : getCoordsByIssue(node.issue).y
-            }px)`
+            }px); transition: transform ${animationDuration} ease-in-out;`
           "
+          @mouseenter="activateForSameProposals(node)"
+          @mouseleave="deactivateForSameProposals(node)"
         >
+          <!-- transition: transform ${animationDuration} ease-in-out; -->
           <circle
             :r="circle.radius"
             :class="
               `node-circle mean-activist-${
                 node.meanActivist > 0.5 ? 'yes' : 'no'
-              } ${node.issue} ${getDistinctClass(node)}`
+              } ${node.issue} id-${node.uID} ${getDistinctClass(node)}`
             "
           />
           <!--  -->
@@ -56,15 +59,18 @@ export default {
   },
   data() {
     return {
+      pauseBetweenManagers: 600,
+      oldNodesLength: 0,
+      smallPause: 50,
       nodes: [],
+      coords: [],
       oldLocal: [],
       newStore: [],
       newLength: [],
       exitIndexes: [],
       simulation: null,
       centered: true,
-      isGraphInitialized: false,
-      coords: []
+      isGraphInitialized: false
     };
   },
   computed: {
@@ -75,7 +81,9 @@ export default {
       height: state => state.forceGraph.height,
       animationIndex: state => state.forceGraph.animationIndex,
       areDistinctOutlinesActive: state =>
-        state.proposals.areDistinctOutlinesActive
+        state.proposals.areDistinctOutlinesActive,
+      nodeChangeCounter: state => state.progressBar.nodeChangeCounter,
+      browsingYears: state => state.progressBar.browsingYears
     }),
     ...mapGetters({
       nodesStore: [`forceGraph/nodesPerYear`],
@@ -86,17 +94,38 @@ export default {
       const padding = this.areDistinctOutlinesActive ? 2 : 1;
       return { radius: 4, padding: padding };
     }
+    // animationDuration() {
+    //   return (
+    //     1.8 * this.nodesStore[this.managerIndex].length +
+    //     0.8 * this.oldNodesLength
+    //   );
+    // }
   },
   watch: {
-    nodesStore(change) {
-      // console.log("nodes have changed");
-      // console.log(change);
-      // TODO this is not working to reset the whole thing!
-      // if (change.every(el => el.length != 0) && this.managerIndex == 0) {
+    nodesStore(change, old) {
+      const oldLength = old[this.managerIndex].length;
+      const newLength = change[this.managerIndex].length;
+      const difference = Math.abs(oldLength - newLength);
+      this.pauseBetweenManagers = parseInt(
+        240 + 1.5 * difference + 0.38 * (0.65 * oldLength + newLength)
+      );
+      this.animationDuration = parseInt(0.85 * this.pauseBetweenManagers);
+
+      // console.log("nodes have changed:", this.nodeChangeCounter);
+      // console.log(old, change);
+      // console.log("pause:", this.pauseBetweenManagers);
+
       if (this.managerIndex == 0) {
-        this.$helpers.displayOrHideProgressBar("display");
-        this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
-        this.initGraphOnDataChange();
+        this.$store.commit(
+          "progressBar/UPDATE_ANIMATION_DURATION",
+          200 + this.pauseBetweenManagers
+        );
+        if (this.nodeChangeCounter > 0) {
+          this.$helpers.displayOrHideProgressBar("display");
+          this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
+          this.initGraphOnDataChange();
+        }
+        this.$store.commit("progressBar/INCREMENT_NODE_CHANGE_COUNTER");
       }
     },
     animationIndex() {
@@ -108,25 +137,17 @@ export default {
     areDistinctOutlinesActive(change) {
       this.addOrRemoveOutlines(change);
       // !Optional
-      if (this.managerIndex == 0) {
+      // console.log("Outlines have changed");
+
+      if (this.managerIndex == 0 && this.nodeChangeCounter > 0) {
         this.$helpers.displayOrHideProgressBar("display");
         this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 1);
         this.initGraphOnDataChange();
       }
-    },
-    centers() {
-      // console.log("centers have changed");
-      // this.updateGraphOnParameterChange();
-      // if (this.isGraphInitialized) {
-      // }
     }
   },
   created() {},
-  mounted() {
-    // setTimeout(() => {
-    //   this.initGraphOnDataChange();
-    // }, 6000);
-  },
+  mounted() {},
   methods: {
     getDistinctClass(node) {
       if (this.areDistinctOutlinesActive == true) {
@@ -159,17 +180,32 @@ export default {
     tooltipOptions(node) {
       return {
         content: this.markupTooltip(node),
-        classes: node.issue
+        classes: node.issue,
+        offset: 3
       };
     },
     markupTooltip(node) {
       return `<div class="resolution">${
-        node.resolution
+        node.desc
       }</div> <div class="information">Company: <span class="company">${voca.titleCase(
         node.company
       )}</span></div><div class="information">Year: <span class="bold">${
         node.year
       }</span></div>`;
+    },
+    activateForSameProposals(node) {
+      const samePropCircles = document.querySelectorAll(`.id-${node.uID}`);
+      // console.log(samePropCircles);
+      for (const circle of samePropCircles) {
+        circle.classList.add("active");
+      }
+    },
+    deactivateForSameProposals(node) {
+      const samePropCircles = document.querySelectorAll(`.id-${node.uID}`);
+      // console.log(samePropCircles);
+      for (const circle of samePropCircles) {
+        circle.classList.remove("active");
+      }
     },
     ticked() {
       // ticked has no parameter!
@@ -251,11 +287,11 @@ export default {
       this.simulation = d3
         .forceSimulation(this.nodes)
         // Move the parameters to the store later
-        .alpha(0.9) // Starting point, alpha is the "ticks" unit or counter // default: 1, range: [0,1]
-        .alphaDecay(0.01) // Acceleration of the animation // default: 0.0288, range [0,1]
-        .alphaMin(0.00006) // Stopping point // default: 0.001, range [0,1]
+        .alpha(0.85) // Starting point, alpha is the "ticks" unit or counter // default: 1, range: [0,1] // was: 0.9
+        .alphaDecay(0.25) // Acceleration of the animation // default: 0.0288, range [0,1] // was: 0.2
+        .alphaMin(0.006) // Stopping point // default: 0.001, range [0,1]
         .alphaTarget(0) // Target! // default: 0, range [0,1]
-        .velocityDecay(0.3) // Friction or "mass" // default: 0.4, range [0,1]
+        .velocityDecay(0.5) // Friction or "mass" // default: 0.4, range [0,1] // was: 0.4
         .force(
           "charge",
           d3
@@ -300,7 +336,7 @@ export default {
           d3
             .forceCollide()
             .radius(this.circle.radius + this.circle.padding)
-            .strength(0.9) // find default
+            .strength(1) // find default // was: 0.9
             .iterations(2)
         )
         // .on("tick", this.ticked)
@@ -346,13 +382,14 @@ export default {
       return index;
     },
     initGraphOnDataChange() {
+      // console.log("graph function called");
       this.startProgressBar();
       this.findExitNodes();
 
       setTimeout(() => {
         this.reassignExitNodes();
         this.simulate();
-      }, 100);
+      }, this.smallPause);
     },
     simulate() {
       this.defineSimulation();
@@ -360,7 +397,7 @@ export default {
 
       let smallPause = 0;
       if (this.nodes < 500) {
-        smallPause = 200;
+        smallPause = this.smallPause * 2;
       }
       setTimeout(() => {
         this.updateCoordinates();
@@ -379,11 +416,13 @@ export default {
     endProgressBar() {
       if (this.managerIndex == this.managers.length - 1) {
         setTimeout(() => {
-          this.$helpers.displayOrHideProgressBar("hide");
-        }, 2000);
+          if (!this.browsingYears) {
+            this.$helpers.displayOrHideProgressBar("hide");
+          }
+        }, 1.9 * this.pauseBetweenManagers);
         setTimeout(() => {
           this.$store.commit("progressBar/CHANGE_PROGRESS", 0);
-        }, 2500);
+        }, 1.9 * this.pauseBetweenManagers + 5);
       }
     },
     updateAnimationIndex() {
@@ -394,13 +433,17 @@ export default {
             "forceGraph/CHANGE_ANIMATION_INDEX",
             this.managerIndex + 1
           );
-        }, 1050);
+        }, this.pauseBetweenManagers);
       } else {
         this.$store.commit("forceGraph/CHANGE_ANIMATION_INDEX", 0);
-        this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 0);
+
         setTimeout(() => {
-          this.$store.commit("progressBar/REMOVE_LAST_FROM_STEP_ARRAY", 0);
-        }, 1050);
+          this.$store.commit("progressBar/UPDATE_ANIMATION_DURATION", 200);
+          this.$store.commit("progressBar/CHANGE_PROCESS_COUNTER", 0);
+          if (!this.browsingYears) {
+            this.$store.commit("progressBar/CLEAR_STEP_ARRAY");
+          }
+        }, this.pauseBetweenManagers);
       }
     }
   }

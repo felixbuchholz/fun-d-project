@@ -2,7 +2,7 @@
   <div id="scrolly1" class="scrolly-telling-text">
     <!-- TODO: transition not working (classes work) -->
     <transition name="fade">
-      <div v-if="processCounter > 1" class="scroll-popover-modal">
+      <div v-if="processCounter > 2" class="scroll-popover-modal">
         <div class="scroll-popover-container">
           <fa icon="spinner" class="scroll-popover-icon rotating" />
           <div class="scroll-popover-message">
@@ -21,7 +21,8 @@
     </div>
 
     <Scrollama :offset="0.35" @step-enter="stepEnterHandler">
-      <div id="scroll_0" class="margin-scrollama-text">
+      <div id="scroll_0" :class="`margin-scrollama-text ${getLoadingState(0)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
         <h3 class="scrollyTitle">
           Where activists meet the passive investment giants
         </h3>
@@ -46,14 +47,14 @@
           Funds from one manager may vote differently. This visual takes the
           most common vote for each manager.
         </p>
-        <p>
+        <!-- <p>
           Darker
           <span class="gov_li" style="vertical-align: -2px">&#8226;</span>:
           manager voted against management for that agenda item across most of
           its funds. <br />Lighter
           <span class="gov_li_light" style="vertical-align: -2px">&#8226;</span>
           : manager supported the company's management.
-        </p>
+        </p> -->
       </div>
 
       <div id="scroll_1" :class="`margin-scrollama-text ${getLoadingState(1)}`">
@@ -99,7 +100,10 @@
         </p>
       </div>
 
-      <div id="scroll_4" :class="`margin-scrollama-text ${getLoadingState(4)}`">
+      <div
+        id="scroll_4"
+        :class="`margin-scrollama-text ${getLoadingState(4)} last-category`"
+      >
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           We noticed a few shareholder proposals asking the target company to
@@ -120,15 +124,15 @@
         </p>
       </div>
 
-
-
-      <div class="margin-scrollama-text">
-        Clearly, these asset managers are more often supporting management by voting against activist shareholders. Most shareholder proposals do not pass. The average support for shareholder proposals has been fairly constant at about 30% over the past 10 years. However, shareholder meeting dynamics did change significantly in this period. Shareholders became more active: more capital was invested by activists to force corporate change, and shareholders submitted more resolutions. <br /> <br />
-        Meanwhile, voting has become less of a “compliance” exercise: institutional shareholders have become more keen on pro-active engagement as “stewards”. This shows as good corporate governance rose as a focus area for investors. That is probably also because of governance scandals (think Kobe Steel or Volkswagen) and increased regulatory attention. In most recent years, a record shareholder proposals is about social and environmental issues - and an increasing amount of such proposals pass.
+      <div id="scroll_5" :class="`margin-scrollama-text ${getLoadingState(5)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>Clearly, these asset managers are more often supporting management by voting against activist shareholders. Most shareholder proposals do not pass. The average support for shareholder proposals has been fairly constant at about 30% over the past 10 years. However, shareholder meeting dynamics did change significantly in this period. Shareholders became more active: more capital was invested by activists to force corporate change, and shareholders submitted more resolutions. <br /> <br />
+        Meanwhile, voting has become less of a “compliance” exercise: institutional shareholders have become more keen on pro-active engagement as “stewards”. This shows as good corporate governance rose as a focus area for investors. That is probably also because of governance scandals (think Kobe Steel or Volkswagen) and increased regulatory attention. In most recent years, a record shareholder proposals is about social and environmental issues - and an increasing amount of such proposals pass.</p>
       </div>
 
       <div class="margin-scrollama-text">
-After Newtown, Connecticut and Parkland, Florida, the impact of mass shootings have yet to produce new gun-safety laws in the United States. Where the Trump administration is reluctant to overhaul gun laws, some corporate shareholders are pushing for stronger gun control policies. We noticed shareholder proposals asking that companies stop selling guns, or openly distantiate from National Rifle Association (NRA). For example, Walmart and Dick’s Sporting Goods placed new restrictions on gun sales. Delta Airlines, MetLife and FedEx voted to part ways with or discontinue preferential treatment of the NRA. Two firearm companies, American Outdoor Brands and Sturm, Ruger &amp; Co were targeted by investors to produce a report on gun violence.      </div>
+      <p>After Newtown, Connecticut and Parkland, Florida, the impact of mass shootings have yet to produce new gun-safety laws in the United States. Where the Trump administration is reluctant to overhaul gun laws, some corporate shareholders are pushing for stronger gun control policies. We noticed shareholder proposals asking that companies stop selling guns, or openly distantiate from National Rifle Association (NRA). <br /> <br /> For example, Walmart and Dick’s Sporting Goods placed new restrictions on gun sales. Delta Airlines, MetLife and FedEx voted to part ways with or discontinue preferential treatment of the NRA. Two firearm companies, American Outdoor Brands and Sturm, Ruger &amp; Co were targeted by investors to produce a report on gun violence.</p>      
+      </div>
 
       <div class="margin-scrollama-text">
         This is where some drawing happens.
@@ -148,16 +152,41 @@ import { mapState } from "vuex";
 export default {
   data: function() {
     return {
-      lastStep: ""
+      lastStep: "",
+      lastIndex: 0
     };
   },
   computed: {
     ...mapState({
       processCounter: state => state.progressBar.processCounter,
-      stepArray: state => state.progressBar.stepArray
+      stepArray: state => state.progressBar.stepArray,
+      year: state => state.year.year,
+      yearRange: state => state.year.yearRange
     })
   },
   methods: {
+    changeYear(val) {
+      this.$store.commit("year/CHANGE_YEAR", val);
+    },
+    browseThroughYears(endYear) {
+      if (this.year < endYear) {
+        this.$store.commit("progressBar/UPDATE_BROWSING_YEARS", true);
+        const that = this;
+        let timer = setInterval(() => {
+          // console.log("interval");
+          if (this.processCounter == 0) {
+            // console.log("processCounter == 0");
+            that.changeYear(1);
+          }
+          if (this.year == endYear) {
+            this.$store.commit("progressBar/UPDATE_BROWSING_YEARS", false);
+            clearInterval(timer);
+          }
+        }, 100);
+      } else {
+        // TODO: what to do if current year is later than endYear?
+      }
+    },
     setActiveCats(array) {
       setTimeout(() => {
         this.$store.commit("proposals/SET_ACTIVE_CATEGORIES", array);
@@ -171,9 +200,11 @@ export default {
       }
     },
     stepEnterHandler(event) {
+      // console.log(event);
       // Convenient variables
       const index = event.index;
       const direction = event.direction;
+      const isLastCategory = event.element.className.includes("last-category");
       const thisStep = index + direction;
       const up = direction == "up";
       const down = direction == "down";
@@ -189,11 +220,13 @@ export default {
         indicator.classList.remove("feedback--click");
       }, 400);
 
-      // TODO: make this a function and put it in the right steps / up & down condition to not add too much logic
-      // or copy the condition from the ForceGraph
-      console.log(stepIndicator);
-      if (stepIndicator && this.lastStep != thisStep && thisStep != "1up") {
-        this.$store.commit("progressBar/ADD_TO_STEP_ARRAY", index);
+      if (stepIndicator && this.lastIndex != index) {
+        // exclude last category switch & up direction
+        // console.log(isLastCategory);
+        if (!isLastCategory && !up) {
+          this.$store.commit("progressBar/ADD_TO_STEP_ARRAY", index);
+          this.$helpers.displayOrHideProgressBar("display");
+        }
       }
 
       console.log(index, direction);
@@ -202,7 +235,6 @@ export default {
       switch (index) {
         case 0:
           if (down) {
-            this.setActiveCats([""]);
             indicatorMover.classList.add("active");
             
           } else if (up) {
@@ -212,45 +244,47 @@ export default {
           break;
 
         case 1:
-          if (down) {
-            this.setActiveCats(["env"]);
-          } else if (up) {
-            this.setActiveCats(["env"]);
-          }
+          this.setActiveCats(["env"]);
           break;
 
         case 2:
-          if (down) {
-            this.setActiveCats(["env", "soc"]);
-          } else if (up) {
-            this.setActiveCats(["env"]);
-          }
+          this.setActiveCats(["env", "soc"]);
           break;
 
         case 3:
-          if (down) {
-            this.setActiveCats(["env", "soc", "gg"]);
-            //this.select(".gg").style("color: red")
-          } else if (up) {
-            this.setActiveCats(["env", "soc"]);
-          }
+          this.setActiveCats(["env", "soc", "gg"]);
           break;
 
         case 4:
+          this.setActiveCats(["env", "soc", "gg", "profit"]);
+          break;
+
+        case 5:
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            array: []
+          });
           if (down) {
-            this.setActiveCats(["env", "soc", "gg", "profit"]);
+            if (this.lastIndex != index) {
+              this.browseThroughYears(this.yearRange[1]);
+            }
           } else if (up) {
-            this.setActiveCats(["env", "soc", "gg"]);
+            this.changeYear(2010);
           }
           break;
 
-        // case 5:
-        //   if (down) {
-        //     this.drawSmthRandom();
-        //   } else if (up) {
-        //     this.removeDrawing();
-        //   }
-        //   break;
+        case 6:
+          this.setActiveCats(["soc"]);
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            array: [
+              { prop: "resolution", val: "weapon" },
+              { prop: "resolution", val: "gun" },
+              { prop: "desc", val: "gun" },
+              { prop: "company", val: "sturm" }
+            ]
+          });
+          break;
 
         // case 6:
         //   if (down) {
@@ -274,7 +308,8 @@ export default {
       }
 
       // Update last step
-      this.lastStep = index + direction;
+      this.lastStep = thisStep;
+      this.lastIndex = index;
     },
     drawSmthRandom() {
       anime({
