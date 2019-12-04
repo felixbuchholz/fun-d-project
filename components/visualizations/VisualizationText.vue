@@ -126,11 +126,16 @@
 
       <div id="scroll_5" :class="`margin-scrollama-text ${getLoadingState(5)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
-        <p>This is where we “click” through a couple of years</p>
+        <p>
+          [Deactive – open if this step will happen]This is where we “click”
+          through a couple of years
+        </p>
       </div>
 
       <div class="margin-scrollama-text">
-        This is where we go start talking about specific issues
+        This is where we start talking about gun control. (filtering by column
+        and keyword, showing all years, next step will be arranging vertically
+        on the grid)
       </div>
 
       <div class="margin-scrollama-text">
@@ -244,19 +249,19 @@ export default {
           break;
 
         case 1:
-          // this.setActiveCats(["env"]);
+          this.setActiveCats(["env"]);
           break;
 
         case 2:
-          // this.setActiveCats(["env", "soc"]);
+          this.setActiveCats(["env", "soc"]);
           break;
 
         case 3:
-          // this.setActiveCats(["env", "soc", "gg"]);
+          this.setActiveCats(["env", "soc", "gg"]);
           break;
 
         case 4:
-          // this.setActiveCats(["env", "soc", "gg", "profit"]);
+          this.setActiveCats(["env", "soc", "gg", "profit"]);
           break;
 
         case 5:
@@ -266,18 +271,18 @@ export default {
             logic: "or",
             array: []
           });
-          // if (down) {
-          //   if (this.lastIndex != index) {
-          //     this.browseThroughYears(this.yearRange[1]);
-          //   }
-          // } else if (up) {
-          //   this.changeYear(2010);
-          // }
+          if (down) {
+            if (this.lastIndex != index) {
+              // this.browseThroughYears(this.yearRange[1]);
+            }
+          } else if (up) {
+            // this.changeYear(2010);
+          }
           break;
 
         case 6:
           // SET_USE_YEAR_RANGE
-          // this.$store.commit("year/SET_USE_YEAR_RANGE", true);
+          this.$store.commit("year/SET_USE_YEAR_RANGE", true);
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
             logic: "or",
             array: [

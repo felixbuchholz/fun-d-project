@@ -23,7 +23,7 @@ export default {
   components: { ForceGraph, GraphControlsDrawer, DrawingCanvas, YearGrid },
   data() {
     return {
-      managers: [0]
+      managers: [0, 1, 2]
       // managers: [1]
     };
   }
