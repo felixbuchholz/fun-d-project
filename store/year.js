@@ -39,5 +39,8 @@ export const mutations = {
   },
   SET_USE_YEAR_RANGE(state, bool) {
     state.useYearRange = bool;
+  },
+  SET_CURRENT_YEAR_RANGE(state, array) {
+    state.currentYearRange = array;
   }
 };

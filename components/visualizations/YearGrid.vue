@@ -10,7 +10,7 @@
         `transform: translateY(${(height / (currentYearRangeArray.length + 2)) *
           (i + 1) -
           7}px)`
-      " -->
+      "-->
       <div class="grid-line"></div>
       <div class="grid-year left">{{ year }}</div>
       <div class="grid-line center"></div>

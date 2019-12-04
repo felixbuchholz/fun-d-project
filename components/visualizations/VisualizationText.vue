@@ -5,17 +5,12 @@
       <div v-if="processCounter > 2" class="scroll-popover-modal">
         <div class="scroll-popover-container">
           <fa icon="spinner" class="scroll-popover-icon rotating" />
-          <div class="scroll-popover-message">
-            Please wait until animation is finished&nbsp;…
-          </div>
+          <div class="scroll-popover-message">Please wait until animation is finished&nbsp;…</div>
         </div>
       </div>
     </transition>
     <div ref="indicator-mover-1" class="scrolly-indicator-mover">
-      <div
-        ref="indicator-1"
-        class="scrolly-indicator feedback feedback--effect-ivana small"
-      >
+      <div ref="indicator-1" class="scrolly-indicator feedback feedback--effect-ivana small">
         <fa icon="long-arrow-alt-right" class />
       </div>
     </div>
@@ -23,9 +18,7 @@
     <Scrollama :offset="0.35" @step-enter="stepEnterHandler">
       <div id="scroll_0" :class="`margin-scrollama-text ${getLoadingState(0)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
-        <h4 class="scrollyTitle">
-          Where activists meet the passive investment giants
-        </h4>
+        <h4 class="scrollyTitle">Where activists meet the passive investment giants</h4>
         <p>
           First look at how these three asset management firms compare in terms
           of siding with or against management.
@@ -73,7 +66,8 @@
           <span class="soc_li" style="vertical-align: -1px">&#8226;</span>
           <span style="font-weight: 800;">social</span> category are often calls
           for companies to be more transparent about political contributions;
-          their lobbying; human rights policies. <br />Social shareholder
+          their lobbying; human rights policies.
+          <br />Social shareholder
           proposals also include employment issues such as employee diversity,
           pay-gaps and greater support for workers’ rights (for example minimum
           wage reform).
@@ -94,16 +88,14 @@
           Darker
           <span class="gov_li" style="vertical-align: -2px">&#8226;</span>:
           manager voted against management for that agenda item across most of
-          its funds. <br />Lighter
+          its funds.
+          <br />Lighter
           <span class="gov_li_light" style="vertical-align: -2px">&#8226;</span>
           : manager supported the company's management.
         </p>
       </div>
 
-      <div
-        id="scroll_4"
-        :class="`margin-scrollama-text ${getLoadingState(4)} last-category`"
-      >
+      <div id="scroll_4" :class="`margin-scrollama-text ${getLoadingState(4)} last-category`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           We noticed a few shareholder proposals asking the target company to
@@ -127,24 +119,31 @@
       <div id="scroll_5" :class="`margin-scrollama-text ${getLoadingState(5)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          [Deactive – open if this step will happen]This is where we “click”
-          through a couple of years
+          In this step we can just experiment with things:
+          <br />One option for the final version: “click” through a couple of
+          years
+          <br />Right now: Narrowing down to the social category again
         </p>
       </div>
 
-      <div class="margin-scrollama-text">
-        This is where we start talking about gun control. (filtering by column
-        and keyword, showing all years, next step will be arranging vertically
-        on the grid)
+      <div id="scroll_6" :class="`margin-scrollama-text ${getLoadingState(6)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>
+          This is where we start talking about gun control. (filtering by column
+          and keyword, showing all years, next step will be arranging vertically
+          on the grid)
+        </p>
       </div>
 
-      <div class="margin-scrollama-text">
-        This is where some drawing happens.
+      <div id="scroll_7" :class="`margin-scrollama-text ${getLoadingState(7)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>
+          This is filtered by proposals that match company column includes
+          "amazon" for the years 2010 – 2016.
+        </p>
       </div>
 
-      <div class="margin-scrollama-text">
-        This is where the distinct outlines are activated
-      </div>
+      <div class="margin-scrollama-text">This is where the distinct outlines are activated</div>
       <div class="margin-scrollama-text">This is just for spacing</div>
       <div class="margin-scrollama-text">This is just for spacing</div>
     </Scrollama>
@@ -203,6 +202,16 @@ export default {
         return "loading";
       } else {
         return "";
+      }
+    },
+    displayOrHideGrid(option = "display") {
+      // Only use the grid in the same parent container,
+      // in case we at some point wil have multiple ones of these
+      const graphGrid = this.$el.parentElement.querySelector(".grid");
+      if (option == "display") {
+        graphGrid.classList.remove("zero-opacity");
+      } else {
+        graphGrid.classList.add("zero-opacity");
       }
     },
     stepEnterHandler(event) {
@@ -265,22 +274,25 @@ export default {
           break;
 
         case 5:
-          this.setActiveCats(["soc"]);
+          this.displayOrHideGrid("hide");
 
+          this.setActiveCats(["soc"]);
+          this.$store.commit("year/SET_USE_YEAR_RANGE", false);
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
             logic: "or",
             array: []
           });
-          if (down) {
-            if (this.lastIndex != index) {
-              // this.browseThroughYears(this.yearRange[1]);
-            }
-          } else if (up) {
-            // this.changeYear(2010);
-          }
+          // if (down) {
+          //   if (this.lastIndex != index) {
+          //     // this.browseThroughYears(this.yearRange[1]);
+          //   }
+          // } else if (up) {
+          //   // this.changeYear(2010);
+          // }
           break;
 
         case 6:
+          this.displayOrHideGrid("display");
           // SET_USE_YEAR_RANGE
           this.$store.commit("year/SET_USE_YEAR_RANGE", true);
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
@@ -291,6 +303,17 @@ export default {
               { prop: "desc", val: "gun" },
               { prop: "company", val: "sturm" }
             ]
+          });
+          break;
+
+        case 7:
+          this.displayOrHideGrid("display");
+          // SET_USE_YEAR_RANGE
+          this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2016]);
+          this.$store.commit("year/SET_USE_YEAR_RANGE", true);
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            array: [{ prop: "company", val: "amazon" }]
           });
           break;
 

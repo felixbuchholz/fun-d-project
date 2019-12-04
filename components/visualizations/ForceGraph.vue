@@ -17,9 +17,9 @@
           class="node-circle-mover"
           :style="
             `transform: translateX(${
-              coords[i] ? coords[i].x : getCoordsByIssue(node.issue).x
+              coords[i] ? coords[i].x : getInitialCoords(node).x
             }px) translateY(${
-              coords[i] ? coords[i].y : getCoordsByIssue(node.issue).y
+              coords[i] ? coords[i].y : getInitialCoords(node).y
             }px); transition: transform ${animationDuration} ease-in-out;`
           "
           @mouseenter="activateForSameProposals(node)"
@@ -85,7 +85,8 @@ export default {
       areDistinctOutlinesActive: state =>
         state.proposals.areDistinctOutlinesActive,
       nodeChangeCounter: state => state.progressBar.nodeChangeCounter,
-      browsingYears: state => state.progressBar.browsingYears
+      browsingYears: state => state.progressBar.browsingYears,
+      useYearRange: state => state.year.useYearRange
     }),
     ...mapGetters({
       nodesStore: [`forceGraph/nodesPerYear`],
@@ -324,11 +325,8 @@ export default {
               return that.getXYStrength(d);
             })
             .x(function(d) {
-              if (d.issue == "exit") {
-                return that.centers[0].xN;
-              }
-              const x1 = that.centers[that.getIndexByIssue(d.issue)].x1;
-              const x2 = that.centers[that.getIndexByIssue(d.issue)].x2;
+              const x1 = that.centers[that.getCentersIndex(d)].x1;
+              const x2 = that.centers[that.getCentersIndex(d)].x2;
               return d.meanActivist > 0.5 ? x2 : x1;
             })
         )
@@ -340,10 +338,7 @@ export default {
               return that.getXYStrength(d);
             })
             .y(function(d) {
-              if (d.issue == "exit") {
-                return that.centers[0].yO;
-              }
-              return that.centers[that.getIndexByIssue(d.issue)].y;
+              return that.centers[that.getCentersIndex(d)].y;
             })
         )
         .force(
@@ -365,9 +360,9 @@ export default {
         return 1;
       }
     },
-    getCoordsByIssue(issue) {
-      const xN = this.centers[this.getIndexByIssue(issue)].xN;
-      const y = this.centers[this.getIndexByIssue(issue)].y;
+    getInitialCoords(node) {
+      const xN = this.centers[this.getCentersIndex(node)].xN;
+      const y = this.centers[this.getCentersIndex(node)].y;
       return { x: xN, y: y };
     },
     assignCoordsToObj(obj) {
@@ -389,6 +384,32 @@ export default {
         }
       }
     },
+    getCentersIndex(node) {
+      //──── Structure ────────────────────────────────────────────────────────────────────────────
+      // There are two cases
+      // 1. useYearRange is active (true): we want vertical position by year
+      // 2. useYearRange is not active (false): we want vertical position by issue category
+      if (this.useYearRange) {
+        // Case 1
+        const indexOfTheNodeYear = this.currentYearRangeArray.indexOf(
+          node.year
+        );
+        return indexOfTheNodeYear;
+      } else if (!this.useYearRange) {
+        // Case 2
+        const indexOfTheNodeIssue = this.$helpers.findWithAttr(
+          this.categories,
+          "issueCode",
+          node.issue
+        );
+        // console.log(index);
+        return indexOfTheNodeIssue;
+      } else {
+        // This is just in case something goes wrong
+        // we’ll throw an erroer
+        throw new Error("Unexcpected value of useYearRange in ForceGraph.vue");
+      }
+    },
     getIndexByIssue(issue) {
       const index = this.$helpers.findWithAttr(
         this.categories,
@@ -399,7 +420,7 @@ export default {
       return index;
     },
     initGraphOnDataChange() {
-      // console.log("graph function called");
+      console.log("graph function called");
       this.startProgressBar();
 
       this.reassignNodes();

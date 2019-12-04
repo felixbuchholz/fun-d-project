@@ -215,6 +215,7 @@
 
 //──── Grid on top of the group & controls ────────────────────────────────────────────
 .grid {
+  transition: all 400ms ease-in-out;
   position: absolute;
   display: flex;
   flex-direction: column;
