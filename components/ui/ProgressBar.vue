@@ -10,10 +10,13 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   computed: {
+    ...mapState({
+      animationDuration: state => state.progressBar.animationDuration
+    }),
     ...mapGetters({
       transform: [`progressBar/transform`]
     })

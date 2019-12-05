@@ -19,6 +19,22 @@ export default {
     }
     return -1;
   },
+  findWithEveryAttr(array, attrArray) {
+    for (var i = 0; i < array.length; i += 1) {
+      if (array[i]) {
+        let truthArray = [];
+        for (const obj of attrArray) {
+          // console.log(array, array[i], obj.attr);
+          const match = array[i][obj.attr] === obj.val;
+          truthArray.push(match);
+        }
+        if (truthArray.every(x => x == true)) {
+          return i;
+        }
+      }
+    }
+    return -1;
+  },
   getViewportSize() {
     var e = window;
     var a = "inner";

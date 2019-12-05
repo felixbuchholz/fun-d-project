@@ -4,7 +4,7 @@
     <div id="year-input" class="controls-input">
       <div class="regular year-label">Year:</div>
       <div class="cursor">
-        <input v-model.number="yearModel" type="number" step="1" class="sublte-input" />
+        <input v-model.number="yearModel" type="number" step="1" class="subtle-input" />
         <i></i>
       </div>
     </div>

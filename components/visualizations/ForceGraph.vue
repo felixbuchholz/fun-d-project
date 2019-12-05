@@ -4,10 +4,19 @@
   <!-- <button @click="changeForces">Toggle center</button> -->
   <div class="manager-container">
     <h3 class="manager-headline">{{ managers[managerIndex].name }}</h3>
+
+        <!-- legend -->
+    <div ref="intro-legend-div" class='visual-intro-div' v-if="legendActive == true"></div> 
+    <!-- create in the store -->
+
+
     <div class="svg-container">
       <div class="svg-background"></div>
       <svg class="svg-element" :width="width" :height="height">
+        <!-- <line class="year-line" :x1="0" :x2="width" :y1="0" :y2="0" /> -->
+
         <!-- <rect :width="width" :height="height" class="svg-background" /> -->
+
         <g
           v-for="(node, i) in nodes"
           :key="`nodes-${i}`"
@@ -15,9 +24,9 @@
           class="node-circle-mover"
           :style="
             `transform: translateX(${
-              coords[i] ? coords[i].x : getCoordsByIssue(node.issue).x
+              coords[i] ? coords[i].x : getInitialCoords(node).x
             }px) translateY(${
-              coords[i] ? coords[i].y : getCoordsByIssue(node.issue).y
+              coords[i] ? coords[i].y : getInitialCoords(node).y
             }px); transition: transform ${animationDuration} ease-in-out;`
           "
           @mouseenter="activateForSameProposals(node)"
@@ -83,12 +92,15 @@ export default {
       areDistinctOutlinesActive: state =>
         state.proposals.areDistinctOutlinesActive,
       nodeChangeCounter: state => state.progressBar.nodeChangeCounter,
-      browsingYears: state => state.progressBar.browsingYears
+      browsingYears: state => state.progressBar.browsingYears,
+      useYearRange: state => state.year.useYearRange,
+      legendActive: state => state.forceGraph.legendActive,
     }),
     ...mapGetters({
       nodesStore: [`forceGraph/nodesPerYear`],
       centers: [`forceGraph/centers`],
-      categories: [`proposals/categories`]
+      categories: [`proposals/categories`],
+      currentYearRangeArray: [`year/currentYearRangeArray`]
     }),
     circle() {
       const padding = this.areDistinctOutlinesActive ? 2 : 1;
@@ -246,10 +258,19 @@ export default {
         this.nodesStore[this.managerIndex]
       );
       this.newLength = this.newStore.length;
-      // console.log(this.oldLocal, this.newStore);
       this.exitIndexes = [];
+      // ! Only looping once causes an issue here: fix in new branch !
+      // if (this.managerIndex == 0) {
+      //   console.log(this.$helpers.getArrayOfObjectsCopy(this.oldLocal), this.$helpers.getArrayOfObjectsCopy(this.newStore));
+      // }
+      // for (let i = 0; i < this.oldLocal.length; i++) {
+      //   const proposal = this.oldLocal[i];
+      //   const foundID = this.$helpers.findWithAttr(this.newStore, "uID", proposal.uID);
+      //   console.log(foundID);
+      // }
       for (let i = 0; i < this.oldLocal.length; i++) {
         const proposal = this.oldLocal[i];
+
         const foundIndex = this.$helpers.findWith2Attrs(
           this.newStore,
           "issue",
@@ -309,14 +330,11 @@ export default {
           d3
             .forceX()
             .strength(function(d) {
-              return that.getXYStrength(d);
+              return that.getXStrength(d);
             })
             .x(function(d) {
-              if (d.issue == "exit") {
-                return that.centers[0].xN;
-              }
-              const x1 = that.centers[that.getIndexByIssue(d.issue)].x1;
-              const x2 = that.centers[that.getIndexByIssue(d.issue)].x2;
+              const x1 = that.centers[that.getCentersIndex(d)].x1;
+              const x2 = that.centers[that.getCentersIndex(d)].x2;
               return d.meanActivist > 0.5 ? x2 : x1;
             })
         )
@@ -325,13 +343,10 @@ export default {
           d3
             .forceY()
             .strength(function(d) {
-              return that.getXYStrength(d);
+              return that.getYStrength(d);
             })
             .y(function(d) {
-              if (d.issue == "exit") {
-                return that.centers[0].yO;
-              }
-              return that.centers[that.getIndexByIssue(d.issue)].y;
+              return that.centers[that.getCentersIndex(d)].y;
             })
         )
         .force(
@@ -346,16 +361,30 @@ export default {
         // .on("end", this.ended)
         .stop();
     },
-    getXYStrength(d) {
+    getXStrength(node) {
+      if (!this.useYearRange) {
+        return 1;
+      } else {
+        return 0.3;
+      }
+    },
+    getYStrength(node) {
+      if (!this.useYearRange) {
+        return 1;
+      } else {
+        return 1.5;
+      }
+    },
+    getXYStrengthOld(d) {
       if (this.areDistinctOutlinesActive) {
         return d.modeDistinct > 0.5 ? 1.3 : 0.9;
       } else {
         return 1;
       }
     },
-    getCoordsByIssue(issue) {
-      const xN = this.centers[this.getIndexByIssue(issue)].xN;
-      const y = this.centers[this.getIndexByIssue(issue)].y;
+    getInitialCoords(node) {
+      const xN = this.centers[this.getCentersIndex(node)].xN;
+      const y = this.centers[this.getCentersIndex(node)].y;
       return { x: xN, y: y };
     },
     assignCoordsToObj(obj) {
@@ -364,7 +393,9 @@ export default {
     },
     transferCoordinates(receiver, sender) {
       receiver.x = sender.x;
+      // receiver.x = sender.vx;
       receiver.y = sender.y;
+      // receiver.y = sender.vy;
     },
     transferPropsKeepCoords(receiver, sender) {
       // console.log("transfer");
@@ -373,6 +404,32 @@ export default {
         if (!keepCoords.includes(prop)) {
           receiver[prop] = sender[prop];
         }
+      }
+    },
+    getCentersIndex(node) {
+      //──── Structure ────────────────────────────────────────────────────────────────────────────
+      // There are two cases
+      // 1. useYearRange is active (true): we want vertical position by year
+      // 2. useYearRange is not active (false): we want vertical position by issue category
+      if (this.useYearRange) {
+        // Case 1
+        const indexOfTheNodeYear = this.currentYearRangeArray.indexOf(
+          node.year
+        );
+        return indexOfTheNodeYear;
+      } else if (!this.useYearRange) {
+        // Case 2
+        const indexOfTheNodeIssue = this.$helpers.findWithAttr(
+          this.categories,
+          "issueCode",
+          node.issue
+        );
+        // console.log(index);
+        return indexOfTheNodeIssue;
+      } else {
+        // This is just in case something goes wrong
+        // we’ll throw an erroer
+        throw new Error("Unexcpected value of useYearRange in ForceGraph.vue");
       }
     },
     getIndexByIssue(issue) {
@@ -387,12 +444,149 @@ export default {
     initGraphOnDataChange() {
       // console.log("graph function called");
       this.startProgressBar();
-      this.findExitNodes();
+
+      this.reassignNodes();
 
       setTimeout(() => {
-        this.reassignExitNodes();
         this.simulate();
       }, this.smallPause);
+    },
+    reassignNodes() {
+      //──── Phase A ───────────────────────────────────────────────────────────────────────────
+      // Intent: Set up an array that allows to test wether all new elements have been included
+
+      // Reassign the old nodes to a new variable name, mainly for convenience / readability
+      this.oldLocal = this.nodes;
+
+      // Get the new Array from store, copy it to avoid changes of the store
+      this.newStore = this.$helpers.getArrayOfObjectsCopy(
+        this.nodesStore[this.managerIndex]
+      );
+      // Get the length of the store array copy, used in creating the empty array
+      // and checking if old nodes can be inside the array
+      this.newLength = this.newStore.length;
+
+      // Create an array filled with undefined values with the length of the new store array copy
+      // Throughout this function the undefined values will be swapped out with newStore elements
+      // until the newStore array is empty and all values of the fillUpArray are defined
+      let fillUpArray = [...Array(this.newLength)];
+
+      //──── Phase B ────────────────────────────────────────────────────────────────────────────
+      // Intent: gradually “define” elements by matching new and old nodes in the fillUpArray
+      // with decreasing specificity
+      let matchedCandidates = []; // used to temp. store the matches with indexes > newLength
+      // will be used after all steps to fill up empty spots
+      // Step 1
+      // Intent: Find matches with the same uID in case of filtering within the same year
+      // In the first step we will loop through all elements of the new store array and match by uID
+
+      const matchOldAndNew = matchingAttrArray => {
+        let matchedIndexesToRemove = []; // used to store the matched nodes that will be removed after the loop
+        for (let i = 0; i < this.newStore.length; i++) {
+          const newProposal = this.newStore[i];
+          // translate the matchingAttrArray to an attrValArray for the helper function
+          let attrsValsArray = [];
+          for (const element of matchingAttrArray) {
+            const obj = { attr: element, val: this.newStore[i][element] };
+            attrsValsArray.push(obj);
+          }
+          // console.log(this.oldLocal.length);
+          const foundIndex = this.$helpers.findWithEveryAttr(
+            this.oldLocal,
+            attrsValsArray
+          );
+
+          // We can expect 3 cases here:
+          // 1. -1 -> no old node matched
+          // we do nothing: node remains in newStore for next step
+          // 2. 0 or positive value < this.newLength
+          // 3. 0 or positive value > this.newLength
+          // 2. and 3. means we matched: we will store the node index in an array
+          // to remove it from the new store after this loop is finished
+          // 2. is perfect -> we will place the new node with the coordinates of the old
+          // at the old index spot in the fillUpArray
+          // 3. is kind of bad, we can copy the old coordinates,
+          // but we can’t use the index to position the node in the fillUpArray,
+          // we would risk overwriting it later
+          // that’s why we need the matchedCandidates array as a temporary storage
+          // once all the 2. cases are solved for all steps
+          // we can use this fill empty spots
+
+          const notMatched = foundIndex == -1;
+          const matched = foundIndex >= 0;
+          const matchedAndIndexFitsInNewArray =
+            matched && foundIndex < this.newLength;
+          const matchedButIndexOutsideOfNewArray =
+            matched && foundIndex >= this.newLength;
+
+          if (notMatched) {
+            // Nothing happens
+          } else if (matchedAndIndexFitsInNewArray) {
+            // new node gets coordinates of old node
+            this.transferCoordinates(newProposal, this.oldLocal[foundIndex]);
+            // new node gets placed in the fillUpArray
+            fillUpArray[foundIndex] = newProposal;
+            // make sure the same spot is not matched twice
+            this.oldLocal[foundIndex] = undefined;
+            // new node gets into the index array to be removed from the newStoreArray after the loop
+            matchedIndexesToRemove.push(i);
+          } else if (matchedButIndexOutsideOfNewArray) {
+            // new node gets coordinates of old node
+            this.transferCoordinates(newProposal, this.oldLocal[foundIndex]);
+            // new node gets placed in the temporary storage: matchedCandidates
+            // smth else has to happen later
+            matchedCandidates.push(newProposal);
+            // new node gets removed from the newStoreArray (later)
+            matchedIndexesToRemove.push(i);
+          } else {
+            // console.log("foundIndex: ", foundIndex);
+            // console.log("newLength: ", this.newLength);
+            // console.log("new", newProposal);
+            // console.log("old", this.oldLocal[foundIndex]);
+
+            throw new Error("This should not have happened");
+          }
+        }
+
+        for (const index of matchedIndexesToRemove) {
+          this.newStore[index] = undefined;
+        }
+        this.newStore = this.newStore.filter(x => x != undefined);
+      };
+      //──── Phase C ───────────────────────────────────────────────────────────────────────────
+      matchOldAndNew(["uID"]);
+      matchOldAndNew(["issue", "active", "company"]);
+      matchOldAndNew(["issue", "active"]);
+      matchOldAndNew(["issue"]);
+      //──── Phase D ───────────────────────────────────────────────────────────────────────────
+      // fill up the empty spots elements from matched Candidates and newStore
+
+      const fillUndefinedWithElementsOfArray = (toBeFilled, filler) => {
+        for (let index = 0; index < toBeFilled.length; index++) {
+          if (typeof toBeFilled[index] === "undefined") {
+            toBeFilled[index] = filler[0];
+            filler.splice(0, 1);
+          }
+        }
+      };
+
+      // console.log("matched candidates: ", matchedCandidates.length);
+      fillUndefinedWithElementsOfArray(fillUpArray, matchedCandidates);
+      // console.log("remaining new nodes: ", this.newStore.length);
+      fillUndefinedWithElementsOfArray(fillUpArray, this.newStore);
+
+      //──── Phase E ───────────────────────────────────────────────────────────────────────────
+      // Tests
+      if (!this.newStore.length == 0) {
+        throw new Error("newStore is not empty");
+      }
+      if (!fillUpArray.every(x => x != undefined)) {
+        // console.log(fillUpArray);
+        throw new Error("fillUpArray Elements are undefined");
+      }
+      //──── Phase F ───────────────────────────────────────────────────────────────────────────
+      // Reassign the nodes
+      this.nodes = fillUpArray;
     },
     simulate() {
       this.defineSimulation();

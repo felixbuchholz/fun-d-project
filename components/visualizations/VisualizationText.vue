@@ -5,17 +5,13 @@
       <div v-if="processCounter > 2" class="scroll-popover-modal">
         <div class="scroll-popover-container">
           <fa icon="spinner" class="scroll-popover-icon rotating" />
-          <div class="scroll-popover-message">
-            Please wait until animation is finished&nbsp;…
-          </div>
+          <div class="scroll-popover-message">Please wait until animation is finished&nbsp;…</div>
         </div>
       </div>
     </transition>
+
     <div ref="indicator-mover-1" class="scrolly-indicator-mover">
-      <div
-        ref="indicator-1"
-        class="scrolly-indicator feedback feedback--effect-ivana small"
-      >
+      <div ref="indicator-1" class="scrolly-indicator feedback feedback--effect-ivana small">
         <fa icon="long-arrow-alt-right" class />
       </div>
     </div>
@@ -26,6 +22,9 @@
         <h3 class="scrollyTitle">
           Where activists meet the passive investment giants
         </h3>
+        
+        
+        
         <p>
           First look at how these three asset management firms compare in terms
           of siding with or against management.
@@ -55,7 +54,8 @@
           <span class="gov_li_light" style="vertical-align: -2px">&#8226;</span>
           : manager supported the company's management.
         </p> -->
-      </div>
+      </div> <!-- end scroll 0 -->
+
 
       <div id="scroll_1" :class="`margin-scrollama-text ${getLoadingState(1)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
@@ -72,7 +72,7 @@
           always proposals that were submitted but withdrawn, after the company
           satisfies activists with a promise to take action on that issue.
         </p>
-      </div>
+      </div> <!-- end scroll 1 -->
 
       <div id="scroll_2" :class="`margin-scrollama-text ${getLoadingState(2)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
@@ -81,12 +81,13 @@
           <span class="soc_li" style="vertical-align: -1px">&#8226;</span>
           <span style="font-weight: 800;">social</span> category are often calls
           for companies to be more transparent about political contributions;
-          their lobbying; human rights policies. <br />Social shareholder
+          their lobbying; human rights policies.
+          <br />Social shareholder
           proposals also include employment issues such as employee diversity,
           pay-gaps and greater support for workers’ rights (for example minimum
           wage reform).
         </p>
-      </div>
+      </div> <!-- end scroll 2 -->
 
       <div id="scroll_3" :class="`margin-scrollama-text ${getLoadingState(3)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
@@ -100,10 +101,7 @@
         </p>
       </div>
 
-      <div
-        id="scroll_4"
-        :class="`margin-scrollama-text ${getLoadingState(4)} last-category`"
-      >
+      <div id="scroll_4" :class="`margin-scrollama-text ${getLoadingState(4)} last-category`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           We noticed a few shareholder proposals asking the target company to
@@ -124,23 +122,61 @@
         </p>
       </div>
 
+        <!-- <Scrolling over the years> -->
+        <!-- <p>Clearly, these asset managers are more often supporting management by voting against activist shareholders. Most shareholder proposals do not pass. The average support for shareholder proposals has been fairly constant at about 30% over the past 10 years. However, shareholder meeting dynamics did change significantly in this period. Shareholders became more active: more capital was invested by activists to force corporate change, and shareholders submitted more resolutions. <br /> <br />
+        Meanwhile, voting has become less of a “compliance” exercise: institutional shareholders have become more keen on pro-active engagement as “stewards”. This shows as good corporate governance rose as a focus area for investors. That is probably also because of governance scandals (think Kobe Steel or Volkswagen) and increased regulatory attention. In most recent years, a record shareholder proposals is about social and environmental issues - and an increasing amount of such proposals pass.</p> -->
+
+
       <div id="scroll_5" :class="`margin-scrollama-text ${getLoadingState(5)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
-        <p>Clearly, these asset managers are more often supporting management by voting against activist shareholders. Most shareholder proposals do not pass. The average support for shareholder proposals has been fairly constant at about 30% over the past 10 years. However, shareholder meeting dynamics did change significantly in this period. Shareholders became more active: more capital was invested by activists to force corporate change, and shareholders submitted more resolutions. <br /> <br />
-        Meanwhile, voting has become less of a “compliance” exercise: institutional shareholders have become more keen on pro-active engagement as “stewards”. This shows as good corporate governance rose as a focus area for investors. That is probably also because of governance scandals (think Kobe Steel or Volkswagen) and increased regulatory attention. In most recent years, a record shareholder proposals is about social and environmental issues - and an increasing amount of such proposals pass.</p>
+             <p>After Newtown, Connecticut and Parkland, Florida, the impact of mass shootings have yet to produce new gun-safety laws in the United States. Where the Trump administration is reluctant to overhaul gun laws, some corporate shareholders are pushing for stronger gun control policies. We noticed shareholder proposals asking that companies stop selling guns, or openly distantiate from National Rifle Association (NRA). <br /> <br /> For example, Walmart and Dick’s Sporting Goods placed new restrictions on gun sales. Delta Airlines, MetLife and FedEx voted to part ways with or discontinue preferential treatment of the NRA. Two firearm companies, American Outdoor Brands and Sturm, Ruger &amp; Co were targeted by investors to produce a report on gun violence.</p>      
+
       </div>
 
-      <div class="margin-scrollama-text">
-      <p>After Newtown, Connecticut and Parkland, Florida, the impact of mass shootings have yet to produce new gun-safety laws in the United States. Where the Trump administration is reluctant to overhaul gun laws, some corporate shareholders are pushing for stronger gun control policies. We noticed shareholder proposals asking that companies stop selling guns, or openly distantiate from National Rifle Association (NRA). <br /> <br /> For example, Walmart and Dick’s Sporting Goods placed new restrictions on gun sales. Delta Airlines, MetLife and FedEx voted to part ways with or discontinue preferential treatment of the NRA. Two firearm companies, American Outdoor Brands and Sturm, Ruger &amp; Co were targeted by investors to produce a report on gun violence.</p>      
+      <div id="scroll_6" :class="`margin-scrollama-text ${getLoadingState(6)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+          <p>
+            Now filtering in the columns item description and resolution for
+            diversitiy.
+          </p>
       </div>
 
-      <div class="margin-scrollama-text">
-        This is where some drawing happens.
+      <div id="scroll_7" :class="`margin-scrollama-text ${getLoadingState(7)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>
+          Now filtering in the columns item description and resolution for
+          “degree” and “climate”.
+        </p>
       </div>
 
-      <div class="margin-scrollama-text">
-        This is where the distinct outlines are activated
+      <div id="scroll_8" :class="`margin-scrollama-text ${getLoadingState(8)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>
+          Now filtering in the columns item description and resolution for pay,
+          compensation or “executive”.
+        </p>
       </div>
+
+      <div id="scroll_9" :class="`margin-scrollama-text ${getLoadingState(9)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>
+          This is filtered by proposals that match company column includes
+          "amazon" for the years 2010 – 2016.
+        </p>
+      </div>
+
+      <!-- <div id="scroll_x" :class="`margin-scrollama-text ${getLoadingState(x)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>
+          In this step we can just experiment with things:
+          <br />One option for the final version: “click” through a couple of
+          years <br />Right now: Narrowing down to the social category again
+        </p>
+      </div>-->
+
+      <div class="margin-scrollama-text">This is where the distinct outlines are activated</div>
+      <div class="margin-scrollama-text">This is just for spacing</div>
+      <div class="margin-scrollama-text">This is just for spacing</div>
     </Scrollama>
   </div>
 </template>
@@ -199,86 +235,132 @@ export default {
         return "";
       }
     },
+
     stepEnterHandler(event) {
-      // console.log(event);
-      // Convenient variables
+      // console.log(event); // in case needed for checking
+      //──── Structure ─────────────────────────────────────────────────────────────────────────
+      // 1. Set up all convenience variables first
+      // 2. Include functions that should work on every step
+      // ...for example the ripple effect on the trigger position indicator
+      // ... and include special conditions
+      // 3. Test for the step index and
+
+      //──── 1. Convenient variables ───────────────────────────────────────────────────────────
       const index = event.index;
       const direction = event.direction;
       const isLastCategory = event.element.className.includes("last-category");
       const thisStep = index + direction;
-      const up = direction == "up";
-      const down = direction == "down";
+      const up = direction == "up"; // true or false
+      const down = direction == "down"; // true or false
       const indicatorMover = this.$refs["indicator-mover-1"];
       const indicator = this.$refs["indicator-1"];
       const stepIndicator = this.$el.querySelector(
         `#scroll_${index} .scrolly-step-indicator`
       );
+      console.log(index, direction);
 
-      // Do on every step
+      //──── 2. On every step and special conditions ───────────────────────────────────────────
+      // Trigger position ripple effect
       indicator.classList.add("feedback--click");
       setTimeout(() => {
         indicator.classList.remove("feedback--click");
       }, 400);
 
+      // Show the progress bar & activate the loading animation
       if (stepIndicator && this.lastIndex != index) {
-        // exclude last category switch & up direction
         // console.log(isLastCategory);
+        // exclude last category switch & up direction
         if (!isLastCategory && !up) {
-          this.$store.commit("progressBar/ADD_TO_STEP_ARRAY", index);
           this.$helpers.displayOrHideProgressBar("display");
+          this.$store.commit("progressBar/ADD_TO_STEP_ARRAY", index);
         }
       }
 
-      console.log(index, direction);
-
-      // Steps
+      //──── 3. Steps ──────────────────────────────────────────────────────────────────────────
       switch (index) {
         case 0:
+
+          //──── testArea ──────────────────────────────────────────────────────────────────────
+          // this.$store.commit("year/SET_USE_YEAR_RANGE", true);
+          // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2016]);
+          // this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+          //   logic: "or",
+          //   array: [{ prop: "resolution", val: "nuclear" }]
+          // });
+          //──── testArea end ──────────────────────────────────────────────────────────────────────
+  
+
           if (down) {
+            // Display the trigger position indicator, add legend
             indicatorMover.classList.add("active");
-            this.removeDrawing()
+            // this.drawSmthRandom()
           } else if (up) {
+            // remove all the nodes, keep only legend
+            // this.showDrawing()
             this.setActiveCats([""]);
-            this.drawSmthRandom()
+            // Hide the trigger position indicator
             indicatorMover.classList.remove("active");
+            this.$store.commit("forceGraph/SET_LEGEND_ACTIVE", true);
+            // you can use all mutations, but value of state is not available directly 
           }
           break;
 
         case 1:
+          // activate the environment category
+          //this.removeDrawing()
+          this.$store.commit("forceGraph/SET_LEGEND_ACTIVE", false);
           this.setActiveCats(["env"]);
           break;
 
         case 2:
+          // activate the environment & social category
           this.setActiveCats(["env", "soc"]);
           break;
 
         case 3:
+          // activate the environment & social & good governance category
           this.setActiveCats(["env", "soc", "gg"]);
           break;
 
         case 4:
+          // activate the environment & social & good governance & profit category
           this.setActiveCats(["env", "soc", "gg", "profit"]);
-          break;
-
-        case 5:
-          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
-            logic: "or",
-            array: []
-          });
           if (down) {
-            if (this.lastIndex != index) {
-              this.browseThroughYears(this.yearRange[1]);
-            }
+            // For down: next & previous year buttons will be available
+            this.$store.commit("year/SET_ACTIVATE_YEAR_BUTTONS", true);
           } else if (up) {
-            this.changeYear(2010);
+            // For up: next & previous year buttons will be hidden
+            this.$store.commit("year/SET_ACTIVATE_YEAR_BUTTONS", false);
+            // The proposal filter will be cleared
+            this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+              logic: "or",
+              array: []
+            });
+            // Switch back to a single year view
+            this.$store.commit("year/SET_USE_YEAR_RANGE", false);
           }
           break;
 
-        case 6:
+        // Here we thought about “clicking through years”
+        // a function is ready for that:
+        //  this.browseThroughYears(this.yearRange[1]);
+        // the argument is the end year
+
+        case 5:
+          // Switch to a range of years instead of just one
+          // the grid for that will automatically be displayed
+          
+          // here year=module of file and then take that function=mutation and which value to commit.
+          this.$store.commit("year/SET_USE_YEAR_RANGE", true);
+
+          // This is how we could filter
+          // for guns control related proposals
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
             logic: "or",
             array: [
               { prop: "resolution", val: "weapon" },
+              // The additional filters are not necessarily needed
+              // for now just to showcase the use of multiple filters
               { prop: "resolution", val: "gun" },
               { prop: "desc", val: "gun" },
               { prop: "company", val: "sturm" }
@@ -286,7 +368,71 @@ export default {
           });
           break;
 
-        // case 6:
+        case 6:
+          // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
+          // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2018]);
+
+          // This is how we could filter
+          // for diversity related proposals
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            array: [
+              { prop: "desc", val: "diversity" },
+              { prop: "resolution", val: "diversity" }
+            ]
+          });
+          break;
+
+        case 7:
+          // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
+          // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2018]);
+
+          // This is how we could filter
+          // for 2 degree goal related proposals
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            array: [
+              { prop: "desc", val: "degree" },
+              { prop: "desc", val: "climate" },
+              { prop: "resolution", val: "degree" },
+              { prop: "resolution", val: "climate" }
+            ]
+          });
+          break;
+
+        case 8:
+          // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
+          // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2018]);
+
+          // This is how we could filter
+          // for executive compensation proposals
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            // with this search it gets a bit sloppy, maybe we have to come up with
+            // a more comprehensive way to do the filtering
+            array: [
+              { prop: "desc", val: "executive" },
+              { prop: "desc", val: "pay" },
+              { prop: "desc", val: "compensation" },
+              { prop: "resolution", val: "executive" },
+              { prop: "resolution", val: "pay" },
+              { prop: "resolution", val: "compensation" }
+            ]
+          });
+          break;
+
+        case 9:
+          // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
+          this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2016]);
+
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            array: [{ prop: "company", val: "amazon" }]
+          });
+          break;
+
+        // ! This is how we would activate distinct outlines !
+        // case x:
         //   if (down) {
         //     this.$store.commit(
         //       "proposals/SET_ARE_DISTINCT_OUTLINES_ACTIVE",
@@ -299,18 +445,24 @@ export default {
         //     );
         //   }
         //   break;
-        case 9:
-          if (down) {
-            indicator.classList.remove("active");
-          } else if (up) {
-            indicator.classList.add("active");
-          }
+
+        // ! include this at the end
+        // case last_case:
+        //   if (down) {
+        //     indicator.classList.remove("active");
+        //   } else if (up) {
+        //     indicator.classList.add("active");
+        //   }
       }
 
+      //──── To be able to compare what the last checkpoint was ────────────────────────────────
       // Update last step
       this.lastStep = thisStep;
       this.lastIndex = index;
-    },
+    }, // last step in scrollama!
+
+
+
     drawSmthRandom() {
       anime({
         targets: ".drawing-canvas-svg",
@@ -322,8 +474,16 @@ export default {
         easing: "easeInOutSine",
         duration: 500,
         delay: function(el, i) {
-          return i * 1000;
+          return i * 100;
         }
+      });
+    },
+    showDrawing() {
+      anime({
+        targets: ".drawing-canvas-svg",
+        opacity: 1,
+        easing: "easeInOutSine",
+        duration: 500,
       });
     },
     removeDrawing() {

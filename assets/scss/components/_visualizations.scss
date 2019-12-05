@@ -213,6 +213,47 @@
   font-size: 0.8em;
 }
 
+//──── Grid on top of the group & controls ────────────────────────────────────────────
+.grid {
+  transition: all 400ms ease-in-out;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  z-index: 8;
+  top: $manager-headline-height;
+  left: 0;
+  width: 100%;
+  height: calc(
+    100% - #{$drawer-controls-height} - #{$manager-headline-height} - 0.5 * #{$shadow-blur}
+  );
+  overflow: hidden;
+  // background: red;
+}
+.grid-line-container {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+.grid-year {
+  position: relative;
+  font-size: 0.8em;
+  color: $gray;
+  &.left {
+    // left: 8px;
+  }
+  &.right {
+    // left: -8px;
+  }
+}
+.grid-line {
+  flex-grow: 1;
+  border-bottom: 1px dashed $medium-bg-gray;
+  &.center {
+    flex-grow: 0.96;
+  }
+}
+
 //──── Drawing on top of the group & controls ────────────────────────────────────────────
 .drawing-canvas {
   position: absolute;
@@ -247,15 +288,26 @@
   justify-content: space-between;
   margin: 0;
   // height: 100%;
-  height: calc(100% - 66px);
+  height: calc(100% - #{$drawer-controls-height});
 }
 .manager-container {
   width: 33%;
   height: 100%;
 }
+
+.visual-intro-div {
+  width: 53%;
+  height: 50%;
+  background-color: red;
+  z-index: 12;
+  position: absolute;
+  margin: 10% auto 0 24%;
+  float: center;
+}
+
 .manager-headline {
   margin: 0;
-  height: 40px;
+  height: $manager-headline-height;
   text-align: center;
 }
 
