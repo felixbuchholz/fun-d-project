@@ -236,9 +236,10 @@ export default {
         case 0:
           if (down) {
             indicatorMover.classList.add("active");
-            
+            this.removeDrawing()
           } else if (up) {
             this.setActiveCats([""]);
+            this.drawSmthRandom()
             indicatorMover.classList.remove("active");
           }
           break;
