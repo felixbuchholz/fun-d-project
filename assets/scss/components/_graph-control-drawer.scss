@@ -21,6 +21,9 @@
   }
   & .center {
     justify-content: center;
+    & .change-year-buttons {
+      display: flex;
+    }
   }
   & .right {
     justify-content: flex-end;
@@ -38,16 +41,20 @@
     }
   }
 
+  & .year-big {
+    font-size: 2.5em;
+    font-weight: 900;
+    padding: 5px;
+    padding-bottom: 2px;
+  }
+
   input {
     border: none;
     outline: none;
     background: transparent;
     border: 1px solid transparent;
     width: 2.8em;
-    font-size: 2.5em;
     font-weight: 900;
-    padding: 5px;
-    padding-bottom: 2px;
 
     &:focus {
       border-bottom: 1px dashed $gray;

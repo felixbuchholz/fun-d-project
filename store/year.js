@@ -3,7 +3,8 @@ export const state = () => ({
   yearRange: [2009, 2018],
   direction: "positive",
   currentYearRange: [2009, 2018],
-  useYearRange: false
+  useYearRange: false,
+  activateYearButtons: false
 });
 
 export const getters = {
@@ -42,5 +43,8 @@ export const mutations = {
   },
   SET_CURRENT_YEAR_RANGE(state, array) {
     state.currentYearRange = array;
+  },
+  SET_ACTIVATE_YEAR_BUTTONS(state, bool) {
+    state.activateYearButtons = bool;
   }
 };

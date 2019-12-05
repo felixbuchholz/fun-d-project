@@ -1,5 +1,5 @@
 <template>
-  <div class="grid zero-opacity">
+  <div :class="`grid ${!useYearRange ? 'zero-opacity' : ''}`">
     <div
       v-for="(year, i) in currentYearRangeArray"
       :key="`year-${year}`"
@@ -26,7 +26,8 @@ import { mapState, mapGetters } from "vuex";
 export default {
   computed: {
     ...mapState({
-      height: state => state.forceGraph.height
+      height: state => state.forceGraph.height,
+      useYearRange: state => state.year.useYearRange
     }),
     ...mapGetters({
       currentYearRangeArray: [`year/currentYearRangeArray`]

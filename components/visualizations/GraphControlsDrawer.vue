@@ -2,46 +2,54 @@
   <div id="graph-control-drawer">
     <div class="col left">
       <!-- Processes: {{ processCounter }} -->
-      <div class="year-label">Year</div>
-      <div class="year-big">
+      <div class="year-label">{{ yearLabel }}</div>
+      <div v-if="!useYearRange" class="year-big">
         <input
           v-model.number="yearModel"
           type="number"
           step="1"
-          class="sublte-input"
+          class="subtle-input"
         />
+      </div>
+      <div v-else class="year-big">
+        {{ currentYearRange[0] }} – {{ currentYearRange[1] }}
       </div>
     </div>
     <div class="col center">
-      <transition name="fade" mode="out-in">
-        <button
-          v-if="year > yearRange[0]"
-          class="graph-control-button"
-          @click="changeYear(-1)"
-        >
-          previous&nbsp;
-          <fa class="fa-adjust" icon="backward" />
-        </button>
-      </transition>
-      <div>
+      <div
+        v-if="!useYearRange && activateYearButtons"
+        class="change-year-buttons"
+      >
         <transition name="fade" mode="out-in">
           <button
-            v-if="year < yearRange[1]"
-            key="next"
+            v-if="year > yearRange[0]"
             class="graph-control-button"
-            @click="changeYear(1)"
+            @click="changeYear(-1)"
           >
-            <fa class="fa-adjust" icon="forward" />&nbsp;&nbsp;next
-          </button>
-          <button
-            v-else
-            key="reset"
-            class="graph-control-button"
-            @click="changeYear(yearRange[0])"
-          >
-            <fa class="fa-adjust" icon="undo" />&nbsp;&nbsp;reset
+            previous&nbsp;
+            <fa class="fa-adjust" icon="backward" />
           </button>
         </transition>
+        <div>
+          <transition name="fade" mode="out-in">
+            <button
+              v-if="year < yearRange[1]"
+              key="next"
+              class="graph-control-button"
+              @click="changeYear(1)"
+            >
+              <fa class="fa-adjust" icon="forward" />&nbsp;&nbsp;next
+            </button>
+            <button
+              v-else
+              key="reset"
+              class="graph-control-button"
+              @click="changeYear(yearRange[0])"
+            >
+              <fa class="fa-adjust" icon="undo" />&nbsp;&nbsp;reset
+            </button>
+          </transition>
+        </div>
       </div>
     </div>
     <div class="col right">
@@ -65,6 +73,8 @@ export default {
     ...mapState({
       year: state => state.year.year,
       yearRange: state => state.year.yearRange,
+      currentYearRange: state => state.year.currentYearRange,
+      useYearRange: state => state.year.useYearRange,
       processCounter: state => state.progressBar.processCounter
     }),
     yearModel: {
@@ -78,6 +88,9 @@ export default {
       get() {
         return this.year;
       }
+    },
+    yearLabel() {
+      return this.useYearRange ? "Years" : "Year";
     }
   },
   methods: {

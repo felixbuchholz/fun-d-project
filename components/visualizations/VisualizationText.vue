@@ -119,29 +119,56 @@
       <div id="scroll_5" :class="`margin-scrollama-text ${getLoadingState(5)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          In this step we can just experiment with things:
-          <br />One option for the final version: “click” through a couple of
-          years
-          <br />Right now: Narrowing down to the social category again
+          This is where we start talking about gun control. (filtering by column
+          and keyword, showing all years)
+        </p>
+      </div>
+
+      <div id="scroll_5" :class="`margin-scrollama-text ${getLoadingState(5)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>
+          This is where we start talking about gun control. (filtering by column
+          and keyword, showing all years)
         </p>
       </div>
 
       <div id="scroll_6" :class="`margin-scrollama-text ${getLoadingState(6)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          This is where we start talking about gun control. (filtering by column
-          and keyword, showing all years, next step will be arranging vertically
-          on the grid)
+          Now filtering in the columns item description and resolution for
+          diversitiy.
         </p>
       </div>
 
       <div id="scroll_7" :class="`margin-scrollama-text ${getLoadingState(7)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>Now filtering in the columns item description and resolution for “degree” and “climate”.</p>
+      </div>
+
+      <div id="scroll_8" :class="`margin-scrollama-text ${getLoadingState(8)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>
+          Now filtering in the columns item description and resolution for pay,
+          compensation or “executive”.
+        </p>
+      </div>
+
+      <div id="scroll_9" :class="`margin-scrollama-text ${getLoadingState(9)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           This is filtered by proposals that match company column includes
           "amazon" for the years 2010 – 2016.
         </p>
       </div>
+
+      <!-- <div id="scroll_x" :class="`margin-scrollama-text ${getLoadingState(x)}`">
+        <fa icon="spinner" class="scrolly-step-indicator" />
+        <p>
+          In this step we can just experiment with things:
+          <br />One option for the final version: “click” through a couple of
+          years <br />Right now: Narrowing down to the social category again
+        </p>
+      </div>-->
 
       <div class="margin-scrollama-text">This is where the distinct outlines are activated</div>
       <div class="margin-scrollama-text">This is just for spacing</div>
@@ -204,19 +231,17 @@ export default {
         return "";
       }
     },
-    displayOrHideGrid(option = "display") {
-      // Only use the grid in the same parent container,
-      // in case we at some point wil have multiple ones of these
-      const graphGrid = this.$el.parentElement.querySelector(".grid");
-      if (option == "display") {
-        graphGrid.classList.remove("zero-opacity");
-      } else {
-        graphGrid.classList.add("zero-opacity");
-      }
-    },
+
     stepEnterHandler(event) {
-      // console.log(event);
-      // Convenient variables
+      // console.log(event); // in case needed for checking
+      //──── Structure ─────────────────────────────────────────────────────────────────────────
+      // 1. Set up all convenience variables first
+      // 2. Include functions that should work on every step
+      // ...for example the ripple effect on the trigger position indicator
+      // ... and include special conditions
+      // 3. Test for the step index and
+
+      //──── 1. Convenient variables ───────────────────────────────────────────────────────────
       const index = event.index;
       const direction = event.direction;
       const isLastCategory = event.element.className.includes("last-category");
@@ -228,77 +253,102 @@ export default {
       const stepIndicator = this.$el.querySelector(
         `#scroll_${index} .scrolly-step-indicator`
       );
+      console.log(index, direction);
 
-      // Do on every step
+      //──── 2. On every step and special conditions ───────────────────────────────────────────
+      // Trigger position ripple effect
       indicator.classList.add("feedback--click");
       setTimeout(() => {
         indicator.classList.remove("feedback--click");
       }, 400);
 
+      // Show the progress bar & activate the loading animation
       if (stepIndicator && this.lastIndex != index) {
-        // exclude last category switch & up direction
         // console.log(isLastCategory);
+        // exclude last category switch & up direction
         if (!isLastCategory && !up) {
-          this.$store.commit("progressBar/ADD_TO_STEP_ARRAY", index);
           this.$helpers.displayOrHideProgressBar("display");
+          this.$store.commit("progressBar/ADD_TO_STEP_ARRAY", index);
         }
       }
 
-      console.log(index, direction);
-
-      // Steps
+      //──── 3. Steps ──────────────────────────────────────────────────────────────────────────
       switch (index) {
         case 0:
+          //──── testArea ──────────────────────────────────────────────────────────────────────
+
+          // this.$store.commit("year/SET_USE_YEAR_RANGE", true);
+          // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2016]);
+          // this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+          //   logic: "or",
+          //   array: [{ prop: "resolution", val: "nuclear" }]
+          // });
+
+          //──── testArea ──────────────────────────────────────────────────────────────────────
+
           if (down) {
+            // Display the trigger position indicator
             indicatorMover.classList.add("active");
           } else if (up) {
+            // remove all the nodes
             this.setActiveCats([""]);
+            // Hide the trigger position indicator
             indicatorMover.classList.remove("active");
           }
           break;
 
         case 1:
+          // activate the environment category
           this.setActiveCats(["env"]);
           break;
 
         case 2:
+          // activate the environment & social category
           this.setActiveCats(["env", "soc"]);
           break;
 
         case 3:
+          // activate the environment & social & good governance category
           this.setActiveCats(["env", "soc", "gg"]);
           break;
 
         case 4:
+          // activate the environment & social & good governance & profit category
           this.setActiveCats(["env", "soc", "gg", "profit"]);
+          if (down) {
+            // For down: next & previous year buttons will be available
+            this.$store.commit("year/SET_ACTIVATE_YEAR_BUTTONS", true);
+          } else if (up) {
+            // For up: next & previous year buttons will be hidden
+            this.$store.commit("year/SET_ACTIVATE_YEAR_BUTTONS", false);
+            // The proposal filter will be cleared
+            this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+              logic: "or",
+              array: []
+            });
+            // Switch back to a single year view
+            this.$store.commit("year/SET_USE_YEAR_RANGE", false);
+          }
           break;
+
+        // Here we thought about “clicking through years”
+        // a function is ready for that:
+        //  this.browseThroughYears(this.yearRange[1]);
+        // the argument is the end year
 
         case 5:
-          this.displayOrHideGrid("hide");
-
-          this.setActiveCats(["soc"]);
-          this.$store.commit("year/SET_USE_YEAR_RANGE", false);
-          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
-            logic: "or",
-            array: []
-          });
-          // if (down) {
-          //   if (this.lastIndex != index) {
-          //     // this.browseThroughYears(this.yearRange[1]);
-          //   }
-          // } else if (up) {
-          //   // this.changeYear(2010);
-          // }
-          break;
-
-        case 6:
-          this.displayOrHideGrid("display");
-          // SET_USE_YEAR_RANGE
+          // Switch to a range of years instead of just one
+          // the grid for that will automatically be displayed
           this.$store.commit("year/SET_USE_YEAR_RANGE", true);
+
+          // This is how we could filter
+          // for guns control related proposals
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
             logic: "or",
             array: [
               { prop: "resolution", val: "weapon" },
+              // The additional filters are not necessarily needed
+              // for now just to showcase the use of multiple filters
               { prop: "resolution", val: "gun" },
               { prop: "desc", val: "gun" },
               { prop: "company", val: "sturm" }
@@ -306,18 +356,71 @@ export default {
           });
           break;
 
+        case 6:
+          // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
+          // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2018]);
+
+          // This is how we could filter
+          // for diversity related proposals
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            array: [
+              { prop: "desc", val: "diversity" },
+              { prop: "resolution", val: "diversity" }
+            ]
+          });
+          break;
+
         case 7:
-          this.displayOrHideGrid("display");
-          // SET_USE_YEAR_RANGE
+          // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
+          // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2018]);
+
+          // This is how we could filter
+          // for 2 degree goal related proposals
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            array: [
+              { prop: "desc", val: "degree" },
+              { prop: "desc", val: "climate" },
+              { prop: "resolution", val: "degree" },
+              { prop: "resolution", val: "climate" }
+            ]
+          });
+          break;
+
+        case 8:
+          // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
+          // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2018]);
+
+          // This is how we could filter
+          // for executive compensation proposals
+          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+            logic: "or",
+            // with this search it gets a bit sloppy, maybe we have to come up with
+            // a more comprehensive way to do the filtering
+            array: [
+              { prop: "desc", val: "executive" },
+              { prop: "desc", val: "pay" },
+              { prop: "desc", val: "compensation" },
+              { prop: "resolution", val: "executive" },
+              { prop: "resolution", val: "pay" },
+              { prop: "resolution", val: "compensation" }
+            ]
+          });
+          break;
+
+        case 9:
+          // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
           this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2016]);
-          this.$store.commit("year/SET_USE_YEAR_RANGE", true);
+
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
             logic: "or",
             array: [{ prop: "company", val: "amazon" }]
           });
           break;
 
-        // case 6:
+        // ! This is how we would activate distinct outlines !
+        // case x:
         //   if (down) {
         //     this.$store.commit(
         //       "proposals/SET_ARE_DISTINCT_OUTLINES_ACTIVE",

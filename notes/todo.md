@@ -1,7 +1,7 @@
 # Add all three of them were active symbol!
 
 ## 3rd Chapter
-- Specific companies with interesting proposals (amazon), 
+x Specific companies with interesting proposals (amazon), 
   - Amazon has been targeted by their own employees
 
 ## Show the prev / next button only after the three categories are introduced
@@ -16,12 +16,12 @@
 - Social: **Board diversity** (also outside of the public realm – lobbying)
 - Environmental: **2 degree goal** (Exxon or all the oil companies)
 - Good governance: **Compensation** (we can look at executive pay)
-- Amazon: 2012-13-14-15 political contribution proposals
+x Amazon: 2012-13-14-15 political contribution proposals
 
 
 ## Design
-- How to show multiple years: use the vertical axis – only relevant years with a label. 
-- Only weapons 
+x How to show multiple years: use the vertical axis – only relevant years with a label. 
+x Only weapons 
 
 ## Scrolly intro
 1. first screen: example circles on the canvas

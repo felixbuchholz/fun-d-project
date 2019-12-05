@@ -322,7 +322,7 @@ export default {
           d3
             .forceX()
             .strength(function(d) {
-              return that.getXYStrength(d);
+              return that.getXStrength(d);
             })
             .x(function(d) {
               const x1 = that.centers[that.getCentersIndex(d)].x1;
@@ -335,7 +335,7 @@ export default {
           d3
             .forceY()
             .strength(function(d) {
-              return that.getXYStrength(d);
+              return that.getYStrength(d);
             })
             .y(function(d) {
               return that.centers[that.getCentersIndex(d)].y;
@@ -353,7 +353,21 @@ export default {
         // .on("end", this.ended)
         .stop();
     },
-    getXYStrength(d) {
+    getXStrength(node) {
+      if (!this.useYearRange) {
+        return 1;
+      } else {
+        return 0.3;
+      }
+    },
+    getYStrength(node) {
+      if (!this.useYearRange) {
+        return 1;
+      } else {
+        return 1.5;
+      }
+    },
+    getXYStrengthOld(d) {
       if (this.areDistinctOutlinesActive) {
         return d.modeDistinct > 0.5 ? 1.3 : 0.9;
       } else {
@@ -420,7 +434,7 @@ export default {
       return index;
     },
     initGraphOnDataChange() {
-      console.log("graph function called");
+      // console.log("graph function called");
       this.startProgressBar();
 
       this.reassignNodes();
@@ -548,9 +562,9 @@ export default {
         }
       };
 
-      console.log("matched candidates: ", matchedCandidates.length);
+      // console.log("matched candidates: ", matchedCandidates.length);
       fillUndefinedWithElementsOfArray(fillUpArray, matchedCandidates);
-      console.log("remaining new nodes: ", this.newStore.length);
+      // console.log("remaining new nodes: ", this.newStore.length);
       fillUndefinedWithElementsOfArray(fillUpArray, this.newStore);
 
       //──── Phase E ───────────────────────────────────────────────────────────────────────────
@@ -559,7 +573,7 @@ export default {
         throw new Error("newStore is not empty");
       }
       if (!fillUpArray.every(x => x != undefined)) {
-        console.log(fillUpArray);
+        // console.log(fillUpArray);
         throw new Error("fillUpArray Elements are undefined");
       }
       //──── Phase F ───────────────────────────────────────────────────────────────────────────
