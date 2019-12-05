@@ -7,6 +7,9 @@
     <div class="svg-container">
       <div class="svg-background"></div>
       <svg class="svg-element" :width="width" :height="height">
+        <!-- This is where the responsive grid would happen -->
+        <!-- Idea: on mobile the year is shown at the right edge of the manager-container -->
+        <!-- but on desktop only at the right edge of the last manager -->
         <!-- <line class="year-line" :x1="0" :x2="width" :y1="0" :y2="0" /> -->
 
         <!-- <rect :width="width" :height="height" class="svg-background" /> -->

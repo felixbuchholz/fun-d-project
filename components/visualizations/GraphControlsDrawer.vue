@@ -53,14 +53,16 @@
       </div>
     </div>
     <div class="col right">
-      <button class="graph-control-button">
-        <fa class="fa-adjust" icon="percentage" />&nbsp;&nbsp;Percentages
-        <!-- alt: percent -->
-      </button>
-      <button class="graph-control-button">
-        <fa class="fa-adjust" icon="info" />&nbsp;Legend
-        <!-- alt: info-circle -->
-      </button>
+      <div v-if="!useYearRange" class="legend-and-percentages">
+        <button class="graph-control-button">
+          <fa class="fa-adjust" icon="percentage" />&nbsp;&nbsp;Percentages
+          <!-- alt: percent -->
+        </button>
+        <button class="graph-control-button">
+          <fa class="fa-adjust" icon="info" />&nbsp;Legend
+          <!-- alt: info-circle -->
+        </button>
+      </div>
     </div>
   </div>
 </template>
