@@ -4,6 +4,7 @@ import ssProposals from "~/static/data/SS_reduced_18.csv";
 console.log(brProposals);
 
 import * as d3array from "d3-array";
+import * as searchjs from "searchjs";
 
 export const state = () => ({
   proposals: [brProposals, vgProposals, ssProposals],
@@ -15,7 +16,7 @@ export const state = () => ({
     { name: "Non-ESG", issueCode: "no-esg", activated: false }
   ],
   areDistinctOutlinesActive: false,
-  proposalFilter: { logic: "or", array: [] }
+  proposalFilter: {}
 });
 
 // checking if need to change and activates change.
@@ -38,17 +39,6 @@ export const mutations = {
   UPDATE_PROPOSAL_FILTER(state, obj) {
     state.proposalFilter = obj;
   }
-  // COMBINE_CAT_AND_FILTER_CHANGES(state, combo) {
-  //   for (const element of state.categoriesToggle) {
-  //     if (combo[0].includes(element.issueCode)) {
-  //       // loop, if passed array includes that element, then activated.
-  //       element.activated = true; // only those updated are passed to component.
-  //     } else {
-  //       element.activated = false; // in getters its going away due to filter method.
-  //     }
-  //   }
-  //   state.proposalFilter = combo[1];
-  // }
 };
 
 export const getters = {
@@ -62,6 +52,8 @@ export const getters = {
       const yearFilter = manager.filter(x => {
         let matchesYear = false;
         if (!useYearRange) {
+          // rootstate is info from other element from store: in rootstate you can access all states from
+          // all modules. that is how to filter out year
           matchesYear = x.year == rootState.year.year;
         } else {
           matchesYear = currentYearRangeArray.includes(x.year);
@@ -71,31 +63,40 @@ export const getters = {
           const checkArray = state.categoriesToggle
             .filter(x => x.activated == true)
             .map(x => x.issueCode);
-          // rootstate is info from other element from store: in rootstate you can access all states from
-          // all modules. that is how to filter out year
           const issueIsActive = checkArray.includes(x.issue);
-          if (state.proposalFilter.array.length == 0) {
+          // if there’s no additional proposal filter *stop* here and
+          // return the issue is active boolean value
+          // Is filter empty?
+          const filterIsEmpty = isEmpty(state.proposalFilter);
+          // console.log(state.proposalFilter, filterIsEmpty);
+          if (filterIsEmpty) {
             return issueIsActive;
           } else {
             if (issueIsActive) {
-              // Check if proposal matches all specific filters
-              // console.log(x[state.proposalFilter.prop]);
-              const matchResults = [];
-              // console.log(state.proposalFilter);
-              for (const condition of state.proposalFilter.array) {
-                // console.log(condition, condition.prop, x[condition.prop]);
-                const matchesCondition = x[condition.prop]
-                  .toLowerCase()
-                  .includes(condition.val.toLowerCase());
-                matchResults.push(matchesCondition);
-              }
-              // Different logical combinations
-              let match = false;
-              if (state.proposalFilter.logic == "and") {
-                match = matchResults.every(x => x == true);
-              } else if (state.proposalFilter.logic == "or") {
-                match = matchResults.includes(true);
-              }
+              // Plug in the proposal filter to searchjs here :)
+              // Documentation: https://github.com/deitch/searchjs
+              const match = searchjs.matchObject(x, state.proposalFilter);
+              // console.log(x.resolution, state.proposalFilter, match);
+              // My own old way to do it:
+              // // Check if proposal matches all specific filters
+              // // console.log(x[state.proposalFilter.prop]);
+              // const matchResults = [];
+              // // console.log(state.proposalFilter);
+              // for (const condition of state.proposalFilter.array) {
+              //   // console.log(condition, condition.prop, x[condition.prop]);
+              //   const matchesCondition = x[condition.prop]
+              //     .toLowerCase()
+              //     .includes(condition.val.toLowerCase());
+              //   matchResults.push(matchesCondition);
+              // }
+              // // Different logical combinations
+              // let match = false;
+              // if (state.proposalFilter.logic == "and") {
+              //   match = matchResults.every(x => x == true);
+              // } else if (state.proposalFilter.logic == "or") {
+              //   match = matchResults.includes(true);
+              // }
+
               return match;
             }
           }
@@ -125,3 +126,13 @@ export const getters = {
     return newArray;
   }
 };
+
+function isEmpty(obj) {
+  for (var prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      return false;
+    }
+  }
+
+  return JSON.stringify(obj) === JSON.stringify({});
+}
