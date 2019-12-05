@@ -124,14 +124,6 @@
         </p>
       </div>
 
-      <div id="scroll_5" :class="`margin-scrollama-text ${getLoadingState(5)}`">
-        <fa icon="spinner" class="scrolly-step-indicator" />
-        <p>
-          This is where we start talking about gun control. (filtering by column
-          and keyword, showing all years)
-        </p>
-      </div>
-
       <div id="scroll_6" :class="`margin-scrollama-text ${getLoadingState(6)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
@@ -142,7 +134,10 @@
 
       <div id="scroll_7" :class="`margin-scrollama-text ${getLoadingState(7)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
-        <p>Now filtering in the columns item description and resolution for “degree” and “climate”.</p>
+        <p>
+          Now filtering in the columns item description and resolution for
+          “degree” and “climate”.
+        </p>
       </div>
 
       <div id="scroll_8" :class="`margin-scrollama-text ${getLoadingState(8)}`">
@@ -433,14 +428,17 @@ export default {
         //     );
         //   }
         //   break;
-        case 9:
-          if (down) {
-            indicator.classList.remove("active");
-          } else if (up) {
-            indicator.classList.add("active");
-          }
+
+        // ! include this at the end
+        // case last_case:
+        //   if (down) {
+        //     indicator.classList.remove("active");
+        //   } else if (up) {
+        //     indicator.classList.add("active");
+        //   }
       }
 
+      //──── To be able to compare what the last checkpoint was ────────────────────────────────
       // Update last step
       this.lastStep = thisStep;
       this.lastIndex = index;
