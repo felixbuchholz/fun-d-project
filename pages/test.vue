@@ -15,6 +15,8 @@
 import ForceGraphGroup from "~/components/visualizations/ForceGraphGroup.vue";
 import VisualizationText from "~/components/visualizations/VisualizationText.vue";
 
+import * as searchjs from "searchjs";
+
 export default {
   head() {
     // return {
@@ -30,6 +32,25 @@ export default {
   },
   data() {
     return {};
+  },
+  created() {
+    //──── searchjs tests ────────────────────────────────────────────────────────────────────
+    // console.log(searchjs);
+    // const testArray = [
+    //   {
+    //     thing: "apple",
+    //     roundness: 7,
+    //     saying: "An apple a day keeps the doctor away."
+    //   },
+    //   {
+    //     thing: "something",
+    //     roundness: 0,
+    //     saying: "Something always goes wrong."
+    //   }
+    // ];
+    // console.log(
+    //   searchjs.matchObject(testArray[0], { thing: "app", _start: true })
+    // );
   },
   methods: {
     stepEnterHandler(event) {

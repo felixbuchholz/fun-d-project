@@ -5,13 +5,18 @@
       <div v-if="processCounter > 2" class="scroll-popover-modal">
         <div class="scroll-popover-container">
           <fa icon="spinner" class="scroll-popover-icon rotating" />
-          <div class="scroll-popover-message">Please wait until animation is finished&nbsp;…</div>
+          <div class="scroll-popover-message">
+            Please wait until animation is finished&nbsp;…
+          </div>
         </div>
       </div>
     </transition>
 
     <div ref="indicator-mover-1" class="scrolly-indicator-mover">
-      <div ref="indicator-1" class="scrolly-indicator feedback feedback--effect-ivana small">
+      <div
+        ref="indicator-1"
+        class="scrolly-indicator feedback feedback--effect-ivana small"
+      >
         <fa icon="long-arrow-alt-right" class />
       </div>
     </div>
@@ -23,8 +28,7 @@
           Where activists meet the passive investment giants
         </h3>
         
-        
-        
+      
         <p>
           First look at how these three asset management firms compare in terms
           of siding with or against management.
@@ -81,8 +85,7 @@
           <span class="soc_li" style="vertical-align: -1px">&#8226;</span>
           <span style="font-weight: 800;">social</span> category are often calls
           for companies to be more transparent about political contributions;
-          their lobbying; human rights policies.
-          <br />Social shareholder
+          their lobbying; human rights policies. <br />Social shareholder
           proposals also include employment issues such as employee diversity,
           pay-gaps and greater support for workers’ rights (for example minimum
           wage reform).
@@ -99,9 +102,20 @@
           and CEO roles (to de-concentrate corporate leadership), and proposals
           to empower minority shareholder blocks.
         </p>
+        <p>
+          Darker
+          <span class="gov_li" style="vertical-align: -2px">&#8226;</span>:
+          manager voted against management for that agenda item across most of
+          its funds. <br />Lighter
+          <span class="gov_li_light" style="vertical-align: -2px">&#8226;</span>
+          : manager supported the company's management.
+        </p>
       </div>
 
-      <div id="scroll_4" :class="`margin-scrollama-text ${getLoadingState(4)} last-category`">
+      <div
+        id="scroll_4"
+        :class="`margin-scrollama-text ${getLoadingState(4)} last-category`"
+      >
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           We noticed a few shareholder proposals asking the target company to
@@ -144,8 +158,8 @@
       <div id="scroll_7" :class="`margin-scrollama-text ${getLoadingState(7)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          Now filtering in the columns item description and resolution for
-          “degree” and “climate”.
+          This is a test for a very specific filter – only matching on the
+          keywords “degree” *and* “goal” in the columns “resolution” *or* “desc”
         </p>
       </div>
 
@@ -174,7 +188,9 @@
         </p>
       </div>-->
 
-      <div class="margin-scrollama-text">This is where the distinct outlines are activated</div>
+      <div class="margin-scrollama-text">
+        This is where the distinct outlines are activated
+      </div>
       <div class="margin-scrollama-text">This is just for spacing</div>
       <div class="margin-scrollama-text">This is just for spacing</div>
     </Scrollama>
@@ -280,12 +296,12 @@ export default {
       switch (index) {
         case 0:
 
-          //──── testArea ──────────────────────────────────────────────────────────────────────
+          // this.setActiveCats(["env"]);
           // this.$store.commit("year/SET_USE_YEAR_RANGE", true);
-          // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2016]);
+          // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2018]);
           // this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
-          //   logic: "or",
-          //   array: [{ prop: "resolution", val: "nuclear" }]
+          //   resolution: "nuclear",
+          //   _text: true
           // });
           //──── testArea end ──────────────────────────────────────────────────────────────────────
   
@@ -332,10 +348,7 @@ export default {
             // For up: next & previous year buttons will be hidden
             this.$store.commit("year/SET_ACTIVATE_YEAR_BUTTONS", false);
             // The proposal filter will be cleared
-            this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
-              logic: "or",
-              array: []
-            });
+            this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {});
             // Switch back to a single year view
             this.$store.commit("year/SET_USE_YEAR_RANGE", false);
           }
@@ -355,15 +368,27 @@ export default {
 
           // This is how we could filter
           // for guns control related proposals
+
+          // ! Do not use this structure anymore !
+          // this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+          //   logic: "or",
+          //   array: [
+          //     { prop: "resolution", val: "weapon" },
+          //     // The additional filters are not necessarily needed
+          //     // for now just to showcase the use of multiple filters
+          //     { prop: "resolution", val: "gun" },
+          //     { prop: "desc", val: "gun" },
+          //     { prop: "company", val: "sturm" }
+          //   ]
+          // });
+
+          // ! Instead use this !
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
-            logic: "or",
-            array: [
-              { prop: "resolution", val: "weapon" },
-              // The additional filters are not necessarily needed
-              // for now just to showcase the use of multiple filters
-              { prop: "resolution", val: "gun" },
-              { prop: "desc", val: "gun" },
-              { prop: "company", val: "sturm" }
+            _join: "OR",
+            terms: [
+              { resolution: "weapon", _text: true },
+              { resolution: "gun", _text: true },
+              { desc: "gun", _text: true }
             ]
           });
           break;
@@ -375,10 +400,10 @@ export default {
           // This is how we could filter
           // for diversity related proposals
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
-            logic: "or",
-            array: [
-              { prop: "desc", val: "diversity" },
-              { prop: "resolution", val: "diversity" }
+            _join: "OR",
+            terms: [
+              { resolution: "diversity", _text: true },
+              { desc: "diversity", _text: true }
             ]
           });
           break;
@@ -389,13 +414,24 @@ export default {
 
           // This is how we could filter
           // for 2 degree goal related proposals
+
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
-            logic: "or",
-            array: [
-              { prop: "desc", val: "degree" },
-              { prop: "desc", val: "climate" },
-              { prop: "resolution", val: "degree" },
-              { prop: "resolution", val: "climate" }
+            _join: "OR",
+            terms: [
+              {
+                _join: "AND",
+                terms: [
+                  { desc: "degree", _text: true },
+                  { desc: "goal", _text: true }
+                ]
+              },
+              {
+                _join: "AND",
+                terms: [
+                  { resolution: "degree", _text: true },
+                  { resolution: "goal", _text: true }
+                ]
+              }
             ]
           });
           break;
@@ -407,16 +443,34 @@ export default {
           // This is how we could filter
           // for executive compensation proposals
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
-            logic: "or",
-            // with this search it gets a bit sloppy, maybe we have to come up with
-            // a more comprehensive way to do the filtering
-            array: [
-              { prop: "desc", val: "executive" },
-              { prop: "desc", val: "pay" },
-              { prop: "desc", val: "compensation" },
-              { prop: "resolution", val: "executive" },
-              { prop: "resolution", val: "pay" },
-              { prop: "resolution", val: "compensation" }
+            _join: "OR",
+            terms: [
+              {
+                _join: "AND",
+                terms: [
+                  { desc: "executive", _text: true },
+                  {
+                    _join: "OR",
+                    terms: [
+                      { desc: "pay", _text: true },
+                      { desc: "compensation", _text: true }
+                    ]
+                  }
+                ]
+              },
+              {
+                _join: "AND",
+                terms: [
+                  { resolution: "executive", _text: true },
+                  {
+                    _join: "OR",
+                    terms: [
+                      { resolution: "pay", _text: true },
+                      { resolution: "compensation", _text: true }
+                    ]
+                  }
+                ]
+              }
             ]
           });
           break;
@@ -426,8 +480,8 @@ export default {
           this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2016]);
 
           this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
-            logic: "or",
-            array: [{ prop: "company", val: "amazon" }]
+            company: "amazon",
+            _text: true
           });
           break;
 
