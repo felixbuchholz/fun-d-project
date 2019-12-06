@@ -84,8 +84,8 @@ export const getters = {
     const w = state.width;
 
     // x1 and x2 are the horizontal positioning for passive / active
-    const x1 = w * 0.4;
-    const x2 = w * 0.6;
+    let x1 = w * 0.4;
+    let x2 = w * 0.6;
     // y0 is a convenience variable for removing elements, check if still necessary
     const yO = h * 0.5;
     // xO and xN are used to determine where new Nodes come from and where old ones go
@@ -126,6 +126,9 @@ export const getters = {
         (x, i) => (i + 1) * evenSpace
       );
       // console.log(evenSpace, yArr);
+      // more distinguished spacing for the year grid:
+      x1 = w * 0.4;
+      x2 = w * 0.75;
       centersArray = centersArray.map((x, i) => {
         // console.log(i, yArr[centersArray.length][i]);
         const yVal = yArr[i];

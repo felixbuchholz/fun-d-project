@@ -33,6 +33,7 @@ export default {
     { src: "~/plugins/anime" },
     { src: "~/plugins/helpers" },
     // { src: "~/plugins/resize" },
+    { src: "~/plugins/vue-js-toggle-button" },
     { src: "~/plugins/v-tooltip" },
     { src: "~/plugins/vue-scrollama" },
     { src: "~/plugins/vue-slider" }

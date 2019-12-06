@@ -16,7 +16,8 @@ export const state = () => ({
     { name: "Non-ESG", issueCode: "no-esg", activated: false }
   ],
   areDistinctOutlinesActive: false,
-  proposalFilter: {}
+  proposalFilter: {},
+  isPassedFilterActive: false
 });
 
 // checking if need to change and activates change.
@@ -38,6 +39,9 @@ export const mutations = {
   },
   UPDATE_PROPOSAL_FILTER(state, obj) {
     state.proposalFilter = obj;
+  },
+  SET_IS_PASSED_FILTER_ACTIVE(state, bool) {
+    state.isPassedFilterActive = bool;
   }
 };
 
@@ -47,7 +51,11 @@ export const getters = {
     // console.log(rootGetters);
     const currentYearRangeArray = rootGetters["year/currentYearRangeArray"];
     const useYearRange = rootState.year.useYearRange;
-    let newArray = [];
+    // let newArray = [];
+    // Reconfigure in steps
+    let filterState = [];
+
+    //──── Filter for year / -range ────────────────────────────────────────────────────────────
     for (const manager of state.proposals) {
       const yearFilter = manager.filter(x => {
         let matchesYear = false;
@@ -58,53 +66,54 @@ export const getters = {
         } else {
           matchesYear = currentYearRangeArray.includes(x.year);
         }
-        if (matchesYear) {
-          // Check if proposal is active right now
-          const checkArray = state.categoriesToggle
-            .filter(x => x.activated == true)
-            .map(x => x.issueCode);
-          const issueIsActive = checkArray.includes(x.issue);
-          // if there’s no additional proposal filter *stop* here and
-          // return the issue is active boolean value
-          // Is filter empty?
-          const filterIsEmpty = isEmpty(state.proposalFilter);
-          // console.log(state.proposalFilter, filterIsEmpty);
-          if (filterIsEmpty) {
-            return issueIsActive;
-          } else {
-            if (issueIsActive) {
-              // Plug in the proposal filter to searchjs here :)
-              // Documentation: https://github.com/deitch/searchjs
-              const match = searchjs.matchObject(x, state.proposalFilter);
-              // console.log(x.resolution, state.proposalFilter, match);
-              // My own old way to do it:
-              // // Check if proposal matches all specific filters
-              // // console.log(x[state.proposalFilter.prop]);
-              // const matchResults = [];
-              // // console.log(state.proposalFilter);
-              // for (const condition of state.proposalFilter.array) {
-              //   // console.log(condition, condition.prop, x[condition.prop]);
-              //   const matchesCondition = x[condition.prop]
-              //     .toLowerCase()
-              //     .includes(condition.val.toLowerCase());
-              //   matchResults.push(matchesCondition);
-              // }
-              // // Different logical combinations
-              // let match = false;
-              // if (state.proposalFilter.logic == "and") {
-              //   match = matchResults.every(x => x == true);
-              // } else if (state.proposalFilter.logic == "or") {
-              //   match = matchResults.includes(true);
-              // }
-
-              return match;
-            }
-          }
-        }
+        return matchesYear;
       });
-      newArray.push(yearFilter);
+      filterState.push(yearFilter);
     }
-    return newArray;
+    //──── Filter for issue category ─────────────────────────────────────────────────────────
+
+    for (let index = 0; index < filterState.length; index++) {
+      const manager = filterState[index];
+      const issueFilter = manager.filter(x => {
+        const checkArray = state.categoriesToggle
+          .filter(x => x.activated == true)
+          .map(x => x.issueCode);
+        const issueIsActive = checkArray.includes(x.issue);
+        return issueIsActive;
+      });
+      filterState[index] = issueFilter;
+    }
+
+    //──── Optional: Filter for specific filter ─────────────────────────────────────────────────
+
+    const filterIsEmpty = isEmpty(state.proposalFilter);
+    if (!filterIsEmpty) {
+      for (let index = 0; index < filterState.length; index++) {
+        const manager = filterState[index];
+        const specificFilter = manager.filter(x => {
+          const match = searchjs.matchObject(x, state.proposalFilter);
+          return match;
+        });
+        filterState[index] = specificFilter;
+      }
+    }
+
+    //──── Optional: Proposal passed filter ──────────────────────────────────────────────────
+
+    if (state.isPassedFilterActive) {
+      for (let index = 0; index < filterState.length; index++) {
+        const manager = filterState[index];
+        const passedFilter = manager.filter(x => {
+          const passedIsNotNull = x.passed ? true : false;
+          return passedIsNotNull;
+        });
+        filterState[index] = passedFilter;
+      }
+    }
+
+    //──── Finally: return filterState ───────────────────────────────────────────────────────
+
+    return filterState;
   },
   categories(state) {
     return state.categoriesToggle.filter(x => x.activated == true);
