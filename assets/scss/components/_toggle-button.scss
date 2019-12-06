@@ -1,0 +1,17 @@
+.toggle-passed {
+  & label {
+    color: $gray;
+    padding-right: 5px;
+  }
+}
+.vue-js-switch {
+  font-family: $text-font-stack;
+  & .v-switch-core {
+    background: $gray;
+  }
+  &.toggled {
+    & .v-switch-core {
+      background: $first;
+    }
+  }
+}

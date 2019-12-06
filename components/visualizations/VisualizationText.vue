@@ -447,7 +447,7 @@ export default {
 
         case 8:
           // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
-          // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2018]);
+          this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2018]);
 
           // This is how we could filter
           // for executive compensation proposals

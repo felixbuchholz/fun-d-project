@@ -110,7 +110,14 @@ export default {
     }),
     circle() {
       const padding = this.areDistinctOutlinesActive ? 2 : 1;
-      return { radius: 4, padding: padding };
+      // console.log(this.useYearRange);
+      if (!this.useYearRange) {
+        return { radius: 4, padding: padding };
+      } else {
+        let radius = 9 - 0.05 * this.nodes.length;
+        radius = radius >= 5.5 ? radius : 5.5;
+        return { radius: radius, padding: padding };
+      }
     }
     // animationDuration() {
     //   return (
@@ -203,13 +210,25 @@ export default {
       };
     },
     markupTooltip(node) {
-      return `<div class="resolution">${
-        node.desc
-      }</div> <div class="information">Company: <span class="company">${voca.titleCase(
-        node.company
-      )}</span></div><div class="information">Year: <span class="bold">${
-        node.year
-      }</span></div>`;
+      const passedText = node.passed ? node.passed : "No";
+      const passedClass = node.passed ? "passed" : "";
+      const distinctText = node.modeDistinct == 0 ? "No" : "Yes";
+      const distinctClass = node.modeDistinct == 0 ? "" : "distinct";
+
+      // if (node.passed) {
+      //   console.log(node.passed);
+      // }
+      return `<div class="title">${node.desc}</div> 
+      <div class="tooltip-item"><div class="category">Company: </div>
+      <div class="info">${voca.titleCase(node.company)}</div></div>
+      <div class="tooltip-item"><div class="category">Sponsor: </div>
+      <div class="info">${node.sponsor}</div></div>
+      <div class="tooltip-item"><div class="category">Passed: </div>
+      <div class="info ${passedClass}">${passedText}</div></div>
+      <div class="tooltip-item"><div class="category">Distinct: </div>
+      <div class="info ${distinctClass}">${distinctText}</div></div>
+      <div class="tooltip-item"><div class="category">Year: </div>
+      <div class="info">${node.year}</div></div>`;
     },
     activateForSameProposals(node) {
       const samePropCircles = document.querySelectorAll(`.id-${node.uID}`);
@@ -230,7 +249,7 @@ export default {
       // console.log("tick");
     },
     ended() {
-      // ticked has no parameter!
+      // ended has no parameter!
       // console.log("end");
     },
     updateCoordinates() {
@@ -257,71 +276,31 @@ export default {
         this.simulation.tick();
       }
     },
-    findExitNodes() {
-      // TODO: include find same proposal
-      this.oldLocal = this.nodes;
-      this.newStore = this.$helpers.getArrayOfObjectsCopy(
-        this.nodesStore[this.managerIndex]
-      );
-      this.newLength = this.newStore.length;
-      this.exitIndexes = [];
-      // ! Only looping once causes an issue here: fix in new branch !
-      // if (this.managerIndex == 0) {
-      //   console.log(this.$helpers.getArrayOfObjectsCopy(this.oldLocal), this.$helpers.getArrayOfObjectsCopy(this.newStore));
-      // }
-      // for (let i = 0; i < this.oldLocal.length; i++) {
-      //   const proposal = this.oldLocal[i];
-      //   const foundID = this.$helpers.findWithAttr(this.newStore, "uID", proposal.uID);
-      //   console.log(foundID);
-      // }
-      for (let i = 0; i < this.oldLocal.length; i++) {
-        const proposal = this.oldLocal[i];
-
-        const foundIndex = this.$helpers.findWith2Attrs(
-          this.newStore,
-          "issue",
-          proposal.issue,
-          "active",
-          proposal.active
-        );
-        if (foundIndex != -1) {
-          this.transferPropsKeepCoords(
-            this.oldLocal[i],
-            this.newStore[foundIndex]
-          );
-          this.newStore.splice(foundIndex, 1);
-        } else {
-          proposal.issue = "exit";
-          this.exitIndexes.push(i);
-        }
-      }
-    },
-    reassignExitNodes() {
-      for (const index of this.exitIndexes) {
-        // this.assignCoordsToObj(this.oldLocal[index]);
-        if (this.newStore.length > 0) {
-          // ? TODO: this assignment is kind of random, can be improved
-          this.oldLocal[index] = this.newStore[0];
-          this.newStore.splice(0, 1);
-        } else {
-          this.oldLocal.splice(index, 1);
-        }
-      }
-      // This is bad when filtering for the same year, I think
-      this.nodes = [...this.nodes, ...this.newStore];
-      // this is bad, when filtering – removes the new Selection
-      this.nodes.splice(this.newLength);
-    },
     defineSimulation() {
       const that = this;
+      // Standard fast calculation
+      let alpha = 0.9;
+      let alphaDecay = 0.2;
+      let alphaMin = 0.006;
+      let velocityDecay = 0.45;
+      // Better simulation – longer calculation for few nodes
+      console.log(this.nodes.length);
+      if (this.useYearRange) {
+        console.log("better simulation");
+        alpha = 1;
+        alphaDecay = 0.16;
+        alphaMin = 0.003;
+        velocityDecay = 0.45; // same value, didn’t see much of a change
+      }
+
       this.simulation = d3
         .forceSimulation(this.nodes)
         // Move the parameters to the store later
-        .alpha(0.9) // Starting point, alpha is the "ticks" unit or counter // default: 1, range: [0,1] // was: 0.9
-        .alphaDecay(0.2) // Acceleration of the animation // default: 0.0288, range [0,1] // was: 0.2
-        .alphaMin(0.006) // Stopping point // default: 0.001, range [0,1]
+        .alpha(alpha) // Starting point, alpha is the "ticks" unit or counter // default: 1, range: [0,1] // was: 0.9
+        .alphaDecay(alphaDecay) // Acceleration of the animation // default: 0.0288, range [0,1] // was: 0.2
+        .alphaMin(alphaMin) // Stopping point // default: 0.001, range [0,1]
         .alphaTarget(0) // Target! // default: 0, range [0,1]
-        .velocityDecay(0.45) // Friction or "mass" // default: 0.4, range [0,1] // was: 0.4
+        .velocityDecay(velocityDecay) // Friction or "mass" // default: 0.4, range [0,1] // was: 0.4
         .force(
           "charge",
           d3

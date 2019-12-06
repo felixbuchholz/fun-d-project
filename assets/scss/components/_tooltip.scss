@@ -4,12 +4,16 @@
   display: block !important;
   z-index: 10000;
   // ! MAX WIDTH !
-  max-width: 250px;
+  max-width: 260px;
 
   &.soc {
     .tooltip-inner,
     .tooltip-arrow {
       border-color: $soc;
+    }
+    & .passed,
+    & .distinct {
+      color: $soc;
     }
   }
   &.gg {
@@ -17,11 +21,19 @@
     .tooltip-arrow {
       border-color: $gg;
     }
+    & .passed,
+    & .distinct {
+      color: $gg;
+    }
   }
   &.env {
     .tooltip-inner,
     .tooltip-arrow {
       border-color: $env;
+    }
+    & .passed,
+    & .distinct {
+      color: $env;
     }
   }
   &.profit {
@@ -29,11 +41,19 @@
     .tooltip-arrow {
       border-color: $profit;
     }
+    & .passed,
+    & .distinct {
+      color: $profit;
+    }
   }
   &.no-esg {
     .tooltip-inner,
     .tooltip-arrow {
       border-color: $no-esg;
+    }
+    & .passed,
+    & .distinct {
+      color: $no-esg;
     }
   }
 
@@ -144,19 +164,30 @@
     transition: opacity 0.15s;
   }
 
-  .resolution {
+  .title {
     width: 100%;
-    font-size: 1.2em;
+    font-size: 1.15em;
     font-style: italic;
     padding-bottom: 10px;
     margin-bottom: 10px;
     border-bottom: 1px dashed $white;
   }
-  .information {
+  .tooltip-item {
+    display: flex;
     font-size: 0.9em;
+    // & .passed,
+    // & .distinct {
+    //   color: $first;
+    // }
   }
-  .company {
+  .category {
+    width: 32%;
+  }
+  .info {
+    width: 68%;
     font-weight: 700;
+    padding-left: 5px;
+    padding-bottom: 2.5px;
     // white-space: nowrap;
   }
 }

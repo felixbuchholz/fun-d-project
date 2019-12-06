@@ -53,15 +53,28 @@
       </div>
     </div>
     <div class="col right">
-      <div v-if="!useYearRange" class="legend-and-percentages">
-        <button class="graph-control-button">
+      <!-- <div v-if="!useYearRange" class="legend-and-percentages"> -->
+      <div class="legend-and-percentages">
+        <div class="toggle-passed">
+          <label>Filter passed proposals</label
+          ><toggle-button
+            v-model="isPassedFilterActiveModel"
+            :labels="{ checked: 'Only passed', unchecked: 'All proposals' }"
+            :width="90"
+            :height="26"
+            :css-colors="true"
+            :margin="5"
+          />
+        </div>
+        <!-- Percentages and legend buttons -->
+        <!-- <button class="graph-control-button">
           <fa class="fa-adjust" icon="percentage" />&nbsp;&nbsp;Percentages
-          <!-- alt: percent -->
         </button>
         <button class="graph-control-button">
           <fa class="fa-adjust" icon="info" />&nbsp;Legend
-          <!-- alt: info-circle -->
-        </button>
+        </button> -->
+        <!-- alt: percent -->
+        <!-- alt: info-circle -->
       </div>
     </div>
   </div>
@@ -71,13 +84,15 @@
 import { mapState } from "vuex";
 
 export default {
-  computed: { 
+  computed: {
     ...mapState({
       year: state => state.year.year,
       yearRange: state => state.year.yearRange,
       currentYearRange: state => state.year.currentYearRange,
       useYearRange: state => state.year.useYearRange,
-      processCounter: state => state.progressBar.processCounter
+      activateYearButtons: state => state.year.activateYearButtons,
+      processCounter: state => state.progressBar.processCounter,
+      isPassedFilterActive: state => state.proposals.isPassedFilterActive
     }),
     yearModel: {
       set(val) {
@@ -93,6 +108,14 @@ export default {
     },
     yearLabel() {
       return this.useYearRange ? "Years" : "Year";
+    },
+    isPassedFilterActiveModel: {
+      set(val) {
+        this.$store.commit("proposals/SET_IS_PASSED_FILTER_ACTIVE", val);
+      },
+      get() {
+        return this.isPassedFilterActive;
+      }
     }
   },
   methods: {

@@ -3,17 +3,13 @@
     <div id="fast-small-padding">
       <h1>Test site</h1>
       <p>Scrolly telling experiments</p>
-      <div id="scrolly-telling-1-container">
-        <VisualizationText />
-        <ForceGraphGroup />
-      </div>
+      <ScrollyTelling />
     </div>
   </div>
 </template>
 
 <script>
-import ForceGraphGroup from "~/components/visualizations/ForceGraphGroup.vue";
-import VisualizationText from "~/components/visualizations/VisualizationText.vue";
+import ScrollyTelling from "~/components/visualizations/ScrollyTelling.vue";
 
 import * as searchjs from "searchjs";
 
@@ -27,8 +23,7 @@ export default {
     // };
   },
   components: {
-    ForceGraphGroup,
-    VisualizationText
+    ScrollyTelling
   },
   data() {
     return {};
