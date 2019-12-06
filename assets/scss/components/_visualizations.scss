@@ -264,6 +264,9 @@
   height: 100%;
   overflow: hidden;
   // background: red;
+  & path {
+    opacity: 0;
+  }
 }
 
 //──── Grouping the force graphs ─────────────────────────────────────────────────────────

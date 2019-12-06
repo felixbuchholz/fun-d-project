@@ -27,8 +27,7 @@
         <h3 class="scrollyTitle">
           Where activists meet the passive investment giants
         </h3>
-        
-      
+
         <p>
           First look at how these three asset management firms compare in terms
           of siding with or against management.
@@ -58,8 +57,8 @@
           <span class="gov_li_light" style="vertical-align: -2px">&#8226;</span>
           : manager supported the company's management.
         </p> -->
-      </div> <!-- end scroll 0 -->
-
+      </div>
+      <!-- end scroll 0 -->
 
       <div id="scroll_1" :class="`margin-scrollama-text ${getLoadingState(1)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
@@ -76,7 +75,8 @@
           always proposals that were submitted but withdrawn, after the company
           satisfies activists with a promise to take action on that issue.
         </p>
-      </div> <!-- end scroll 1 -->
+      </div>
+      <!-- end scroll 1 -->
 
       <div id="scroll_2" :class="`margin-scrollama-text ${getLoadingState(2)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
@@ -90,7 +90,8 @@
           pay-gaps and greater support for workers’ rights (for example minimum
           wage reform).
         </p>
-      </div> <!-- end scroll 2 -->
+      </div>
+      <!-- end scroll 2 -->
 
       <div id="scroll_3" :class="`margin-scrollama-text ${getLoadingState(3)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
@@ -136,23 +137,35 @@
         </p>
       </div>
 
-        <!-- <Scrolling over the years> -->
-        <!-- <p>Clearly, these asset managers are more often supporting management by voting against activist shareholders. Most shareholder proposals do not pass. The average support for shareholder proposals has been fairly constant at about 30% over the past 10 years. However, shareholder meeting dynamics did change significantly in this period. Shareholders became more active: more capital was invested by activists to force corporate change, and shareholders submitted more resolutions. <br /> <br />
+      <!-- <Scrolling over the years> -->
+      <!-- <p>Clearly, these asset managers are more often supporting management by voting against activist shareholders. Most shareholder proposals do not pass. The average support for shareholder proposals has been fairly constant at about 30% over the past 10 years. However, shareholder meeting dynamics did change significantly in this period. Shareholders became more active: more capital was invested by activists to force corporate change, and shareholders submitted more resolutions. <br /> <br />
         Meanwhile, voting has become less of a “compliance” exercise: institutional shareholders have become more keen on pro-active engagement as “stewards”. This shows as good corporate governance rose as a focus area for investors. That is probably also because of governance scandals (think Kobe Steel or Volkswagen) and increased regulatory attention. In most recent years, a record shareholder proposals is about social and environmental issues - and an increasing amount of such proposals pass.</p> -->
-
 
       <div id="scroll_5" :class="`margin-scrollama-text ${getLoadingState(5)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
-             <p>After Newtown, Connecticut and Parkland, Florida, the impact of mass shootings have yet to produce new gun-safety laws in the United States. Where the Trump administration is reluctant to overhaul gun laws, some corporate shareholders are pushing for stronger gun control policies. We noticed shareholder proposals asking that companies stop selling guns, or openly distantiate from National Rifle Association (NRA). <br /> <br /> For example, Walmart and Dick’s Sporting Goods placed new restrictions on gun sales. Delta Airlines, MetLife and FedEx voted to part ways with or discontinue preferential treatment of the NRA. Two firearm companies, American Outdoor Brands and Sturm, Ruger &amp; Co were targeted by investors to produce a report on gun violence.</p>      
-
+        <p>
+          After Newtown, Connecticut and Parkland, Florida, the impact of mass
+          shootings have yet to produce new gun-safety laws in the United
+          States. Where the Trump administration is reluctant to overhaul gun
+          laws, some corporate shareholders are pushing for stronger gun control
+          policies. We noticed shareholder proposals asking that companies stop
+          selling guns, or openly distantiate from National Rifle Association
+          (NRA). <br />
+          <br />
+          For example, Walmart and Dick’s Sporting Goods placed new restrictions
+          on gun sales. Delta Airlines, MetLife and FedEx voted to part ways
+          with or discontinue preferential treatment of the NRA. Two firearm
+          companies, American Outdoor Brands and Sturm, Ruger &amp; Co were
+          targeted by investors to produce a report on gun violence.
+        </p>
       </div>
 
       <div id="scroll_6" :class="`margin-scrollama-text ${getLoadingState(6)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
-          <p>
-            Now filtering in the columns item description and resolution for
-            diversitiy.
-          </p>
+        <p>
+          Now filtering in the columns item description and resolution for
+          diversitiy.
+        </p>
       </div>
 
       <div id="scroll_7" :class="`margin-scrollama-text ${getLoadingState(7)}`">
@@ -295,7 +308,6 @@ export default {
       //──── 3. Steps ──────────────────────────────────────────────────────────────────────────
       switch (index) {
         case 0:
-
           // this.setActiveCats(["env"]);
           // this.$store.commit("year/SET_USE_YEAR_RANGE", true);
           // this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2018]);
@@ -304,7 +316,6 @@ export default {
           //   _text: true
           // });
           //──── testArea end ──────────────────────────────────────────────────────────────────────
-  
           if (down) {
             // Display the trigger position indicator, add legend
             indicatorMover.classList.add("active");
@@ -315,7 +326,7 @@ export default {
             // Hide the trigger position indicator
             indicatorMover.classList.remove("active");
             this.$store.commit("forceGraph/SET_LEGEND_ACTIVE", true);
-            // you can use all mutations, but value of state is not available directly 
+            // you can use all mutations, but value of state is not available directly
           }
           break;
 
@@ -360,7 +371,7 @@ export default {
         case 5:
           // Switch to a range of years instead of just one
           // the grid for that will automatically be displayed
-          
+
           // here year=module of file and then take that function=mutation and which value to commit.
           this.$store.commit("year/SET_USE_YEAR_RANGE", true);
 
@@ -525,6 +536,14 @@ export default {
         delay: function(el, i) {
           return i * 100;
         }
+      });
+    },
+    showDrawing() {
+      anime({
+        targets: ".drawing-canvas-svg",
+        opacity: 1,
+        easing: "easeInOutSine",
+        duration: 500
       });
     },
     removeDrawing() {
