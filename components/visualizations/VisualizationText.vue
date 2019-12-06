@@ -305,14 +305,12 @@ export default {
           // });
           //──── testArea end ──────────────────────────────────────────────────────────────────────
   
-
           if (down) {
             // Display the trigger position indicator, add legend
             indicatorMover.classList.add("active");
             // this.drawSmthRandom()
           } else if (up) {
             // remove all the nodes, keep only legend
-            // this.showDrawing()
             this.setActiveCats([""]);
             // Hide the trigger position indicator
             indicatorMover.classList.remove("active");
@@ -514,9 +512,6 @@ export default {
       this.lastStep = thisStep;
       this.lastIndex = index;
     }, // last step in scrollama!
-
-
-
     drawSmthRandom() {
       anime({
         targets: ".drawing-canvas-svg",
@@ -530,14 +525,6 @@ export default {
         delay: function(el, i) {
           return i * 100;
         }
-      });
-    },
-    showDrawing() {
-      anime({
-        targets: ".drawing-canvas-svg",
-        opacity: 1,
-        easing: "easeInOutSine",
-        duration: 500,
       });
     },
     removeDrawing() {

@@ -41,7 +41,7 @@ export const mutations = {
     state.animationIndex = val;
   },
   SET_LEGEND_ACTIVE(state, boolian) {
-    state.legendActive != boolian;
+    state.legendActive = boolian;
   }
 };
 
