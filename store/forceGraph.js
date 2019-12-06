@@ -13,7 +13,6 @@ function getCIndex(array, value) {
   return findWithAttr(array, "issueCode", value);
 }
 
-
 // default states
 export const state = () => ({
   paadingBetweenManagers: 10,
@@ -22,7 +21,7 @@ export const state = () => ({
   width: 350,
   height: 600,
   animationIndex: 0,
-  legendActive: true
+  legendActive: false
 });
 
 export const mutations = {
@@ -41,7 +40,7 @@ export const mutations = {
     state.animationIndex = val;
   },
   SET_LEGEND_ACTIVE(state, boolian) {
-    state.legendActive != boolian;
+    state.legendActive = boolian;
   }
 };
 

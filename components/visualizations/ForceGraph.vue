@@ -5,10 +5,13 @@
   <div class="manager-container">
     <h3 class="manager-headline">{{ managers[managerIndex].name }}</h3>
 
-        <!-- legend -->
-    <div ref="intro-legend-div" class='visual-intro-div' v-if="legendActive == true"></div> 
+    <!-- legend -->
+    <div
+      v-if="legendActive == true"
+      ref="intro-legend-div"
+      class="visual-intro-div"
+    ></div>
     <!-- create in the store -->
-
 
     <div class="svg-container">
       <div class="svg-background"></div>
@@ -97,7 +100,7 @@ export default {
       nodeChangeCounter: state => state.progressBar.nodeChangeCounter,
       browsingYears: state => state.progressBar.browsingYears,
       useYearRange: state => state.year.useYearRange,
-      legendActive: state => state.forceGraph.legendActive,
+      legendActive: state => state.forceGraph.legendActive
     }),
     ...mapGetters({
       nodesStore: [`forceGraph/nodesPerYear`],
