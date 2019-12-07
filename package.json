@@ -1,7 +1,7 @@
 {
-  "name": "intro",
+  "name": "three-passive-elephants-in-the-room",
   "version": "1.0.0",
-  "description": "Testing svg.js to make an intro for the fun(d) project",
+  "description": "A visualization of mutual funds vote data. Analyzing proxy voting patterns of the world’s largest financial shareholders: BlackRock, Vanguard and State Street",
   "author": "felixbuchholz",
   "private": true,
   "scripts": {

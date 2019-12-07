@@ -72,12 +72,12 @@ export const getters = {
     }
     //──── Filter for issue category ─────────────────────────────────────────────────────────
 
+    const checkArray = state.categoriesToggle
+      .filter(x => x.activated == true)
+      .map(x => x.issueCode);
     for (let index = 0; index < filterState.length; index++) {
       const manager = filterState[index];
       const issueFilter = manager.filter(x => {
-        const checkArray = state.categoriesToggle
-          .filter(x => x.activated == true)
-          .map(x => x.issueCode);
         const issueIsActive = checkArray.includes(x.issue);
         return issueIsActive;
       });

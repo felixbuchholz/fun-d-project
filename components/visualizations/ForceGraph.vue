@@ -222,7 +222,11 @@ export default {
       <div class="tooltip-item"><div class="category">Company: </div>
       <div class="info">${voca.titleCase(node.company)}</div></div>
       <div class="tooltip-item"><div class="category">Sponsor: </div>
-      <div class="info">${node.sponsor}</div></div>
+      <div class="info">${
+        node.sponsor.toLowerCase() == "shareholder"
+          ? "Not specified"
+          : node.sponsor
+      }</div></div>
       <div class="tooltip-item"><div class="category">Passed: </div>
       <div class="info ${passedClass}">${passedText}</div></div>
       <div class="tooltip-item"><div class="category">Distinct: </div>
