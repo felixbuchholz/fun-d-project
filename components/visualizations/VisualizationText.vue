@@ -49,14 +49,7 @@
           Funds from one manager may vote differently. This visual takes the
           most common vote for each manager.
         </p>
-        <!-- <p>
-          Darker
-          <span class="gov_li" style="vertical-align: -2px">&#8226;</span>:
-          manager voted against management for that agenda item across most of
-          its funds. <br />Lighter
-          <span class="gov_li_light" style="vertical-align: -2px">&#8226;</span>
-          : manager supported the company's management.
-        </p> -->
+
       </div>
       <!-- end scroll 0 -->
 
@@ -104,14 +97,7 @@
           de-concentrate corporate leadership), and proposals to empower
           minority shareholder blocks.
         </p>
-        <p>
-          Darker
-          <span class="gov_li" style="vertical-align: -2px">&#8226;</span>:
-          manager voted against management for that agenda item across most of
-          its funds. <br />Lighter
-          <span class="gov_li_light" style="vertical-align: -2px">&#8226;</span>
-          : manager supported the company's management.
-        </p>
+
       </div>
 
       <div
@@ -192,7 +178,7 @@
       <div id="scroll_7" :class="`margin-scrollama-text ${getLoadingState(7)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          In 2016, more than 174 countries signed the UN Paris Agreement to strengthen the global response to climate change. They committed to keep a global temperature rise during this century below 2 degrees Celsius, compared to pre-industrial levels. <br><br> Indeed, as of 2016 multiple shareholders submitted proposals calling for companies to look at climate change or the 2 degree goal.
+          In 2016, more than 174 countries signed the UN Paris Agreement to strengthen the global response to climate change. They committed to keep a global temperature rise during this century below 2 degrees Celsius, compared to pre-industrial levels. <br><br> Indeed, as of 2016 multiple shareholders submitted proposals calling for companies to look at climate change or the 2 degree goal. The United States decided to withdrew from the Paris Agreement by June 2017, for which the process started November 2019.
         </p>
       </div>
 
