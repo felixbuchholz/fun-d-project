@@ -176,7 +176,7 @@ export default {
   methods: {
     getDistinctClass(node) {
       if (this.areDistinctOutlinesActive == true) {
-        return node.modeDistinct == 0 ? "" : "distinct";
+        return node.modeDistinct != 0 ? "" : "distinct";
       } else {
         return "";
       }
@@ -212,8 +212,8 @@ export default {
     markupTooltip(node) {
       const passedText = node.passed ? node.passed : "No";
       const passedClass = node.passed ? "passed" : "";
-      const distinctText = node.modeDistinct == 0 ? "No" : "Yes";
-      const distinctClass = node.modeDistinct == 0 ? "" : "distinct";
+      const distinctText = node.modeDistinct != 0 ? "Manager voted different than winning vote" : "Manager voted with winning vote";
+      const distinctClass = node.modeDistinct != 0 ? "distinct" : "";
 
       // if (node.passed) {
       //   console.log(node.passed);
