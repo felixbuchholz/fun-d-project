@@ -212,21 +212,26 @@ export default {
     markupTooltip(node) {
       const passedText = node.passed ? node.passed : "No";
       const passedClass = node.passed ? "passed" : "";
-      const distinctText = node.modeDistinct != 0 ? "Manager voted different than winning vote" : "Manager voted with winning vote";
+      const distinctText =
+        node.modeDistinct != 0
+          ? "Manager voted different than winning vote"
+          : "Manager voted with winning vote";
       const distinctClass = node.modeDistinct != 0 ? "distinct" : "";
+      let nodeSponsor = "Not specified";
+      if (node.sponsor) {
+        if (!node.sponsor.toLowerCase() == "shareholder") {
+          nodeSponsor = node.sponsor;
+        }
+      }
 
       // if (node.passed) {
       //   console.log(node.passed);
       // }
-      return `<div class="title">${node.desc}</div> 
+      return `<div class="title">${node.desc}</div>
       <div class="tooltip-item"><div class="category">Company: </div>
       <div class="info">${voca.titleCase(node.company)}</div></div>
       <div class="tooltip-item"><div class="category">Sponsor: </div>
-      <div class="info">${
-        node.sponsor.toLowerCase() == "shareholder"
-          ? "Not specified"
-          : node.sponsor
-      }</div></div>
+      <div class="info">${nodeSponsor}</div></div>
       <div class="tooltip-item"><div class="category">Passed: </div>
       <div class="info ${passedClass}">${passedText}</div></div>
       <div class="tooltip-item"><div class="category">Distinct: </div>
