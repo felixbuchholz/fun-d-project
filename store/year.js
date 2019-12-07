@@ -1,8 +1,8 @@
 export const state = () => ({
   year: 2012,
-  yearRange: [2009, 2018],
+  yearRange: [2010, 2018],
   direction: "positive",
-  currentYearRange: [2009, 2018],
+  currentYearRange: [2010, 2018],
   useYearRange: false,
   activateYearButtons: false
 });

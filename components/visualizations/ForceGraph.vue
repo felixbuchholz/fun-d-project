@@ -293,9 +293,9 @@ export default {
       let alphaMin = 0.006;
       let velocityDecay = 0.45;
       // Better simulation – longer calculation for few nodes
-      console.log(this.nodes.length);
+      // console.log(this.nodes.length);
       if (this.useYearRange) {
-        console.log("better simulation");
+        // console.log("better simulation");
         alpha = 1;
         alphaDecay = 0.16;
         alphaMin = 0.003;
