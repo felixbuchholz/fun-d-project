@@ -31,6 +31,7 @@
       </p>
     </div>
     <br />
+    <fa icon="arrow-down" class="scrollArrows" />
     <h3>So, what about passive investing?</h3>
   </div>
 </template>

@@ -10,7 +10,26 @@
       v-if="legendActive == true"
       ref="intro-legend-div"
       class="visual-intro-div"
-    ></div>
+    >
+        <p>
+          First look at how these three asset management firms compare in terms
+          of siding with or against management.
+          <br />We zoom in on proposals brought by shareholders, and categorize
+          those by topics. We focus on three main issues:
+        </p>
+        <ul>
+          <li class="env_li">
+            <span>environmental</span>
+          </li>
+          <li class="soc_li">
+            <span>social</span>
+          </li>
+          <li class="gov_li">
+            <span>governance</span>
+          </li>
+        </ul>
+
+    </div>
     <!-- create in the store -->
 
     <div class="svg-container">
@@ -212,7 +231,7 @@ export default {
     markupTooltip(node) {
       const passedText = node.passed ? node.passed : "No";
       const passedClass = node.passed ? "passed" : "";
-      const distinctText = node.modeDistinct != 0 ? "Manager voted different than winning vote" : "Manager voted with winning vote";
+      const distinctText = node.modeDistinct != 0 ? "Manager voted different than majority of the votes" : "Manager voted same as majority of votes";
       const distinctClass = node.modeDistinct != 0 ? "distinct" : "";
 
       // if (node.passed) {

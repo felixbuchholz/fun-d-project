@@ -28,13 +28,13 @@
           Where activists meet the passive investment giants
         </h3>
 
-        <p>
+        <!-- <p>
           First look at how these three asset management firms compare in terms
           of siding with or against management.
           <br />We zoom in on proposals brought by shareholders, and categorize
           those by topics. We focus on three main issues:
-        </p>
-        <ul>
+        </p> -->
+        <!-- <ul>
           <li class="env_li">
             <span>environmental</span>
           </li>
@@ -44,7 +44,7 @@
           <li class="gov_li">
             <span>governance</span>
           </li>
-        </ul>
+        </ul> -->
         <p>
           Funds from one manager may vote differently. This visual takes the
           most common vote for each manager.
@@ -119,7 +119,7 @@
       >
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          We noticed a few shareholder proposals asking the target company to
+          We noticed funds voted on a few shareholder proposals asking the target company to
           hire an advisor to maximize shareholder value. Most of this comes from
           "activist hedge funds" that buy a certain amount of stock in a
           company, to be able to enforce key changes at target companies. The
@@ -166,7 +166,7 @@
       <div id="scroll_6" :class="`margin-scrollama-text ${getLoadingState(6)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          We noticed a clear increase of shareholder activism addressing workplace diversity in the past years. The New York City Pension Fund has been pushing for a standardized disclosure of directors’ gender, race and skills. More and more shareholders seem unwilling to approve boards that fully lack diversity. <br><br> In addition to shareholder activists, the largest proxy advisor (ISS) said recently in its <a
+          For companies in mutual fund portfolios, we noticed a clear increase of shareholder activism addressing workplace diversity in the past years. The New York City Pension Fund has been pushing for a standardized disclosure of directors’ gender, race and skills. More and more shareholders seem unwilling to approve boards that fully lack diversity. <br><br> In addition to shareholder activists, the largest proxy advisor (ISS) said recently in its <a
           href="https://www.issgovernance.com/file/policy/latest/updates/Executive-Summary-of-ISS-Policy-Updates-and-Process.pdf"
           target="_blank">2020 vote guidelines</a> that it will not support board nominees at larger companies when there are no women on the company’s board. For the upcoming years, this trend is to continue. Also state legislation is playing a role: companies headquartered in the <a href="https://www.sos.ca.gov/business-programs/women-boards/"
           target="_blank">state of California</a> must have at least one female director.
@@ -180,7 +180,7 @@
       <div id="scroll_7" :class="`margin-scrollama-text ${getLoadingState(7)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          In 2016, more than 174 countries signed the UN Paris Agreement to strengthen the global response to climate change. They committed to keep a global temperature rise during this century below 2 degrees Celsius, compared to pre-industrial levels. <br><br> Indeed, as of 2016 multiple shareholders submitted . 
+          In 2016, more than 174 countries signed the UN Paris Agreement to strengthen the global response to climate change. They committed to keep a global temperature rise during this century below 2 degrees Celsius, compared to pre-industrial levels. <br><br> Indeed, as of 2016 multiple shareholders submitted proposals calling for companies to look at climate change or the 2 degree goal.n
         </p>
       </div>
 
@@ -205,7 +205,7 @@
         <p>
           In this step we can just experiment with things:
           <br />One option for the final version: “click” through a couple of
-          years <br />Right now: Narrowing down to the social category again
+          years <br />Right now: Narrog down to the social category again
         </p>
       </div>-->
 
@@ -440,7 +440,7 @@ export default {
                 terms: [
                   { desc: "degree", _text: true },
                   { desc: "degrees", _text: true },
-                  { desc: "climate", _text: true },
+                  { desc: "climate change", _text: true },
                 ]
               },
               {

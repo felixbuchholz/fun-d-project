@@ -1,6 +1,8 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+
+
 .above_intro_text {
   display: flex;
   flex-direction: column;
@@ -26,6 +28,10 @@
   p + p {
     padding-left: 4%;
   }
+}
+
+.scrollArrows {
+  color: $gray;
 }
 
 // collapseable text
