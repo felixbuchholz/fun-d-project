@@ -98,7 +98,7 @@
         <p>
           Proposals targeting
           <span class="gov_li" style="vertical-align: -2px">&#8226;</span>
-          governance changes relate to the leadership of companies. This can be
+          <span style="font-weight: 800;">governance</span>  changes relate to the leadership of companies. This can be
           issues such as boardroom diversity, separating a company’s chairman
           and CEO roles (to de-concentrate corporate leadership), and proposals
           to empower minority shareholder blocks.
@@ -144,35 +144,43 @@
       <div id="scroll_5" :class="`margin-scrollama-text ${getLoadingState(5)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          After Newtown, Connecticut and Parkland, Florida, the impact of mass
-          shootings have yet to produce new gun-safety laws in the United
-          States. Where the Trump administration is reluctant to overhaul gun
+          After Parkland, Florida, mass
+          shootings raised questions on gun safety laws. Where the Trump administration is reluctant to overhaul gun
           laws, some corporate shareholders are pushing for stronger gun control
-          policies. We noticed shareholder proposals asking that companies stop
-          selling guns, or openly distantiate from National Rifle Association
-          (NRA). <br />
+          policies. <br />
           <br />
-          For example, Walmart and Dick’s Sporting Goods placed new restrictions
-          on gun sales. Delta Airlines, MetLife and FedEx voted to part ways
-          with or discontinue preferential treatment of the NRA. Two firearm
-          companies, American Outdoor Brands and Sturm, Ruger &amp; Co were
-          targeted by investors to produce a report on gun violence.
+          Firearm companies like American Outdoor Brands and Sturm, Ruger &amp; Co were
+          targeted by investors to produce a report on gun violence. Also Dick’s Sporting Goods and the insurance company Chubb had gun safety activism from shareholders. Dick’s Sporting Goods announced in 2018 that it would no longer sell 
+          assault-style weapons. An individual investor filed a shareholder proposal with Chubb; requesting that Chubb end its NRA Carry Guard insurance plan, that offered coverage to individuals who use their weapons in self-defense. Chubb avoided to have the proposal put to vote (using a  <a
+          href="https://www.sec.gov/divisions/corpfin/cf-noaction/14a-8/2018/stewarttaggart021318-14a8.pdf"
+          target="_blank"
+          >legal exemption</a>), but changed its policy later anyways. <br><br>
+          In 2018, a shareholder proposal asking <a
+          href="https://www.npr.org/sections/thetwo-way/2018/05/10/610019218/sturm-ruger-will-track-gun-violence-after-shareholders-back-activist-resolution"
+          target="_blank"
+          >Sturm Ruger</a
+        >  to track and report on gun violence involving its products won the support of all asset managers for the first time.
         </p>
       </div>
 
       <div id="scroll_6" :class="`margin-scrollama-text ${getLoadingState(6)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          Now filtering in the columns item description and resolution for
-          diversitiy.
+          We noticed a clear increase of shareholder activism addressing workplace diversity in the past years. The New York City Pension Fund has been pushing for a standardized disclosure of directors’ gender, race and skills. More and more shareholders seem unwilling to approve boards that fully lack diversity. <br><br> In addition to shareholder activists, the largest proxy advisor (ISS) said recently in its <a
+          href="https://www.issgovernance.com/file/policy/latest/updates/Executive-Summary-of-ISS-Policy-Updates-and-Process.pdf"
+          target="_blank">2020 vote guidelines</a> that it will not support board nominees at larger companies when there are no women on the company’s board. For the upcoming years, this trend is to continue. Also state legislation is playing a role: companies headquartered in the <a href="https://www.sos.ca.gov/business-programs/women-boards/"
+          target="_blank">state of California</a> must have at least one female director.
+
+
+
+          
         </p>
       </div>
 
       <div id="scroll_7" :class="`margin-scrollama-text ${getLoadingState(7)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          This is a test for a very specific filter – only matching on the
-          keywords “degree” *and* “goal” in the columns “resolution” *or* “desc”
+          In 2016, more than 174 countries signed the UN Paris Agreement to strengthen the global response to climate change. They committed to keep a global temperature rise during this century below 2 degrees Celsius, compared to pre-industrial levels. <br><br> Indeed, as of 2016 multiple shareholders submitted . 
         </p>
       </div>
 
@@ -316,14 +324,12 @@ export default {
           //   _text: true
           // });
           //──── testArea end ──────────────────────────────────────────────────────────────────────
-
           if (down) {
             // Display the trigger position indicator, add legend
             indicatorMover.classList.add("active");
             // this.drawSmthRandom()
           } else if (up) {
             // remove all the nodes, keep only legend
-            // this.showDrawing()
             this.setActiveCats([""]);
             // Hide the trigger position indicator
             indicatorMover.classList.remove("active");
@@ -399,7 +405,7 @@ export default {
             terms: [
               { resolution: "weapon", _text: true },
               { resolution: "gun", _text: true },
-              { desc: "gun", _text: true }
+              { desc: " gun", _text: true }
             ]
           });
           break;
@@ -430,10 +436,11 @@ export default {
             _join: "OR",
             terms: [
               {
-                _join: "AND",
+                _join: "OR",
                 terms: [
                   { desc: "degree", _text: true },
-                  { desc: "goal", _text: true }
+                  { desc: "degrees", _text: true },
+                  { desc: "climate", _text: true },
                 ]
               },
               {
@@ -525,7 +532,6 @@ export default {
       this.lastStep = thisStep;
       this.lastIndex = index;
     }, // last step in scrollama!
-
     drawSmthRandom() {
       anime({
         targets: ".drawing-canvas-svg",
