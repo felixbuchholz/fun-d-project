@@ -98,10 +98,11 @@
         <p>
           Proposals targeting
           <span class="gov_li" style="vertical-align: -2px">&#8226;</span>
-          <span style="font-weight: 800;">governance</span>  changes relate to the leadership of companies. This can be
-          issues such as boardroom diversity, separating a company’s chairman
-          and CEO roles (to de-concentrate corporate leadership), and proposals
-          to empower minority shareholder blocks.
+          <span style="font-weight: 800;">governance</span> changes relate to
+          the leadership of companies. This can be issues such as boardroom
+          diversity, separating a company’s chairman and CEO roles (to
+          de-concentrate corporate leadership), and proposals to empower
+          minority shareholder blocks.
         </p>
         <p>
           Darker
@@ -144,22 +145,33 @@
       <div id="scroll_5" :class="`margin-scrollama-text ${getLoadingState(5)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          After Parkland, Florida, mass
-          shootings raised questions on gun safety laws. Where the Trump administration is reluctant to overhaul gun
+          After Parkland, Florida, mass shootings raised questions on gun safety
+          laws. Where the Trump administration is reluctant to overhaul gun
           laws, some corporate shareholders are pushing for stronger gun control
           policies. <br />
           <br />
-          Firearm companies like American Outdoor Brands and Sturm, Ruger &amp; Co were
-          targeted by investors to produce a report on gun violence. Also Dick’s Sporting Goods and the insurance company Chubb had gun safety activism from shareholders. Dick’s Sporting Goods announced in 2018 that it would no longer sell 
-          assault-style weapons. An individual investor filed a shareholder proposal with Chubb; requesting that Chubb end its NRA Carry Guard insurance plan, that offered coverage to individuals who use their weapons in self-defense. Chubb avoided to have the proposal put to vote (using a  <a
-          href="https://www.sec.gov/divisions/corpfin/cf-noaction/14a-8/2018/stewarttaggart021318-14a8.pdf"
-          target="_blank"
-          >legal exemption</a>), but changed its policy later anyways. <br><br>
-          In 2018, a shareholder proposal asking <a
-          href="https://www.npr.org/sections/thetwo-way/2018/05/10/610019218/sturm-ruger-will-track-gun-violence-after-shareholders-back-activist-resolution"
-          target="_blank"
-          >Sturm Ruger</a
-        >  to track and report on gun violence involving its products won the support of all asset managers for the first time.
+          Firearm companies like American Outdoor Brands and Sturm, Ruger &amp;
+          Co were targeted by investors to produce a report on gun violence.
+          Also Dick’s Sporting Goods and the insurance company Chubb had gun
+          safety activism from shareholders. Dick’s Sporting Goods announced in
+          2018 that it would no longer sell assault-style weapons. An individual
+          investor filed a shareholder proposal with Chubb; requesting that
+          Chubb end its NRA Carry Guard insurance plan, that offered coverage to
+          individuals who use their weapons in self-defense. Chubb avoided to
+          have the proposal put to vote (using a
+          <a
+            href="https://www.sec.gov/divisions/corpfin/cf-noaction/14a-8/2018/stewarttaggart021318-14a8.pdf"
+            target="_blank"
+            >legal exemption</a
+          >), but changed its policy later anyways. <br /><br />
+          In 2018, a shareholder proposal asking
+          <a
+            href="https://www.npr.org/sections/thetwo-way/2018/05/10/610019218/sturm-ruger-will-track-gun-violence-after-shareholders-back-activist-resolution"
+            target="_blank"
+            >Sturm Ruger</a
+          >
+          to track and report on gun violence involving its products won the
+          support of all asset managers for the first time.
         </p>
       </div>
 
@@ -180,25 +192,25 @@
       <div id="scroll_7" :class="`margin-scrollama-text ${getLoadingState(7)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          In 2016, more than 174 countries signed the UN Paris Agreement to strengthen the global response to climate change. They committed to keep a global temperature rise during this century below 2 degrees Celsius, compared to pre-industrial levels. <br><br> Indeed, as of 2016 multiple shareholders submitted proposals calling for companies to look at climate change or the 2 degree goal.n
+          In 2016, more than 174 countries signed the UN Paris Agreement to strengthen the global response to climate change. They committed to keep a global temperature rise during this century below 2 degrees Celsius, compared to pre-industrial levels. <br><br> Indeed, as of 2016 multiple shareholders submitted proposals calling for companies to look at climate change or the 2 degree goal.
         </p>
       </div>
 
-      <div id="scroll_8" :class="`margin-scrollama-text ${getLoadingState(8)}`">
+      <!-- <div id="scroll_8" :class="`margin-scrollama-text ${getLoadingState(8)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           Now filtering in the columns item description and resolution for pay,
           compensation or “executive”.
         </p>
-      </div>
+      </div> -->
 
-      <div id="scroll_9" :class="`margin-scrollama-text ${getLoadingState(9)}`">
+      <!-- <div id="scroll_9" :class="`margin-scrollama-text ${getLoadingState(9)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
           This is filtered by proposals that match company column includes
           "amazon" for the years 2010 – 2016.
         </p>
-      </div>
+      </div> -->
 
       <!-- <div id="scroll_x" :class="`margin-scrollama-text ${getLoadingState(x)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
@@ -209,11 +221,12 @@
         </p>
       </div>-->
 
-      <div class="margin-scrollama-text">
+      <!-- <div class="margin-scrollama-text">
         This is where the distinct outlines are activated
       </div>
       <div class="margin-scrollama-text">This is just for spacing</div>
-      <div class="margin-scrollama-text">This is just for spacing</div>
+      <div class="margin-scrollama-text">This is just for spacing</div> -->
+      <div class="scrolly-spacer"></div>
     </Scrollama>
   </div>
 </template>
@@ -404,6 +417,8 @@ export default {
             _join: "OR",
             terms: [
               { resolution: "weapon", _text: true },
+              { resolution: "weapons", _text: true },
+              { resolution: "Weapons", _text: true },
               { resolution: "gun", _text: true },
               { desc: " gun", _text: true }
             ]
@@ -458,50 +473,50 @@ export default {
           // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
           this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2018]);
 
-          // This is how we could filter
-          // for executive compensation proposals
-          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
-            _join: "OR",
-            terms: [
-              {
-                _join: "AND",
-                terms: [
-                  { desc: "executive", _text: true },
-                  {
-                    _join: "OR",
-                    terms: [
-                      { desc: "pay", _text: true },
-                      { desc: "compensation", _text: true }
-                    ]
-                  }
-                ]
-              },
-              {
-                _join: "AND",
-                terms: [
-                  { resolution: "executive", _text: true },
-                  {
-                    _join: "OR",
-                    terms: [
-                      { resolution: "pay", _text: true },
-                      { resolution: "compensation", _text: true }
-                    ]
-                  }
-                ]
-              }
-            ]
-          });
-          break;
+        // This is how we could filter
+        // for executive compensation proposals
+        // this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+        //   _join: "OR",
+        //   terms: [
+        //     {
+        //       _join: "AND",
+        //       terms: [
+        //         { desc: "executive", _text: true },
+        //         {
+        //           _join: "OR",
+        //           terms: [
+        //             { desc: "pay", _text: true },
+        //             { desc: "compensation", _text: true }
+        //           ]
+        //         }
+        //       ]
+        //     },
+        //     {
+        //       _join: "AND",
+        //       terms: [
+        //         { resolution: "executive", _text: true },
+        //         {
+        //           _join: "OR",
+        //           terms: [
+        //             { resolution: "pay", _text: true },
+        //             { resolution: "compensation", _text: true }
+        //           ]
+        //         }
+        //       ]
+        //     }
+        //   ]
+        // });
+        // break;
 
-        case 9:
-          // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
-          this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2016]);
+        // case 9:
+        //   // this.$store.commit("year/SET_USE_YEAR_RANGE", true); // in case needed if in different position
+        //   this.$store.commit("year/SET_CURRENT_YEAR_RANGE", [2010, 2016]);
 
-          this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
-            company: "amazon",
-            _text: true
-          });
-          break;
+        //   this.$store.commit("proposals/UPDATE_PROPOSAL_FILTER", {
+        //     company: "amazon",
+        //     _text: true
+        //   });
+        //   break;
 
         // ! This is how we would activate distinct outlines !
         // case x:
