@@ -55,11 +55,7 @@
     <GraphControlsDrawer />
     
     <hr />
-    <div class="sourcesText">
-      <h3>Sources and Method</h3>
-      <p>This visualization is based on  mutual fund companies' voting records and data from proxy-advisor ISS. <br> Mutual funds are required to publish their voting records from shareholder meetings for each year - publised as <a href="https://www.sec.gov/edgar/searchedgar/n-px.htm" target="_blank" >Form NP-X</a> filed with the SEC. ISS aggregates this and other data from shareholder voting.
-      </p>
-    </div>
+
 
 
   </div>

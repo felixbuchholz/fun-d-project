@@ -324,6 +324,12 @@
   text-align: center;
 }
 
+.sources-text {
+  color: $gray;
+  & a {
+    color: $gray;
+  }
+}
 //──── Force graph per manager ───────────────────────────────────────────────────────────
 .node-circle-mover {
   transition: transform $circle-movement-duration ease-in-out;
@@ -411,9 +417,4 @@
   &.profit {
     fill: $profit-no;
   }
-}
-
-.sourcesText {
-  margin-top: 5em;
-  max-width: 60%;
 }
