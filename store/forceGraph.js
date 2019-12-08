@@ -21,7 +21,7 @@ export const state = () => ({
   width: 350,
   height: 600,
   animationIndex: 0,
-  legendActive: false
+  legendActive: true
 });
 
 export const mutations = {
