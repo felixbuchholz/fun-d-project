@@ -299,13 +299,23 @@
 }
 
 .visual-intro-div {
-  width: 53%;
-  height: 50%;
-  background-color:$white;
+  transition: all 450ms ease-in-out;
+  // max-width: 30vh;
+  height: 65%;
+  background-color: $white;
   z-index: 12;
   position: absolute;
-  margin: 10% auto 0 24%;
-  float: center;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // margin: 10% auto 0 24%;
+  // float: center;
+  & img {
+    transition: all 450ms ease-in-out;
+
+    height: 100%;
+    width: auto;
+  }
 }
 
 .manager-headline {

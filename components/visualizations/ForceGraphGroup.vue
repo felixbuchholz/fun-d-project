@@ -2,19 +2,21 @@
   <div class="graph-and-controls-container">
     <DrawingCanvas />
     <YearGrid />
-    
 
-    
     <div class="manager-group">
-
-    
-    <!-- legend -->
-    <div
-      v-if="legendActive == true"
-      ref="intro-legend-div"
-      class="visual-intro-div"
-    >
-        <p>
+      <!-- legend -->
+      <transition name="fade" mode="out-in">
+        <div
+          v-if="legendActive == true"
+          ref="intro-legend-div"
+          class="visual-intro-div"
+        >
+          <img
+            class="legend-img"
+            src="legend.jpg"
+            alt="An image for the legend for now."
+          />
+          <!-- <p>
           We looked at how these three asset management firms compare in terms
           of siding with or against management.
           <br />We zoom in on proposals brought by shareholders, and categorize
@@ -40,10 +42,10 @@
           <span class="gov_li_light" style="vertical-align: -2px">&#8226;</span>
           : manager supported the company's management.
         </p>
+ -->
+        </div>
+      </transition>
 
-
-    </div>
-      
       <ForceGraph
         v-for="managerIndex in managers"
         :key="`manager-${managerIndex}`"
@@ -75,7 +77,7 @@ export default {
   computed: {
     ...mapState({
       legendActive: state => state.forceGraph.legendActive
-      })
+    })
   },
   components: { ForceGraph, GraphControlsDrawer, DrawingCanvas, YearGrid },
   data() {

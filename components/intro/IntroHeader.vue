@@ -1,5 +1,5 @@
 <template>
-  <div class="above_intro_text">
+  <div class="above_intro_text-title">
     <h3 id="topTitle">A visualization of mutual funds vote data</h3>
     <h1 id="mainTitle">Three passive elephants in the room</h1>
     <h2 id="mainTitle_sub">

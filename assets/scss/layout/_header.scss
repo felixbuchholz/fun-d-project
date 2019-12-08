@@ -1,7 +1,14 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
-
+.above_intro_text-title {
+  display: flex;
+  flex-direction: column;
+  margin: 16vh auto 2em auto;
+  max-width: 860px;
+  justify-content: space-between;
+  height: 84vh;
+}
 
 .above_intro_text {
   display: flex;
@@ -13,31 +20,47 @@
 }
 
 .p_before_intro {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  margin-bottom: 12em;
+  margin-top: 20px;
+  columns: 2;
+  column-gap: 30px;
+  text-align: justify;
+
+  & p {
+    margin: 0;
+  }
+
+  & p + p {
+    margin-top: 2em;
+  }
 
   @include breakpoint(mobileonly) {
-    flex-direction: column;
-    margin: 2em auto 2em auto;
+    columns: 1;
   }
-  & p {
-    max-width: 55%;
-    text-align: justify;
-    max-height: 30%;
-  }
-  p + p {
-    padding-left: 4%;
-  }
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-between;
+
+  // @include breakpoint(mobileonly) {
+  //   flex-direction: column;
+  //   margin: 2em auto 2em auto;
+  // }
+  // & p {
+  //   max-width: 55%;
+  //   text-align: justify;
+  //   max-height: 30%;
+  // }
+  // p + p {
+  //   padding-left: 4%;
+  // }
 }
 
 .scrollArrows {
-  color: $gray;
-  font-size: 1.3em;
   margin: auto auto auto 50%;
-  transform: translateX(-50%);
+  // transform: translateX(-50%);
+  font-size: 1.3em;
+  color: $gray;
 }
-
 // collapseable text
 input[type="checkbox"] {
   display: none;
