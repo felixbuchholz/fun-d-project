@@ -178,7 +178,7 @@
       <div id="scroll_7" :class="`margin-scrollama-text ${getLoadingState(7)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <p>
-          In 2016, more than 174 countries signed the UN Paris Agreement to strengthen the global response to climate change. They committed to keep a global temperature rise during this century below 2 degrees Celsius, compared to pre-industrial levels. <br><br> Indeed, as of 2016 multiple shareholders submitted proposals calling for companies to look at climate change or the 2 degree goal. The United States decided to withdrew from the Paris Agreement by June 2017, for which the process started November 2019.
+          In 2016, more than 174 countries signed the UN Paris Agreement to strengthen the global response to climate change. They committed to keep a global temperature rise during this century below 2 degrees Celsius, compared to pre-industrial levels. <br><br>  This seemed to create a momentum for shareholder activism on climate change. In the fund vote data, as of 2016 multiple shareholders submitted proposals calling for companies to look at climate change impact or the 2 degrees goal. <br><br> The United States decided to withdraw from the Paris Agreement by June 2017, for which the process started November 2019.
         </p>
       </div>
 
