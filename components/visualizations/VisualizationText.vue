@@ -21,7 +21,13 @@
       </div>
     </div>
 
+    
+    <fa icon="arrow-down" class="scrollArrows" />
+    
     <Scrollama :offset="0.35" @step-enter="stepEnterHandler">
+      
+      <fa icon="arrow-down" class="scrollArrow-Visual" />
+
       <div id="scroll_0" :class="`margin-scrollama-text ${getLoadingState(0)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
         <h3 class="scrollyTitle">
@@ -185,8 +191,7 @@
 
     <div class="margin-scrollama-text sources-text" >
       <h3>Sources and Method</h3>
-      <p>This visualization is based on  mutual fund companies' voting records and data from proxy-advisor ISS. <br> Mutual funds are required to publish their voting records from shareholder meetings for each year - publised as <a href="https://www.sec.gov/edgar/searchedgar/n-px.htm" target="_blank" >Form NP-X</a> filed with the SEC. ISS aggregates this and other data from shareholder voting.
-      </p>
+      <p>This visualization is based on  mutual fund companies' voting records and data from proxy-advisor ISS. <br> Mutual funds are required to publish their voting records from shareholder meetings for each year - publised as <a href="https://www.sec.gov/edgar/searchedgar/n-px.htm" target="_blank">Form NP-X</a> filed with the SEC. ISS aggregates this and other data from shareholder voting.</p>
     </div>
 
       <!-- <div id="scroll_8" :class="`margin-scrollama-text ${getLoadingState(8)}`">
