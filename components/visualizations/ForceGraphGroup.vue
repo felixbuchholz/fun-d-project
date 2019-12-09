@@ -53,13 +53,7 @@
       />
     </div>
     <GraphControlsDrawer />
-    
-    <hr />
-
-
-
   </div>
-
 </template>
 
 <script>
