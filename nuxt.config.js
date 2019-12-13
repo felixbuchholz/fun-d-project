@@ -95,6 +95,8 @@ export default {
       }
     },
     extend(config, ctx) {
+      // more details on generate
+      config.mode = "development";
       config.module.rules.push({
         test: /\.csv$/,
         loader: "csv-loader",
