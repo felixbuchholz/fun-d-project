@@ -218,17 +218,18 @@ export default {
       // if (node.passed) {
       //   console.log(node.passed);
       // }
-      return `<div class="title">${node.desc}</div>
-      <div class="tooltip-item"><div class="category">Company: </div>
-      <div class="info">${voca.titleCase(node.company)}</div></div>
-      <div class="tooltip-item"><div class="category">Sponsor: </div>
-      <div class="info">${nodeSponsor}</div></div>
-      <div class="tooltip-item"><div class="category">Passed: </div>
-      <div class="info ${passedClass}">${passedText}</div></div>
-      <div class="tooltip-item"><div class="category">Distinct: </div>
-      <div class="info ${distinctClass}">${distinctText}</div></div>
-      <div class="tooltip-item"><div class="category">Year: </div>
-      <div class="info">${node.year}</div></div>`;
+      return "test";
+      // return `<div class="title">${node.desc}</div>
+      // <div class="tooltip-item"><div class="category">Company: </div>
+      // <div class="info">${voca.titleCase(node.company)}</div></div>
+      // <div class="tooltip-item"><div class="category">Sponsor: </div>
+      // <div class="info">${nodeSponsor}</div></div>
+      // <div class="tooltip-item"><div class="category">Passed: </div>
+      // <div class="info ${passedClass}">${passedText}</div></div>
+      // <div class="tooltip-item"><div class="category">Distinct: </div>
+      // <div class="info ${distinctClass}">${distinctText}</div></div>
+      // <div class="tooltip-item"><div class="category">Year: </div>
+      // <div class="info">${node.year}</div></div>`;
     },
     activateForSameProposals(node) {
       const samePropCircles = document.querySelectorAll(`.id-${node.uID}`);
