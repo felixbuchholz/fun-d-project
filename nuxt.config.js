@@ -1,5 +1,5 @@
 export default {
-  mode: "spa",
+  mode: "universal",
   // router: { base: "/fun-d-project/" },
   /*
    ** Headers of the page
