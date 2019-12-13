@@ -5,7 +5,8 @@ export const state = () => ({
     scale: 0,
     opacity: 0,
     title: ""
-  }
+  },
+  soundLoaded: false
 });
 
 export const mutations = {
@@ -15,5 +16,8 @@ export const mutations = {
         state.currentTitle[prop] = obj[prop];
       }
     }
+  },
+  SET_SOUND_LOADED(state) {
+    state.soundLoaded = true;
   }
 };
