@@ -2,7 +2,7 @@
   <div id="page-container">
     <IntroHeader />
     <Intro />
-    <!-- <ScrollyTelling /> -->
+    <ScrollyTelling />
   </div>
 </template>
 
