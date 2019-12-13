@@ -6,15 +6,10 @@
 </template>
 
 <script>
-import resize from "vue-resize-directive";
-
 import ProgressBar from "~/components/ui/ProgressBar.vue";
 
 export default {
   components: { ProgressBar },
-  directives: {
-    resize
-  },
   methods: {
     onResize(element) {
       // console.log("resized IntroAnimation");

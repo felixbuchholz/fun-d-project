@@ -16,5 +16,5 @@ let array = [...Array(200)].map(x => {
   return { amount: 1, color: chroma(random).hex() };
 });
 
-console.log(array);
+// console.log(array);
 fs.writeFileSync(outputPath, JSON.stringify(array));

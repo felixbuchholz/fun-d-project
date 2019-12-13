@@ -32,10 +32,10 @@ export default {
     // { src: "~/plugins/svg" },
     { src: "~/plugins/anime" },
     { src: "~/plugins/helpers" },
-    // { src: "~/plugins/resize" },
-    { src: "~/plugins/vue-js-toggle-button" },
+    { src: "~/plugins/resize", mode: "client" },
+    { src: "~/plugins/vue-js-toggle-button", mode: "client" },
     { src: "~/plugins/v-tooltip" },
-    { src: "~/plugins/vue-scrollama" },
+    { src: "~/plugins/vue-scrollama", mode: "client" },
     { src: "~/plugins/vue-slider" }
   ],
   /*

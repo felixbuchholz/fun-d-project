@@ -103,7 +103,7 @@ loadData(function(data) {
       return "a" + i + "zz" + d.model;
     })
     .on("click", function(d) {
-      console.log(d);
+      // console.log(d);
     })
     .on("mouseover", ttDisplay)
     .on("mousemove", ttMove)
