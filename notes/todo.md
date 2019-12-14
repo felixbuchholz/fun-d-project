@@ -1,4 +1,10 @@
-# Add all three of them were active symbol!
+## Pre-rendering:
+
+- Switch to 'universal' mode. 
+- Check element by element if client mismatches ssr
+- OR: Lazy load audio / images
+
+## Add all three of them were active symbol!
 
 ## 3rd Chapter
 

@@ -38,7 +38,6 @@
 import * as d3 from "d3";
 import * as d3array from "d3-array";
 import voca from "voca";
-import resize from "vue-resize-directive";
 
 // import * as forceManyBodySampled from "d3-force-sampled";
 

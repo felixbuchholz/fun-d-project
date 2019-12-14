@@ -48,6 +48,7 @@ export default {
   },
   computed: {
     ...mapState({
+      soundLoaded: state => state.timeline.soundLoaded,
       globalTitle: state => state.timeline.currentTitle,
       circlePacking: state => state.diversification.circlePacking,
       sharesGlobal: state => state.diversification.shares
@@ -71,6 +72,13 @@ export default {
     // }
   },
   watch: {
+    soundLoaded: {
+      handler() {
+        // console.log(this.soundLoaded, change);
+        this.defineSound();
+        // this.getStartedToWork();
+      }
+    },
     currentTitle: {
       deep: true,
       handler(change) {
@@ -118,10 +126,8 @@ export default {
   mounted() {
     this.sharesLocal = this.$helpers.getArrayOfObjectsCopy(this.sharesGlobal);
     this.diversification.diameterPercent = this.circlePacking.diameterPercent;
-    this.defineSound();
     this.defineTimeline();
-    this.getStartedToWork();
-    window.addEventListener("keydown", this.handleSpaceKeydown);
+    // window.addEventListener("keydown", this.handleSpaceKeydown);
     // TODO: remove event listener if needed
     // setTimeout(() => {
     //   this.removeEventlistener();
@@ -1460,11 +1466,11 @@ export default {
     ########## ###    #### #########          ########  ###                 ###     ########### ###       ### ########## ########## ########### ###    #### ##########       
     
     */
-    getStartedToWork() {
-      setTimeout(() => {
-        this.seek(this.progress);
-      }, 200);
-    },
+    // getStartedToWork() {
+    //   setTimeout(() => {
+    //     this.seek(this.progress);
+    //   }, 200);
+    // },
     playOrPause() {
       // console.log(this.tl);
 

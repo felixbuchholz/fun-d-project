@@ -32,10 +32,10 @@ export default {
     // { src: "~/plugins/svg" },
     { src: "~/plugins/anime" },
     { src: "~/plugins/helpers" },
-    // { src: "~/plugins/resize" },
-    { src: "~/plugins/vue-js-toggle-button" },
+    { src: "~/plugins/resize", mode: "client" },
+    { src: "~/plugins/vue-js-toggle-button", mode: "client" },
     { src: "~/plugins/v-tooltip" },
-    { src: "~/plugins/vue-scrollama" },
+    { src: "~/plugins/vue-scrollama", mode: "client" },
     { src: "~/plugins/vue-slider" }
   ],
   /*
@@ -81,7 +81,22 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    html: {
+      minify: {
+        collapseBooleanAttributes: true,
+        decodeEntities: true,
+        minifyCSS: false,
+        minifyJS: false,
+        processConditionalComments: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        trimCustomFragments: true,
+        useShortDoctype: true
+      }
+    },
     extend(config, ctx) {
+      // more details on generate
+      config.mode = "development";
       config.module.rules.push({
         test: /\.csv$/,
         loader: "csv-loader",

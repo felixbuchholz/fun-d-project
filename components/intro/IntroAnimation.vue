@@ -1,7 +1,11 @@
 <template>
   <!-- the "ref" is how you refer to it from other vue files. Alternative to
   query selector or getbyID etc.-->
-  <div id="intro-animation" :style="`padding: ${window.animationFrame}px;`">
+  <div
+    id="intro-animation"
+    :style="`padding: ${window.animationFrame}px;`"
+    @mouseenter="loadResources"
+  >
     <div id="animation">
       <div id="svg-animation">
         <svg id="intro-svg" :width="width" :height="height">
@@ -59,6 +63,12 @@ export default {
       width: ["window/width"],
       height: ["window/height"]
     })
+  },
+  methods: {
+    loadResources() {
+      console.log("load now!");
+      this.$store.commit("timeline/SET_SOUND_LOADED");
+    }
   }
 };
 </script>

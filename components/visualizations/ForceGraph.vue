@@ -5,7 +5,6 @@
   <div class="manager-container">
     <h3 class="manager-headline">{{ managers[managerIndex].name }}</h3>
 
-
     <!-- create in the store -->
 
     <div class="svg-container">
@@ -94,7 +93,7 @@ export default {
         state.proposals.areDistinctOutlinesActive,
       nodeChangeCounter: state => state.progressBar.nodeChangeCounter,
       browsingYears: state => state.progressBar.browsingYears,
-      useYearRange: state => state.year.useYearRange,
+      useYearRange: state => state.year.useYearRange
     }),
     ...mapGetters({
       nodesStore: [`forceGraph/nodesPerYear`],
@@ -206,7 +205,10 @@ export default {
     markupTooltip(node) {
       const passedText = node.passed ? node.passed : "No";
       const passedClass = node.passed ? "passed" : "";
-      const distinctText = node.modeDistinct != 0 ? "Manager voted different than majority of votes" : "Manager voted same as majority of votes";
+      const distinctText =
+        node.modeDistinct != 0
+          ? "Manager voted different than majority of votes"
+          : "Manager voted same as majority of votes";
       const distinctClass = node.modeDistinct != 0 ? "distinct" : "";
       let nodeSponsor = "Not specified";
       if (node.sponsor) {
@@ -218,6 +220,7 @@ export default {
       // if (node.passed) {
       //   console.log(node.passed);
       // }
+      // return "test";
       return `<div class="title">${node.desc}</div>
       <div class="tooltip-item"><div class="category">Company: </div>
       <div class="info">${voca.titleCase(node.company)}</div></div>
