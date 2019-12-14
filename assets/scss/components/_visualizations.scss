@@ -146,6 +146,10 @@
 }
 
 //──── Animation in progress ─────────────────────────────────────────────────────────────
+.scrollArrow-Visual {
+  margin-left: 4px;
+}
+
 .scrolly-indicator-mover {
   transition: all 250ms ease-in-out;
   position: fixed;
