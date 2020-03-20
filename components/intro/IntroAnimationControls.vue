@@ -138,11 +138,11 @@ export default {
   methods: {
     defineSound() {
       this.sound = new Howl({
-        src: ["intro.m4a"],
+        src: ["new_intro.m4a"],
         autoplay: false
       });
       // TODO: remove later
-      this.sound.volume(0);
+      this.sound.volume(4);
     },
     defineTimeline() {
       // console.log("timeline is starting to define");
@@ -313,7 +313,7 @@ export default {
         duration: 1,
         opacity: {
           value: 1,
-          duration: 700,
+          duration: 1000,
           easing: "easeInOutSine"
         }
       });

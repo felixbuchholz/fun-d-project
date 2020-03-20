@@ -26,7 +26,7 @@
     
     <Scrollama :offset="0.35" @step-enter="stepEnterHandler">
       
-      <fa icon="arrow-down" class="scrollArrow-Visual" />
+      <!-- <fa icon="arrow-down" class="scrollArrow-Visual" /> -->
 
       <div id="scroll_0" :class="`margin-scrollama-text ${getLoadingState(0)}`">
         <fa icon="spinner" class="scrolly-step-indicator" />
@@ -53,7 +53,7 @@
         </ul> -->
         <p>
           Funds from one manager may vote differently. This visual takes the
-          most common vote for each manager.
+          most common vote for each of these three managers.
         </p>
 
       </div>
